@@ -94,7 +94,7 @@
 <meta property="og:type" content="article">
 <meta property="og:title" content="terminus的安装和配置">
 <meta property="og:url" content="http://mrxin.github.io/2018/11/20/win-terminus-md/index.html">
-<meta property="og:site_name" content="月薪5000元码农的自我修养">
+<meta property="og:site_name" content="40+岁大龄码农的自我修养">
 <meta property="og:description" content="下载git for windows并安装, 个人习惯安装时候不勾选git集成到右键菜单的的两个选项, 官方下载地址 Git for windows  下载terminus并安装, 官方下载地址 Terminus  设置, 单击左上角的齿轮  shell设置页, shell选择为Git-Bash  terminal设置页, 右键设置为粘贴, 勾选 软件打开时自动开启一个终端,  勾选 阻止自动执行">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://ww1.sinaimg.cn/large/007iUjdily1fxd5cjex8wj30p50j0ab8">
@@ -136,7 +136,7 @@
 
 
 
-  <title>terminus的安装和配置 | 月薪5000元码农的自我修养</title>
+  <title>terminus的安装和配置 | 40+岁大龄码农的自我修养</title>
 </head>
 
 <body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -172,7 +172,7 @@
     <div class="custom-logo-site-title">
       <a href="/" class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
-        <span class="site-title">月薪5000元码农的自我修养</span>
+        <span class="site-title">40+岁大龄码农的自我修养</span>
         <span class="logo-line-after"><i></i></span>
       </a>
     </div>
@@ -306,7 +306,7 @@
     </span>
 
     <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="月薪5000元码农的自我修养">
+      <meta itemprop="name" content="40+岁大龄码农的自我修养">
     </span>
 
     
@@ -376,7 +376,7 @@
 <li><p>hotkeys设置页, 增加ctrl+v为粘贴快捷键. 这样, 最大的复合win的复制粘贴快捷键, 还是mac系统更合理, cmd+c是复制, cmd+v是粘贴. 与terminal的标准中断快捷键ctrl+c没有冲突</p>
 </li>
 <li><p>新建~/.bashrc文件, 并加入下面的内容,</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"># 按向上向下键自动匹配相应前缀的历史命令</span><br><span class="line">bind &apos;&quot;\e[A&quot;: history-search-backward&apos;</span><br><span class="line">bind &apos;&quot;\e[B&quot;: history-search-forward&apos;</span><br><span class="line">bind &apos;&quot;\e[C&quot;: forward-char&apos;</span><br><span class="line">bind &apos;&quot;\e[D&quot;: backward-char&apos;</span><br><span class="line"># 最大可能兼容win和linux的命令, 注意等号前后不能有空格</span><br><span class="line">alias ifconfig=&apos;ipconfig&apos;</span><br><span class="line">alias ll=&apos;ls -lah&apos;</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 按向上向下键自动匹配相应前缀的历史命令</span></span><br><span class="line"><span class="built_in">bind</span> <span class="string">'"\e[A": history-search-backward'</span></span><br><span class="line"><span class="built_in">bind</span> <span class="string">'"\e[B": history-search-forward'</span></span><br><span class="line"><span class="built_in">bind</span> <span class="string">'"\e[C": forward-char'</span></span><br><span class="line"><span class="built_in">bind</span> <span class="string">'"\e[D": backward-char'</span></span><br><span class="line"><span class="comment"># 最大可能兼容win和linux的命令, 注意等号前后不能有空格</span></span><br><span class="line"><span class="built_in">alias</span> ifconfig=<span class="string">'ipconfig'</span></span><br><span class="line"><span class="built_in">alias</span> ll=<span class="string">'ls -lah'</span></span><br></pre></td></tr></table></figure>
 <p>保存后, 重新打开terminus或者执行<code>source ~/.bashrc</code>即可</p>
 <p>参考链接: <a href="https://wiki.archlinux.org/index.php/Bash_(%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87" target="_blank" rel="noopener">Bash (简体中文)</a>)</p>
 </li>
@@ -428,6 +428,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/11/27/vagran-setting/" rel="prev" title="vagrant的安装和设置">
+                vagrant的安装和设置 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -488,7 +492,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">68</span>
+                <span class="site-state-item-count">69</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>

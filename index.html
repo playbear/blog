@@ -91,12 +91,12 @@
 
 
 <meta property="og:type" content="website">
-<meta property="og:title" content="月薪5000元码农的自我修养">
+<meta property="og:title" content="40+岁大龄码农的自我修养">
 <meta property="og:url" content="http://mrxin.github.io/index.html">
-<meta property="og:site_name" content="月薪5000元码农的自我修养">
+<meta property="og:site_name" content="40+岁大龄码农的自我修养">
 <meta property="og:locale" content="zh-Hans">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="月薪5000元码农的自我修养">
+<meta name="twitter:title" content="40+岁大龄码农的自我修养">
 
 
 
@@ -130,7 +130,7 @@
 
 
 
-  <title>月薪5000元码农的自我修养</title>
+  <title>40+岁大龄码农的自我修养</title>
 </head>
 
 <body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -168,7 +168,7 @@
     <div class="custom-logo-site-title">
       <a href="/" class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
-        <span class="site-title">月薪5000元码农的自我修养</span>
+        <span class="site-title">40+岁大龄码农的自我修养</span>
         <span class="logo-line-after"><i></i></span>
       </a>
     </div>
@@ -293,6 +293,164 @@
   
 
   <article class="post post-type-normal " itemscope="" itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://mrxin.github.io/2018/11/27/vagran-setting/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="小信">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="40+岁大龄码农的自我修养">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/11/27/vagran-setting/" itemprop="url">vagrant的安装和设置</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-11-27T10:08:20+08:00">
+                2018-11-27
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <ul>
+<li><p>下载和安装</p>
+<ul>
+<li><a href="https://www.vagrantup.com/downloads.html" target="_blank" rel="noopener">vagrant官方网址</a> , 下载后双击安装</li>
+<li><a href="https://www.virtualbox.org/wiki/Downloads" target="_blank" rel="noopener">VirtualBox官方网址</a> , 下载后双击安装</li>
+<li><a href="http://www.vagrantbox.es/" target="_blank" rel="noopener">vagrant镜像网址</a> , 选择需要的linux版本, 用下载工具下载, 然后放入一个目录里面比如<code>d:/vagrant_images</code></li>
+</ul>
+</li>
+<li><p>初始化vagrant</p>
+<figure class="highlight dockerfile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">mkdir centos &amp;&amp; cd centos <span class="comment"># 新建centos目录</span></span><br><span class="line">vagrant box <span class="keyword">add</span><span class="bash"> centos_base d:/vagrant_images/vagrant-centos-7.2.box <span class="comment"># 添加镜像到vagrant</span></span></span><br><span class="line"><span class="bash">vagrant init centos_base <span class="comment"># 初始化配置</span></span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>修改vagrant配置</p>
+<ul>
+<li>单台虚拟机的配置, 参考: <a href="https://www.jianshu.com/p/2724cd5f28e5" target="_blank" rel="noopener">Vagrant 实战</a></li>
+</ul>
+<figure class="highlight mipsasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#Vagrant的三种网络配置</span></span><br><span class="line">  <span class="comment">#端口映射(Forwarded port) 把宿主计算机的端口映射到虚拟机的某一个端口上，访问宿主计算机端口时，请求实际是被转发到虚拟机上指定端口的。</span></span><br><span class="line">  <span class="comment">#例如下面的配置，将访问宿主计算机8080端口的请求都转发到虚拟机的80端口上进行处理       #访问localhost:8080,对应访问虚拟机的80端口</span></span><br><span class="line">  <span class="comment">#优点：容易实现外网访问虚拟机</span></span><br><span class="line">  <span class="comment">#缺点：端口比较多时，配置麻烦；不支持在宿主机器上使用小于1024的端口来转发。比如：不能使用SSL的443端口来进行https连接。</span></span><br><span class="line">  <span class="built_in">config</span>.vm.network <span class="string">"forwarded_port"</span>, guest: <span class="number">80</span>, host: <span class="number">8080</span></span><br><span class="line">  </span><br><span class="line">  <span class="comment">#私有网络（Private network） ，只有主机可以访问虚拟机，如果多个虚拟机设定在同一个网段也可以互相访问，当然虚拟机是可以访问外部网络的。</span></span><br><span class="line">  <span class="comment">#优点：安全，只有自己能访问</span></span><br><span class="line">  <span class="comment">#缺点：因为私有的原因，所以团队成员其他人不能和你协作</span></span><br><span class="line">  <span class="built_in">config</span>.vm.network <span class="string">"private_network"</span>, ip: <span class="string">"192.168.33.10"</span></span><br><span class="line">  </span><br><span class="line">  <span class="comment">#公有网络（Public network） ，虚拟机享受实体机器一样的待遇，一样的网络配置，vagrant1.3版本之后也可以设定静态IP。</span></span><br><span class="line">  <span class="comment">#优点：方便团队协作，别人可以访问你的虚拟机</span></span><br><span class="line">  <span class="comment">#缺点：需要有网络，有路由器分配IP</span></span><br><span class="line">  <span class="built_in">config</span>.vm.network <span class="string">"public_network"</span>, ip: <span class="string">"192.168.12.253"</span></span><br><span class="line">  </span><br><span class="line">  </span><br><span class="line">  <span class="comment">#设置文件同步，如下 ../work 是本地目录， /vagrant_data是虚拟机文件目录</span></span><br><span class="line">  <span class="comment">#两个目录设置为同步，这样就可以直接本地编辑文件，使用虚拟机配置的软件环境了。</span></span><br><span class="line">  <span class="built_in">config</span>.vm.<span class="keyword">synced_folder </span><span class="string">"../work"</span>, <span class="string">"/vagrant_data"</span>,</span><br><span class="line">  :mount_options =&gt; [<span class="string">"dmode=775"</span>,<span class="string">"fmode=664"</span>]</span><br><span class="line">  </span><br><span class="line">  <span class="comment"># 设置虚拟机的内存</span></span><br><span class="line">  <span class="built_in">config</span>.vm.provider <span class="string">"virtualbox"</span> do <span class="title">|vb|</span></span><br><span class="line">     vb.memory = <span class="string">"4096"</span></span><br><span class="line">  end</span><br></pre></td></tr></table></figure>
+<ul>
+<li>多台虚拟机的配置, 参考: <a href="https://blog.csdn.net/hel12he/article/details/51089774" target="_blank" rel="noopener">vagrant系列二：vagrant的配置文件vagrantfile详解</a></li>
+</ul>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">Vagrant.configure(<span class="string">"2"</span>) <span class="keyword">do</span> <span class="params">|config|</span></span><br><span class="line">  config.vm.define <span class="symbol">:web</span> <span class="keyword">do</span> <span class="params">|web|</span></span><br><span class="line">    web.vm.provider <span class="string">"virtualbox"</span> <span class="keyword">do</span> <span class="params">|v|</span></span><br><span class="line">          v.customize [<span class="string">"modifyvm"</span>, <span class="symbol">:id</span>, <span class="string">"--name"</span>, <span class="string">"web"</span>, <span class="string">"--memory"</span>, <span class="string">"512"</span>]</span><br><span class="line">    <span class="keyword">end</span></span><br><span class="line">    web.vm.box = <span class="string">"CentOs7"</span></span><br><span class="line">    web.vm.hostname = <span class="string">"web"</span></span><br><span class="line">    web.vm.network <span class="symbol">:private_network</span>, <span class="symbol">ip:</span> <span class="string">"192.168.33.10"</span></span><br><span class="line">  <span class="keyword">end</span></span><br><span class="line"></span><br><span class="line">  config.vm.define <span class="symbol">:redis</span> <span class="keyword">do</span> <span class="params">|redis|</span></span><br><span class="line">    redis.vm.provider <span class="string">"virtualbox"</span> <span class="keyword">do</span> <span class="params">|v|</span></span><br><span class="line">          v.customize [<span class="string">"modifyvm"</span>, <span class="symbol">:id</span>, <span class="string">"--name"</span>, <span class="string">"redis"</span>, <span class="string">"--memory"</span>, <span class="string">"512"</span>]</span><br><span class="line">    <span class="keyword">end</span></span><br><span class="line">    redis.vm.box = <span class="string">"CentOs7"</span></span><br><span class="line">    redis.vm.hostname = <span class="string">"redis"</span></span><br><span class="line">    redis.vm.network <span class="symbol">:private_network</span>, <span class="symbol">ip:</span> <span class="string">"192.168.33.11"</span></span><br><span class="line">  <span class="keyword">end</span></span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>启动和ssh链接, vagrant镜像有两个user,  root和vagrant, 密码都是: vagrant, 开启xshell, 填入ip(192.168.33.10), 用户root和密码vagrant</p>
+<figure class="highlight jboss-cli"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">vagrant up  <span class="comment"># 启动虚拟机</span></span><br><span class="line">vagrant halt  <span class="comment"># 关闭虚拟机</span></span><br><span class="line">vagrant <span class="keyword">reload</span>  <span class="comment"># 重启虚拟机</span></span><br><span class="line">vagrant ssh  <span class="comment"># SSH 至虚拟机</span></span><br><span class="line">vagrant status  <span class="comment"># 查看虚拟机运行状态</span></span><br><span class="line">vagrant destroy  <span class="comment"># 销毁当前虚拟机</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>打包</p>
+<figure class="highlight processing"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">vagrant <span class="keyword">package</span> --vagrantfile Vagrantfile #将配置文件一块打包</span><br><span class="line">vagrant <span class="keyword">package</span> --output centos.<span class="built_in">box</span> # 要打包成的<span class="built_in">box</span>名称，不会自动添加.<span class="built_in">box</span>后缀，要手动加.默认值<span class="keyword">package</span>.<span class="built_in">box</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>pycharm 的python项目用vagrant虚拟环境的python作为解释器, 参考 <a href="https://pengzhendong.cn/2018/05/26/Pycharm-python-interpreter/" target="_blank" rel="noopener">Pycharm 解释器配置</a></p>
+</li>
+<li><p>pycharm 配置terminal为vagrant虚拟机环境,</p>
+</li>
+</ul>
+<ul>
+<li><p>开启ssh terminal, 勾选为current vagrant, 编码设置为utf-8</p>
+<p><img src="https://ww1.sinaimg.cn/large/005YhI8igy1fx8kl17blhj311n0ix75n" alt=""></p>
+</li>
+</ul>
+<ul>
+<li><p>tools选择start ssh sessions</p>
+<p><img src="https://ww1.sinaimg.cn/large/005YhI8igy1fx8kmt5iq4j309w0atmxp" alt=""></p>
+</li>
+</ul>
+<ul>
+<li><p>在terminal中就可以直接使用远程terminal</p>
+<p><img src="https://ww1.sinaimg.cn/large/005YhI8igy1fx8kog1jsoj30rv0c3t9l" alt=""></p>
+</li>
+</ul>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope="" itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="http://mrxin.github.io/2018/11/20/win-terminus-md/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
@@ -302,7 +460,7 @@
     </span>
 
     <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="月薪5000元码农的自我修养">
+      <meta itemprop="name" content="40+岁大龄码农的自我修养">
     </span>
 
     
@@ -376,7 +534,7 @@
 <li><p>hotkeys设置页, 增加ctrl+v为粘贴快捷键. 这样, 最大的复合win的复制粘贴快捷键, 还是mac系统更合理, cmd+c是复制, cmd+v是粘贴. 与terminal的标准中断快捷键ctrl+c没有冲突</p>
 </li>
 <li><p>新建~/.bashrc文件, 并加入下面的内容,</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"># 按向上向下键自动匹配相应前缀的历史命令</span><br><span class="line">bind &apos;&quot;\e[A&quot;: history-search-backward&apos;</span><br><span class="line">bind &apos;&quot;\e[B&quot;: history-search-forward&apos;</span><br><span class="line">bind &apos;&quot;\e[C&quot;: forward-char&apos;</span><br><span class="line">bind &apos;&quot;\e[D&quot;: backward-char&apos;</span><br><span class="line"># 最大可能兼容win和linux的命令, 注意等号前后不能有空格</span><br><span class="line">alias ifconfig=&apos;ipconfig&apos;</span><br><span class="line">alias ll=&apos;ls -lah&apos;</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 按向上向下键自动匹配相应前缀的历史命令</span></span><br><span class="line"><span class="built_in">bind</span> <span class="string">'"\e[A": history-search-backward'</span></span><br><span class="line"><span class="built_in">bind</span> <span class="string">'"\e[B": history-search-forward'</span></span><br><span class="line"><span class="built_in">bind</span> <span class="string">'"\e[C": forward-char'</span></span><br><span class="line"><span class="built_in">bind</span> <span class="string">'"\e[D": backward-char'</span></span><br><span class="line"><span class="comment"># 最大可能兼容win和linux的命令, 注意等号前后不能有空格</span></span><br><span class="line"><span class="built_in">alias</span> ifconfig=<span class="string">'ipconfig'</span></span><br><span class="line"><span class="built_in">alias</span> ll=<span class="string">'ls -lah'</span></span><br></pre></td></tr></table></figure>
 <p>保存后, 重新打开terminus或者执行<code>source ~/.bashrc</code>即可</p>
 <p>参考链接: <a href="https://wiki.archlinux.org/index.php/Bash_(%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87" target="_blank" rel="noopener">Bash (简体中文)</a>)</p>
 </li>
@@ -435,7 +593,7 @@
     </span>
 
     <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="月薪5000元码农的自我修养">
+      <meta itemprop="name" content="40+岁大龄码农的自我修养">
     </span>
 
     
@@ -507,80 +665,80 @@
 </li>
 </ul>
 <ul>
-<li><h4 id="系统更新"><a href="#系统更新" class="headerlink" title="系统更新"></a>系统更新</h4>  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get update</span><br><span class="line">sudo apt-get upgrade</span><br></pre></td></tr></table></figure>
+<li><h4 id="系统更新"><a href="#系统更新" class="headerlink" title="系统更新"></a>系统更新</h4>  <figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-<span class="builtin-name">get</span> update</span><br><span class="line">sudo apt-<span class="builtin-name">get</span> upgrade</span><br></pre></td></tr></table></figure>
 </li>
 <li><h4 id="开启ssh"><a href="#开启ssh" class="headerlink" title="开启ssh"></a>开启ssh</h4><ul>
 <li><p>安装</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get remove openssh-server</span><br><span class="line">sudo apt-get install openssh-server</span><br></pre></td></tr></table></figure>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-<span class="builtin-name">get</span> <span class="builtin-name">remove</span> openssh-server</span><br><span class="line">sudo apt-<span class="builtin-name">get</span> install openssh-server</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>修改配置,</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo vim /etc/ssh/sshd_config</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Port 2222</span><br><span class="line">PasswordAuthentication yes</span><br></pre></td></tr></table></figure>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo vim <span class="regexp">/etc/</span>ssh<span class="regexp">/sshd_config</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">Port</span> <span class="number">2222</span></span><br><span class="line">PasswordAuthentication <span class="literal">yes</span></span><br></pre></td></tr></table></figure>
 </li>
 <li><p>启动</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo service ssh --full-restart</span><br></pre></td></tr></table></figure>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo<span class="built_in"> service </span>ssh --full-restart</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
 </li>
 <li><h4 id="安装mysql"><a href="#安装mysql" class="headerlink" title="安装mysql"></a>安装mysql</h4><ul>
 <li><p>安装</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get update</span><br><span class="line">sudo apt-get install mysql-server</span><br></pre></td></tr></table></figure>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-<span class="builtin-name">get</span> update</span><br><span class="line">sudo apt-<span class="builtin-name">get</span> install mysql-server</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>配置, 这一项可能与下面添加root账号冲突.</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo service mysql start</span><br><span class="line">sudo mysql_secure_installation</span><br></pre></td></tr></table></figure>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo<span class="built_in"> service </span>mysql start</span><br><span class="line">sudo mysql_secure_installation</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>修改并添加root账户密码, 参考  <a href="https://www.jianshu.com/p/4ca115648939" target="_blank" rel="noopener">Ubuntu 18.04 安装记录 - 简书</a></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">sudo service mysql start</span><br><span class="line">sudo mysql -u root -p</span><br><span class="line">DROP USER &apos;root&apos;@&apos;localhost&apos;;</span><br><span class="line">CREATE USER &apos;root&apos;@&apos;%&apos; IDENTIFIED BY &apos;root&apos;;</span><br><span class="line">GRANT ALL PRIVILEGES ON *.* TO &apos;root&apos;@&apos;%&apos;;</span><br><span class="line">FLUSH PRIVILEGES;</span><br></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">sudo service mysql <span class="keyword">start</span></span><br><span class="line">sudo mysql -u root -p</span><br><span class="line"><span class="keyword">DROP</span> <span class="keyword">USER</span> <span class="string">'root'</span>@<span class="string">'localhost'</span>;</span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">USER</span> <span class="string">'root'</span>@<span class="string">'%'</span> <span class="keyword">IDENTIFIED</span> <span class="keyword">BY</span> <span class="string">'root'</span>;</span><br><span class="line"><span class="keyword">GRANT</span> ALL <span class="keyword">PRIVILEGES</span> <span class="keyword">ON</span> *.* <span class="keyword">TO</span> <span class="string">'root'</span>@<span class="string">'%'</span>;</span><br><span class="line"><span class="keyword">FLUSH</span> <span class="keyword">PRIVILEGES</span>;</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>开启远程访问, 参考, <a href="https://zhuanlan.zhihu.com/p/28102425" target="_blank" rel="noopener">mysql【一】：mysql在ubuntu上安装配置</a><br>修改 /etc/mysql/mysql.conf.d 下的mysqld.cnf，找到bind-address，把127.0.0.1 改为0.0.0.0</p>
 </li>
 <li><p>开启服务</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo service mysql start</span><br></pre></td></tr></table></figure>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo<span class="built_in"> service </span>mysql start</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
 </li>
 <li><h4 id="安装redis"><a href="#安装redis" class="headerlink" title="安装redis"></a>安装redis</h4><ul>
 <li><p>安装</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install redis-server</span><br></pre></td></tr></table></figure>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-<span class="builtin-name">get</span> install redis-server</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>配置远程访问</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo vim /etc/redis/redis.conf</span><br></pre></td></tr></table></figure>
+<figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo <span class="keyword">vim</span> /etc/redis/redis.<span class="keyword">conf</span></span><br></pre></td></tr></table></figure>
 <p>找到并注释掉下面一行, 或者把127.0.0.1改成0.0.0.0</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># bind 127.0.0.1</span><br></pre></td></tr></table></figure>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># <span class="selector-tag">bind</span> 127<span class="selector-class">.0</span><span class="selector-class">.0</span><span class="selector-class">.1</span></span><br></pre></td></tr></table></figure>
 </li>
 <li><p>开启服务</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo service redis-server start</span><br></pre></td></tr></table></figure>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo<span class="built_in"> service </span>redis-server start</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
 </li>
-<li><h4 id="中文支持和字体"><a href="#中文支持和字体" class="headerlink" title="中文支持和字体"></a>中文支持和字体</h4>  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install language-pack-zh-hans</span><br><span class="line">sudo update-locale LANG=zh_CN.UTF-8</span><br><span class="line">sudo mkdir /usr/share/fonts</span><br><span class="line">sudo ln -s /mnt/c/Windows/Fonts /usr/share/fonts/windows</span><br><span class="line">sudo apt install fontconfig</span><br><span class="line">sudo fc-cache -fv</span><br></pre></td></tr></table></figure>
+<li><h4 id="中文支持和字体"><a href="#中文支持和字体" class="headerlink" title="中文支持和字体"></a>中文支持和字体</h4>  <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">sudo apt <span class="keyword">install</span> <span class="keyword">language</span>-pack-zh-hans</span><br><span class="line">sudo <span class="keyword">update</span>-locale LANG=zh_CN.UTF<span class="number">-8</span></span><br><span class="line">sudo mkdir /usr/<span class="keyword">share</span>/fonts</span><br><span class="line">sudo <span class="keyword">ln</span> -s /mnt/c/Windows/Fonts /usr/<span class="keyword">share</span>/fonts/windows</span><br><span class="line">sudo apt <span class="keyword">install</span> fontconfig</span><br><span class="line">sudo fc-<span class="keyword">cache</span> -fv</span><br></pre></td></tr></table></figure>
 </li>
-<li><h4 id="安装zsh"><a href="#安装zsh" class="headerlink" title="安装zsh"></a>安装zsh</h4>  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install zsh</span><br><span class="line">sudo chsh -s $(which zsh)</span><br><span class="line">sh -c &quot;$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)&quot;</span><br></pre></td></tr></table></figure>
+<li><h4 id="安装zsh"><a href="#安装zsh" class="headerlink" title="安装zsh"></a>安装zsh</h4>  <figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-<span class="builtin-name">get</span> install zsh</span><br><span class="line">sudo chsh -s $(which zsh)</span><br><span class="line">sh -c <span class="string">"<span class="variable">$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)</span>"</span></span><br></pre></td></tr></table></figure>
 </li>
-<li><h4 id="启动zsh-bashrc"><a href="#启动zsh-bashrc" class="headerlink" title="启动zsh,  ~/.bashrc"></a>启动zsh,  ~/.bashrc</h4>  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"># Launch Zsh</span><br><span class="line">if [ -t 1 ]; then</span><br><span class="line">exec zsh</span><br><span class="line">fi</span><br></pre></td></tr></table></figure>
+<li><h4 id="启动zsh-bashrc"><a href="#启动zsh-bashrc" class="headerlink" title="启动zsh,  ~/.bashrc"></a>启动zsh,  ~/.bashrc</h4>  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Launch Zsh</span></span><br><span class="line"><span class="keyword">if</span> [ -t 1 ]; <span class="keyword">then</span></span><br><span class="line"><span class="built_in">exec</span> zsh</span><br><span class="line"><span class="keyword">fi</span></span><br></pre></td></tr></table></figure>
 </li>
-<li><h4 id="开机启动mysql-redis-和ssh-在-zshrc加入"><a href="#开机启动mysql-redis-和ssh-在-zshrc加入" class="headerlink" title="开机启动mysql redis 和ssh, 在~/.zshrc加入"></a>开机启动mysql redis 和ssh, 在~/.zshrc加入</h4>  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">echo &quot;检测开机启动项&quot;</span><br><span class="line">if [ ! -e &quot;/var/run/sshd.pid&quot; ]; then</span><br><span class="line">    echo &apos;启动sshd&apos;</span><br><span class="line">    sudo service ssh start</span><br><span class="line">fi</span><br><span class="line"></span><br><span class="line">if test $( pgrep -f mysql | wc -l ) -lt 1</span><br><span class="line">    then</span><br><span class="line">    echo &quot;启动mysql&quot;</span><br><span class="line">    sudo service mysql start</span><br><span class="line">fi</span><br><span class="line"></span><br><span class="line">if test $( pgrep -f redis | wc -l ) -lt 1</span><br><span class="line">    then</span><br><span class="line">    echo &quot;启动redis&quot;</span><br><span class="line">    sudo service redis-server start</span><br><span class="line">fi</span><br></pre></td></tr></table></figure>
+<li><h4 id="开机启动mysql-redis-和ssh-在-zshrc加入"><a href="#开机启动mysql-redis-和ssh-在-zshrc加入" class="headerlink" title="开机启动mysql redis 和ssh, 在~/.zshrc加入"></a>开机启动mysql redis 和ssh, 在~/.zshrc加入</h4>  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">echo</span> <span class="string">"检测开机启动项"</span></span><br><span class="line"><span class="keyword">if</span> [ ! -e <span class="string">"/var/run/sshd.pid"</span> ]; <span class="keyword">then</span></span><br><span class="line">    <span class="built_in">echo</span> <span class="string">'启动sshd'</span></span><br><span class="line">    sudo service ssh start</span><br><span class="line"><span class="keyword">fi</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> <span class="built_in">test</span> $( pgrep -f mysql | wc -l ) -lt 1</span><br><span class="line">    <span class="keyword">then</span></span><br><span class="line">    <span class="built_in">echo</span> <span class="string">"启动mysql"</span></span><br><span class="line">    sudo service mysql start</span><br><span class="line"><span class="keyword">fi</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> <span class="built_in">test</span> $( pgrep -f redis | wc -l ) -lt 1</span><br><span class="line">    <span class="keyword">then</span></span><br><span class="line">    <span class="built_in">echo</span> <span class="string">"启动redis"</span></span><br><span class="line">    sudo service redis-server start</span><br><span class="line"><span class="keyword">fi</span></span><br></pre></td></tr></table></figure>
 </li>
-<li><h4 id="启动显示-zshrc"><a href="#启动显示-zshrc" class="headerlink" title="启动显示 ~/.zshrc"></a>启动显示 ~/.zshrc</h4>  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">umask 0022</span><br><span class="line">export DISPLAY=localhost:0.0</span><br></pre></td></tr></table></figure>
+<li><h4 id="启动显示-zshrc"><a href="#启动显示-zshrc" class="headerlink" title="启动显示 ~/.zshrc"></a>启动显示 ~/.zshrc</h4>  <figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">umask 0022</span><br><span class="line"><span class="builtin-name">export</span> <span class="attribute">DISPLAY</span>=localhost:0.0</span><br></pre></td></tr></table></figure>
 </li>
 <li><h4 id="修改wsl里面查看windows磁盘文件的颜色1-参考"><a href="#修改wsl里面查看windows磁盘文件的颜色1-参考" class="headerlink" title="修改wsl里面查看windows磁盘文件的颜色1, 参考"></a>修改wsl里面查看windows磁盘文件的颜色1, 参考</h4><p>  [在WSL环境下修改文件夹的颜色] (<a href="https://blog.royink.li/post/ls_color_in_wsl" target="_blank" rel="noopener">https://blog.royink.li/post/ls_color_in_wsl</a>)<br>  <a href="https://github.com/trapd00r/LS_COLORS/blob/master/README.markdown" target="_blank" rel="noopener">LS_COLORS</a></p>
-  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">dircolors -p &gt; $HOME/.dircolors</span><br><span class="line">vim $HOME/.dircolors</span><br></pre></td></tr></table></figure>
+  <figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">dircolors -<span class="selector-tag">p</span> &gt; <span class="variable">$HOME</span>/.dircolors</span><br><span class="line">vim <span class="variable">$HOME</span>/.dircolors</span><br></pre></td></tr></table></figure>
 <p>  将<br>  STICKY_OTHER_WRITABLE 后面的数字改成02;32<br>  OTHER_WRITABLE 后面的数字改成01;34</p>
 <p>  然后在<code>$HOME/.bashrc</code>(如果用zsh, <code>$HOME/.zshrc</code>)后面添加</p>
-  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">eval $(dircolors -b $HOME/.dircolors)</span><br></pre></td></tr></table></figure>
+  <figure class="highlight mel"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">eval</span> $(dircolors -b $HOME/.dircolors)</span><br></pre></td></tr></table></figure>
 </li>
-<li><h4 id="修改wsl里面查看windows磁盘文件的颜色2-参考Quick-rundown-on-my-current-setup-on-the-Windows-Subsystem-for-Linux"><a href="#修改wsl里面查看windows磁盘文件的颜色2-参考Quick-rundown-on-my-current-setup-on-the-Windows-Subsystem-for-Linux" class="headerlink" title="修改wsl里面查看windows磁盘文件的颜色2, 参考Quick rundown on my current setup on the Windows Subsystem for Linux."></a>修改wsl里面查看windows磁盘文件的颜色2, 参考<a href="https://github.com/lloydstubber/my-wsl-setup" target="_blank" rel="noopener">Quick rundown on my current setup on the Windows Subsystem for Linux.</a></h4>  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">#Change ls colours</span><br><span class="line">LS_COLORS=&quot;ow=01;36;40&quot; &amp;&amp; export LS_COLORS</span><br><span class="line"></span><br><span class="line">#make cd use the ls colours</span><br><span class="line">zstyle &apos;:completion:*&apos; list-colors &quot;$&#123;(@s.:.)LS_COLORS&#125;&quot;</span><br><span class="line">autoload -Uz compinit</span><br><span class="line">compinit</span><br></pre></td></tr></table></figure>
+<li><h4 id="修改wsl里面查看windows磁盘文件的颜色2-参考Quick-rundown-on-my-current-setup-on-the-Windows-Subsystem-for-Linux"><a href="#修改wsl里面查看windows磁盘文件的颜色2-参考Quick-rundown-on-my-current-setup-on-the-Windows-Subsystem-for-Linux" class="headerlink" title="修改wsl里面查看windows磁盘文件的颜色2, 参考Quick rundown on my current setup on the Windows Subsystem for Linux."></a>修改wsl里面查看windows磁盘文件的颜色2, 参考<a href="https://github.com/lloydstubber/my-wsl-setup" target="_blank" rel="noopener">Quick rundown on my current setup on the Windows Subsystem for Linux.</a></h4>  <figure class="highlight dsconfig"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#Change ls colours</span></span><br><span class="line"><span class="string">LS_COLORS=</span><span class="string">"ow=01;36;40"</span> &amp;&amp; <span class="string">export </span><span class="string">LS_COLORS</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">#</span><span class="string">make </span><span class="string">cd </span><span class="string">use </span><span class="string">the </span><span class="string">ls </span><span class="string">colours</span></span><br><span class="line"><span class="string">zstyle </span><span class="string">':completion:*'</span> <span class="built_in">list-colors</span> <span class="string">"$&#123;(@s.:.)LS_COLORS&#125;"</span></span><br><span class="line"><span class="string">autoload </span>-<span class="string">Uz </span><span class="string">compinit</span></span><br><span class="line"><span class="string">compinit</span></span><br></pre></td></tr></table></figure>
 </li>
 <li><h4 id="安装anaconda"><a href="#安装anaconda" class="headerlink" title="安装anaconda"></a>安装anaconda</h4><ul>
 <li>安装用清华的下载, <a href="https://mirror.tuna.tsinghua.edu.cn/help/anaconda/" target="_blank" rel="noopener">Anaconda | 镜像站使用帮助 | 清华大学开源软件镜像站 | Tsinghua Open Source Mirror</a></li>
 <li>根据清华源的教程,设置源</li>
 <li><p>把path加入~/.zshrc</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">export PATH=/home/xin/anaconda3/bin:$PATH</span><br></pre></td></tr></table></figure>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="builtin-name">export</span> <span class="attribute">PATH</span>=/home/xin/anaconda3/bin:$PATH</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>更改权限</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo chown -R xin:xin /home/xin/anaconda3</span><br></pre></td></tr></table></figure>
+<figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo chown -R <span class="string">xin:</span>xin <span class="regexp">/home/</span>xin/anaconda3</span><br></pre></td></tr></table></figure>
 <p>或者</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo chmod 777 -R /home/xin/anaconda3</span><br></pre></td></tr></table></figure>
+<figure class="highlight arduino"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo chmod <span class="number">777</span> -R /<span class="built_in">home</span>/xin/anaconda3</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>修改pip源</p>
 </li>
@@ -588,15 +746,15 @@
 </li>
 <li><h4 id="安装jdk"><a href="#安装jdk" class="headerlink" title="安装jdk"></a>安装jdk</h4><ul>
 <li><p>官网下载相应的jdk, 解压并拷贝到/opt目录下</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo cp jdk-8u171-linux-x64.tar.gz /opt</span><br><span class="line">sudo tar -zxvf jdk-8u171-linux-x64.tar.gz</span><br></pre></td></tr></table></figure>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo cp jdk-<span class="number">8</span>u171-linux-x64<span class="selector-class">.tar</span><span class="selector-class">.gz</span> /opt</span><br><span class="line">sudo tar -zxvf jdk-<span class="number">8</span>u171-linux-x64<span class="selector-class">.tar</span><span class="selector-class">.gz</span></span><br></pre></td></tr></table></figure>
 </li>
 <li><p>配置path, 打开~/.zshrc</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">export JAVA_HOME=/opt/jdk1.8.0_171</span><br><span class="line">export PATH=$JAVA_HOME/bin:$PATH</span><br></pre></td></tr></table></figure>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="builtin-name">export</span> <span class="attribute">JAVA_HOME</span>=/opt/jdk1.8.0_171</span><br><span class="line"><span class="builtin-name">export</span> <span class="attribute">PATH</span>=<span class="variable">$JAVA_HOME</span>/bin:$PATH</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
 </li>
 <li><h4 id="安装pycharm和idea"><a href="#安装pycharm和idea" class="headerlink" title="安装pycharm和idea"></a>安装pycharm和idea</h4><p>  官网下载, 拷贝到/opt目录里面解压缩,类似于jdk,<br>  运行</p>
-  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sh /opt/pycharm-2018.2/bin/pycharm.sh &amp;</span><br></pre></td></tr></table></figure>
+  <figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">sh</span> /<span class="keyword">opt</span>/pycharm-<span class="number">2018.2</span>/bin/pycharm.<span class="keyword">sh</span> &amp;</span><br></pre></td></tr></table></figure>
 </li>
 <li><h4 id="安装maven"><a href="#安装maven" class="headerlink" title="安装maven"></a>安装maven</h4><ul>
 <li>下载, 设置类似于jdk</li>
@@ -604,7 +762,7 @@
 </ul>
 </li>
 <li><h4 id="安装多个wsl的linux-修改默认版本"><a href="#安装多个wsl的linux-修改默认版本" class="headerlink" title="安装多个wsl的linux, 修改默认版本"></a>安装多个wsl的linux, 修改默认版本</h4><p>  开始菜单右键, 选择管理员模式打开powershell</p>
-  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">wslconfig /list # 列出安装的wsl不同linux版本</span><br><span class="line">wslconfig /s ubuntu-18.04 # 设置默认版本</span><br></pre></td></tr></table></figure>
+  <figure class="highlight jboss-cli"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">wslconfig <span class="string">/list</span> <span class="comment"># 列出安装的wsl不同linux版本</span></span><br><span class="line">wslconfig <span class="string">/s</span> ubuntu-18.04 <span class="comment"># 设置默认版本</span></span><br></pre></td></tr></table></figure>
 </li>
 <li><h4 id="下载并安装vcxsrv-VcXsrv-Windows-X-Server"><a href="#下载并安装vcxsrv-VcXsrv-Windows-X-Server" class="headerlink" title="下载并安装vcxsrv, VcXsrv Windows X Server,"></a>下载并安装vcxsrv, <a href="https://sourceforge.net/projects/vcxsrv/" target="_blank" rel="noopener">VcXsrv Windows X Server</a>,</h4><p>双击桌面xserver图标启动, 在Clipboard设置界面去掉 Clickboard勾选和Primary Selection. 这样可以屏蔽pycharm里面的select and copy(选择并拷贝).</p>
 <p><img src="https://ww3.sinaimg.cn/large/005YhI8igy1fu886ttxelj30if0dkt97" alt=""></p>
@@ -667,7 +825,7 @@
     </span>
 
     <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="月薪5000元码农的自我修养">
+      <meta itemprop="name" content="40+岁大龄码农的自我修养">
     </span>
 
     
@@ -789,7 +947,7 @@
     </span>
 
     <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="月薪5000元码农的自我修养">
+      <meta itemprop="name" content="40+岁大龄码农的自我修养">
     </span>
 
     
@@ -856,13 +1014,13 @@
 <h3 id="python测试代码"><a href="#python测试代码" class="headerlink" title="python测试代码"></a>python测试代码</h3><p>覆写了hash()和equals方法</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ClassName</span><span class="params">(object)</span>:</span></span><br><span class="line">    <span class="string">"""docstring for ClassName"""</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, arg)</span>:</span></span><br><span class="line">        self.data = arg</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__eq__</span><span class="params">(self, another)</span>:</span></span><br><span class="line">        <span class="keyword">return</span> hasattr(another, <span class="string">'data'</span>) <span class="keyword">and</span> self.data == another.data</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__hash__</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">return</span> hash(self.data)</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__lt__</span><span class="params">(self, another)</span>:</span></span><br><span class="line">        <span class="keyword">return</span> self.data - another.data</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">func_a</span><span class="params">()</span> -&gt; dict:</span></span><br><span class="line">    class_a = ClassName(<span class="number">1234</span>)</span><br><span class="line">    print(<span class="string">"class_a address_id="</span>, id(class_a))</span><br><span class="line">    class_dict = &#123;class_a: <span class="string">"value"</span>&#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> class_dict</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">func_b</span><span class="params">(class_dict: dict)</span>:</span></span><br><span class="line">    class_b = ClassName(<span class="number">1234</span>)</span><br><span class="line">    print(<span class="string">"class_b address_id="</span>, id(class_b))</span><br><span class="line">    value = class_dict.get(class_b)</span><br><span class="line">    print(value)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">main</span><span class="params">()</span>:</span></span><br><span class="line">    class_dict = func_a()</span><br><span class="line">    func_b(class_dict)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">    main()</span><br></pre></td></tr></table></figure>
 <p>输出是:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">class_a address_id= 4492965144</span><br><span class="line">class_b address_id= 4492965200</span><br><span class="line">value</span><br></pre></td></tr></table></figure>
+<figure class="highlight ceylon"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span><span class="number">_</span>a address<span class="number">_</span>id= <span class="number">4492965144</span></span><br><span class="line"><span class="keyword">class</span><span class="number">_</span>b address<span class="number">_</span>id= <span class="number">4492965200</span></span><br><span class="line"><span class="keyword">value</span></span><br></pre></td></tr></table></figure>
 <h3 id="java相应测试代码"><a href="#java相应测试代码" class="headerlink" title="java相应测试代码:"></a>java相应测试代码:</h3><p>没有覆写hash()和equals方法</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">用lombok注解实现构造方法方法</span><br><span class="line"><span class="meta">@Setter</span></span><br><span class="line"><span class="meta">@Getter</span></span><br><span class="line"><span class="meta">@AllArgsConstructor</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Student</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> String name;</span><br><span class="line">    <span class="keyword">private</span> Integer age;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>测试类</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">App</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        Map&lt;Student, String&gt; map =getStudentMap();</span><br><span class="line">        printStudent(map);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">static</span> <span class="keyword">private</span> Map&lt;Student, String&gt; <span class="title">getStudentMap</span><span class="params">()</span></span>&#123;</span><br><span class="line">        Map&lt;Student, String&gt; map = <span class="keyword">new</span> HashMap&lt;&gt;(<span class="number">16</span>);</span><br><span class="line">        Student studentA = <span class="keyword">new</span> Student(<span class="string">"xin"</span>, <span class="number">20</span>);</span><br><span class="line">        System.out.println(<span class="string">"studentA's address = "</span> + studentA);</span><br><span class="line">        map.put(studentA, <span class="string">"value"</span>);</span><br><span class="line">        <span class="keyword">return</span> map;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">static</span> <span class="keyword">private</span> <span class="keyword">void</span> <span class="title">printStudent</span><span class="params">(Map&lt;Student, String&gt; map)</span></span>&#123;</span><br><span class="line">        Student studentB = <span class="keyword">new</span> Student(<span class="string">"xin"</span>, <span class="number">20</span>);</span><br><span class="line">        System.out.println(<span class="string">"studentB's address = "</span> + studentB);</span><br><span class="line">        System.out.println(<span class="string">"两个函数是否相等: "</span> + Objects.equals(studentB, map.keySet().toArray()[<span class="number">0</span>]));</span><br><span class="line">        System.out.println(<span class="string">"从map中获取到的值是:"</span> + map.get(studentB));</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>输出是: </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">studentA&apos;s address = com.example.demo002.zhihu.Student@548c4f57</span><br><span class="line">studentB&apos;s address = com.example.demo002.zhihu.Student@1218025c</span><br><span class="line">两个函数是否相等: false</span><br><span class="line">从map中获取到的值是:null</span><br></pre></td></tr></table></figure>
+<figure class="highlight llvm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">studentA's address = com.example.demo<span class="number">002</span>.zhihu.Student<span class="title">@548</span><span class="keyword">c</span><span class="number">4</span>f<span class="number">57</span></span><br><span class="line">studentB's address = com.example.demo<span class="number">002</span>.zhihu.Student<span class="title">@1218025</span><span class="keyword">c</span></span><br><span class="line">两个函数是否相等: <span class="keyword">false</span></span><br><span class="line">从map中获取到的值是:<span class="keyword">null</span></span><br></pre></td></tr></table></figure>
 <p>参考地址:<br><a href="https://segmentfault.com/a/1190000002655085" target="_blank" rel="noopener">Java 用自定义类型作为HashMap的键</a><br><a href="https://stackoverflow.com/questions/5221236/python-my-classes-as-dict-keys-how" target="_blank" rel="noopener">python: my classes as dict keys. how?</a></p>
 
           
@@ -916,7 +1074,7 @@
     </span>
 
     <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="月薪5000元码农的自我修养">
+      <meta itemprop="name" content="40+岁大龄码农的自我修养">
     </span>
 
     
@@ -1002,7 +1160,7 @@
 <p>被代理类<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Train</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">move</span><span class="params">()</span></span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"火车行驶中..."</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <p>创建cglib代理类<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> net.sf.cglib.proxy.Enhancer;</span><br><span class="line"><span class="keyword">import</span> net.sf.cglib.proxy.MethodInterceptor;</span><br><span class="line"><span class="keyword">import</span> net.sf.cglib.proxy.MethodProxy;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.lang.reflect.Method;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">CglibProxy</span> <span class="keyword">implements</span> <span class="title">MethodInterceptor</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> Enhancer enhancer = <span class="keyword">new</span> Enhancer();</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> Object <span class="title">getProxy</span><span class="params">(Class cls)</span> </span>&#123;</span><br><span class="line">        <span class="comment">// 设置创建子类(代理类)的类(被代理的类)</span></span><br><span class="line">        enhancer.setSuperclass(cls);</span><br><span class="line">        enhancer.setCallback(<span class="keyword">this</span>);</span><br><span class="line">        <span class="keyword">return</span> enhancer.create();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * cglib通过继承父类方法来实现代理</span></span><br><span class="line"><span class="comment">     * 拦截所有目标类方法的调用</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> o           目标类的实例</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> method      目标方法的反射对象</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> objects     目标方法的参数</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> methodProxy 代理类的实例</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span> 目标类方法的返回值</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> Object <span class="title">intercept</span><span class="params">(Object o, Method method, Object[] objects, MethodProxy methodProxy)</span></span></span><br><span class="line"><span class="function">            <span class="keyword">throws</span> Throwable </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"日志开始记录"</span>);</span><br><span class="line">        <span class="comment">// 代理类调用父类的方法</span></span><br><span class="line">        methodProxy.invokeSuper(o, objects);</span><br><span class="line">        System.out.println(<span class="string">"日志结束..."</span>);</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <p>测试cglib代理<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Client</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        CglibProxy proxy = <span class="keyword">new</span> CglibProxy();</span><br><span class="line">        Train train = (Train) proxy.getProxy(Train.class);</span><br><span class="line">        train.move();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>输入结果, 在被代理类功能前后都增加了新功能.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">日志开始记录</span><br><span class="line">火车行驶中...</span><br><span class="line">日志结束...</span><br></pre></td></tr></table></figure></p>
+<p>输入结果, 在被代理类功能前后都增加了新功能.<br><figure class="highlight clean"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">日志开始记录</span><br><span class="line">火车行驶中...</span><br><span class="line">日志结束...</span><br></pre></td></tr></table></figure></p>
 
           
         
@@ -1055,7 +1213,7 @@
     </span>
 
     <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="月薪5000元码农的自我修养">
+      <meta itemprop="name" content="40+岁大龄码农的自我修养">
     </span>
 
     
@@ -1194,13 +1352,13 @@
 <li><p>自定义注解</p>
 <ol>
 <li><p>注解定义</p>
- <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line">import java.lang.annotation.Documented;</span><br><span class="line">import java.lang.annotation.ElementType;</span><br><span class="line">import java.lang.annotation.Inherited;</span><br><span class="line">import java.lang.annotation.Retention;</span><br><span class="line">import java.lang.annotation.RetentionPolicy;</span><br><span class="line">import java.lang.annotation.Target;</span><br><span class="line"></span><br><span class="line">/**</span><br><span class="line"> * 下面4个被称为元注解,</span><br><span class="line"> */</span><br><span class="line"></span><br><span class="line">// @Target: 注解的作用域, 包括(CONSTRUCTOR(构造方法), FIELD(类属性), LOCAL_VARIABLE(局部变量),</span><br><span class="line">// METHOD(方法), PACKAGE(包), PARAMETER(参数), TYPE(类, 接口))</span><br><span class="line"></span><br><span class="line">@Target(&#123;ElementType.METHOD, ElementType.TYPE&#125;)</span><br><span class="line"></span><br><span class="line">// @Retention: 注解的生命周期, 包括(SOURCE, CLASS, RUNTIME)</span><br><span class="line">// SOURCE: 只在源码种显示, 编译时丢弃,</span><br><span class="line">// CLASS 编译时会记录到class中, 运行时忽略</span><br><span class="line">// RUNTIME 运行时存在, 可以通过反射读取</span><br><span class="line">@Retention(RetentionPolicy.RUNTIME)</span><br><span class="line"></span><br><span class="line">// @Inherited 允许子类继承父类的类注解, 父类的方法注解无法继承</span><br><span class="line">// 注意, 注解定义到接口上, 实现的时候解析是无效的</span><br><span class="line">@Inherited</span><br><span class="line"></span><br><span class="line">// @Documented 生成javadoc时候回包含注解, 属于标识注解</span><br><span class="line">@Documented</span><br><span class="line"></span><br><span class="line">//使用 @interface 关键字定义注解</span><br><span class="line">public @interface Description &#123;</span><br><span class="line">    /**</span><br><span class="line">     * 成员类型是受限的, 合法的类型包括原始类型及String, Class, Annotation, Enumeration</span><br><span class="line">     *</span><br><span class="line">     * 如果注解只有一个成员, 则成员名必须取名为value(), 在使用时可以忽略程一鸣和赋值号(=)</span><br><span class="line">     *</span><br><span class="line">     * 注解类可以没有成员, 没有成员的注解称为标识注解</span><br><span class="line">     */</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    //成员以无参无异常方式声明,  成员就是注解里面元素定义的名词</span><br><span class="line">    String desc();</span><br><span class="line"></span><br><span class="line">    String author();</span><br><span class="line"></span><br><span class="line">    // 可以用default为成员制定一个默认值</span><br><span class="line">    int age() default 18;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+ <figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.lang.<span class="keyword">annotation</span>.Documented;</span><br><span class="line"><span class="keyword">import</span> java.lang.<span class="keyword">annotation</span>.ElementType;</span><br><span class="line"><span class="keyword">import</span> java.lang.<span class="keyword">annotation</span>.Inherited;</span><br><span class="line"><span class="keyword">import</span> java.lang.<span class="keyword">annotation</span>.Retention;</span><br><span class="line"><span class="keyword">import</span> java.lang.<span class="keyword">annotation</span>.RetentionPolicy;</span><br><span class="line"><span class="keyword">import</span> java.lang.<span class="keyword">annotation</span>.Target;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 下面4个被称为元注解,</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// @Target: 注解的作用域, 包括(CONSTRUCTOR(构造方法), FIELD(类属性), LOCAL_VARIABLE(局部变量),</span></span><br><span class="line"><span class="comment">// METHOD(方法), PACKAGE(包), PARAMETER(参数), TYPE(类, 接口))</span></span><br><span class="line"></span><br><span class="line"><span class="meta">@Target(&#123;ElementType.METHOD, ElementType.TYPE&#125;)</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// @Retention: 注解的生命周期, 包括(SOURCE, CLASS, RUNTIME)</span></span><br><span class="line"><span class="comment">// SOURCE: 只在源码种显示, 编译时丢弃,</span></span><br><span class="line"><span class="comment">// CLASS 编译时会记录到class中, 运行时忽略</span></span><br><span class="line"><span class="comment">// RUNTIME 运行时存在, 可以通过反射读取</span></span><br><span class="line"><span class="meta">@Retention(RetentionPolicy.RUNTIME)</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// @Inherited 允许子类继承父类的类注解, 父类的方法注解无法继承</span></span><br><span class="line"><span class="comment">// 注意, 注解定义到接口上, 实现的时候解析是无效的</span></span><br><span class="line"><span class="meta">@Inherited</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// @Documented 生成javadoc时候回包含注解, 属于标识注解</span></span><br><span class="line"><span class="meta">@Documented</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//使用 @interface 关键字定义注解</span></span><br><span class="line"><span class="keyword">public</span> <span class="meta">@interface</span> Description &#123;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 成员类型是受限的, 合法的类型包括原始类型及String, Class, Annotation, Enumeration</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * 如果注解只有一个成员, 则成员名必须取名为value(), 在使用时可以忽略程一鸣和赋值号(=)</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * 注解类可以没有成员, 没有成员的注解称为标识注解</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="comment">//成员以无参无异常方式声明,  成员就是注解里面元素定义的名词</span></span><br><span class="line">    String desc();</span><br><span class="line"></span><br><span class="line">    String author();</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 可以用default为成员制定一个默认值</span></span><br><span class="line">    int age() <span class="keyword">default</span> <span class="number">18</span>;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>注解使用</p>
- <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line"> * 使用自定义注解的语法:</span><br><span class="line"> *</span><br><span class="line"> * @&lt;注解名&gt;(&lt;成员名1&gt;=&lt;成员值1&gt;, &lt;成员名1&gt;=&lt;成员值1&gt;, ...)</span><br><span class="line"> */</span><br><span class="line"></span><br><span class="line">@Description(desc = &quot;描述信息, 注解在类上&quot;, author = &quot;姓名&quot;)</span><br><span class="line">public class CustomAnnotation &#123;</span><br><span class="line">    public String string;</span><br><span class="line"></span><br><span class="line">    @Description(desc = &quot;描述信息, 注解在方法上&quot;, author = &quot;作者名&quot;, age = 30)</span><br><span class="line">    public String eyeColor() &#123;</span><br><span class="line">        return &quot;black&quot;;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+ <figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 使用自定义注解的语法:</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * @&lt;注解名&gt;(&lt;成员名1&gt;=&lt;成员值1&gt;, &lt;成员名1&gt;=&lt;成员值1&gt;, ...)</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"></span><br><span class="line"><span class="meta">@Description(desc = <span class="meta-string">"描述信息, 注解在类上"</span>, author = <span class="meta-string">"姓名"</span>)</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">CustomAnnotation</span> </span>&#123;</span><br><span class="line">    <span class="keyword">public</span> String string;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Description(desc = <span class="meta-string">"描述信息, 注解在方法上"</span>, author = <span class="meta-string">"作者名"</span>, age = 30)</span></span><br><span class="line">    <span class="keyword">public</span> String eyeColor() &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">"black"</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>解析注解 : 通过反射获取类 函数 或者 属性上 运行时 注解信息, 从而实现动态控制程序运行的逻辑.</p>
- <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br></pre></td><td class="code"><pre><span class="line">import java.lang.annotation.Annotation;</span><br><span class="line">import java.lang.reflect.Method;</span><br><span class="line">import java.util.Arrays;</span><br><span class="line"></span><br><span class="line">/**</span><br><span class="line"> * @author: 个人姓名</span><br><span class="line"> * @date: 2018/3/18 下午10:15</span><br><span class="line"> * @className: TestAnnotation</span><br><span class="line"> * @version: 1.0.0</span><br><span class="line"> * @description:</span><br><span class="line"> */</span><br><span class="line">public class TestAnnotation &#123;</span><br><span class="line"></span><br><span class="line">    /**</span><br><span class="line">     * 能运行时候解析到结果的注解都是 运行时注解, 一定要用@Retention(RetentionPolicy.RUNTIME)</span><br><span class="line">     */</span><br><span class="line"></span><br><span class="line">    public static void main(String[] args) throws ClassNotFoundException &#123;</span><br><span class="line">        //1: 使用类加载器加载类</span><br><span class="line">        Class cls = Class.forName(&quot;com.linkzp.jdkproxy.CustomAnnotation&quot;);</span><br><span class="line">        // 2: 找到类上的注解,</span><br><span class="line">        System.out.println(Arrays.toString(cls.getAnnotationsByType(Description.class)));</span><br><span class="line">        boolean isExist = cls.isAnnotationPresent(Description.class);</span><br><span class="line">        if (isExist) &#123;</span><br><span class="line">            // 3: 拿到注解实例</span><br><span class="line"></span><br><span class="line">            Description description = (Description) cls.getAnnotation(Description.class);</span><br><span class="line">            System.out.println(description.author());</span><br><span class="line">            System.out.println(description.desc());</span><br><span class="line">            System.out.println(description.age());</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        // 4: 找到方法的注解</span><br><span class="line">        Method[] methods = cls.getMethods();</span><br><span class="line"></span><br><span class="line">        for (Method method : methods) &#123;</span><br><span class="line">            boolean isMethodAnnotation = method.isAnnotationPresent(Description.class);</span><br><span class="line">            if (isMethodAnnotation) &#123;</span><br><span class="line">                Description methodDescription = method.getAnnotation(Description.class);</span><br><span class="line">                System.out.println(methodDescription.author());</span><br><span class="line">                System.out.println(methodDescription.desc());</span><br><span class="line">                System.out.println(methodDescription.age());</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        // 5: 方法注解解析的另外一种解析方法</span><br><span class="line"></span><br><span class="line">        for (Method method : methods) &#123;</span><br><span class="line">            Annotation[] annotations = method.getAnnotations();</span><br><span class="line">            for (Annotation annotation : annotations) &#123;</span><br><span class="line">                if (annotation instanceof Description) &#123;</span><br><span class="line">                    Description description = (Description) annotation;</span><br><span class="line">                    System.out.println(description.author());</span><br><span class="line">                    System.out.println(description.age());</span><br><span class="line">                    System.out.println(description.desc());</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+ <figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.lang.annotation.Annotation;</span><br><span class="line"><span class="keyword">import</span> java.lang.reflect.Method;</span><br><span class="line"><span class="keyword">import</span> java.util.Arrays;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * @author: 个人姓名</span></span><br><span class="line"><span class="comment"> * @date: 2018/3/18 下午10:15</span></span><br><span class="line"><span class="comment"> * @className: TestAnnotation</span></span><br><span class="line"><span class="comment"> * @version: 1.0.0</span></span><br><span class="line"><span class="comment"> * @description:</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> TestAnnotation &#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 能运行时候解析到结果的注解都是 运行时注解, 一定要用@Retention(RetentionPolicy.RUNTIME)</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> main(String[] args) <span class="keyword">throws</span> ClassNotFoundException &#123;</span><br><span class="line">        <span class="comment">//1: 使用类加载器加载类</span></span><br><span class="line">        <span class="keyword">Class</span> cls = <span class="keyword">Class</span>.forName(<span class="string">"com.linkzp.jdkproxy.CustomAnnotation"</span>);</span><br><span class="line">        <span class="comment">// 2: 找到类上的注解,</span></span><br><span class="line">        System.out.<span class="keyword">println</span>(Arrays.toString(cls.getAnnotationsByType(<span class="keyword">Description</span>.<span class="keyword">class</span>)));</span><br><span class="line">        <span class="keyword">boolean</span> isExist = cls.isAnnotationPresent(<span class="keyword">Description</span>.<span class="keyword">class</span>);</span><br><span class="line">        <span class="keyword">if</span> (isExist) &#123;</span><br><span class="line">            <span class="comment">// 3: 拿到注解实例</span></span><br><span class="line"></span><br><span class="line">            <span class="keyword">Description</span> <span class="keyword">description</span> = (<span class="keyword">Description</span>) cls.getAnnotation(<span class="keyword">Description</span>.<span class="keyword">class</span>);</span><br><span class="line">            System.out.<span class="keyword">println</span>(<span class="keyword">description</span>.author());</span><br><span class="line">            System.out.<span class="keyword">println</span>(<span class="keyword">description</span>.desc());</span><br><span class="line">            System.out.<span class="keyword">println</span>(<span class="keyword">description</span>.age());</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 4: 找到方法的注解</span></span><br><span class="line">        Method[] methods = cls.getMethods();</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> (Method method : methods) &#123;</span><br><span class="line">            <span class="keyword">boolean</span> isMethodAnnotation = method.isAnnotationPresent(<span class="keyword">Description</span>.<span class="keyword">class</span>);</span><br><span class="line">            <span class="keyword">if</span> (isMethodAnnotation) &#123;</span><br><span class="line">                <span class="keyword">Description</span> methodDescription = method.getAnnotation(<span class="keyword">Description</span>.<span class="keyword">class</span>);</span><br><span class="line">                System.out.<span class="keyword">println</span>(methodDescription.author());</span><br><span class="line">                System.out.<span class="keyword">println</span>(methodDescription.desc());</span><br><span class="line">                System.out.<span class="keyword">println</span>(methodDescription.age());</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 5: 方法注解解析的另外一种解析方法</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> (Method method : methods) &#123;</span><br><span class="line">            Annotation[] annotations = method.getAnnotations();</span><br><span class="line">            <span class="keyword">for</span> (Annotation annotation : annotations) &#123;</span><br><span class="line">                <span class="keyword">if</span> (annotation <span class="keyword">instanceof</span> <span class="keyword">Description</span>) &#123;</span><br><span class="line">                    <span class="keyword">Description</span> <span class="keyword">description</span> = (<span class="keyword">Description</span>) annotation;</span><br><span class="line">                    System.out.<span class="keyword">println</span>(<span class="keyword">description</span>.author());</span><br><span class="line">                    System.out.<span class="keyword">println</span>(<span class="keyword">description</span>.age());</span><br><span class="line">                    System.out.<span class="keyword">println</span>(<span class="keyword">description</span>.desc());</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
 </ol>
 </li>
@@ -1258,7 +1416,7 @@
     </span>
 
     <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="月薪5000元码农的自我修养">
+      <meta itemprop="name" content="40+岁大龄码农的自我修养">
     </span>
 
     
@@ -1374,7 +1532,7 @@
     </span>
 
     <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="月薪5000元码农的自我修养">
+      <meta itemprop="name" content="40+岁大龄码农的自我修养">
     </span>
 
     
@@ -1437,15 +1595,15 @@
 <li><h3 id="1-安装和设置java"><a href="#1-安装和设置java" class="headerlink" title="1 安装和设置java"></a>1 安装和设置java</h3><ul>
 <li>1: 搜索官方下载jdk相应版本, 然后双击安装</li>
 <li><p>2: iterm运行</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/usr/libexec/java_home -V</span><br></pre></td></tr></table></figure>
+<figure class="highlight autohotkey"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/usr/libexec/jav<span class="built_in">a_home</span> -V</span><br></pre></td></tr></table></figure>
 <p>出现类似</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/Library/Java/JavaVirtualMachines/jdk1.8.0_151.jdk/Contents/Home</span><br></pre></td></tr></table></figure>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="regexp">/Library/</span>Java<span class="regexp">/JavaVirtualMachines/</span>jdk1.<span class="number">8.0</span>_151.jdk<span class="regexp">/Contents/</span>Home</span><br></pre></td></tr></table></figure>
 <p>说明安装成功</p>
 </li>
 <li><p>3: 打开zsh, <code>vim ~/.zshrc</code> 最后面添加</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">export JAVA_HOME=$(/usr/libexec/java_home)</span><br></pre></td></tr></table></figure>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="builtin-name">export</span> <span class="attribute">JAVA_HOME</span>=$(/usr/libexec/java_home)</span><br></pre></td></tr></table></figure>
 <p>保存<br>4: 重新加载zshrc, <code>source ~/.zshrc</code>, 输入<code>echo $JAVA_HOME</code><br>出现</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/Library/Java/JavaVirtualMachines/jdk1.8.0_151.jdk/Contents/Home</span><br></pre></td></tr></table></figure>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="regexp">/Library/</span>Java<span class="regexp">/JavaVirtualMachines/</span>jdk1.<span class="number">8.0</span>_151.jdk<span class="regexp">/Contents/</span>Home</span><br></pre></td></tr></table></figure>
 <p>说明安装成功</p>
 </li>
 </ul>
@@ -1453,10 +1611,10 @@
 <li><h3 id="2-安装和设置maven"><a href="#2-安装和设置maven" class="headerlink" title="2 安装和设置maven"></a>2 安装和设置maven</h3><ul>
 <li>用brew安装maven <code>brew install maven</code></li>
 <li><p>item 运行 <code>mvn -v</code><br>出现这样结果说明安装成功</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Maven home: /usr/local/Cellar/maven/3.5.2/libexec</span><br><span class="line">Java version: 1.8.0_151, vendor: Oracle Corporation</span><br><span class="line">Java home: /Library/Java/JavaVirtualMachines/jdk1.8.0_151.jdk/Contents/Home/jre</span><br><span class="line">Default locale: zh_CN, platform encoding: UTF-8</span><br><span class="line">OS name: &quot;mac os x&quot;, version: &quot;10.12.6&quot;, arch: &quot;x86_64&quot;, family: &quot;mac&quot;</span><br></pre></td></tr></table></figure>
+<figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Maven <span class="string">home:</span> <span class="regexp">/usr/</span>local<span class="regexp">/Cellar/</span>maven<span class="regexp">/3.5.2/</span>libexec</span><br><span class="line">Java <span class="string">version:</span> <span class="number">1.8</span><span class="number">.0</span>_151, <span class="string">vendor:</span> Oracle Corporation</span><br><span class="line">Java <span class="string">home:</span> <span class="regexp">/Library/</span>Java<span class="regexp">/JavaVirtualMachines/</span>jdk1<span class="number">.8</span><span class="number">.0</span>_151.jdk<span class="regexp">/Contents/</span>Home/jre</span><br><span class="line">Default <span class="string">locale:</span> zh_CN, platform <span class="string">encoding:</span> UTF<span class="number">-8</span></span><br><span class="line">OS <span class="string">name:</span> <span class="string">"mac os x"</span>, <span class="string">version:</span> <span class="string">"10.12.6"</span>, <span class="string">arch:</span> <span class="string">"x86_64"</span>, <span class="string">family:</span> <span class="string">"mac"</span></span><br></pre></td></tr></table></figure>
 </li>
 <li><p>改成阿里源, 参考<a href="http://blog.csdn.net/liangyihuai/article/details/57406870" target="_blank" rel="noopener">来源</a> <code>/usr/local/Cellar/maven/3.5.2/libexec/conf</code> 这个目录下找到setting.xml文件, 打开.<br>在<code>mirrors</code>字段下填入</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;mirror&gt;</span><br><span class="line">        &lt;id&gt;alimaven&lt;/id&gt;</span><br><span class="line">        &lt;name&gt;aliyun maven&lt;/name&gt;</span><br><span class="line">        &lt;url&gt;http://maven.aliyun.com/nexus/content/groups/public/&lt;/url&gt;</span><br><span class="line">        &lt;mirrorOf&gt;central&lt;/mirrorOf&gt;</span><br><span class="line">  &lt;/mirror&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">mirror</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">id</span>&gt;</span>alimaven<span class="tag">&lt;/<span class="name">id</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">name</span>&gt;</span>aliyun maven<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">url</span>&gt;</span>http://maven.aliyun.com/nexus/content/groups/public/<span class="tag">&lt;/<span class="name">url</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">mirrorOf</span>&gt;</span>central<span class="tag">&lt;/<span class="name">mirrorOf</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">mirror</span>&gt;</span></span><br></pre></td></tr></table></figure>
 </li>
 <li><p>修改idea的默认maven, 参考<a href="http://www.jianshu.com/p/43b65774cc15" target="_blank" rel="noopener">来源1</a>, <a href="http://blog.csdn.net/cherrycheng_/article/details/51729272" target="_blank" rel="noopener">来源2</a></p>
 <p><img src="http://ww1.sinaimg.cn/large/7293e3b7gy1flopsvyxqoj20s008oq4k.jpg" alt=""></p>
@@ -1517,7 +1675,7 @@
     </span>
 
     <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="月薪5000元码农的自我修养">
+      <meta itemprop="name" content="40+岁大龄码农的自我修养">
     </span>
 
     
@@ -1580,7 +1738,7 @@
 <li>颜色主题， Monokai_2</li>
 <li>java类模板</li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line"> * @author: 个人姓名</span><br><span class="line"> * @date: $&#123;DATE&#125; $&#123;TIME&#125;</span><br><span class="line"> * @className: $&#123;NAME&#125;</span><br><span class="line"> * @description:</span><br><span class="line"> */</span><br></pre></td></tr></table></figure>
+<figure class="highlight elixir"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line"> * <span class="variable">@author</span>: 个人姓名</span><br><span class="line"> * <span class="variable">@date</span>: <span class="variable">$&#123;</span>DATE&#125; <span class="variable">$&#123;</span>TIME&#125;</span><br><span class="line"> * <span class="variable">@className</span>: <span class="variable">$&#123;</span>NAME&#125;</span><br><span class="line"> * <span class="variable">@description</span><span class="symbol">:</span></span><br><span class="line"> *<span class="regexp">/</span></span><br></pre></td></tr></table></figure>
 <ul>
 <li>插件<ul>
 <li>阿里, 插件搜索 alibaba <a href="https://segmentfault.com/a/1190000011560013" target="_blank" rel="noopener">参考</a></li>
@@ -1598,119 +1756,6 @@
 </ul>
 </li>
 </ul>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope="" itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://mrxin.github.io/2017/08/17/asyncio-aiohttop-hupu-spider/">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="小信">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="月薪5000元码农的自我修养">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/08/17/asyncio-aiohttop-hupu-spider/" itemprop="url">用asyncio协程和aiohttp爬取虎扑步行街前100页的主贴</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-08-17T20:11:01+08:00">
-                2017-08-17
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br></pre></td><td class="code"><pre><span class="line">#!/usr/bin/env python</span><br><span class="line"># -*- coding: utf-8 -*-</span><br><span class="line">import asyncio</span><br><span class="line">import aiohttp</span><br><span class="line">import time</span><br><span class="line">from pyquery import PyQuery as pq</span><br><span class="line">import sys</span><br><span class="line">import codecs</span><br><span class="line">import json</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">async def get_post_url(url):</span><br><span class="line">    &apos;&apos;&apos;</span><br><span class="line">    得到每一页的所有链接</span><br><span class="line">    &apos;&apos;&apos;</span><br><span class="line">    async with aiohttp.ClientSession() as client:</span><br><span class="line">        async with client.get(url) as response:</span><br><span class="line">            body = await response.text(encoding=&quot;utf-8&quot;)</span><br><span class="line">            # print(body)</span><br><span class="line">            post_list = parser(body)</span><br><span class="line">            for post_url in post_list:</span><br><span class="line">                post = &#123;&#125;</span><br><span class="line">                post[&quot;url&quot;] = post_url</span><br><span class="line">                post_urls.append(post_url)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">async def get_post_info(url):</span><br><span class="line">    &apos;&apos;&apos;</span><br><span class="line">    根据链接得到标题 作者 发帖时间等内容</span><br><span class="line">    &apos;&apos;&apos;</span><br><span class="line">    async with aiohttp.ClientSession() as client:</span><br><span class="line">        async with client.get(url) as response:</span><br><span class="line">            body = await response.text(encoding=&quot;utf-8&quot;)</span><br><span class="line">            post_info = paser_post(body)</span><br><span class="line">            if post_info is not None:</span><br><span class="line">                post_info[&quot;url&quot;] = url</span><br><span class="line">                post_lists.append(post_info)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">def paser_post(html):</span><br><span class="line">    &apos;&apos;&apos;</span><br><span class="line">    解析列表页</span><br><span class="line">    &apos;&apos;&apos;</span><br><span class="line">    post_info = &#123;&#125;</span><br><span class="line">    doc = pq(html)</span><br><span class="line">    main_post = doc(&apos;div#tpc&apos;)</span><br><span class="line">    post_author = main_post.find(&apos;div.author a.u&apos;).text()</span><br><span class="line">    post_time = main_post.find(&apos;div.author span.stime&apos;).text()</span><br><span class="line">    post_title = doc(&apos;h1#j_data&apos;).text()</span><br><span class="line">    post_info[&quot;title&quot;] = post_title</span><br><span class="line">    post_info[&apos;time&apos;] = post_time</span><br><span class="line">    post_info[&apos;author&apos;] = post_author</span><br><span class="line">    if not post_title and not post_time and not post_author:</span><br><span class="line">        return None</span><br><span class="line">    return post_info</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">def parser(html):</span><br><span class="line">    &apos;&apos;&apos;</span><br><span class="line">    解析帖子页</span><br><span class="line">    &apos;&apos;&apos;</span><br><span class="line">    post_list = []</span><br><span class="line">    doc = pq(html)</span><br><span class="line">    links_item = doc(&apos;table[id=&quot;pl&quot;]&apos;).find(&apos;tbody&apos;).find(&apos;tr[mid]&apos;)</span><br><span class="line">    for link_item in links_item.items():</span><br><span class="line">        post_link = link_item.find(&apos;td.p_title&apos;).find(&apos;a&apos;).attr(&apos;href&apos;)</span><br><span class="line">        post_link = &quot;https://bbs.hupu.com&quot; + post_link</span><br><span class="line">        post_list.append(post_link)</span><br><span class="line">    return post_list</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"># 得到开始时间</span><br><span class="line">start_time = time.time()</span><br><span class="line"># 存储数据的列表</span><br><span class="line">post_lists = []</span><br><span class="line"># 每一个帖子链接的列表</span><br><span class="line">post_urls = []</span><br><span class="line"># 创建时间循环</span><br><span class="line">loop = asyncio.get_event_loop()</span><br><span class="line"></span><br><span class="line"># 将步行街前一百的链接加入事件循环, 同时访问这100页, 得到所有的帖子链接</span><br><span class="line">urls = [</span><br><span class="line">    &quot;https://bbs.hupu.com/bxj-postdate-&#123;&#125;&quot;.format(i) for i in range(1, 101)]</span><br><span class="line">tasks = [get_post_url(url) for url in urls]</span><br><span class="line">loop.run_until_complete(asyncio.wait(tasks))</span><br><span class="line"># 输出帖子总数</span><br><span class="line">print(len(post_urls))</span><br><span class="line"># 将所有帖子链接加入事件循环, 得要内容</span><br><span class="line">for i in range(0, len(post_urls), 1000):</span><br><span class="line">    lenth = len(post_urls) - i</span><br><span class="line">    if lenth &gt;= 1000:</span><br><span class="line">        lenth = 1000</span><br><span class="line">    print(i)</span><br><span class="line">    end_time = time.time()</span><br><span class="line">    print(&quot;cast time&quot;, end_time - start_time)</span><br><span class="line">    tasks = [get_post_info(post_urls[num + i]) for num in range(lenth)]</span><br><span class="line">    loop.run_until_complete(asyncio.wait(tasks))</span><br><span class="line">loop.close()</span><br><span class="line"></span><br><span class="line"># 存储所有数据.</span><br><span class="line">post_dicts = &#123;&quot;posts&quot;: post_lists, &quot;lenth&quot;: len(post_lists)&#125;</span><br><span class="line">with codecs.open(&quot;post.json&quot;, &quot;w&quot;, &quot;utf-8&quot;) as f:</span><br><span class="line">    f.write(json.dumps(post_dicts, indent=True))</span><br><span class="line">end_time = time.time()</span><br><span class="line"></span><br><span class="line">print(&quot;cast time&quot;, end_time - start_time)</span><br></pre></td></tr></table></figure>
-<p>因为虎扑没有登录只能看到前100页的帖子.<br>总共11594个主贴, 总共耗费了358秒.<br>大概每秒爬32个帖子.<br>开了500个协程和1000个协程,速度差不多.<br>应该是单ip的极限了.</p>
 
           
         
@@ -1792,7 +1837,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">68</span>
+                <span class="site-state-item-count">69</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>

@@ -95,7 +95,7 @@
 <meta property="og:type" content="article">
 <meta property="og:title" content="python爬取贴吧楼中楼">
 <meta property="og:url" content="http://mrxin.github.io/2015/09/19/tieba-louzhonglou/index.html">
-<meta property="og:site_name" content="月薪5000元码农的自我修养">
+<meta property="og:site_name" content="40+岁大龄码农的自我修养">
 <meta property="og:description" content="贴吧把每个帖子每页的楼主楼回复都放到一个json数据里面.首先是找出这个json连接,用charles抓包发现链接是这个样子的, 1http://tieba.baidu.com/p/totalComment?t=1442661243&amp;amp;tid=3924896002&amp;amp;fid=1627732&amp;amp;pn=1&amp;amp;see_lz=0 分析后发现,t = 1442661243这个数字是时">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://ww2.sinaimg.cn/large/7293e3b7jw1ew81ayffluj20tx09940u.jpg">
@@ -137,7 +137,7 @@
 
 
 
-  <title>python爬取贴吧楼中楼 | 月薪5000元码农的自我修养</title>
+  <title>python爬取贴吧楼中楼 | 40+岁大龄码农的自我修养</title>
 </head>
 
 <body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -173,7 +173,7 @@
     <div class="custom-logo-site-title">
       <a href="/" class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
-        <span class="site-title">月薪5000元码农的自我修养</span>
+        <span class="site-title">40+岁大龄码农的自我修养</span>
         <span class="logo-line-after"><i></i></span>
       </a>
     </div>
@@ -307,7 +307,7 @@
     </span>
 
     <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="月薪5000元码农的自我修养">
+      <meta itemprop="name" content="40+岁大龄码农的自我修养">
     </span>
 
     
@@ -363,11 +363,11 @@
 
       
         <p>贴吧把每个帖子每页的楼主楼回复都放到一个json数据里面.<br>首先是找出这个json连接,<br>用charles抓包发现<br><img src="http://ww2.sinaimg.cn/large/7293e3b7jw1ew81ayffluj20tx09940u.jpg" alt=""><br>链接是这个样子的,</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http://tieba.baidu.com/p/totalComment?t=1442661243&amp;tid=3924896002&amp;fid=1627732&amp;pn=1&amp;see_lz=0</span><br></pre></td></tr></table></figure>
+<figure class="highlight dns"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http://tieba.baidu.com/p/totalComment?t=<span class="number">1442661243</span>&amp;tid=<span class="number">3924896002</span>&amp;fid=<span class="number">1627732</span>&amp;pn=<span class="number">1</span>&amp;see_lz=<span class="number">0</span></span><br></pre></td></tr></table></figure>
 <p>分析后发现,t = 1442661243这个数字是时间,可以用python得time.time()函数得到, tid=3924896002是帖子的数字没啥好说的,<br>fid=1627732是论坛id我想应该是每个贴吧的数字id,比如dota2贴吧是:1627732.</p>
 <p>用bs4分析每个帖子的数据,拼凑出这个链接来就ok.</p>
 <p>这是代码,不过不完美.还需要用re把表情 语音什么的过滤掉.根据每个回帖的id遍历字典找到相应的楼中楼回复.</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">#!/usr/bin/env python</span><br><span class="line"># -*- coding: utf-8 -*-</span><br><span class="line"></span><br><span class="line">import requests</span><br><span class="line">from bs4 import BeautifulSoup</span><br><span class="line">import json</span><br><span class="line">import time</span><br><span class="line"></span><br><span class="line">url = &apos;http://tieba.baidu.com/p/4044110950&apos;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">req = requests.get(url)</span><br><span class="line">soup = BeautifulSoup(req.text, &quot;html.parser&quot;)</span><br><span class="line">forum_ids = soup.find(&apos;div&apos;, class_=&apos;p_postlist&apos;).find(&apos;div&apos;, class_=&apos;l_post l_post_bright j_l_post clearfix  &apos;).get(&apos;data-field&apos;)</span><br><span class="line">forum_id = json.loads(forum_ids)[&apos;content&apos;][&apos;forum_id&apos;]</span><br><span class="line">localTime = int(time.time())</span><br><span class="line">commentURL = &apos;http://tieba.baidu.com/p/totalComment?t=&apos; + str(localTime) + &apos;&amp;tid=&apos; + str(url.split(&apos;/&apos;)[-1]) + &apos;&amp;fid=&apos;+str(forum_id)+&apos;&amp;pn=1&amp;see_lz=0&apos;</span><br><span class="line"></span><br><span class="line">print commentURL</span><br><span class="line">commentreq = requests.get(commentURL)</span><br><span class="line"></span><br><span class="line">for k, v in commentreq.json()[&apos;data&apos;][&apos;comment_list&apos;].items():</span><br><span class="line">    for j in v[&apos;comment_info&apos;]:</span><br><span class="line">        print j[&apos;username&apos;].encode(&apos;utf-8&apos;),</span><br><span class="line">        print j[&apos;content&apos;].encode(&apos;utf-8&apos;)</span><br><span class="line">    print</span><br><span class="line">    print</span><br></pre></td></tr></table></figure>
+<figure class="highlight processing"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">#!/usr/bin/env python</span><br><span class="line"># -*- coding: utf<span class="number">-8</span> -*-</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> requests</span><br><span class="line">from bs4 <span class="keyword">import</span> BeautifulSoup</span><br><span class="line"><span class="keyword">import</span> json</span><br><span class="line"><span class="keyword">import</span> time</span><br><span class="line"></span><br><span class="line">url = <span class="string">'http://tieba.baidu.com/p/4044110950'</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">req = requests.<span class="built_in">get</span>(url)</span><br><span class="line">soup = BeautifulSoup(req.<span class="built_in">text</span>, <span class="string">"html.parser"</span>)</span><br><span class="line">forum_ids = soup.find(<span class="string">'div'</span>, class_=<span class="string">'p_postlist'</span>).find(<span class="string">'div'</span>, class_=<span class="string">'l_post l_post_bright j_l_post clearfix  '</span>).<span class="built_in">get</span>(<span class="string">'data-field'</span>)</span><br><span class="line">forum_id = json.loads(forum_ids)[<span class="string">'content'</span>][<span class="string">'forum_id'</span>]</span><br><span class="line">localTime = <span class="built_in">int</span>(time.time())</span><br><span class="line">commentURL = <span class="string">'http://tieba.baidu.com/p/totalComment?t='</span> + <span class="built_in">str</span>(localTime) + <span class="string">'&amp;tid='</span> + <span class="built_in">str</span>(url.<span class="built_in">split</span>(<span class="string">'/'</span>)[<span class="number">-1</span>]) + <span class="string">'&amp;fid='</span>+<span class="built_in">str</span>(forum_id)+<span class="string">'&amp;pn=1&amp;see_lz=0'</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span> commentURL</span><br><span class="line">commentreq = requests.<span class="built_in">get</span>(commentURL)</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> k, v in commentreq.json()[<span class="string">'data'</span>][<span class="string">'comment_list'</span>].items():</span><br><span class="line">    <span class="keyword">for</span> j in v[<span class="string">'comment_info'</span>]:</span><br><span class="line">        <span class="built_in">print</span> j[<span class="string">'username'</span>].encode(<span class="string">'utf-8'</span>),</span><br><span class="line">        <span class="built_in">print</span> j[<span class="string">'content'</span>].encode(<span class="string">'utf-8'</span>)</span><br><span class="line">    <span class="built_in">print</span></span><br><span class="line">    <span class="built_in">print</span></span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -483,7 +483,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">68</span>
+                <span class="site-state-item-count">69</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>

@@ -95,7 +95,7 @@
 <meta property="og:type" content="article">
 <meta property="og:title" content="腾讯视频评论动态网页评论的抓取">
 <meta property="og:url" content="http://mrxin.github.io/2015/08/27/tencent-vido-comment/index.html">
-<meta property="og:site_name" content="月薪5000元码农的自我修养">
+<meta property="og:site_name" content="40+岁大龄码农的自我修养">
 <meta property="og:description" content="12345678910111213141516171819202122232425262728293031#!/usr/bin/env python# -*- coding: utf-8 -*-# @Date    : 2015-08-23 20:03:51# @Author  : Xin(skywater@gmail.com)# @Link    : playbear.github.ioimpo">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:updated_time" content="2016-08-08T10:15:00.000Z">
@@ -135,7 +135,7 @@
 
 
 
-  <title>腾讯视频评论动态网页评论的抓取 | 月薪5000元码农的自我修养</title>
+  <title>腾讯视频评论动态网页评论的抓取 | 40+岁大龄码农的自我修养</title>
 </head>
 
 <body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -171,7 +171,7 @@
     <div class="custom-logo-site-title">
       <a href="/" class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
-        <span class="site-title">月薪5000元码农的自我修养</span>
+        <span class="site-title">40+岁大龄码农的自我修养</span>
         <span class="logo-line-after"><i></i></span>
       </a>
     </div>
@@ -305,7 +305,7 @@
     </span>
 
     <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="月薪5000元码农的自我修养">
+      <meta itemprop="name" content="40+岁大龄码农的自我修养">
     </span>
 
     
@@ -360,7 +360,7 @@
       
 
       
-        <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">#!/usr/bin/env python</span><br><span class="line"># -*- coding: utf-8 -*-</span><br><span class="line"># @Date    : 2015-08-23 20:03:51</span><br><span class="line"># @Author  : Xin(skywater@gmail.com)</span><br><span class="line"># @Link    : playbear.github.io</span><br><span class="line"></span><br><span class="line">import requests</span><br><span class="line">from bs4 import BeautifulSoup</span><br><span class="line">import json</span><br><span class="line"></span><br><span class="line">url = &apos;http://v.qq.com/cover/q/qviv9yyjn83eyfu/c0017ivdw3z.html&apos;</span><br><span class="line">my_headers = &#123;&apos;User-Agent&apos;:&apos;Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/44.0.2403.157 Safari/537.36&apos;&#125;</span><br><span class="line"></span><br><span class="line">req = requests.get(url)</span><br><span class="line"></span><br><span class="line">soup = BeautifulSoup(req.text, &quot;lxml&quot;)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">ji_shu = soup.find_all(&apos;a&apos;, class_=&apos;album_link&apos;)</span><br><span class="line">for ji in ji_shu:</span><br><span class="line">    num = ji.get_text().encode(&apos;utf-8&apos;).strip()</span><br><span class="line">    ji_url = &apos;http://sns.video.qq.com/fcgi-bin/video_comment_id?otype=json&amp;op=3&amp;vid=&apos; + ji.get(&apos;id&apos;)</span><br><span class="line">    ji_req = requests.get(ji_url)</span><br><span class="line">    ji_id = json.loads(ji_req.content.split(&apos;=&apos;)[1][:-1])[&apos;comment_id&apos;]</span><br><span class="line">    comment_url = &apos;http://coral.qq.com/article/&apos; + ji_id.encode(&apos;utf-8&apos;) + &apos;/comment?commentid=0&amp;reqnum=10&apos;</span><br><span class="line">    comment_req = requests.get(comment_url, headers=my_headers)</span><br><span class="line">    for i in comment_req.json()[&apos;data&apos;][&apos;commentid&apos;]:</span><br><span class="line">        print &apos;第%s集&apos; % num, i[&apos;userinfo&apos;][&apos;nick&apos;], i[&apos;timeDifference&apos;]</span><br><span class="line">        print i[&apos;content&apos;]</span><br><span class="line">        print</span><br><span class="line">    raw_input()</span><br></pre></td></tr></table></figure>
+        <figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">#!/usr/bin/env python</span><br><span class="line"># -*- coding: utf<span class="number">-8</span> -*-</span><br><span class="line"># <span class="meta">@Date</span>    : <span class="number">2015</span><span class="number">-08</span><span class="number">-23</span> <span class="number">20</span>:<span class="number">03</span>:<span class="number">51</span></span><br><span class="line"># <span class="meta">@Author</span>  : Xin(skywater<span class="meta">@gmail</span>.com)</span><br><span class="line"># <span class="meta">@Link</span>    : playbear.github.io</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> requests</span><br><span class="line">from bs4 <span class="keyword">import</span> BeautifulSoup</span><br><span class="line"><span class="keyword">import</span> json</span><br><span class="line"></span><br><span class="line">url = <span class="string">'http://v.qq.com/cover/q/qviv9yyjn83eyfu/c0017ivdw3z.html'</span></span><br><span class="line">my_headers = &#123;<span class="string">'User-Agent'</span>:<span class="string">'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/44.0.2403.157 Safari/537.36'</span>&#125;</span><br><span class="line"></span><br><span class="line">req = requests.<span class="keyword">get</span>(url)</span><br><span class="line"></span><br><span class="line">soup = BeautifulSoup(req.text, <span class="string">"lxml"</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">ji_shu = soup.find_all(<span class="string">'a'</span>, class_=<span class="string">'album_link'</span>)</span><br><span class="line"><span class="keyword">for</span> ji <span class="keyword">in</span> ji_shu:</span><br><span class="line">    <span class="built_in">num</span> = ji.get_text().encode(<span class="string">'utf-8'</span>).strip()</span><br><span class="line">    ji_url = <span class="string">'http://sns.video.qq.com/fcgi-bin/video_comment_id?otype=json&amp;op=3&amp;vid='</span> + ji.<span class="keyword">get</span>(<span class="string">'id'</span>)</span><br><span class="line">    ji_req = requests.<span class="keyword">get</span>(ji_url)</span><br><span class="line">    ji_id = json.loads(ji_req.content.split(<span class="string">'='</span>)[<span class="number">1</span>][:<span class="number">-1</span>])[<span class="string">'comment_id'</span>]</span><br><span class="line">    comment_url = <span class="string">'http://coral.qq.com/article/'</span> + ji_id.encode(<span class="string">'utf-8'</span>) + <span class="string">'/comment?commentid=0&amp;reqnum=10'</span></span><br><span class="line">    comment_req = requests.<span class="keyword">get</span>(comment_url, headers=my_headers)</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> comment_req.json()[<span class="string">'data'</span>][<span class="string">'commentid'</span>]:</span><br><span class="line">        <span class="built_in">print</span> <span class="string">'第%s集'</span> % <span class="built_in">num</span>, i[<span class="string">'userinfo'</span>][<span class="string">'nick'</span>], i[<span class="string">'timeDifference'</span>]</span><br><span class="line">        <span class="built_in">print</span> i[<span class="string">'content'</span>]</span><br><span class="line">        <span class="built_in">print</span></span><br><span class="line">    raw_input()</span><br></pre></td></tr></table></figure>
       
     </div>
 
@@ -475,7 +475,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">68</span>
+                <span class="site-state-item-count">69</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>

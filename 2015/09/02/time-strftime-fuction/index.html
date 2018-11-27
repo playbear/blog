@@ -95,7 +95,7 @@
 <meta property="og:type" content="article">
 <meta property="og:title" content="time.strftime()用法">
 <meta property="og:url" content="http://mrxin.github.io/2015/09/02/time-strftime-fuction/index.html">
-<meta property="og:site_name" content="月薪5000元码农的自我修养">
+<meta property="og:site_name" content="40+岁大龄码农的自我修养">
 <meta property="og:description" content="参考 链接 和 链接 描述Python time strftime() 函数接收以时间元组，并返回以可读字符串表示的当地时间，格式由参数format决定。 语法strftime()方法语法： time.strftime(format[, t]) 说明python中时间日期格式化符号： %y 两位数的年份表示（00-99）%Y 四位数的年份表示（000-9999）%m 月份（01-12）%d 月内中">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:updated_time" content="2016-08-08T10:15:00.000Z">
@@ -135,7 +135,7 @@
 
 
 
-  <title>time.strftime()用法 | 月薪5000元码农的自我修养</title>
+  <title>time.strftime()用法 | 40+岁大龄码农的自我修养</title>
 </head>
 
 <body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -171,7 +171,7 @@
     <div class="custom-logo-site-title">
       <a href="/" class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
-        <span class="site-title">月薪5000元码农的自我修养</span>
+        <span class="site-title">40+岁大龄码农的自我修养</span>
         <span class="logo-line-after"><i></i></span>
       </a>
     </div>
@@ -305,7 +305,7 @@
     </span>
 
     <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="月薪5000元码农的自我修养">
+      <meta itemprop="name" content="40+岁大龄码农的自我修养">
     </span>
 
     
@@ -369,11 +369,11 @@
 <h3 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h3><ul>
 <li>###获取时间的方法</li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt;import time</span><br><span class="line">&gt;&gt;&gt;this_time=time.localtime()</span><br><span class="line">&gt;&gt;&gt; this_time</span><br><span class="line">time.struct_time(tm_year=2013, tm_mon=6, tm_mday=6, tm_hour=13, tm_min=42, tm_sec=38, tm_wday=3, tm_yday=157, tm_isdst=0)</span><br><span class="line">&gt;&gt;&gt; type(this_time)</span><br><span class="line">&lt;type &apos;time.struct_time&apos;&gt;</span><br><span class="line"></span><br><span class="line">&gt;&gt;&gt; this_year=this_time[0]</span><br><span class="line">&gt;&gt;&gt; this_year</span><br><span class="line">2013</span><br><span class="line">&gt;&gt;&gt; for time in this_time:</span><br><span class="line">...     print time</span><br><span class="line">...</span><br><span class="line">2013</span><br><span class="line">6</span><br><span class="line">6</span><br><span class="line">13</span><br><span class="line">42</span><br><span class="line">38</span><br><span class="line">3</span><br><span class="line">157</span><br><span class="line">0</span><br><span class="line"></span><br><span class="line">time.strftime(&apos;%Y-%m-%d %T&apos;,time.localtime(time.time())</span><br><span class="line"> # 2014-09-04 23:42:34</span><br></pre></td></tr></table></figure>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;</span>&gt;import time</span><br><span class="line"><span class="meta">&gt;&gt;</span>&gt;this_time=time.localtime()</span><br><span class="line"><span class="meta">&gt;&gt;</span>&gt; this_time</span><br><span class="line">time.struct_time(tm_year=<span class="number">2013</span>, tm_mon=<span class="number">6</span>, tm_mday=<span class="number">6</span>, tm_hour=<span class="number">13</span>, tm_min=<span class="number">42</span>, tm_sec=<span class="number">38</span>, tm_wday=<span class="number">3</span>, tm_yday=<span class="number">157</span>, tm_isdst=<span class="number">0</span>)</span><br><span class="line"><span class="meta">&gt;&gt;</span>&gt; type(this_time)</span><br><span class="line">&lt;type <span class="string">'time.struct_time'</span>&gt;</span><br><span class="line"></span><br><span class="line"><span class="meta">&gt;&gt;</span>&gt; this_year=this_time[<span class="number">0</span>]</span><br><span class="line"><span class="meta">&gt;&gt;</span>&gt; this_year</span><br><span class="line"><span class="number">2013</span></span><br><span class="line"><span class="meta">&gt;&gt;</span>&gt; for time in <span class="symbol">this_time:</span></span><br><span class="line">...     print time</span><br><span class="line">...</span><br><span class="line"><span class="number">2013</span></span><br><span class="line"><span class="number">6</span></span><br><span class="line"><span class="number">6</span></span><br><span class="line"><span class="number">13</span></span><br><span class="line"><span class="number">42</span></span><br><span class="line"><span class="number">38</span></span><br><span class="line"><span class="number">3</span></span><br><span class="line"><span class="number">157</span></span><br><span class="line"><span class="number">0</span></span><br><span class="line"></span><br><span class="line">time.strftime(<span class="string">'%Y-%m-%d %T'</span>,time.localtime(time.time())</span><br><span class="line"> <span class="comment"># 2014-09-04 23:42:34</span></span><br></pre></td></tr></table></figure>
 <ul>
 <li><h3 id="取过去具体时间的方法"><a href="#取过去具体时间的方法" class="headerlink" title="取过去具体时间的方法:"></a>取过去具体时间的方法:</h3></li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">import time</span><br><span class="line"></span><br><span class="line"> #取一天前的当前具体时间</span><br><span class="line">time.strftime(&apos;%Y-%m-%d %T&apos;,time.localtime(time.time()-24*60*60))</span><br><span class="line"></span><br><span class="line"> #取20天前的当前具体时间</span><br><span class="line">time.strftime(&apos;%Y-%m-%d %T&apos;,time.localtime(time.time()-20*24*60*60))</span><br><span class="line"></span><br><span class="line"> #取20天前当前具体时间的前2小时</span><br><span class="line">time.strftime(&apos;%Y-%m-%d %T&apos;,time.localtime(time.time()-20*24*60*60-2*60*60))</span><br></pre></td></tr></table></figure>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">import time</span><br><span class="line"></span><br><span class="line"> #取一天前的当前具体时间</span><br><span class="line"><span class="selector-tag">time</span>.strftime(<span class="string">'%Y-%m-%d %T'</span>,<span class="selector-tag">time</span>.localtime(<span class="selector-tag">time</span>.time()-<span class="number">24</span>*<span class="number">60</span>*<span class="number">60</span>))</span><br><span class="line"></span><br><span class="line"> #取<span class="number">20</span>天前的当前具体时间</span><br><span class="line"><span class="selector-tag">time</span>.strftime(<span class="string">'%Y-%m-%d %T'</span>,<span class="selector-tag">time</span>.localtime(<span class="selector-tag">time</span>.time()-<span class="number">20</span>*<span class="number">24</span>*<span class="number">60</span>*<span class="number">60</span>))</span><br><span class="line"></span><br><span class="line"> #取<span class="number">20</span>天前当前具体时间的前<span class="number">2</span>小时</span><br><span class="line"><span class="selector-tag">time</span>.strftime(<span class="string">'%Y-%m-%d %T'</span>,<span class="selector-tag">time</span>.localtime(<span class="selector-tag">time</span>.time()-<span class="number">20</span>*<span class="number">24</span>*<span class="number">60</span>*<span class="number">60</span>-<span class="number">2</span>*<span class="number">60</span>*<span class="number">60</span>))</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -498,7 +498,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">68</span>
+                <span class="site-state-item-count">69</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>

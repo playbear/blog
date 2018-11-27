@@ -91,12 +91,12 @@
 
 
 <meta property="og:type" content="website">
-<meta property="og:title" content="月薪5000元码农的自我修养">
+<meta property="og:title" content="40+岁大龄码农的自我修养">
 <meta property="og:url" content="http://mrxin.github.io/page/6/index.html">
-<meta property="og:site_name" content="月薪5000元码农的自我修养">
+<meta property="og:site_name" content="40+岁大龄码农的自我修养">
 <meta property="og:locale" content="zh-Hans">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="月薪5000元码农的自我修养">
+<meta name="twitter:title" content="40+岁大龄码农的自我修养">
 
 
 
@@ -130,7 +130,7 @@
 
 
 
-  <title>月薪5000元码农的自我修养</title>
+  <title>40+岁大龄码农的自我修养</title>
 </head>
 
 <body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -168,7 +168,7 @@
     <div class="custom-logo-site-title">
       <a href="/" class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
-        <span class="site-title">月薪5000元码农的自我修养</span>
+        <span class="site-title">40+岁大龄码农的自我修养</span>
         <span class="logo-line-after"><i></i></span>
       </a>
     </div>
@@ -293,6 +293,175 @@
   
 
   <article class="post post-type-normal " itemscope="" itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://mrxin.github.io/2015/06/29/python_tips/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="小信">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="40+岁大龄码农的自我修养">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2015/06/29/python_tips/" itemprop="url">自己需要记住和时常复习的python要点和小技巧</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2015-06-29T21:45:43+08:00">
+                2015-06-29
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>不定时更新中,<br>20141007最新更新</p>
+<ul>
+<li><h3 id="列出100以内被3整除的数更简单的方法"><a href="#列出100以内被3整除的数更简单的方法" class="headerlink" title="列出100以内被3整除的数更简单的方法:"></a>列出100以内被3整除的数更简单的方法:</h3><pre><code>range(3,100,3)    
+</code></pre></li>
+</ul>
+<ul>
+<li><h3 id="删除读取文本文件换行回车的方法"><a href="#删除读取文本文件换行回车的方法" class="headerlink" title="删除读取文本文件换行回车的方法:"></a>删除读取文本文件换行回车的方法:</h3><pre><code>line.strip()
+</code></pre></li>
+<li><h3 id="判断字符串是否是回文的简单方法"><a href="#判断字符串是否是回文的简单方法" class="headerlink" title="判断字符串是否是回文的简单方法:"></a>判断字符串是否是回文的简单方法:</h3><pre><code>def isPalindrome(s):
+    return s == s[::-1]
+</code></pre></li>
+<li><h3 id="字符串的一些方法"><a href="#字符串的一些方法" class="headerlink" title="字符串的一些方法:"></a>字符串的一些方法:</h3><ul>
+<li>S.upper() #S中的字母大写</li>
+<li>S.lower() #S中的字母小写</li>
+<li>S.capitalize() #首字母大写</li>
+<li>S.title() #每个单词首字母大写</li>
+<li>S.count(str,,) #S字符串范围内str字符出现的次数</li>
+<li>S.find(str,,) #S字符串范围内第一个str字符的索引</li>
+<li>S.istitle() #每个单词首字母是否大写的，且其它为小写，</li>
+<li>S.isupper() #S中的字母是否全是大写</li>
+<li>S.islower() #S中的字母是否全是小写</li>
+<li>S.isalpha() #S中的字符是否只有字母组成</li>
+<li>S.isalnum() #S中得字符是否只有字母或者数字组成</li>
+<li>S.isdigit() #S中的字符是否只有数字组成</li>
+<li>S.lower() #全部小写</li>
+<li>S.upper() #全部大写</li>
+<li>S.join(S1) #以S为分隔符,将S1中所有元素合并成一个新的字符串</li>
+<li>S.strip() #去掉S前后的空格</li>
+<li>S.replace(s1,s2) #将S中的s1用s2代替</li>
+</ul>
+</li>
+<li><h3 id="在collections模块中有一个Counter类"><a href="#在collections模块中有一个Counter类" class="headerlink" title="在collections模块中有一个Counter类"></a>在collections模块中有一个Counter类</h3><p>   Counter类的目的是用来跟踪值出现的次数。它是一个无序的容器类型，以字典的键值对形式存储，其中元素作为key，其计数作为value。计数值可以是任意的Interger（包括0和负数）。<br>   例如:统计一个字符串中重复字母的在字母表最先出现的字符</p>
+</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> collections <span class="keyword">import</span> Counter</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">checkio</span><span class="params">(text)</span>:</span></span><br><span class="line">    count = Counter([x <span class="keyword">for</span> x <span class="keyword">in</span> text.lower() <span class="keyword">if</span> x.isalpha()])</span><br><span class="line">    m = max(count.values())</span><br><span class="line">    <span class="keyword">return</span> sorted([x <span class="keyword">for</span> (x, y) <span class="keyword">in</span> count.items() <span class="keyword">if</span> y == m])[<span class="number">0</span>]</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">"__main__"</span>:</span><br><span class="line">    print(checkio(<span class="string">"Hello World!"</span>))</span><br><span class="line">    print(checkio(<span class="string">"How do you do?"</span>))</span><br><span class="line">    print(checkio(<span class="string">u"One"</span>))</span><br><span class="line">    print(checkio(<span class="string">u"Oops!"</span>))</span><br></pre></td></tr></table></figure>
+<p>   counter的方法有增加(updata)和减少(subtract)两种:<br>   比如:</p>
+<figure class="highlight axapta"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">count</span> = Counter(<span class="string">'which'</span>)</span><br><span class="line"><span class="keyword">count</span>[<span class="string">'h'</span>]</span><br><span class="line"> <span class="meta">#结果显示:2</span></span><br><span class="line"><span class="keyword">count</span>.update(<span class="string">'witch'</span>)</span><br><span class="line"><span class="keyword">count</span>.[<span class="string">'h'</span>] </span><br><span class="line"> <span class="meta">#结果显示:3</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li><h3 id="RE"><a href="#RE" class="headerlink" title="RE"></a>RE</h3><h4 id="B-括号"><a href="#B-括号" class="headerlink" title="B(括号)"></a>B(括号)</h4>在正则表达式中有 3 种类型的括号<br>方括号”[“内是需要匹配的字符,花括号”{“内是指定匹配字符的数量。 圆括号“(“ 则是用来分组的。<h4 id="C-插入符号"><a href="#C-插入符号" class="headerlink" title="C(插入符号)"></a>C(插入符号)</h4>插入符号 “^” 表示正则式的开始。<h4 id="D-美元符号"><a href="#D-美元符号" class="headerlink" title="D(美元符号)"></a>D(美元符号)</h4>美元符号“$” 表示正则式的结束。</li>
+</ul>
+<p>注意:类似(com|net|org)的多选一,用圆括号.</p>
+<p>年月日的匹配:<br>yy-mm-dd</p>
+<pre><code>&apos;^(1[9][0-9][0-9]|2[0][0-1][0-9]|[0-9][0-9])[\.-]?([1-9]|0[1-9]|1[0-2])[\.-]?([1-9]|0[1-9]|1[0-9]|2[0-9]|3[0-1])$&apos;
+</code></pre><p>时间的匹配:<br>hh:mm:ss</p>
+<pre><code>&apos;^([0-9]|0[0-9]|1[0-9]|2[0-3])[:]([0-9]|0[0-9]|[0-6][0-9])[:]([0-9]|0[0-9]|[0-5][0-9])$&apos;
+</code></pre><p>ip地址的匹配:</p>
+<pre><code>&apos;^(([01]?[0-9][0-9]?|2[0-4][0-9]|2[5][0-5])\.){3}([01]?[0-9][0-9]?|2[0-4][0-9]|2[5][0-5])$&apos;
+</code></pre><ul>
+<li><h3 id="字母-字符与ASCII数字对应的函数"><a href="#字母-字符与ASCII数字对应的函数" class="headerlink" title="字母 字符与ASCII数字对应的函数:"></a>字母 字符与ASCII数字对应的函数:</h3>  ord（）将字符转换成ascii码数字<br>  chr()将ascii码数字转换为字符<br>  unichr()将ascii码整数返回成unicode字符</li>
+</ul>
+<ul>
+<li><h3 id="random-sample-list-n-通常用来产生不重复的n位数字"><a href="#random-sample-list-n-通常用来产生不重复的n位数字" class="headerlink" title="random.sample(list, n)通常用来产生不重复的n位数字"></a>random.sample(list, n)通常用来产生不重复的n位数字</h3><pre><code>print int(&apos;&apos;.join(map(str, random.sample(range(10), 10))))
+#3571490628
+</code></pre></li>
+<li><h3 id="enumerate的用法"><a href="#enumerate的用法" class="headerlink" title="enumerate的用法"></a>enumerate的用法</h3><p>enumerate会将数组或列表组成一个索引序列。使我们再获取索引和索引内容的时候更加方便：</p>
+<figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> index，<span class="built_in">text</span> <span class="keyword">in</span> enumerate(<span class="built_in">list</span>)): </span><br><span class="line">    print index ,<span class="built_in">text</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope="" itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="http://mrxin.github.io/2015/03/05/st3-install/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
@@ -302,7 +471,7 @@
     </span>
 
     <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="月薪5000元码农的自我修养">
+      <meta itemprop="name" content="40+岁大龄码农的自我修养">
     </span>
 
     
@@ -371,7 +540,7 @@
 <p>   ConvertToUTF8: 顾名思义转换成UTF8编码格式</p>
 <p>   SideBarEnhancements: 侧边栏增强</p>
 <p>   SublimeTmpl: 新建文件模板</p>
-<p>3: 修改快捷键,打开Perferences–Key Buildings User将这个内容复制进去保存<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123; &quot;keys&quot;: [&quot;f5&quot;], &quot;command&quot;: &quot;build&quot; &#125;,</span><br></pre></td></tr></table></figure></p>
+<p>3: 修改快捷键,打开Perferences–Key Buildings User将这个内容复制进去保存<br><figure class="highlight prolog"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123; <span class="string">"keys"</span>: [<span class="string">"f5"</span>], <span class="string">"command"</span>: <span class="string">"build"</span> &#125;,</span><br></pre></td></tr></table></figure></p>
 <p> 这样按F5就是编译了,当然以前的CMD + B(windows系统下面是Ctrl + B)也是可以的.</p>
 <p>4: 其他参考以前写的 <a href="http://playbear.github.io/2015/09/02/sublime-backup/" target="_blank" rel="noopener">http://playbear.github.io/2015/09/02/sublime-backup/</a> 和 <a href="http://playbear.github.io/2014/08/13/sublime-plugin-sublime-tmpl/" target="_blank" rel="noopener">http://playbear.github.io/2014/08/13/sublime-plugin-sublime-tmpl/</a>  等</p>
 
@@ -426,7 +595,7 @@
     </span>
 
     <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="月薪5000元码农的自我修养">
+      <meta itemprop="name" content="40+岁大龄码农的自我修养">
     </span>
 
     
@@ -544,7 +713,7 @@
     </span>
 
     <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="月薪5000元码农的自我修养">
+      <meta itemprop="name" content="40+岁大龄码农的自我修养">
     </span>
 
     
@@ -663,7 +832,7 @@
     </span>
 
     <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="月薪5000元码农的自我修养">
+      <meta itemprop="name" content="40+岁大龄码农的自我修养">
     </span>
 
     
@@ -728,12 +897,12 @@
 <ul>
 <li>ios 8.1越狱后cydia里面一个源有广告,可以用ifile修改hosts,在后面添加</li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">127.0.0.1 a.adorika.net</span><br><span class="line">127.0.0.1 a.ad-sys.com</span><br><span class="line">127.0.0.1 ads.glispa.com</span><br><span class="line">127.0.0.1 c.gltrkk.net</span><br><span class="line">127.0.0.1 hastrk3.com</span><br></pre></td></tr></table></figure>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">127<span class="selector-class">.0</span><span class="selector-class">.0</span><span class="selector-class">.1</span> <span class="selector-tag">a</span><span class="selector-class">.adorika</span><span class="selector-class">.net</span></span><br><span class="line">127<span class="selector-class">.0</span><span class="selector-class">.0</span><span class="selector-class">.1</span> <span class="selector-tag">a</span><span class="selector-class">.ad-sys</span><span class="selector-class">.com</span></span><br><span class="line">127<span class="selector-class">.0</span><span class="selector-class">.0</span><span class="selector-class">.1</span> <span class="selector-tag">ads</span><span class="selector-class">.glispa</span><span class="selector-class">.com</span></span><br><span class="line">127<span class="selector-class">.0</span><span class="selector-class">.0</span><span class="selector-class">.1</span> <span class="selector-tag">c</span><span class="selector-class">.gltrkk</span><span class="selector-class">.net</span></span><br><span class="line">127<span class="selector-class">.0</span><span class="selector-class">.0</span><span class="selector-class">.1</span> <span class="selector-tag">hastrk3</span><span class="selector-class">.com</span></span><br></pre></td></tr></table></figure>
 <p>参考:<a href="http://jailbreak.25pp.com/jiaocheng/yueyu_66924.html" target="_blank" rel="noopener">http://jailbreak.25pp.com/jiaocheng/yueyu_66924.html</a></p>
 <ul>
 <li>普通app广告屏蔽也是在hosts里面添加字段</li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br></pre></td><td class="code"><pre><span class="line">127.0.0.1 analytics.admob.com</span><br><span class="line">127.0.0.1 api.admob.com</span><br><span class="line">127.0.0.1 e.admob.com</span><br><span class="line">127.0.0.1 c.admob.com</span><br><span class="line">127.0.0.1 media.admob.com</span><br><span class="line">127.0.0.1 mm.admob.com</span><br><span class="line">127.0.0.1 mmv.admob.com</span><br><span class="line">127.0.0.1 p.admob.com</span><br><span class="line">127.0.0.1 r.admob.com</span><br><span class="line">127.0.0.1 config.adsage.cn</span><br><span class="line">127.0.0.1 config.adsage.com</span><br><span class="line">127.0.0.1 config.mobisage.cn</span><br><span class="line">127.0.0.1 config.minesage.com</span><br><span class="line">127.0.0.1 config.soqugame.com</span><br><span class="line">127.0.0.1 mobi.adsage.com</span><br><span class="line">127.0.0.1 trc.adsage.com</span><br><span class="line">127.0.0.1 mws.adsage.com</span><br><span class="line">127.0.0.1 api.domob.cn</span><br><span class="line">127.0.0.1 e.domob.cn</span><br><span class="line">127.0.0.1 r.domob.cn</span><br><span class="line">127.0.0.1 r.ow.domob.cn</span><br><span class="line">127.0.0.1 s.domob.cn</span><br><span class="line">127.0.0.1 sdl.domob.cn</span><br><span class="line">127.0.0.1 api.immob.cn</span><br><span class="line">127.0.0.1 adserving.immob.cn</span><br><span class="line">127.0.0.1 c1.guomob.com</span><br><span class="line">127.0.0.1 t3.guomob.com</span><br><span class="line">127.0.0.1 umeng.co</span><br><span class="line">127.0.0.1 umeng.com</span><br><span class="line">127.0.0.1 alog.umeng.co</span><br><span class="line">127.0.0.1 alog.umeng.com</span><br><span class="line">127.0.0.1 au.umeng.co</span><br><span class="line">127.0.0.1 au.umeng.com</span><br><span class="line">127.0.0.1 oc.umeng.co</span><br><span class="line">127.0.0.1 oc.umeng.com</span><br><span class="line">127.0.0.1 ex.umengcloud.com</span><br><span class="line">127.0.0.1 uyunad.com</span><br><span class="line">127.0.0.1 www.uyunad.com</span><br><span class="line">127.0.0.1 a-ad.adwo.com</span><br><span class="line">127.0.0.1 ad-count.adwo.com</span><br><span class="line">127.0.0.1 apiconfig.adwo.com</span><br><span class="line">127.0.0.1 static.adwo.com</span><br><span class="line">127.0.0.1 track.adwo.com</span><br><span class="line">127.0.0.1 r3 adwo.com</span><br><span class="line">127.0.0.1 googleads.g.doubleclick.net</span><br><span class="line">127.0.0.1 google-analytics.com</span><br><span class="line">127.0.0.1 ssl.google-analytics.com</span><br><span class="line">127.0.0.1 static.googleadsserving.cn</span><br><span class="line">127.0.0.1 mobads.baidu.com</span><br><span class="line">127.0.0.1 api.adcome.cn</span><br><span class="line">127.0.0.1 adbc.renren.com</span><br><span class="line">127.0.0.1 mob.adwhirl.com</span><br><span class="line">127.0.0.1 ios.ijinshan.com</span><br><span class="line">127.0.0.1 push.icastlewar.com</span><br></pre></td></tr></table></figure>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br></pre></td><td class="code"><pre><span class="line">127<span class="selector-class">.0</span><span class="selector-class">.0</span><span class="selector-class">.1</span> <span class="selector-tag">analytics</span><span class="selector-class">.admob</span><span class="selector-class">.com</span></span><br><span class="line">127<span class="selector-class">.0</span><span class="selector-class">.0</span><span class="selector-class">.1</span> <span class="selector-tag">api</span><span class="selector-class">.admob</span><span class="selector-class">.com</span></span><br><span class="line">127<span class="selector-class">.0</span><span class="selector-class">.0</span><span class="selector-class">.1</span> <span class="selector-tag">e</span><span class="selector-class">.admob</span><span class="selector-class">.com</span></span><br><span class="line">127<span class="selector-class">.0</span><span class="selector-class">.0</span><span class="selector-class">.1</span> <span class="selector-tag">c</span><span class="selector-class">.admob</span><span class="selector-class">.com</span></span><br><span class="line">127<span class="selector-class">.0</span><span class="selector-class">.0</span><span class="selector-class">.1</span> <span class="selector-tag">media</span><span class="selector-class">.admob</span><span class="selector-class">.com</span></span><br><span class="line">127<span class="selector-class">.0</span><span class="selector-class">.0</span><span class="selector-class">.1</span> <span class="selector-tag">mm</span><span class="selector-class">.admob</span><span class="selector-class">.com</span></span><br><span class="line">127<span class="selector-class">.0</span><span class="selector-class">.0</span><span class="selector-class">.1</span> <span class="selector-tag">mmv</span><span class="selector-class">.admob</span><span class="selector-class">.com</span></span><br><span class="line">127<span class="selector-class">.0</span><span class="selector-class">.0</span><span class="selector-class">.1</span> <span class="selector-tag">p</span><span class="selector-class">.admob</span><span class="selector-class">.com</span></span><br><span class="line">127<span class="selector-class">.0</span><span class="selector-class">.0</span><span class="selector-class">.1</span> <span class="selector-tag">r</span><span class="selector-class">.admob</span><span class="selector-class">.com</span></span><br><span class="line">127<span class="selector-class">.0</span><span class="selector-class">.0</span><span class="selector-class">.1</span> <span class="selector-tag">config</span><span class="selector-class">.adsage</span><span class="selector-class">.cn</span></span><br><span class="line">127<span class="selector-class">.0</span><span class="selector-class">.0</span><span class="selector-class">.1</span> <span class="selector-tag">config</span><span class="selector-class">.adsage</span><span class="selector-class">.com</span></span><br><span class="line">127<span class="selector-class">.0</span><span class="selector-class">.0</span><span class="selector-class">.1</span> <span class="selector-tag">config</span><span class="selector-class">.mobisage</span><span class="selector-class">.cn</span></span><br><span class="line">127<span class="selector-class">.0</span><span class="selector-class">.0</span><span class="selector-class">.1</span> <span class="selector-tag">config</span><span class="selector-class">.minesage</span><span class="selector-class">.com</span></span><br><span class="line">127<span class="selector-class">.0</span><span class="selector-class">.0</span><span class="selector-class">.1</span> <span class="selector-tag">config</span><span class="selector-class">.soqugame</span><span class="selector-class">.com</span></span><br><span class="line">127<span class="selector-class">.0</span><span class="selector-class">.0</span><span class="selector-class">.1</span> <span class="selector-tag">mobi</span><span class="selector-class">.adsage</span><span class="selector-class">.com</span></span><br><span class="line">127<span class="selector-class">.0</span><span class="selector-class">.0</span><span class="selector-class">.1</span> <span class="selector-tag">trc</span><span class="selector-class">.adsage</span><span class="selector-class">.com</span></span><br><span class="line">127<span class="selector-class">.0</span><span class="selector-class">.0</span><span class="selector-class">.1</span> <span class="selector-tag">mws</span><span class="selector-class">.adsage</span><span class="selector-class">.com</span></span><br><span class="line">127<span class="selector-class">.0</span><span class="selector-class">.0</span><span class="selector-class">.1</span> <span class="selector-tag">api</span><span class="selector-class">.domob</span><span class="selector-class">.cn</span></span><br><span class="line">127<span class="selector-class">.0</span><span class="selector-class">.0</span><span class="selector-class">.1</span> <span class="selector-tag">e</span><span class="selector-class">.domob</span><span class="selector-class">.cn</span></span><br><span class="line">127<span class="selector-class">.0</span><span class="selector-class">.0</span><span class="selector-class">.1</span> <span class="selector-tag">r</span><span class="selector-class">.domob</span><span class="selector-class">.cn</span></span><br><span class="line">127<span class="selector-class">.0</span><span class="selector-class">.0</span><span class="selector-class">.1</span> <span class="selector-tag">r</span><span class="selector-class">.ow</span><span class="selector-class">.domob</span><span class="selector-class">.cn</span></span><br><span class="line">127<span class="selector-class">.0</span><span class="selector-class">.0</span><span class="selector-class">.1</span> <span class="selector-tag">s</span><span class="selector-class">.domob</span><span class="selector-class">.cn</span></span><br><span class="line">127<span class="selector-class">.0</span><span class="selector-class">.0</span><span class="selector-class">.1</span> <span class="selector-tag">sdl</span><span class="selector-class">.domob</span><span class="selector-class">.cn</span></span><br><span class="line">127<span class="selector-class">.0</span><span class="selector-class">.0</span><span class="selector-class">.1</span> <span class="selector-tag">api</span><span class="selector-class">.immob</span><span class="selector-class">.cn</span></span><br><span class="line">127<span class="selector-class">.0</span><span class="selector-class">.0</span><span class="selector-class">.1</span> <span class="selector-tag">adserving</span><span class="selector-class">.immob</span><span class="selector-class">.cn</span></span><br><span class="line">127<span class="selector-class">.0</span><span class="selector-class">.0</span><span class="selector-class">.1</span> <span class="selector-tag">c1</span><span class="selector-class">.guomob</span><span class="selector-class">.com</span></span><br><span class="line">127<span class="selector-class">.0</span><span class="selector-class">.0</span><span class="selector-class">.1</span> <span class="selector-tag">t3</span><span class="selector-class">.guomob</span><span class="selector-class">.com</span></span><br><span class="line">127<span class="selector-class">.0</span><span class="selector-class">.0</span><span class="selector-class">.1</span> <span class="selector-tag">umeng</span><span class="selector-class">.co</span></span><br><span class="line">127<span class="selector-class">.0</span><span class="selector-class">.0</span><span class="selector-class">.1</span> <span class="selector-tag">umeng</span><span class="selector-class">.com</span></span><br><span class="line">127<span class="selector-class">.0</span><span class="selector-class">.0</span><span class="selector-class">.1</span> <span class="selector-tag">alog</span><span class="selector-class">.umeng</span><span class="selector-class">.co</span></span><br><span class="line">127<span class="selector-class">.0</span><span class="selector-class">.0</span><span class="selector-class">.1</span> <span class="selector-tag">alog</span><span class="selector-class">.umeng</span><span class="selector-class">.com</span></span><br><span class="line">127<span class="selector-class">.0</span><span class="selector-class">.0</span><span class="selector-class">.1</span> <span class="selector-tag">au</span><span class="selector-class">.umeng</span><span class="selector-class">.co</span></span><br><span class="line">127<span class="selector-class">.0</span><span class="selector-class">.0</span><span class="selector-class">.1</span> <span class="selector-tag">au</span><span class="selector-class">.umeng</span><span class="selector-class">.com</span></span><br><span class="line">127<span class="selector-class">.0</span><span class="selector-class">.0</span><span class="selector-class">.1</span> <span class="selector-tag">oc</span><span class="selector-class">.umeng</span><span class="selector-class">.co</span></span><br><span class="line">127<span class="selector-class">.0</span><span class="selector-class">.0</span><span class="selector-class">.1</span> <span class="selector-tag">oc</span><span class="selector-class">.umeng</span><span class="selector-class">.com</span></span><br><span class="line">127<span class="selector-class">.0</span><span class="selector-class">.0</span><span class="selector-class">.1</span> <span class="selector-tag">ex</span><span class="selector-class">.umengcloud</span><span class="selector-class">.com</span></span><br><span class="line">127<span class="selector-class">.0</span><span class="selector-class">.0</span><span class="selector-class">.1</span> <span class="selector-tag">uyunad</span><span class="selector-class">.com</span></span><br><span class="line">127<span class="selector-class">.0</span><span class="selector-class">.0</span><span class="selector-class">.1</span> <span class="selector-tag">www</span><span class="selector-class">.uyunad</span><span class="selector-class">.com</span></span><br><span class="line">127<span class="selector-class">.0</span><span class="selector-class">.0</span><span class="selector-class">.1</span> <span class="selector-tag">a-ad</span><span class="selector-class">.adwo</span><span class="selector-class">.com</span></span><br><span class="line">127<span class="selector-class">.0</span><span class="selector-class">.0</span><span class="selector-class">.1</span> <span class="selector-tag">ad-count</span><span class="selector-class">.adwo</span><span class="selector-class">.com</span></span><br><span class="line">127<span class="selector-class">.0</span><span class="selector-class">.0</span><span class="selector-class">.1</span> <span class="selector-tag">apiconfig</span><span class="selector-class">.adwo</span><span class="selector-class">.com</span></span><br><span class="line">127<span class="selector-class">.0</span><span class="selector-class">.0</span><span class="selector-class">.1</span> <span class="selector-tag">static</span><span class="selector-class">.adwo</span><span class="selector-class">.com</span></span><br><span class="line">127<span class="selector-class">.0</span><span class="selector-class">.0</span><span class="selector-class">.1</span> <span class="selector-tag">track</span><span class="selector-class">.adwo</span><span class="selector-class">.com</span></span><br><span class="line">127<span class="selector-class">.0</span><span class="selector-class">.0</span><span class="selector-class">.1</span> <span class="selector-tag">r3</span> <span class="selector-tag">adwo</span><span class="selector-class">.com</span></span><br><span class="line">127<span class="selector-class">.0</span><span class="selector-class">.0</span><span class="selector-class">.1</span> <span class="selector-tag">googleads</span><span class="selector-class">.g</span><span class="selector-class">.doubleclick</span><span class="selector-class">.net</span></span><br><span class="line">127<span class="selector-class">.0</span><span class="selector-class">.0</span><span class="selector-class">.1</span> <span class="selector-tag">google-analytics</span><span class="selector-class">.com</span></span><br><span class="line">127<span class="selector-class">.0</span><span class="selector-class">.0</span><span class="selector-class">.1</span> <span class="selector-tag">ssl</span><span class="selector-class">.google-analytics</span><span class="selector-class">.com</span></span><br><span class="line">127<span class="selector-class">.0</span><span class="selector-class">.0</span><span class="selector-class">.1</span> <span class="selector-tag">static</span><span class="selector-class">.googleadsserving</span><span class="selector-class">.cn</span></span><br><span class="line">127<span class="selector-class">.0</span><span class="selector-class">.0</span><span class="selector-class">.1</span> <span class="selector-tag">mobads</span><span class="selector-class">.baidu</span><span class="selector-class">.com</span></span><br><span class="line">127<span class="selector-class">.0</span><span class="selector-class">.0</span><span class="selector-class">.1</span> <span class="selector-tag">api</span><span class="selector-class">.adcome</span><span class="selector-class">.cn</span></span><br><span class="line">127<span class="selector-class">.0</span><span class="selector-class">.0</span><span class="selector-class">.1</span> <span class="selector-tag">adbc</span><span class="selector-class">.renren</span><span class="selector-class">.com</span></span><br><span class="line">127<span class="selector-class">.0</span><span class="selector-class">.0</span><span class="selector-class">.1</span> <span class="selector-tag">mob</span><span class="selector-class">.adwhirl</span><span class="selector-class">.com</span></span><br><span class="line">127<span class="selector-class">.0</span><span class="selector-class">.0</span><span class="selector-class">.1</span> <span class="selector-tag">ios</span><span class="selector-class">.ijinshan</span><span class="selector-class">.com</span></span><br><span class="line">127<span class="selector-class">.0</span><span class="selector-class">.0</span><span class="selector-class">.1</span> <span class="selector-tag">push</span><span class="selector-class">.icastlewar</span><span class="selector-class">.com</span></span><br></pre></td></tr></table></figure>
 <p>参考:<a href="http://jailbreak.25pp.com/jiaocheng/yueyu_66924.html" target="_blank" rel="noopener">http://jailbreak.25pp.com/jiaocheng/yueyu_66924.html</a></p>
 <h3 id="非官方软件app的下载"><a href="#非官方软件app的下载" class="headerlink" title="非官方软件app的下载"></a>非官方软件app的下载</h3><p>1: 影梭即shadowsocks,在cydia里面搜索下载.主要作用是翻墙</p>
 <p>2: GoodReader AVPlayerHD 欧陆字典 Calculator等软件在pp翻墙助手里面下载.</p>
@@ -791,7 +960,7 @@
     </span>
 
     <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="月薪5000元码农的自我修养">
+      <meta itemprop="name" content="40+岁大龄码农的自我修养">
     </span>
 
     
@@ -851,9 +1020,9 @@
         
           
             <h3 id="2-一百万"><a href="#2-一百万" class="headerlink" title="2) 一百万"></a>2) 一百万</h3><p>挑战：将 1,000,000 写成两个数的乘积，两个数都不包含零</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">for i in range(1, 500000):</span><br><span class="line">    for j in range(1, 50000):</span><br><span class="line">        if i * j == 1000000:</span><br><span class="line">            if &apos;0&apos; not in str(i) and &apos;0&apos; not in str(j):</span><br><span class="line">                print i, j</span><br><span class="line">                break</span><br></pre></td></tr></table></figure>
+<figure class="highlight ada"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="keyword">range</span>(<span class="number">1</span>, <span class="number">500000</span>):</span><br><span class="line">    <span class="keyword">for</span> j <span class="keyword">in</span> <span class="keyword">range</span>(<span class="number">1</span>, <span class="number">50000</span>):</span><br><span class="line">        <span class="keyword">if</span> i * j == <span class="number">1000000</span>:</span><br><span class="line">            <span class="keyword">if</span> <span class="string">'0'</span> <span class="keyword">not</span> <span class="keyword">in</span> str(i) <span class="keyword">and</span> <span class="string">'0'</span> <span class="keyword">not</span> <span class="keyword">in</span> str(j):</span><br><span class="line">                print i, j</span><br><span class="line">                break</span><br></pre></td></tr></table></figure>
 <p>结果是:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">64 15625</span><br></pre></td></tr></table></figure>
+<figure class="highlight basic"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="symbol">64 </span><span class="number">15625</span></span><br></pre></td></tr></table></figure>
           
         
       
@@ -905,7 +1074,7 @@
     </span>
 
     <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="月薪5000元码农的自我修养">
+      <meta itemprop="name" content="40+岁大龄码农的自我修养">
     </span>
 
     
@@ -1041,7 +1210,7 @@
     </span>
 
     <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="月薪5000元码农的自我修养">
+      <meta itemprop="name" content="40+岁大龄码农的自我修养">
     </span>
 
     
@@ -1102,9 +1271,9 @@
           
             <p>辗转相除法,参加维基百科:<a href="http://zh.wikipedia.org/wiki/%E8%BC%BE%E8%BD%89%E7%9B%B8%E9%99%A4%E6%B3%95" target="_blank" rel="noopener">连接</a></p>
 <p>最大公约数的python最常见算法:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">def gcd(a, b):</span><br><span class="line">    if a &lt; b:</span><br><span class="line">        a, b = b, a</span><br><span class="line">    while b:</span><br><span class="line">        a, b = b, a % b</span><br><span class="line"></span><br><span class="line">    return a</span><br></pre></td></tr></table></figure>
+<figure class="highlight armasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="symbol">def</span> gcd(a, <span class="keyword">b):</span></span><br><span class="line"><span class="keyword"> </span>   <span class="meta">if</span> a &lt; <span class="keyword">b:</span></span><br><span class="line"><span class="keyword"> </span>       a, <span class="keyword">b </span>= <span class="keyword">b, </span>a</span><br><span class="line">    <span class="meta">while</span> <span class="keyword">b:</span></span><br><span class="line"><span class="keyword"> </span>       a, <span class="keyword">b </span>= <span class="keyword">b, </span>a % <span class="keyword">b</span></span><br><span class="line"><span class="keyword"></span></span><br><span class="line"><span class="keyword"> </span>   return a</span><br></pre></td></tr></table></figure>
 <p>最小公倍数就是 两个数的乘积除以最大公约数.</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">def ICM(a, b):</span><br><span class="line">    return a * b / GCD(a, b)</span><br></pre></td></tr></table></figure>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">ICM</span><span class="params">(a, b)</span></span><span class="symbol">:</span></span><br><span class="line">    <span class="keyword">return</span> a * b / GCD(a, b)</span><br></pre></td></tr></table></figure>
           
         
       
@@ -1156,7 +1325,7 @@
     </span>
 
     <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="月薪5000元码农的自我修养">
+      <meta itemprop="name" content="40+岁大龄码农的自我修养">
     </span>
 
     
@@ -1218,11 +1387,11 @@
             <p>计算素数里面除数最大值用(int(prime ** 0.5) +1) ,最好不要用(prime / 2 + 1).在素数值非常大的时候,这两者差距非常明显.<br>比如104729的开方值:323<br>    除以2的值是52365</p>
 <p>再就是尽量用函数返回Ture Flase的判断,</p>
 <p>例如: 求第10000个素数</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">prime = 2</span><br><span class="line">number = 4</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">def is_prime(num):</span><br><span class="line">    for x in range(2, int((num ** 0.5)) + 1):</span><br><span class="line">        if num % x == 0:</span><br><span class="line">            return False</span><br><span class="line">    return True</span><br><span class="line"></span><br><span class="line">while 1:</span><br><span class="line"></span><br><span class="line">    if is_prime(number):</span><br><span class="line">        prime += 1</span><br><span class="line">    if prime == 10000:</span><br><span class="line">        break</span><br><span class="line">    number += 1</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">print number</span><br></pre></td></tr></table></figure>
+<figure class="highlight autoit"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">prime = <span class="number">2</span></span><br><span class="line"><span class="built_in">number</span> = <span class="number">4</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">def is_prime(num):</span><br><span class="line">    <span class="keyword">for</span> x <span class="keyword">in</span> range(<span class="number">2</span>, <span class="built_in">int</span>((num ** <span class="number">0.5</span>)) + <span class="number">1</span>):</span><br><span class="line">        <span class="keyword">if</span> num % x == <span class="number">0</span>:</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">False</span></span><br><span class="line">    <span class="keyword">return</span> <span class="literal">True</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">while</span> <span class="number">1</span>:</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> is_prime(<span class="built_in">number</span>):</span><br><span class="line">        prime += <span class="number">1</span></span><br><span class="line">    <span class="keyword">if</span> prime == <span class="number">10000</span>:</span><br><span class="line">        <span class="built_in">break</span></span><br><span class="line">    <span class="built_in">number</span> += <span class="number">1</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">print <span class="built_in">number</span></span><br></pre></td></tr></table></figure>
 <h3 id="用时0-5秒得出结果-104729"><a href="#用时0-5秒得出结果-104729" class="headerlink" title="用时0.5秒得出结果:104729"></a>用时0.5秒得出结果:104729</h3><p>如果是</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">prime = 2</span><br><span class="line">number = 4</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">def is_prime(num):</span><br><span class="line">    for x in range(2, int((num / 2)) + 1):</span><br><span class="line">        if num % x == 0:</span><br><span class="line">            return False</span><br><span class="line">    return True</span><br><span class="line"></span><br><span class="line">while 1:</span><br><span class="line"></span><br><span class="line">    if is_prime(number):</span><br><span class="line">        prime += 1</span><br><span class="line">    if prime == 10000:</span><br><span class="line">        break</span><br><span class="line">    number += 1</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">print number</span><br></pre></td></tr></table></figure>
+<figure class="highlight autoit"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">prime = <span class="number">2</span></span><br><span class="line"><span class="built_in">number</span> = <span class="number">4</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">def is_prime(num):</span><br><span class="line">    <span class="keyword">for</span> x <span class="keyword">in</span> range(<span class="number">2</span>, <span class="built_in">int</span>((num / <span class="number">2</span>)) + <span class="number">1</span>):</span><br><span class="line">        <span class="keyword">if</span> num % x == <span class="number">0</span>:</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">False</span></span><br><span class="line">    <span class="keyword">return</span> <span class="literal">True</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">while</span> <span class="number">1</span>:</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> is_prime(<span class="built_in">number</span>):</span><br><span class="line">        prime += <span class="number">1</span></span><br><span class="line">    <span class="keyword">if</span> prime == <span class="number">10000</span>:</span><br><span class="line">        <span class="built_in">break</span></span><br><span class="line">    <span class="built_in">number</span> += <span class="number">1</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">print <span class="built_in">number</span></span><br></pre></td></tr></table></figure>
 <h3 id="用时42秒-得出结果104729"><a href="#用时42秒-得出结果104729" class="headerlink" title="用时42秒,得出结果104729"></a>用时42秒,得出结果104729</h3><p>如果是</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">prime = 2</span><br><span class="line">number = 4</span><br><span class="line"></span><br><span class="line">while 1:</span><br><span class="line">    flag = 0</span><br><span class="line">    for i in range(2, int(number ** 0.5) + 1):</span><br><span class="line">        if number % i == 0:</span><br><span class="line">            flag = 1</span><br><span class="line">    if flag == 0:</span><br><span class="line">        prime += 1</span><br><span class="line">    if prime == 10000:</span><br><span class="line">        break</span><br><span class="line">    number += 1</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">print number</span><br></pre></td></tr></table></figure>
+<figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">prime = <span class="number">2</span></span><br><span class="line"><span class="keyword">number</span> = <span class="number">4</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">while</span> <span class="number">1</span>:</span><br><span class="line">    flag = <span class="number">0</span></span><br><span class="line">    <span class="keyword">for</span> i in <span class="built_in">range</span>(<span class="number">2</span>, <span class="keyword">int</span>(<span class="keyword">number</span> ** <span class="number">0.5</span>) + <span class="number">1</span>):</span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">number</span> % i == <span class="number">0</span>:</span><br><span class="line">            flag = <span class="number">1</span></span><br><span class="line">    <span class="keyword">if</span> flag == <span class="number">0</span>:</span><br><span class="line">        prime += <span class="number">1</span></span><br><span class="line">    <span class="keyword">if</span> prime == <span class="number">10000</span>:</span><br><span class="line">        <span class="keyword">break</span></span><br><span class="line">    <span class="keyword">number</span> += <span class="number">1</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">print</span> <span class="keyword">number</span></span><br></pre></td></tr></table></figure>
 <h3 id="用时3-0秒-得出结果104729"><a href="#用时3-0秒-得出结果104729" class="headerlink" title="用时3.0秒,得出结果104729"></a>用时3.0秒,得出结果104729</h3>
           
         
@@ -1275,7 +1444,7 @@
     </span>
 
     <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="月薪5000元码农的自我修养">
+      <meta itemprop="name" content="40+岁大龄码农的自我修养">
     </span>
 
     
@@ -1336,165 +1505,18 @@
           
             <ul>
 <li><h3 id="冒泡法排序"><a href="#冒泡法排序" class="headerlink" title="冒泡法排序"></a>冒泡法排序</h3><p>第一个循环倒序,相邻两个元素比较大小然后交换.第一次将最大的一个逐渐排序到列表最后一个位置.</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">from __future__ import print_function, unicode_literals, division</span><br><span class="line"></span><br><span class="line">arry = [16, 134, 15, 1, 78, 10, 9]</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">def bubble_sort(arry):</span><br><span class="line">    for i in range(len(arry) - 1, 0, -1):</span><br><span class="line">        for j in range(i):</span><br><span class="line">            if arry[j] &gt; arry[j + 1]:</span><br><span class="line">                arry[j], arry[j + 1] = arry[j + 1], arry[j]</span><br><span class="line"></span><br><span class="line">if __name__ == &quot;__main__&quot;:</span><br><span class="line">    bubble_sort(arry)</span><br><span class="line">    print (arry)</span><br></pre></td></tr></table></figure>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">from __future__ import print_function, unicode_literals, division</span><br><span class="line"></span><br><span class="line">arry = [<span class="number">16</span>, <span class="number">134</span>, <span class="number">15</span>, <span class="number">1</span>, <span class="number">78</span>, <span class="number">10</span>, <span class="number">9</span>]</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">def bubble_sort(arry):</span><br><span class="line">    <span class="keyword">for</span> <span class="built_in">i</span> in range(len(arry) - <span class="number">1</span>, <span class="number">0</span>, <span class="number">-1</span>):</span><br><span class="line">        <span class="keyword">for</span> <span class="built_in">j</span> in range(<span class="built_in">i</span>):</span><br><span class="line">            <span class="keyword">if</span> arry[<span class="built_in">j</span>] &gt; arry[<span class="built_in">j</span> + <span class="number">1</span>]:</span><br><span class="line">                arry[<span class="built_in">j</span>], arry[<span class="built_in">j</span> + <span class="number">1</span>] = arry[<span class="built_in">j</span> + <span class="number">1</span>], arry[<span class="built_in">j</span>]</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">"__main__"</span>:</span><br><span class="line">    bubble_sort(arry)</span><br><span class="line">    print (arry)</span><br></pre></td></tr></table></figure>
 <p>  [1, 9, 10, 15, 16, 78, 134]</p>
 </li>
 <li><h3 id="选择法排序"><a href="#选择法排序" class="headerlink" title="选择法排序"></a>选择法排序</h3><p>第一个元素和后面所有元素对比,找到最小的一个,然后交换.</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">from __future__ import print_function, unicode_literals, division</span><br><span class="line"></span><br><span class="line">arry = [16, 134, 15, 1, 78, 10, 9]</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">def select_sort(arry):</span><br><span class="line">    length = len(arry)</span><br><span class="line"></span><br><span class="line">    for i in range(length - 1):</span><br><span class="line">        sort_index = i</span><br><span class="line">        for j in range(i, length):</span><br><span class="line">            if arry[j] &gt; arry[sort_index]:</span><br><span class="line">                sort_index = j</span><br><span class="line">        arry[sort_index], arry[i] = arry[i], arry[sort_index]</span><br><span class="line"></span><br><span class="line">if __name__ == &quot;__main__&quot;:</span><br><span class="line">    select_sort(arry)</span><br><span class="line">    print(arry)</span><br></pre></td></tr></table></figure>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">from __future__ import print_function, unicode_literals, division</span><br><span class="line"></span><br><span class="line">arry = [<span class="number">16</span>, <span class="number">134</span>, <span class="number">15</span>, <span class="number">1</span>, <span class="number">78</span>, <span class="number">10</span>, <span class="number">9</span>]</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">def select_sort(arry):</span><br><span class="line">    <span class="built_in">length</span> = len(arry)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> <span class="built_in">i</span> in range(<span class="built_in">length</span> - <span class="number">1</span>):</span><br><span class="line">        sort_index = <span class="built_in">i</span></span><br><span class="line">        <span class="keyword">for</span> <span class="built_in">j</span> in range(<span class="built_in">i</span>, <span class="built_in">length</span>):</span><br><span class="line">            <span class="keyword">if</span> arry[<span class="built_in">j</span>] &gt; arry[sort_index]:</span><br><span class="line">                sort_index = <span class="built_in">j</span></span><br><span class="line">        arry[sort_index], arry[<span class="built_in">i</span>] = arry[<span class="built_in">i</span>], arry[sort_index]</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">"__main__"</span>:</span><br><span class="line">    select_sort(arry)</span><br><span class="line">    print(arry)</span><br></pre></td></tr></table></figure>
 <p>  [1, 9, 10, 15, 16, 78, 134]</p>
 </li>
 <li><h3 id="插入排序"><a href="#插入排序" class="headerlink" title="插入排序"></a>插入排序</h3></li>
 </ul>
-<p>最开始以第一个元素为准,第二个元素与第一个比较,排序.第三个与前两个比较然后排序.以此类推.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">rom __future__ import print_function, unicode_literals, division</span><br><span class="line"></span><br><span class="line">arry = [17, 23, 20, 14, 12, 25, 1, 20, 81, 14, 11, 12]</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">def select_sort(arry):</span><br><span class="line">    length = len(arry)</span><br><span class="line"></span><br><span class="line">    for i in range(length - 1):</span><br><span class="line">        sort_index = i</span><br><span class="line">        for j in range(i, length):</span><br><span class="line">            if arry[j] &lt; arry[sort_index]:</span><br><span class="line">                sort_index = j</span><br><span class="line">        if sort_index != i:</span><br><span class="line">            arry[sort_index], arry[i] = arry[i], arry[sort_index]</span><br><span class="line"></span><br><span class="line">if __name__ == &quot;__main__&quot;:</span><br><span class="line">    select_sort(arry)</span><br><span class="line">    print(arry)</span><br><span class="line">`</span><br></pre></td></tr></table></figure></p>
+<p>最开始以第一个元素为准,第二个元素与第一个比较,排序.第三个与前两个比较然后排序.以此类推.<br><figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">rom __future__ import print_function, unicode_literals, division</span><br><span class="line"></span><br><span class="line">arry = [<span class="number">17</span>, <span class="number">23</span>, <span class="number">20</span>, <span class="number">14</span>, <span class="number">12</span>, <span class="number">25</span>, <span class="number">1</span>, <span class="number">20</span>, <span class="number">81</span>, <span class="number">14</span>, <span class="number">11</span>, <span class="number">12</span>]</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">def select_sort(arry):</span><br><span class="line">    <span class="built_in">length</span> = len(arry)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> <span class="built_in">i</span> in range(<span class="built_in">length</span> - <span class="number">1</span>):</span><br><span class="line">        sort_index = <span class="built_in">i</span></span><br><span class="line">        <span class="keyword">for</span> <span class="built_in">j</span> in range(<span class="built_in">i</span>, <span class="built_in">length</span>):</span><br><span class="line">            <span class="keyword">if</span> arry[<span class="built_in">j</span>] &lt; arry[sort_index]:</span><br><span class="line">                sort_index = <span class="built_in">j</span></span><br><span class="line">        <span class="keyword">if</span> sort_index != <span class="built_in">i</span>:</span><br><span class="line">            arry[sort_index], arry[<span class="built_in">i</span>] = arry[<span class="built_in">i</span>], arry[sort_index]</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">"__main__"</span>:</span><br><span class="line">    select_sort(arry)</span><br><span class="line">    print(arry)</span><br><span class="line">`</span><br></pre></td></tr></table></figure></p>
 <pre><code>[1, 11, 12, 12, 14, 14, 17, 20, 20, 23, 25, 81]
 </code></pre>
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope="" itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://mrxin.github.io/2014/08/18/hexo_install/">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="小信">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="月薪5000元码农的自我修养">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2014/08/18/hexo_install/" itemprop="url">hexo的安装步骤(已经失效)</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2014-08-18T02:12:11+08:00">
-                2014-08-18
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h3 id="1-设置git的SSH公钥"><a href="#1-设置git的SSH公钥" class="headerlink" title="1.设置git的SSH公钥"></a>1.设置git的SSH公钥</h3><ul>
-<li><p>打开终端,输入命令:</p>
-<pre><code>ssh-keygen -t rsa -C &quot;skywater@gmail.com&quot;
-</code></pre></li>
-<li><p>继续输入命令:</p>
-</li>
-<li><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd .SSH      </span><br><span class="line">subl id_rsa.pub</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<p>拷贝SSH公钥到github账户的SSH keys里面.</p>
-<ul>
-<li>输入命令:</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config --global user.email &quot;skywater@gmail.com&quot;</span><br><span class="line">git config --global user.name &quot;playbear&quot;</span><br></pre></td></tr></table></figure>
-<h3 id="2-安装hexo环境-参考官网"><a href="#2-安装hexo环境-参考官网" class="headerlink" title="2. 安装hexo环境,参考官网"></a>2. 安装hexo环境,参考<a href="http://hexo.io/docs/" target="_blank" rel="noopener">官网</a></h3><ul>
-<li>安装node.js,打开终端,输入命令:</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew install node</span><br></pre></td></tr></table></figure>
-<ul>
-<li>安装nvm,命令:</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl https://raw.githubusercontent.com/creationix/nvm/v0.13.1/install.sh | bash</span><br></pre></td></tr></table></figure>
-<ul>
-<li>安装完成后重启终端,然后运行:</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nvm install 0.10</span><br></pre></td></tr></table></figure>
-<ul>
-<li>安装Hexo:</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g hexo</span><br></pre></td></tr></table></figure>
-<ul>
-<li>初始化Hexo:</li>
-</ul>
-<figure class="highlight plain"><figcaption><span>playbear.github.io</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">cd playbear.github.io</span><br><span class="line">hexo init</span><br><span class="line">npm install</span><br><span class="line">hexo g</span><br><span class="line">hexo d</span><br></pre></td></tr></table></figure>
-<h3 id="3-常用hexo命令"><a href="#3-常用hexo命令" class="headerlink" title="3. 常用hexo命令"></a>3. 常用hexo命令</h3><figure class="highlight plain"><figcaption><span>n "new_file"(之后用mou编辑new_file.md)</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">hexo g</span><br><span class="line">hexo d</span><br></pre></td></tr></table></figure>
-<h3 id="4-hexo版本更新"><a href="#4-hexo版本更新" class="headerlink" title="4. hexo版本更新"></a>4. hexo版本更新</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm update -g</span><br></pre></td></tr></table></figure>
-<h3 id="如果重装系统后的安装，在hexo-g之后将备份的文件夹拷贝覆盖即可。"><a href="#如果重装系统后的安装，在hexo-g之后将备份的文件夹拷贝覆盖即可。" class="headerlink" title="如果重装系统后的安装，在hexo g之后将备份的文件夹拷贝覆盖即可。"></a>如果重装系统后的安装，在hexo g之后将备份的文件夹拷贝覆盖即可。</h3>
           
         
       
@@ -1575,7 +1597,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">68</span>
+                <span class="site-state-item-count">69</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>

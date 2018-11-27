@@ -94,7 +94,7 @@
 <meta property="og:type" content="article">
 <meta property="og:title" content="mac 安装和设置java maven">
 <meta property="og:url" content="http://mrxin.github.io/2017/11/20/mac-java-maven-md/index.html">
-<meta property="og:site_name" content="月薪5000元码农的自我修养">
+<meta property="og:site_name" content="40+岁大龄码农的自我修养">
 <meta property="og:description" content="1 安装和设置java 1: 搜索官方下载jdk相应版本, 然后双击安装 2: iterm运行 1/usr/libexec/java_home -V 出现类似 1/Library/Java/JavaVirtualMachines/jdk1.8.0_151.jdk/Contents/Home 说明安装成功  3: 打开zsh, vim ~/.zshrc 最后面添加 1export JAVA_HOM">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://ww1.sinaimg.cn/large/7293e3b7gy1flopsvyxqoj20s008oq4k.jpg">
@@ -137,7 +137,7 @@
 
 
 
-  <title>mac 安装和设置java maven | 月薪5000元码农的自我修养</title>
+  <title>mac 安装和设置java maven | 40+岁大龄码农的自我修养</title>
 </head>
 
 <body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -173,7 +173,7 @@
     <div class="custom-logo-site-title">
       <a href="/" class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
-        <span class="site-title">月薪5000元码农的自我修养</span>
+        <span class="site-title">40+岁大龄码农的自我修养</span>
         <span class="logo-line-after"><i></i></span>
       </a>
     </div>
@@ -307,7 +307,7 @@
     </span>
 
     <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="月薪5000元码农的自我修养">
+      <meta itemprop="name" content="40+岁大龄码农的自我修养">
     </span>
 
     
@@ -366,15 +366,15 @@
 <li><h3 id="1-安装和设置java"><a href="#1-安装和设置java" class="headerlink" title="1 安装和设置java"></a>1 安装和设置java</h3><ul>
 <li>1: 搜索官方下载jdk相应版本, 然后双击安装</li>
 <li><p>2: iterm运行</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/usr/libexec/java_home -V</span><br></pre></td></tr></table></figure>
+<figure class="highlight autohotkey"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/usr/libexec/jav<span class="built_in">a_home</span> -V</span><br></pre></td></tr></table></figure>
 <p>出现类似</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/Library/Java/JavaVirtualMachines/jdk1.8.0_151.jdk/Contents/Home</span><br></pre></td></tr></table></figure>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="regexp">/Library/</span>Java<span class="regexp">/JavaVirtualMachines/</span>jdk1.<span class="number">8.0</span>_151.jdk<span class="regexp">/Contents/</span>Home</span><br></pre></td></tr></table></figure>
 <p>说明安装成功</p>
 </li>
 <li><p>3: 打开zsh, <code>vim ~/.zshrc</code> 最后面添加</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">export JAVA_HOME=$(/usr/libexec/java_home)</span><br></pre></td></tr></table></figure>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="builtin-name">export</span> <span class="attribute">JAVA_HOME</span>=$(/usr/libexec/java_home)</span><br></pre></td></tr></table></figure>
 <p>保存<br>4: 重新加载zshrc, <code>source ~/.zshrc</code>, 输入<code>echo $JAVA_HOME</code><br>出现</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/Library/Java/JavaVirtualMachines/jdk1.8.0_151.jdk/Contents/Home</span><br></pre></td></tr></table></figure>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="regexp">/Library/</span>Java<span class="regexp">/JavaVirtualMachines/</span>jdk1.<span class="number">8.0</span>_151.jdk<span class="regexp">/Contents/</span>Home</span><br></pre></td></tr></table></figure>
 <p>说明安装成功</p>
 </li>
 </ul>
@@ -382,10 +382,10 @@
 <li><h3 id="2-安装和设置maven"><a href="#2-安装和设置maven" class="headerlink" title="2 安装和设置maven"></a>2 安装和设置maven</h3><ul>
 <li>用brew安装maven <code>brew install maven</code></li>
 <li><p>item 运行 <code>mvn -v</code><br>出现这样结果说明安装成功</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Maven home: /usr/local/Cellar/maven/3.5.2/libexec</span><br><span class="line">Java version: 1.8.0_151, vendor: Oracle Corporation</span><br><span class="line">Java home: /Library/Java/JavaVirtualMachines/jdk1.8.0_151.jdk/Contents/Home/jre</span><br><span class="line">Default locale: zh_CN, platform encoding: UTF-8</span><br><span class="line">OS name: &quot;mac os x&quot;, version: &quot;10.12.6&quot;, arch: &quot;x86_64&quot;, family: &quot;mac&quot;</span><br></pre></td></tr></table></figure>
+<figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Maven <span class="string">home:</span> <span class="regexp">/usr/</span>local<span class="regexp">/Cellar/</span>maven<span class="regexp">/3.5.2/</span>libexec</span><br><span class="line">Java <span class="string">version:</span> <span class="number">1.8</span><span class="number">.0</span>_151, <span class="string">vendor:</span> Oracle Corporation</span><br><span class="line">Java <span class="string">home:</span> <span class="regexp">/Library/</span>Java<span class="regexp">/JavaVirtualMachines/</span>jdk1<span class="number">.8</span><span class="number">.0</span>_151.jdk<span class="regexp">/Contents/</span>Home/jre</span><br><span class="line">Default <span class="string">locale:</span> zh_CN, platform <span class="string">encoding:</span> UTF<span class="number">-8</span></span><br><span class="line">OS <span class="string">name:</span> <span class="string">"mac os x"</span>, <span class="string">version:</span> <span class="string">"10.12.6"</span>, <span class="string">arch:</span> <span class="string">"x86_64"</span>, <span class="string">family:</span> <span class="string">"mac"</span></span><br></pre></td></tr></table></figure>
 </li>
 <li><p>改成阿里源, 参考<a href="http://blog.csdn.net/liangyihuai/article/details/57406870" target="_blank" rel="noopener">来源</a> <code>/usr/local/Cellar/maven/3.5.2/libexec/conf</code> 这个目录下找到setting.xml文件, 打开.<br>在<code>mirrors</code>字段下填入</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;mirror&gt;</span><br><span class="line">        &lt;id&gt;alimaven&lt;/id&gt;</span><br><span class="line">        &lt;name&gt;aliyun maven&lt;/name&gt;</span><br><span class="line">        &lt;url&gt;http://maven.aliyun.com/nexus/content/groups/public/&lt;/url&gt;</span><br><span class="line">        &lt;mirrorOf&gt;central&lt;/mirrorOf&gt;</span><br><span class="line">  &lt;/mirror&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">mirror</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">id</span>&gt;</span>alimaven<span class="tag">&lt;/<span class="name">id</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">name</span>&gt;</span>aliyun maven<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">url</span>&gt;</span>http://maven.aliyun.com/nexus/content/groups/public/<span class="tag">&lt;/<span class="name">url</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">mirrorOf</span>&gt;</span>central<span class="tag">&lt;/<span class="name">mirrorOf</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">mirror</span>&gt;</span></span><br></pre></td></tr></table></figure>
 </li>
 <li><p>修改idea的默认maven, 参考<a href="http://www.jianshu.com/p/43b65774cc15" target="_blank" rel="noopener">来源1</a>, <a href="http://blog.csdn.net/cherrycheng_/article/details/51729272" target="_blank" rel="noopener">来源2</a></p>
 <p><img src="http://ww1.sinaimg.cn/large/7293e3b7gy1flopsvyxqoj20s008oq4k.jpg" alt=""></p>
@@ -512,7 +512,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">68</span>
+                <span class="site-state-item-count">69</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>

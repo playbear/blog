@@ -95,7 +95,7 @@
 <meta property="og:type" content="article">
 <meta property="og:title" content="hexo最新版本的安装和数据恢复">
 <meta property="og:url" content="http://mrxin.github.io/2016/09/14/last-hexo/index.html">
-<meta property="og:site_name" content="月薪5000元码农的自我修养">
+<meta property="og:site_name" content="40+岁大龄码农的自我修养">
 <meta property="og:description" content="最近用webstorm运行编辑好的html网页文件,总是显示无法打开,改localhost端口不行. 网上搜索了半天,发现很少人出现这种问题. 我怀疑是MAC osx系统以前装的东西跟webstorm冲突了. 只好重新安装我的黑苹果系统.    安装一帆风顺,各种软件也安装配置正常. 但是安装和恢复hexo博客文件的时候遇到的问题, 按照以前的方法总是没法恢复成功.只好按hexo 官网的最新">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:updated_time" content="2016-10-18T09:06:10.000Z">
@@ -135,7 +135,7 @@
 
 
 
-  <title>hexo最新版本的安装和数据恢复 | 月薪5000元码农的自我修养</title>
+  <title>hexo最新版本的安装和数据恢复 | 40+岁大龄码农的自我修养</title>
 </head>
 
 <body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -171,7 +171,7 @@
     <div class="custom-logo-site-title">
       <a href="/" class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
-        <span class="site-title">月薪5000元码农的自我修养</span>
+        <span class="site-title">40+岁大龄码农的自我修养</span>
         <span class="logo-line-after"><i></i></span>
       </a>
     </div>
@@ -305,7 +305,7 @@
     </span>
 
     <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="月薪5000元码农的自我修养">
+      <meta itemprop="name" content="40+岁大龄码农的自我修养">
     </span>
 
     
@@ -365,11 +365,11 @@
 <ul>
 <li>更新github的SSH key, 在终端输入命令一路回车生成SSH</li>
 </ul>
- <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">ssh-keygen -t rsa -C &quot;your_email@example.com&quot;</span><br><span class="line"></span><br><span class="line">cd ~/.ssh</span><br><span class="line">subl id_rsa.pub</span><br></pre></td></tr></table></figure>
+ <figure class="highlight jboss-cli"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">ssh-keygen -t rsa -C <span class="string">"your_email@example.com"</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">cd</span> ~<span class="string">/.ssh</span></span><br><span class="line">subl id_rsa.pub</span><br></pre></td></tr></table></figure>
 <p>  将sublime text里面的ssh密钥拷贝粘贴到github账户里面.</p>
-  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh -T git@github.com</span><br></pre></td></tr></table></figure>
+  <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">ssh</span> <span class="selector-tag">-T</span> <span class="selector-tag">git</span>@<span class="keyword">github</span>.<span class="keyword">com</span></span><br></pre></td></tr></table></figure>
 <p>  验证ssh配置是否成功.</p>
-  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config --global user.name &quot;用户名&quot;</span><br><span class="line">git config --global user.email &quot;邮箱地址&quot;</span><br></pre></td></tr></table></figure>
+  <figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git<span class="built_in"> config </span>--global user.name <span class="string">"用户名"</span></span><br><span class="line">git<span class="built_in"> config </span>--global user.email <span class="string">"邮箱地址"</span></span><br></pre></td></tr></table></figure>
 <p>  运行上面命令,可以避免每次hexo d提交的时候都输入账户密码</p>
 <ul>
 <li><p>安装Node.js, hexo官网提供的是用命令安装的方式, 我发现还是去Node.js官网下载一个安装程序方便.<br><a href="https://nodejs.org/download/" target="_blank" rel="noopener">下载地址</a></p>
@@ -377,26 +377,26 @@
 <li><p>安装Hexo</p>
 </li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g hexo-cli</span><br></pre></td></tr></table></figure>
+<figure class="highlight avrasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g hexo-<span class="keyword">cli</span></span><br></pre></td></tr></table></figure>
 <ul>
 <li>初始化</li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hexo init mrxin.github.io</span><br><span class="line">cd mrxin.github.io</span><br><span class="line">npm install</span><br></pre></td></tr></table></figure>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hexo init mrxin<span class="selector-class">.github</span><span class="selector-class">.io</span></span><br><span class="line">cd mrxin<span class="selector-class">.github</span><span class="selector-class">.io</span></span><br><span class="line">npm install</span><br></pre></td></tr></table></figure>
 <p>完成后, 用 sublime text打开 _config.yml进行配置, 参考以前的配置文件, 需要注意的是, 最后deploy部分,以前type是github,现在改成了git.</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">deploy:</span><br><span class="line">  type: git</span><br><span class="line">  repository: https://github.com/MrXin/MrXin.github.io.git</span><br><span class="line">  branch: master</span><br></pre></td></tr></table></figure>
+<figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">deploy</span>:</span><br><span class="line">  <span class="attribute">type</span>: git</span><br><span class="line">  <span class="attribute">repository</span>: <span class="attribute">https</span>:<span class="comment">//github.com/MrXin/MrXin.github.io.git</span></span><br><span class="line">  <span class="attribute">branch</span>: master</span><br></pre></td></tr></table></figure>
 <p>这里还有一个重要的步骤是现在需要安装”hexo-deployer-git”,方法:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm <span class="keyword">install</span> hexo-deployer-git <span class="comment">--save</span></span><br></pre></td></tr></table></figure>
 <ul>
 <li>主题安装和配置:<br> 我喜欢的主题叫”Landscape-plus”, 不知道是hexo的bug还是这个主题的不过,标签或者分类只能显示10篇文章的主题.<br> 我又挑了一款不好看的主题,叫maupassant,其<a href="https://github.com/tufu9441/maupassant-hexo" target="_blank" rel="noopener">官网</a>.<br> 使用方法比较简单,按照官方步骤来就行了,最后在多说参数后填上:clutchbear即可.</li>
 </ul>
 <ul>
 <li>最后将以前备份的md文件拷贝到_posts目录里面, 生成静态页面传到github上.</li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">hexo g</span><br><span class="line">hexo d</span><br></pre></td></tr></table></figure>
+<figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">hexo g</span></span><br><span class="line"><span class="attribute">hexo d</span></span><br></pre></td></tr></table></figure>
 <ul>
 <li>Rss需要按装插件:</li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-generator-feed@1 --save</span><br></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm <span class="keyword">install</span> hexo-generator-feed@<span class="number">1</span> <span class="comment">--save</span></span><br></pre></td></tr></table></figure>
       
     </div>
 
@@ -511,7 +511,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">68</span>
+                <span class="site-state-item-count">69</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>

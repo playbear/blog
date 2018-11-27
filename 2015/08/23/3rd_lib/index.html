@@ -95,7 +95,7 @@
 <meta property="og:type" content="article">
 <meta property="og:title" content="Python2.7 常用第三方库的安装方法">
 <meta property="og:url" content="http://mrxin.github.io/2015/08/23/3rd_lib/index.html">
-<meta property="og:site_name" content="月薪5000元码农的自我修养">
+<meta property="og:site_name" content="40+岁大龄码农的自我修养">
 <meta property="og:description" content="1: 安装PIL或者PILLOW的方法:PIL是Python Imaging Library的简写,是Python中最常用的图像处理库. 如果是MAC 10.9.4系统的话, 用sudo easy_install PIL安装pil可能会出现错误,谷歌搜索的话,很多人都会出现这样那样的问题. pillow是pil的替代品,更容易安装.pillow的最新信息可以参考这里或者中文文档  安装方法:  1">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:updated_time" content="2016-08-08T10:14:52.000Z">
@@ -135,7 +135,7 @@
 
 
 
-  <title>Python2.7 常用第三方库的安装方法 | 月薪5000元码农的自我修养</title>
+  <title>Python2.7 常用第三方库的安装方法 | 40+岁大龄码农的自我修养</title>
 </head>
 
 <body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -171,7 +171,7 @@
     <div class="custom-logo-site-title">
       <a href="/" class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
-        <span class="site-title">月薪5000元码农的自我修养</span>
+        <span class="site-title">40+岁大龄码农的自我修养</span>
         <span class="logo-line-after"><i></i></span>
       </a>
     </div>
@@ -305,7 +305,7 @@
     </span>
 
     <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="月薪5000元码农的自我修养">
+      <meta itemprop="name" content="40+岁大龄码农的自我修养">
     </span>
 
     
@@ -366,31 +366,31 @@
 <ul>
 <li>安装方法:</li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">brew install libtiff libjpeg webp little-cms2</span><br><span class="line">sudo pip install pillow</span><br></pre></td></tr></table></figure>
+<figure class="highlight mipsasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">brew </span><span class="keyword">install </span>libtiff libjpeg webp little-cms2</span><br><span class="line">sudo pip <span class="keyword">install </span>pillow</span><br></pre></td></tr></table></figure>
 <ul>
 <li>使用方法:在需要import Image,ImageDraw的地方用下面的语句代替</li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">from PIL import Image,ImageDraw</span><br></pre></td></tr></table></figure>
+<figure class="highlight capnproto"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> PIL <span class="keyword">import</span> Image,ImageDraw</span><br></pre></td></tr></table></figure>
 <h2 id="2-安装和使用virtualenv"><a href="#2-安装和使用virtualenv" class="headerlink" title="2: 安装和使用virtualenv"></a>2: 安装和使用virtualenv</h2><p>virtualenv 用来创建隔离的Python环境。它会创建一个拥有独立安装目录的python环境，该隔离环境不会与其他virtualenv环境共享模块（可选择是否访问全局库目录）。</p>
 <ul>
 <li>安装:</li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install virtualenv</span><br></pre></td></tr></table></figure>
+<figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip <span class="keyword">install</span> virtualenv</span><br></pre></td></tr></table></figure>
 <ul>
 <li>简单使用:</li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">mkdir testdir</span><br><span class="line">cd testdir</span><br><span class="line">virtualenv venv --distribute #初始化</span><br><span class="line">. venv/bin/activate 激活</span><br><span class="line">deactivate 退出</span><br></pre></td></tr></table></figure>
+<figure class="highlight jboss-cli"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">mkdir testdir</span><br><span class="line"><span class="keyword">cd</span> testdir</span><br><span class="line">virtualenv venv <span class="params">--distribute</span> <span class="comment">#初始化</span></span><br><span class="line">. venv/bin/activate 激活</span><br><span class="line">deactivate 退出</span><br></pre></td></tr></table></figure>
 <p>###3: MySQL安装<br>MySQL是目前最流行的开源数据库之一.</p>
 <ul>
 <li>安装:</li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">brew intall MySQL #系统的Mysql</span><br><span class="line">sudo ARCHFLAGS=-Wno-error=unused-command-line-argument-hard-error-in-future pip install mysql-python #python的MySQL</span><br></pre></td></tr></table></figure>
+<figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">brew</span> intall MySQL <span class="comment">#系统的Mysql</span></span><br><span class="line">sudo ARCHFLAGS=-W<span class="literal">no</span>-<span class="literal">error</span>=unused-command-line-argument-hard-<span class="literal">error</span>-in-future pip install mysql-python <span class="comment">#python的MySQL</span></span><br></pre></td></tr></table></figure>
 <ul>
 <li>使用:</li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">      mysql.server start</span><br><span class="line">```      </span><br><span class="line"></span><br><span class="line">### 4: Pygame安装</span><br><span class="line">需要去官方(http://www.pygame.org/download.shtml)下载</span><br><span class="line">pygame-1.9.2pre-py2.7-macosx10.7.mpkg.zip,解压缩后安装在mac10.10上才行.</span><br><span class="line"></span><br><span class="line">### 5: Scrapy安装</span><br></pre></td></tr></table></figure>
+<figure class="highlight clean"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">      mysql.server start</span><br><span class="line">```      </span><br><span class="line"></span><br><span class="line">### <span class="number">4</span>: Pygame安装</span><br><span class="line">需要去官方(http:<span class="comment">//www.pygame.org/download.shtml)下载</span></span><br><span class="line">pygame<span class="number">-1.9</span><span class="number">.2</span>pre-py2<span class="number">.7</span>-macosx10<span class="number">.7</span>.mpkg.zip,解压缩后安装在mac10<span class="number">.10</span>上才行.</span><br><span class="line"></span><br><span class="line">### <span class="number">5</span>: Scrapy安装</span><br></pre></td></tr></table></figure>
 <p>pip install Scrapy<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">很快安装成功,</span><br><span class="line">但是新建项目时候出错了</span><br></pre></td></tr></table></figure></p>
-<p>scrapy startproject tutorial<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">![](http://ww3.sinaimg.cn/large/7293e3b7jw1evclegfxc9j20st086ju2.jpg)</span><br><span class="line"></span><br><span class="line">解决方法也很简单,根据错误提示谷歌搜索,打开第一个结果的stackoverflow网站,按照答案一步一步来就行.</span><br></pre></td></tr></table></figure></p>
+<p>scrapy startproject tutorial<br><figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">!<span class="selector-attr">[]</span>(<span class="attribute">http</span>:<span class="comment">//ww3.sinaimg.cn/large/7293e3b7jw1evclegfxc9j20st086ju2.jpg)</span></span><br><span class="line"></span><br><span class="line">解决方法也很简单,根据错误提示谷歌搜索,打开第一个结果的stackoverflow网站,按照答案一步一步来就行.</span><br></pre></td></tr></table></figure></p>
 <p>sudo rm -rf /Library/Python/2.7/site-packages/six<em><br>sudo rm -rf /System/Library/Frameworks/Python.framework/Versions/2.7/Extras/lib/python/six</em><br>sudo pip install six<br><code>`</code></p>
 <p>参考: <a href="http://stackoverflow.com/questions/30964836/scrapy-throws-importerror-cannot-import-name-xmlrpc-client" target="_blank" rel="noopener">stackoverflow真是好地方</a></p>
 
@@ -517,7 +517,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">68</span>
+                <span class="site-state-item-count">69</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>

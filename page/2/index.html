@@ -91,12 +91,12 @@
 
 
 <meta property="og:type" content="website">
-<meta property="og:title" content="月薪5000元码农的自我修养">
+<meta property="og:title" content="40+岁大龄码农的自我修养">
 <meta property="og:url" content="http://mrxin.github.io/page/2/index.html">
-<meta property="og:site_name" content="月薪5000元码农的自我修养">
+<meta property="og:site_name" content="40+岁大龄码农的自我修养">
 <meta property="og:locale" content="zh-Hans">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="月薪5000元码农的自我修养">
+<meta name="twitter:title" content="40+岁大龄码农的自我修养">
 
 
 
@@ -130,7 +130,7 @@
 
 
 
-  <title>月薪5000元码农的自我修养</title>
+  <title>40+岁大龄码农的自我修养</title>
 </head>
 
 <body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -168,7 +168,7 @@
     <div class="custom-logo-site-title">
       <a href="/" class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
-        <span class="site-title">月薪5000元码农的自我修养</span>
+        <span class="site-title">40+岁大龄码农的自我修养</span>
         <span class="logo-line-after"><i></i></span>
       </a>
     </div>
@@ -293,6 +293,119 @@
   
 
   <article class="post post-type-normal " itemscope="" itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://mrxin.github.io/2017/08/17/asyncio-aiohttop-hupu-spider/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="小信">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="40+岁大龄码农的自我修养">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/08/17/asyncio-aiohttop-hupu-spider/" itemprop="url">用asyncio协程和aiohttp爬取虎扑步行街前100页的主贴</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-08-17T20:11:01+08:00">
+                2017-08-17
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin/env python</span></span><br><span class="line"><span class="comment"># -*- coding: utf-8 -*-</span></span><br><span class="line"><span class="keyword">import</span> asyncio</span><br><span class="line"><span class="keyword">import</span> aiohttp</span><br><span class="line"><span class="keyword">import</span> time</span><br><span class="line"><span class="keyword">from</span> pyquery <span class="keyword">import</span> PyQuery <span class="keyword">as</span> pq</span><br><span class="line"><span class="keyword">import</span> sys</span><br><span class="line"><span class="keyword">import</span> codecs</span><br><span class="line"><span class="keyword">import</span> json</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">async</span> <span class="function"><span class="keyword">def</span> <span class="title">get_post_url</span><span class="params">(url)</span>:</span></span><br><span class="line">    <span class="string">'''</span></span><br><span class="line"><span class="string">    得到每一页的所有链接</span></span><br><span class="line"><span class="string">    '''</span></span><br><span class="line">    <span class="keyword">async</span> <span class="keyword">with</span> aiohttp.ClientSession() <span class="keyword">as</span> client:</span><br><span class="line">        <span class="keyword">async</span> <span class="keyword">with</span> client.get(url) <span class="keyword">as</span> response:</span><br><span class="line">            body = <span class="keyword">await</span> response.text(encoding=<span class="string">"utf-8"</span>)</span><br><span class="line">            <span class="comment"># print(body)</span></span><br><span class="line">            post_list = parser(body)</span><br><span class="line">            <span class="keyword">for</span> post_url <span class="keyword">in</span> post_list:</span><br><span class="line">                post = &#123;&#125;</span><br><span class="line">                post[<span class="string">"url"</span>] = post_url</span><br><span class="line">                post_urls.append(post_url)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">async</span> <span class="function"><span class="keyword">def</span> <span class="title">get_post_info</span><span class="params">(url)</span>:</span></span><br><span class="line">    <span class="string">'''</span></span><br><span class="line"><span class="string">    根据链接得到标题 作者 发帖时间等内容</span></span><br><span class="line"><span class="string">    '''</span></span><br><span class="line">    <span class="keyword">async</span> <span class="keyword">with</span> aiohttp.ClientSession() <span class="keyword">as</span> client:</span><br><span class="line">        <span class="keyword">async</span> <span class="keyword">with</span> client.get(url) <span class="keyword">as</span> response:</span><br><span class="line">            body = <span class="keyword">await</span> response.text(encoding=<span class="string">"utf-8"</span>)</span><br><span class="line">            post_info = paser_post(body)</span><br><span class="line">            <span class="keyword">if</span> post_info <span class="keyword">is</span> <span class="keyword">not</span> <span class="keyword">None</span>:</span><br><span class="line">                post_info[<span class="string">"url"</span>] = url</span><br><span class="line">                post_lists.append(post_info)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">paser_post</span><span class="params">(html)</span>:</span></span><br><span class="line">    <span class="string">'''</span></span><br><span class="line"><span class="string">    解析列表页</span></span><br><span class="line"><span class="string">    '''</span></span><br><span class="line">    post_info = &#123;&#125;</span><br><span class="line">    doc = pq(html)</span><br><span class="line">    main_post = doc(<span class="string">'div#tpc'</span>)</span><br><span class="line">    post_author = main_post.find(<span class="string">'div.author a.u'</span>).text()</span><br><span class="line">    post_time = main_post.find(<span class="string">'div.author span.stime'</span>).text()</span><br><span class="line">    post_title = doc(<span class="string">'h1#j_data'</span>).text()</span><br><span class="line">    post_info[<span class="string">"title"</span>] = post_title</span><br><span class="line">    post_info[<span class="string">'time'</span>] = post_time</span><br><span class="line">    post_info[<span class="string">'author'</span>] = post_author</span><br><span class="line">    <span class="keyword">if</span> <span class="keyword">not</span> post_title <span class="keyword">and</span> <span class="keyword">not</span> post_time <span class="keyword">and</span> <span class="keyword">not</span> post_author:</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">None</span></span><br><span class="line">    <span class="keyword">return</span> post_info</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">parser</span><span class="params">(html)</span>:</span></span><br><span class="line">    <span class="string">'''</span></span><br><span class="line"><span class="string">    解析帖子页</span></span><br><span class="line"><span class="string">    '''</span></span><br><span class="line">    post_list = []</span><br><span class="line">    doc = pq(html)</span><br><span class="line">    links_item = doc(<span class="string">'table[id="pl"]'</span>).find(<span class="string">'tbody'</span>).find(<span class="string">'tr[mid]'</span>)</span><br><span class="line">    <span class="keyword">for</span> link_item <span class="keyword">in</span> links_item.items():</span><br><span class="line">        post_link = link_item.find(<span class="string">'td.p_title'</span>).find(<span class="string">'a'</span>).attr(<span class="string">'href'</span>)</span><br><span class="line">        post_link = <span class="string">"https://bbs.hupu.com"</span> + post_link</span><br><span class="line">        post_list.append(post_link)</span><br><span class="line">    <span class="keyword">return</span> post_list</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 得到开始时间</span></span><br><span class="line">start_time = time.time()</span><br><span class="line"><span class="comment"># 存储数据的列表</span></span><br><span class="line">post_lists = []</span><br><span class="line"><span class="comment"># 每一个帖子链接的列表</span></span><br><span class="line">post_urls = []</span><br><span class="line"><span class="comment"># 创建时间循环</span></span><br><span class="line">loop = asyncio.get_event_loop()</span><br><span class="line"></span><br><span class="line"><span class="comment"># 将步行街前一百的链接加入事件循环, 同时访问这100页, 得到所有的帖子链接</span></span><br><span class="line">urls = [</span><br><span class="line">    <span class="string">"https://bbs.hupu.com/bxj-postdate-&#123;&#125;"</span>.format(i) <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">1</span>, <span class="number">101</span>)]</span><br><span class="line">tasks = [get_post_url(url) <span class="keyword">for</span> url <span class="keyword">in</span> urls]</span><br><span class="line">loop.run_until_complete(asyncio.wait(tasks))</span><br><span class="line"><span class="comment"># 输出帖子总数</span></span><br><span class="line">print(len(post_urls))</span><br><span class="line"><span class="comment"># 将所有帖子链接加入事件循环, 得要内容</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">0</span>, len(post_urls), <span class="number">1000</span>):</span><br><span class="line">    lenth = len(post_urls) - i</span><br><span class="line">    <span class="keyword">if</span> lenth &gt;= <span class="number">1000</span>:</span><br><span class="line">        lenth = <span class="number">1000</span></span><br><span class="line">    print(i)</span><br><span class="line">    end_time = time.time()</span><br><span class="line">    print(<span class="string">"cast time"</span>, end_time - start_time)</span><br><span class="line">    tasks = [get_post_info(post_urls[num + i]) <span class="keyword">for</span> num <span class="keyword">in</span> range(lenth)]</span><br><span class="line">    loop.run_until_complete(asyncio.wait(tasks))</span><br><span class="line">loop.close()</span><br><span class="line"></span><br><span class="line"><span class="comment"># 存储所有数据.</span></span><br><span class="line">post_dicts = &#123;<span class="string">"posts"</span>: post_lists, <span class="string">"lenth"</span>: len(post_lists)&#125;</span><br><span class="line"><span class="keyword">with</span> codecs.open(<span class="string">"post.json"</span>, <span class="string">"w"</span>, <span class="string">"utf-8"</span>) <span class="keyword">as</span> f:</span><br><span class="line">    f.write(json.dumps(post_dicts, indent=<span class="keyword">True</span>))</span><br><span class="line">end_time = time.time()</span><br><span class="line"></span><br><span class="line">print(<span class="string">"cast time"</span>, end_time - start_time)</span><br></pre></td></tr></table></figure>
+<p>因为虎扑没有登录只能看到前100页的帖子.<br>总共11594个主贴, 总共耗费了358秒.<br>大概每秒爬32个帖子.<br>开了500个协程和1000个协程,速度差不多.<br>应该是单ip的极限了.</p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope="" itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="http://mrxin.github.io/2017/07/18/bash-tip/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
@@ -302,7 +415,7 @@
     </span>
 
     <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="月薪5000元码农的自我修养">
+      <meta itemprop="name" content="40+岁大龄码农的自我修养">
     </span>
 
     
@@ -367,17 +480,17 @@
 <li><p>1 # thefuck<br>用于输错命令后的自动纠正</p>
 <ul>
 <li><p>安装</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew install thefuck</span><br></pre></td></tr></table></figure>
+<figure class="highlight mipsasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">brew </span><span class="keyword">install </span>thefuck</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>使用</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">pythn</span><br><span class="line"># zsh: command not found: pythonn</span><br><span class="line">fuck</span><br><span class="line"># python [enter/↑/↓/ctrl+c]</span><br></pre></td></tr></table></figure>
+<figure class="highlight vala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">pythn</span><br><span class="line"><span class="meta"># zsh: command not found: pythonn</span></span><br><span class="line">fuck</span><br><span class="line"><span class="meta"># python [enter/↑/↓/ctrl+c]</span></span><br></pre></td></tr></table></figure>
 </li>
 </ul>
 </li>
 <li><p>2 # tldr<br>用于bash命令的提示和示例</p>
 <ul>
 <li><p>安装</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew install tldr</span><br></pre></td></tr></table></figure>
+<figure class="highlight mipsasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">brew </span><span class="keyword">install </span>tldr</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>使用</p>
 <p><img src="http://ww1.sinaimg.cn/large/4399c9a5gy1fho22cpfopj20oz0exad6.jpg" alt=""></p>
@@ -386,7 +499,7 @@
 </li>
 <li><p>3 # mycli<br>支持自动补全和语法高亮的mysql命令行工具</p>
 <ul>
-<li>安装<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew install mycli</span><br></pre></td></tr></table></figure>
+<li>安装<figure class="highlight mipsasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">brew </span><span class="keyword">install </span>mycli</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
 </li>
@@ -451,7 +564,7 @@
 </table>
 <ul>
 <li>技巧<ul>
-<li>删除大量文件的最快方法之一<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mkdir empty &amp;&amp; rsync -r --delete empty/ some-dir &amp;&amp; rmdir some-dir</span><br></pre></td></tr></table></figure>
+<li>删除大量文件的最快方法之一<figure class="highlight maxima"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">mkdir</span> empty &amp;&amp; rsync -r --<span class="built_in">delete</span> empty/ <span class="built_in">some</span>-dir &amp;&amp; <span class="built_in">rmdir</span> <span class="built_in">some</span>-dir</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
 </li>
@@ -508,7 +621,7 @@
     </span>
 
     <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="月薪5000元码农的自我修养">
+      <meta itemprop="name" content="40+岁大龄码农的自我修养">
     </span>
 
     
@@ -619,7 +732,7 @@
     </span>
 
     <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="月薪5000元码农的自我修养">
+      <meta itemprop="name" content="40+岁大龄码农的自我修养">
     </span>
 
     
@@ -860,7 +973,7 @@
     </span>
 
     <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="月薪5000元码农的自我修养">
+      <meta itemprop="name" content="40+岁大龄码农的自我修养">
     </span>
 
     
@@ -922,18 +1035,18 @@
             <ul>
 <li>按f1输入task,调出运行配置文件<br>  输入</li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    &quot;version&quot;: &quot;0.1.0&quot;,</span><br><span class="line">    &quot;command&quot;: &quot;python&quot;,</span><br><span class="line">    &quot;isShellCommand&quot;: true,</span><br><span class="line">    &quot;args&quot;: [&quot;$&#123;file&#125;&quot;],</span><br><span class="line">    &quot;showOutput&quot;: &quot;always&quot;,</span><br><span class="line">    &quot;options&quot;:</span><br><span class="line">        &#123;</span><br><span class="line">        &quot;env&quot;:</span><br><span class="line">            &#123;</span><br><span class="line">            &quot;PYTHONIOENCODING&quot;: &quot;UTF-8&quot;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="attr">"version"</span>: <span class="string">"0.1.0"</span>,</span><br><span class="line">    <span class="attr">"command"</span>: <span class="string">"python"</span>,</span><br><span class="line">    <span class="attr">"isShellCommand"</span>: <span class="literal">true</span>,</span><br><span class="line">    <span class="attr">"args"</span>: [<span class="string">"$&#123;file&#125;"</span>],</span><br><span class="line">    <span class="attr">"showOutput"</span>: <span class="string">"always"</span>,</span><br><span class="line">    <span class="attr">"options"</span>:</span><br><span class="line">        &#123;</span><br><span class="line">        <span class="attr">"env"</span>:</span><br><span class="line">            &#123;</span><br><span class="line">            <span class="attr">"PYTHONIOENCODING"</span>: <span class="string">"UTF-8"</span></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <ul>
 <li><p>常用插件<br>  进辅助线 Guides<br>  文件图标 vscode-icons<br>  缩进线 Indenticator</p>
 </li>
 <li><p>设置</p>
 </li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br></pre></td><td class="code"><pre><span class="line">// 将设置放入此文件中以覆盖默认设置</span><br><span class="line">&#123;</span><br><span class="line">    &quot;window.zoomLevel&quot;: 2,</span><br><span class="line">    //字号</span><br><span class="line">    &quot;editor.fontSize&quot;: 14,</span><br><span class="line">    // 字体</span><br><span class="line">    &quot;editor.fontFamily&quot;: &quot;Hack, Menlo, Monaco, &apos;Courier New&apos;, monospace&quot;,</span><br><span class="line">    //80个字符的提示线</span><br><span class="line">    &quot;editor.rulers&quot;: [80],</span><br><span class="line">    &quot;editor.acceptSuggestionOnEnter&quot;: true,</span><br><span class="line">    // Arguments passed in. Each argument is a separate item in the array.</span><br><span class="line">    //pep8自动格式化</span><br><span class="line">    &quot;python.formatting.autopep8Args&quot;:[</span><br><span class="line">        &quot;--max-line-length=80&quot;,</span><br><span class="line">        &quot;--indent-size=4&quot;</span><br><span class="line">    ],</span><br><span class="line"></span><br><span class="line">    // Format the document upon saving. 保存文件后自动格式化</span><br><span class="line">    &quot;python.formatting.formatOnSave&quot;: true,</span><br><span class="line">    // 忽略的pep8提示</span><br><span class="line">    &quot;python.linting.pylintArgs&quot;: [</span><br><span class="line">        &quot;--include-naming-hint=n&quot;,</span><br><span class="line">        &quot;--disable=W0311&quot;,</span><br><span class="line">        &quot;--disable=C0103&quot;,</span><br><span class="line">        &quot;--disable=E1101&quot;,</span><br><span class="line">        &quot;--disable=C0111&quot;,</span><br><span class="line">        &quot;--disable=W0621&quot;</span><br><span class="line">    ],</span><br><span class="line">    //去除尾部的空格</span><br><span class="line">    &quot;files.trimTrailingWhitespace&quot;: true,</span><br><span class="line">    //失去焦点时自动保存</span><br><span class="line">    &quot;files.autoSave&quot;: &quot;onFocusChange&quot;,</span><br><span class="line">    //显示缩进空格</span><br><span class="line">      &quot;editor.renderWhitespace&quot;: &quot;boundary&quot;,</span><br><span class="line">    &quot;editor.renderLineHighlight&quot;: &quot;line&quot;,</span><br><span class="line">   //忽略的文件</span><br><span class="line">  &quot;files.exclude&quot;: &#123;</span><br><span class="line">    &quot;**/.git&quot;: true,</span><br><span class="line">    &quot;**/.svn&quot;: true,</span><br><span class="line">    &quot;**/.hg&quot;: true,</span><br><span class="line">    &quot;**/.DS_Store&quot;: true,</span><br><span class="line">        &quot;.vscode&quot;: true,</span><br><span class="line">        &quot;**/__pycache__&quot;: true,</span><br><span class="line">        &quot;**/**/*.pyc&quot;: true</span><br><span class="line">  &#125;,</span><br><span class="line">  //关闭显示打开的文件</span><br><span class="line">  &quot;explorer.openEditors.visible&quot;: 0,</span><br><span class="line">  //关闭回车的自动补全</span><br><span class="line">    &quot;editor.acceptSuggestionOnEnter&quot;: false</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 将设置放入此文件中以覆盖默认设置</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="string">"window.zoomLevel"</span>: <span class="number">2</span>,</span><br><span class="line">    <span class="comment">//字号</span></span><br><span class="line">    <span class="string">"editor.fontSize"</span>: <span class="number">14</span>,</span><br><span class="line">    <span class="comment">// 字体</span></span><br><span class="line">    <span class="string">"editor.fontFamily"</span>: <span class="string">"Hack, Menlo, Monaco, 'Courier New', monospace"</span>,</span><br><span class="line">    <span class="comment">//80个字符的提示线</span></span><br><span class="line">    <span class="string">"editor.rulers"</span>: [<span class="number">80</span>],</span><br><span class="line">    <span class="string">"editor.acceptSuggestionOnEnter"</span>: <span class="literal">true</span>,</span><br><span class="line">    <span class="comment">// Arguments passed in. Each argument is a separate item in the array.</span></span><br><span class="line">    <span class="comment">//pep8自动格式化</span></span><br><span class="line">    <span class="string">"python.formatting.autopep8Args"</span>:[</span><br><span class="line">        <span class="string">"--max-line-length=80"</span>,</span><br><span class="line">        <span class="string">"--indent-size=4"</span></span><br><span class="line">    ],</span><br><span class="line"></span><br><span class="line">    <span class="comment">// Format the document upon saving. 保存文件后自动格式化</span></span><br><span class="line">    <span class="string">"python.formatting.formatOnSave"</span>: <span class="literal">true</span>,</span><br><span class="line">    <span class="comment">// 忽略的pep8提示</span></span><br><span class="line">    <span class="string">"python.linting.pylintArgs"</span>: [</span><br><span class="line">        <span class="string">"--include-naming-hint=n"</span>,</span><br><span class="line">        <span class="string">"--disable=W0311"</span>,</span><br><span class="line">        <span class="string">"--disable=C0103"</span>,</span><br><span class="line">        <span class="string">"--disable=E1101"</span>,</span><br><span class="line">        <span class="string">"--disable=C0111"</span>,</span><br><span class="line">        <span class="string">"--disable=W0621"</span></span><br><span class="line">    ],</span><br><span class="line">    <span class="comment">//去除尾部的空格</span></span><br><span class="line">    <span class="string">"files.trimTrailingWhitespace"</span>: <span class="literal">true</span>,</span><br><span class="line">    <span class="comment">//失去焦点时自动保存</span></span><br><span class="line">    <span class="string">"files.autoSave"</span>: <span class="string">"onFocusChange"</span>,</span><br><span class="line">    <span class="comment">//显示缩进空格</span></span><br><span class="line">      <span class="string">"editor.renderWhitespace"</span>: <span class="string">"boundary"</span>,</span><br><span class="line">    <span class="string">"editor.renderLineHighlight"</span>: <span class="string">"line"</span>,</span><br><span class="line">   <span class="comment">//忽略的文件</span></span><br><span class="line">  <span class="string">"files.exclude"</span>: &#123;</span><br><span class="line">    <span class="string">"**/.git"</span>: <span class="literal">true</span>,</span><br><span class="line">    <span class="string">"**/.svn"</span>: <span class="literal">true</span>,</span><br><span class="line">    <span class="string">"**/.hg"</span>: <span class="literal">true</span>,</span><br><span class="line">    <span class="string">"**/.DS_Store"</span>: <span class="literal">true</span>,</span><br><span class="line">        <span class="string">".vscode"</span>: <span class="literal">true</span>,</span><br><span class="line">        <span class="string">"**/__pycache__"</span>: <span class="literal">true</span>,</span><br><span class="line">        <span class="string">"**/**/*.pyc"</span>: <span class="literal">true</span></span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="comment">//关闭显示打开的文件</span></span><br><span class="line">  <span class="string">"explorer.openEditors.visible"</span>: <span class="number">0</span>,</span><br><span class="line">  <span class="comment">//关闭回车的自动补全</span></span><br><span class="line">    <span class="string">"editor.acceptSuggestionOnEnter"</span>: <span class="literal">false</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>需要安装pylint和auto pep8;</p>
 <ul>
 <li><p>自己需要的快捷键</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">[</span><br><span class="line">    &#123; &quot;key&quot;: &quot;f6&quot;,                    &quot;command&quot;: &quot;workbench.action.debug.continue&quot;,</span><br><span class="line">                                     &quot;when&quot;: &quot;inDebugMode&quot; &#125;,</span><br><span class="line"></span><br><span class="line">&#123; &quot;key&quot;: &quot;f6&quot;,                    &quot;command&quot;: &quot;workbench.action.debug.start&quot;,</span><br><span class="line">                                     &quot;when&quot;: &quot;!inDebugMode&quot; &#125;,</span><br><span class="line">&#123; &quot;key&quot;: &quot;f5&quot;,           &quot;command&quot;: &quot;workbench.action.tasks.build&quot; &#125;</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">[</span><br><span class="line">    &#123; <span class="attr">"key"</span>: <span class="string">"f6"</span>,                    <span class="attr">"command"</span>: <span class="string">"workbench.action.debug.continue"</span>,</span><br><span class="line">                                     <span class="attr">"when"</span>: <span class="string">"inDebugMode"</span> &#125;,</span><br><span class="line"></span><br><span class="line">&#123; <span class="attr">"key"</span>: <span class="string">"f6"</span>,                    <span class="attr">"command"</span>: <span class="string">"workbench.action.debug.start"</span>,</span><br><span class="line">                                     <span class="attr">"when"</span>: <span class="string">"!inDebugMode"</span> &#125;,</span><br><span class="line">&#123; <span class="attr">"key"</span>: <span class="string">"f5"</span>,           <span class="attr">"command"</span>: <span class="string">"workbench.action.tasks.build"</span> &#125;</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>不出现自动补全提示的时候,<br>在<code>~/.vscode/extensions/donjayamanne.python-0.5.5/pythonFiles/preview/jedi/parser</code>目录下复制一份grammar3.5.txt,并将其改名为grammar3.6.txt</p>
 </li>
@@ -990,7 +1103,7 @@
     </span>
 
     <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="月薪5000元码农的自我修养">
+      <meta itemprop="name" content="40+岁大龄码农的自我修养">
     </span>
 
     
@@ -1053,34 +1166,34 @@
 <ul>
 <li>屏蔽”Thunderbolt 1.2 固件更新”<br>黑苹果在APP store更新界面一直有”Thunderbolt 1.2 固件更新”提醒, 在iterm2运行”</li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">softwareupdate --ignore ThunderboltFirmwareUpdate1.2</span><br></pre></td></tr></table></figure>
+<figure class="highlight ada"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">softwareupdate <span class="comment">--ignore ThunderboltFirmwareUpdate1.2</span></span><br></pre></td></tr></table></figure>
 <ul>
 <li>安装Xcode Command Line Tools<br>也就是命令行工具,大概需要10分钟.</li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">xcode-select --install</span><br></pre></td></tr></table></figure>
+<figure class="highlight ada"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">xcode-<span class="keyword">select</span> <span class="comment">--install</span></span><br></pre></td></tr></table></figure>
 <ul>
 <li>安装zsh, 命令参考<a href="https://github.com/robbyrussell/oh-my-zsh" target="_blank" rel="noopener">github</a></li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sh -c &quot;$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)&quot;</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sh -c <span class="string">"<span class="variable">$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)</span>"</span></span><br></pre></td></tr></table></figure>
 <p>然后配置iterm2, 去掉General的两个Confirm的勾选, 以防iterm2阻止MAC的关机. Profiles-Text两个字号选择18, 字体选择Hack</p>
 <p>修改主题和提示符: <code>subl ~/.zshrc</code>, 第10行的主题改成<code>half-life</code>,<br>然后提示符修改代码加入最后,</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">PROMPT=$&apos;%&#123;$purple%&#125;%n%&#123;$reset_color%&#125; in %&#123;$limegreen%&#125;%~%&#123;$reset_color%&#125;$(ruby_prompt_info &quot; with%&#123;$fg[red]%&#125; &quot; v g &quot;%&#123;$reset_color%&#125;&quot;)$vcs_info_msg_0_%&#123;$orange%&#125;%&#123;$reset_color%&#125; at %&#123;$hotpink%&#125;%* %&#123;$orange%&#125;</span><br><span class="line">λ%&#123;$reset_color%&#125; &apos;</span><br></pre></td></tr></table></figure>
+<figure class="highlight mel"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">PROMPT=$'%&#123;$purple%&#125;%n%&#123;$reset_color%&#125; <span class="keyword">in</span> %&#123;$limegreen%&#125;%~%&#123;$reset_color%&#125;$(ruby_prompt_info <span class="string">" with%&#123;$fg[red]%&#125; "</span> v g <span class="string">"%&#123;$reset_color%&#125;"</span>)$vcs_info_msg_0_%&#123;$orange%&#125;%&#123;$reset_color%&#125; at %&#123;$hotpink%&#125;%* %&#123;$orange%&#125;</span><br><span class="line">λ%&#123;$reset_color%&#125; <span class="string">'</span></span><br></pre></td></tr></table></figure>
 <ul>
 <li>安装brew</li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ruby -e &quot;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)&quot;</span><br></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/<span class="keyword">install</span>/<span class="keyword">master</span>/<span class="keyword">install</span>)<span class="string">"</span></span><br></pre></td></tr></table></figure>
 <ul>
 <li>用brew分别安装各种工具,<br>比如tree, git, openssl, mongodb等.<br>tree是mac下生成目录树的工具,</li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">brew install tree</span><br><span class="line">brew install git</span><br><span class="line">brew install openssl</span><br><span class="line">brew python3</span><br><span class="line">brew mysql</span><br></pre></td></tr></table></figure>
+<figure class="highlight mipsasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">brew </span><span class="keyword">install </span>tree</span><br><span class="line"><span class="keyword">brew </span><span class="keyword">install </span>git</span><br><span class="line"><span class="keyword">brew </span><span class="keyword">install </span>openssl</span><br><span class="line"><span class="keyword">brew </span>python3</span><br><span class="line"><span class="keyword">brew </span>mysql</span><br></pre></td></tr></table></figure>
 <ul>
 <li>安装pip</li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo easy_install pip</span><br></pre></td></tr></table></figure>
+<figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">sudo</span> easy_install pip</span><br></pre></td></tr></table></figure>
 <p>在墙内为了更快的安装各种库, 需要更换pip的安装源,自己建立 “~/.pip/pip.conf”文件</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">mkdir ~/.pip/</span><br><span class="line">cd ~/.pip/</span><br><span class="line">subl pip.conf</span><br></pre></td></tr></table></figure>
+<figure class="highlight jboss-cli"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">mkdir ~<span class="string">/.pip/</span></span><br><span class="line"><span class="keyword">cd</span> ~<span class="string">/.pip/</span></span><br><span class="line">subl pip.conf</span><br></pre></td></tr></table></figure>
 <p>将</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[global]</span><br><span class="line">trusted-host = pypi.douban.com</span><br><span class="line">index-url = http://pypi.douban.com/simple/</span><br></pre></td></tr></table></figure>
+<figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="section">[global]</span></span><br><span class="line"><span class="attr">trusted-host</span> = pypi.douban.com</span><br><span class="line"><span class="attr">index-url</span> = http://pypi.douban.com/simple/</span><br></pre></td></tr></table></figure>
 <p>拷贝进去</p>
 <ul>
 <li>用pip安装各种库,<br>比如requests, beautifulsoup4, mysql-pyhton, virtualenv等.</li>
@@ -1137,7 +1250,7 @@
     </span>
 
     <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="月薪5000元码农的自我修养">
+      <meta itemprop="name" content="40+岁大龄码农的自我修养">
     </span>
 
     
@@ -1201,11 +1314,11 @@
 <ul>
 <li>更新github的SSH key, 在终端输入命令一路回车生成SSH</li>
 </ul>
- <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">ssh-keygen -t rsa -C &quot;your_email@example.com&quot;</span><br><span class="line"></span><br><span class="line">cd ~/.ssh</span><br><span class="line">subl id_rsa.pub</span><br></pre></td></tr></table></figure>
+ <figure class="highlight jboss-cli"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">ssh-keygen -t rsa -C <span class="string">"your_email@example.com"</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">cd</span> ~<span class="string">/.ssh</span></span><br><span class="line">subl id_rsa.pub</span><br></pre></td></tr></table></figure>
 <p>  将sublime text里面的ssh密钥拷贝粘贴到github账户里面.</p>
-  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh -T git@github.com</span><br></pre></td></tr></table></figure>
+  <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">ssh</span> <span class="selector-tag">-T</span> <span class="selector-tag">git</span>@<span class="keyword">github</span>.<span class="keyword">com</span></span><br></pre></td></tr></table></figure>
 <p>  验证ssh配置是否成功.</p>
-  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config --global user.name &quot;用户名&quot;</span><br><span class="line">git config --global user.email &quot;邮箱地址&quot;</span><br></pre></td></tr></table></figure>
+  <figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git<span class="built_in"> config </span>--global user.name <span class="string">"用户名"</span></span><br><span class="line">git<span class="built_in"> config </span>--global user.email <span class="string">"邮箱地址"</span></span><br></pre></td></tr></table></figure>
 <p>  运行上面命令,可以避免每次hexo d提交的时候都输入账户密码</p>
 <ul>
 <li><p>安装Node.js, hexo官网提供的是用命令安装的方式, 我发现还是去Node.js官网下载一个安装程序方便.<br><a href="https://nodejs.org/download/" target="_blank" rel="noopener">下载地址</a></p>
@@ -1213,26 +1326,26 @@
 <li><p>安装Hexo</p>
 </li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g hexo-cli</span><br></pre></td></tr></table></figure>
+<figure class="highlight avrasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g hexo-<span class="keyword">cli</span></span><br></pre></td></tr></table></figure>
 <ul>
 <li>初始化</li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hexo init mrxin.github.io</span><br><span class="line">cd mrxin.github.io</span><br><span class="line">npm install</span><br></pre></td></tr></table></figure>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hexo init mrxin<span class="selector-class">.github</span><span class="selector-class">.io</span></span><br><span class="line">cd mrxin<span class="selector-class">.github</span><span class="selector-class">.io</span></span><br><span class="line">npm install</span><br></pre></td></tr></table></figure>
 <p>完成后, 用 sublime text打开 _config.yml进行配置, 参考以前的配置文件, 需要注意的是, 最后deploy部分,以前type是github,现在改成了git.</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">deploy:</span><br><span class="line">  type: git</span><br><span class="line">  repository: https://github.com/MrXin/MrXin.github.io.git</span><br><span class="line">  branch: master</span><br></pre></td></tr></table></figure>
+<figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">deploy</span>:</span><br><span class="line">  <span class="attribute">type</span>: git</span><br><span class="line">  <span class="attribute">repository</span>: <span class="attribute">https</span>:<span class="comment">//github.com/MrXin/MrXin.github.io.git</span></span><br><span class="line">  <span class="attribute">branch</span>: master</span><br></pre></td></tr></table></figure>
 <p>这里还有一个重要的步骤是现在需要安装”hexo-deployer-git”,方法:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm <span class="keyword">install</span> hexo-deployer-git <span class="comment">--save</span></span><br></pre></td></tr></table></figure>
 <ul>
 <li>主题安装和配置:<br> 我喜欢的主题叫”Landscape-plus”, 不知道是hexo的bug还是这个主题的不过,标签或者分类只能显示10篇文章的主题.<br> 我又挑了一款不好看的主题,叫maupassant,其<a href="https://github.com/tufu9441/maupassant-hexo" target="_blank" rel="noopener">官网</a>.<br> 使用方法比较简单,按照官方步骤来就行了,最后在多说参数后填上:clutchbear即可.</li>
 </ul>
 <ul>
 <li>最后将以前备份的md文件拷贝到_posts目录里面, 生成静态页面传到github上.</li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">hexo g</span><br><span class="line">hexo d</span><br></pre></td></tr></table></figure>
+<figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">hexo g</span></span><br><span class="line"><span class="attribute">hexo d</span></span><br></pre></td></tr></table></figure>
 <ul>
 <li>Rss需要按装插件:</li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-generator-feed@1 --save</span><br></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm <span class="keyword">install</span> hexo-generator-feed@<span class="number">1</span> <span class="comment">--save</span></span><br></pre></td></tr></table></figure>
           
         
       
@@ -1284,7 +1397,7 @@
     </span>
 
     <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="月薪5000元码农的自我修养">
+      <meta itemprop="name" content="40+岁大龄码农的自我修养">
     </span>
 
     
@@ -1345,21 +1458,21 @@
           
             <p>修改zsh命令提示符</p>
 <ul>
-<li>安装好zsh后， 打开终端，输入<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim ~/.zshrc</span><br></pre></td></tr></table></figure>
+<li>安装好zsh后， 打开终端，输入<figure class="highlight jboss-cli"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim ~<span class="string">/.zshrc</span></span><br></pre></td></tr></table></figure>
 </li>
 </ul>
 <p>打开zsh配置文件</p>
 <ul>
-<li>在.zshrc最下面加入<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">autoload -U compinit promptinit</span><br><span class="line">compinit</span><br><span class="line">promptinit</span><br><span class="line"></span><br><span class="line"># 设置 redhat 主题的默认命令行提示符</span><br><span class="line">prompt redhat</span><br></pre></td></tr></table></figure>
+<li>在.zshrc最下面加入<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">autoload</span> -U compinit promptinit</span><br><span class="line">compinit</span><br><span class="line">promptinit</span><br><span class="line"></span><br><span class="line"><span class="comment"># 设置 redhat 主题的默认命令行提示符</span></span><br><span class="line">prompt redhat</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
 <p>启动tab命令补全 和 命令提示符主题,<br>可以用终端命令’prompt -l’或者’prompt -p’查看可用主题</p>
 <ul>
-<li>修改保存后,重启终端,可能出现警告<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">zsh compinit: insecure directories, run compaudit for list.</span><br><span class="line">Ignore insecure directories and continue [y] or abort compinit [n]?</span><br></pre></td></tr></table></figure>
+<li>修改保存后,重启终端,可能出现警告<figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">zsh compinit: insecure directories, <span class="built_in">run</span> compaudit <span class="keyword">for</span> <span class="built_in">list</span>.</span><br><span class="line">Ignore insecure directories <span class="keyword">and</span> <span class="keyword">continue</span> [y] <span class="keyword">or</span> abort compinit [n]?</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
 <p>按y后,可以出现修改后命令提示符</p>
-<p>如果想取消这个警告,在On OSX 10.11下,输入<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">cd /usr/local/share/</span><br><span class="line">sudo chmod -R 755 zsh</span><br><span class="line">sudo chown -R root:staff zsh</span><br></pre></td></tr></table></figure></p>
+<p>如果想取消这个警告,在On OSX 10.11下,输入<br><figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">cd <span class="regexp">/usr/</span>local<span class="regexp">/share/</span></span><br><span class="line">sudo chmod -R <span class="number">755</span> zsh</span><br><span class="line">sudo chown -R <span class="string">root:</span>staff zsh</span><br></pre></td></tr></table></figure></p>
 
           
         
@@ -1412,7 +1525,7 @@
     </span>
 
     <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="月薪5000元码农的自我修养">
+      <meta itemprop="name" content="40+岁大龄码农的自我修养">
     </span>
 
     
@@ -1471,15 +1584,15 @@
       
         
           
-            <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">#!/usr/bin/env python</span><br><span class="line"># -*- coding: utf-8 -*-</span><br><span class="line"></span><br><span class="line">import requests</span><br><span class="line">from bs4 import BeautifulSoup</span><br><span class="line"></span><br><span class="line">url = &apos;http://list.jd.com/list.html?cat=9987%2C653%2C655&amp;page=1&apos;</span><br><span class="line">req = requests.get(url)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">soup = BeautifulSoup(req.text, &quot;html.parser&quot;)</span><br><span class="line">items = soup.select(&apos;li.gl-item&apos;)</span><br><span class="line"># print len(items)</span><br><span class="line">for item in items:</span><br><span class="line">    sku = item.find(&apos;div&apos;)[&apos;data-sku&apos;]</span><br><span class="line">    print sku,</span><br><span class="line">    price_url = &apos;http://p.3.cn/prices/mgets?skuIds=J_&apos; + str(sku)</span><br><span class="line">    price = requests.get(price_url).json()[0][&apos;p&apos;]</span><br><span class="line">    print price,</span><br><span class="line">    nameinfo = item.find(&apos;div&apos;, class_=&quot;p-name&quot;).find(&apos;a&apos;)</span><br><span class="line">    name = nameinfo[&apos;title&apos;]</span><br><span class="line">    item_url = &apos;http:&apos; + nameinfo[&apos;href&apos;]</span><br><span class="line">    print name, item_url,</span><br><span class="line">    commit = item.find(&apos;div&apos;, class_=&quot;p-commit&quot;).find(&apos;a&apos;)</span><br><span class="line">    if commit:</span><br><span class="line">        print commit.get_text()</span><br></pre></td></tr></table></figure>
+            <figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">#!/usr/bin/env <span class="keyword">python</span></span><br><span class="line"># -*- codin<span class="variable">g:</span> utf-<span class="number">8</span> -*-</span><br><span class="line"></span><br><span class="line">import requests</span><br><span class="line">from bs4 import BeautifulSoup</span><br><span class="line"></span><br><span class="line">url = <span class="string">'http://list.jd.com/list.html?cat=9987%2C653%2C655&amp;page=1'</span></span><br><span class="line">req = requests.<span class="built_in">get</span>(url)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">soup = BeautifulSoup(req.text, <span class="string">"html.parser"</span>)</span><br><span class="line"><span class="built_in">items</span> = soup.select(<span class="string">'li.gl-item'</span>)</span><br><span class="line"># <span class="keyword">print</span> <span class="built_in">len</span>(<span class="built_in">items</span>)</span><br><span class="line"><span class="keyword">for</span> item in item<span class="variable">s:</span></span><br><span class="line">    sku = item.<span class="keyword">find</span>(<span class="string">'div'</span>)[<span class="string">'data-sku'</span>]</span><br><span class="line">    <span class="keyword">print</span> sku,</span><br><span class="line">    price_url = <span class="string">'http://p.3.cn/prices/mgets?skuIds=J_'</span> + str(sku)</span><br><span class="line">    price = requests.<span class="built_in">get</span>(price_url).json()[<span class="number">0</span>][<span class="string">'p'</span>]</span><br><span class="line">    <span class="keyword">print</span> price,</span><br><span class="line">    nameinfo = item.<span class="keyword">find</span>(<span class="string">'div'</span>, class_=<span class="string">"p-name"</span>).<span class="keyword">find</span>(<span class="string">'a'</span>)</span><br><span class="line">    name = nameinfo[<span class="string">'title'</span>]</span><br><span class="line">    item_url = <span class="string">'http:'</span> + nameinfo[<span class="string">'href'</span>]</span><br><span class="line">    <span class="keyword">print</span> name, item_url,</span><br><span class="line">    commit = item.<span class="keyword">find</span>(<span class="string">'div'</span>, class_=<span class="string">"p-commit"</span>).<span class="keyword">find</span>(<span class="string">'a'</span>)</span><br><span class="line">    <span class="keyword">if</span> commi<span class="variable">t:</span></span><br><span class="line">        <span class="keyword">print</span> commit.get_text()</span><br></pre></td></tr></table></figure>
 <p>其中价格是json获取的,</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http://p.3.cn/prices/mgets?skuIds=J_ + skuId</span><br></pre></td></tr></table></figure>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http:<span class="regexp">//</span>p.<span class="number">3</span>.cn<span class="regexp">/prices/mg</span>ets?skuIds=J_ + skuId</span><br></pre></td></tr></table></figure>
 <p>还有几个获取获取json的方法:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http://c0.3.cn/stock?skuId=965009&amp;cat=652,829,854&amp;area=1_2812_51141_0&amp;extraParam=&#123;&quot;originid&quot;:&quot;1&quot;&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight armasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="symbol">http</span>://<span class="built_in">c0</span>.<span class="number">3</span>.cn/stock?skuId<span class="number">=965009</span>&amp;cat<span class="number">=652</span>,<span class="number">829</span>,<span class="number">854</span>&amp;<span class="meta">area</span><span class="number">=1</span>_2812_51141_0&amp;extraParam=&#123;<span class="string">"originid"</span>:<span class="string">"1"</span>&#125;</span><br></pre></td></tr></table></figure>
 <p>其中skuid是商品id,cat可以在商品网页里面获取到, area是地区码,<br>返回京东网页版商品的价格,当地商品是否有货.</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http://item.m.jd.com/ware/thirdAddress.json?address=jd1356&amp;wareId=965009&amp;provinceId=1&amp;cityId=2812&amp;countryId=51141</span><br></pre></td></tr></table></figure>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http:<span class="regexp">//i</span>tem.m.jd.com<span class="regexp">/ware/</span>thirdAddress.json?address=jd1356&amp;wareId=<span class="number">965009</span>&amp;provinceId=<span class="number">1</span>&amp;cityId=<span class="number">2812</span>&amp;countryId=<span class="number">51141</span></span><br></pre></td></tr></table></figure>
 <p>其中wareID是商品id,area是地区码,返回京东手机版商品的价格,当地商品是否有货.</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http://pe.3.cn/prices/pcpmgets?skuids=965012&amp;origin=5&amp;area=1_2812_51141</span><br></pre></td></tr></table></figure>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http:<span class="regexp">//</span>pe.<span class="number">3</span>.cn<span class="regexp">/prices/</span>pcpmgets?skuids=<span class="number">965012</span>&amp;origin=<span class="number">5</span>&amp;area=<span class="number">1</span>_2812_51141</span><br></pre></td></tr></table></figure>
 <p>其中skuid是商品id,cat可以在商品网页里面获取到, area是地区码,<br>返回商品网页版价格和手机版微信版价格.</p>
 
           
@@ -1533,7 +1646,7 @@
     </span>
 
     <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="月薪5000元码农的自我修养">
+      <meta itemprop="name" content="40+岁大龄码农的自我修养">
     </span>
 
     
@@ -1592,120 +1705,7 @@
       
         
           
-            <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br></pre></td><td class="code"><pre><span class="line">#!/usr/bin/env python</span><br><span class="line"># -*- coding: utf-8 -*-</span><br><span class="line">from selenium import webdriver</span><br><span class="line">import requests</span><br><span class="line">import time</span><br><span class="line">import datetime</span><br><span class="line">import json</span><br><span class="line">def get_endTime(paimaiID):</span><br><span class="line">    endTimeURL = &apos;http://paimai.jd.com/services/currentList.action?paimaiIds=&#123;0&#125;&amp;callback=jQuery5542114&apos;.format(</span><br><span class="line">        paimaiID)</span><br><span class="line">    req = requests.get(endTimeURL)</span><br><span class="line">    data = json.loads(req.text[15: -2])</span><br><span class="line">    return data[&apos;endTime&apos;] - 900</span><br><span class="line">def paimai(endTime, paimaiID, name, passWord, want_price):</span><br><span class="line">    driver = webdriver.Firefox()</span><br><span class="line">    driver.get(</span><br><span class="line">        &apos;https://passport.jd.com/new/login.aspx?ReturnUrl=http://paimai.jd.com/&#123;0&#125;&apos;.format(paimaiID))</span><br><span class="line">    email = driver.find_element_by_xpath(&apos;//input[@id=&quot;loginname&quot;]&apos;)</span><br><span class="line">    email.clear()</span><br><span class="line">    email.send_keys(name)</span><br><span class="line">    password = driver.find_element_by_xpath(&apos;//input[@id=&quot;nloginpwd&quot;]&apos;)</span><br><span class="line">    password.clear()</span><br><span class="line">    password.send_keys(passWord)</span><br><span class="line">    form = driver.find_element_by_xpath(&apos;//a[@id=&quot;loginsubmit&quot;]&apos;)</span><br><span class="line">    form.click()</span><br><span class="line">    try:</span><br><span class="line">        captcha = driver.find_element_by_xpath(&apos;//input[@id=&quot;authcode&quot;]&apos;)</span><br><span class="line">        if captcha:</span><br><span class="line">            input_captcha = raw_input()</span><br><span class="line">            captcha.send_keys(input_captcha)</span><br><span class="line">        form.click()</span><br><span class="line">    except:</span><br><span class="line">        pass</span><br><span class="line">    while 1:</span><br><span class="line">        nowTime = int(time.time() * 1000)</span><br><span class="line">        if nowTime == endTime:</span><br><span class="line">            break</span><br><span class="line">    current_price_url = &apos;http://paimai.jd.com/json/current/englishquery?paimaiId=&#123;0&#125;&amp;skuId=0&amp;start=0&amp;end=9&apos;.format(</span><br><span class="line">        paimaiID)</span><br><span class="line">    current_price = json.loads(</span><br><span class="line">        requests.get(current_price_url).content)[&apos;currentPrice&apos;]</span><br><span class="line">    last_price = int(eval(current_price) + 1)</span><br><span class="line">    print last_price</span><br><span class="line">    if last_price &gt; want_price:</span><br><span class="line">        return</span><br><span class="line">    price = driver.find_element_by_xpath(&apos;//input[@id=&quot;bidPrice&quot;]&apos;)</span><br><span class="line">    price.clear()</span><br><span class="line">    price.send_keys(str(int(last_price)))</span><br><span class="line">    botton = driver.find_element_by_xpath(</span><br><span class="line">        &apos;//div[@id=&quot;auctionStatus1&quot;]/div[2]/a[1]&apos;)</span><br><span class="line">    botton.click()</span><br><span class="line">if __name__ == &quot;__main__&quot;:</span><br><span class="line">    # 夺宝岛商品id</span><br><span class="line">    paimaiID = &apos;11087928&apos;</span><br><span class="line">    # 登录名</span><br><span class="line">    name = &quot;xxxxxx&quot;</span><br><span class="line">    # 密码</span><br><span class="line">    password = &apos;xxxxxx&apos;</span><br><span class="line">    # 预期心理价位</span><br><span class="line">    want_price = 1000</span><br><span class="line">    endTime = get_endTime(paimaiID)</span><br><span class="line">    print endTime</span><br><span class="line">    paimai(endTime, paimaiID, name, password, want_price)</span><br></pre></td></tr></table></figure>
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope="" itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://mrxin.github.io/2016/08/16/zhihu-voted-list/">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="小信">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="月薪5000元码农的自我修养">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2016/08/16/zhihu-voted-list/" itemprop="url">用python找出知乎某个答案点赞的所有名单</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-08-16T10:01:25+08:00">
-                2016-08-16
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br></pre></td><td class="code"><pre><span class="line">#!/usr/bin/env python</span><br><span class="line"># -*- coding: utf-8 -*-</span><br><span class="line"></span><br><span class="line">import requests</span><br><span class="line">from bs4 import BeautifulSoup</span><br><span class="line">import time</span><br><span class="line">import json</span><br><span class="line">import os</span><br><span class="line">import sys</span><br><span class="line"></span><br><span class="line">url = &apos;http://www.zhihu.com&apos;</span><br><span class="line">loginURL = &apos;http://www.zhihu.com/login/email&apos;</span><br><span class="line"></span><br><span class="line">headers = &#123;</span><br><span class="line">    &quot;User-Agent&quot;: &apos;Mozilla/5.0 (Macintosh; Intel Mac OS X 10.10; rv:41.0) Gecko/20100101 Firefox/41.0&apos;,</span><br><span class="line">    &quot;Referer&quot;: &quot;http://www.zhihu.com/&quot;,</span><br><span class="line">    &apos;Host&apos;: &apos;www.zhihu.com&apos;,</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">data = &#123;</span><br><span class="line">    &apos;email&apos;: &apos;xxxxx@gmail.com&apos;,</span><br><span class="line">    &apos;password&apos;: &apos;xxxxxxx&apos;,</span><br><span class="line">    &apos;rememberme&apos;: &quot;true&quot;,</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">s = requests.session()</span><br><span class="line"># 如果成功登陆过,用保存的cookies登录</span><br><span class="line">if os.path.exists(&apos;cookiefile&apos;):</span><br><span class="line">    with open(&apos;cookiefile&apos;) as f:</span><br><span class="line">        cookie = json.load(f)</span><br><span class="line">    s.cookies.update(cookie)</span><br><span class="line">    req1 = s.get(url, headers=headers)</span><br><span class="line">    with open(&apos;zhihu.html&apos;, &apos;w&apos;) as f:</span><br><span class="line">        f.write(req1.content)</span><br><span class="line"># 第一次需要手动输入验证码登录</span><br><span class="line">else:</span><br><span class="line">    req = s.get(url, headers=headers)</span><br><span class="line">    print req</span><br><span class="line"></span><br><span class="line">    soup = BeautifulSoup(req.text, &quot;html.parser&quot;)</span><br><span class="line">    xsrf = soup.find(&apos;input&apos;, &#123;&apos;name&apos;: &apos;_xsrf&apos;, &apos;type&apos;: &apos;hidden&apos;&#125;).get(&apos;value&apos;)</span><br><span class="line"></span><br><span class="line">    data[&apos;_xsrf&apos;] = xsrf</span><br><span class="line"></span><br><span class="line">    timestamp = int(time.time() * 1000)</span><br><span class="line">    captchaURL = &apos;http://www.zhihu.com/captcha.gif?=&apos; + str(timestamp)</span><br><span class="line">    print captchaURL</span><br><span class="line"></span><br><span class="line">    with open(&apos;zhihucaptcha.gif&apos;, &apos;wb&apos;) as f:</span><br><span class="line">        captchaREQ = s.get(captchaURL)</span><br><span class="line">        f.write(captchaREQ.content)</span><br><span class="line">    loginCaptcha = raw_input(&apos;input captcha:\n&apos;).strip()</span><br><span class="line">    data[&apos;captcha&apos;] = loginCaptcha</span><br><span class="line">    # print data</span><br><span class="line">    loginREQ = s.post(loginURL,  headers=headers, data=data)</span><br><span class="line">    # print loginREQ.url</span><br><span class="line">    # print s.cookies.get_dict()</span><br><span class="line">    if not loginREQ.json()[&apos;r&apos;]:</span><br><span class="line">        # print loginREQ.json()</span><br><span class="line">        with open(&apos;cookiefile&apos;, &apos;wb&apos;) as f:</span><br><span class="line">            json.dump(s.cookies.get_dict(), f)</span><br><span class="line">    else:</span><br><span class="line">        print &apos;login failed, try again!&apos;</span><br><span class="line">        sys.exit(1)</span><br><span class="line"></span><br><span class="line"># 以http://www.zhihu.com/question/27621722/answer/48820436这个大神的399各赞为例子.</span><br><span class="line">zanBaseURL = &apos;http://www.zhihu.com/answer/22229844/voters_profile?&amp;offset=&#123;0&#125;&apos;</span><br><span class="line">page = 0</span><br><span class="line">count = 0</span><br><span class="line">while 1:</span><br><span class="line">    zanURL = zanBaseURL.format(str(page))</span><br><span class="line">    page += 10</span><br><span class="line">    zanREQ = s.get(zanURL, headers=headers)</span><br><span class="line">    zanData = zanREQ.json()[&apos;payload&apos;]</span><br><span class="line">    if not zanData:</span><br><span class="line">        break</span><br><span class="line">    for item in zanData:</span><br><span class="line">        # print item</span><br><span class="line">        zanSoup = BeautifulSoup(item, &quot;html.parser&quot;)</span><br><span class="line">        zanInfo = zanSoup.find(&apos;a&apos;, &#123;&apos;target&apos;: &quot;_blank&quot;, &apos;class&apos;: &apos;zg-link&apos;&#125;)</span><br><span class="line">        if zanInfo:</span><br><span class="line">            print &apos;nickname:&apos;, zanInfo.get(&apos;title&apos;),  &apos;    &apos;,</span><br><span class="line">            print &apos;person_url:&apos;, zanInfo.get(&apos;href&apos;)</span><br><span class="line">        else:</span><br><span class="line">            anonymous = zanSoup.find(</span><br><span class="line">                &apos;img&apos;, &#123;&apos;title&apos;: True, &apos;class&apos;: &quot;zm-item-img-avatar&quot;&#125;)</span><br><span class="line">            print &apos;nickname:&apos;, anonymous.get(&apos;title&apos;)</span><br><span class="line"></span><br><span class="line">        count += 1</span><br><span class="line">    print count</span><br></pre></td></tr></table></figure>
-<p><img src="http://ww1.sinaimg.cn/large/7293e3b7jw1exjcxedihvj20p40l0dl1.jpg" alt=""></p>
-
+            <figure class="highlight nix"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin/env python</span></span><br><span class="line"><span class="comment"># -*- coding: utf-8 -*-</span></span><br><span class="line">from selenium <span class="built_in">import</span> webdriver</span><br><span class="line"><span class="built_in">import</span> requests</span><br><span class="line"><span class="built_in">import</span> time</span><br><span class="line"><span class="built_in">import</span> datetime</span><br><span class="line"><span class="built_in">import</span> json</span><br><span class="line">def get_endTime(paimaiID):</span><br><span class="line">    <span class="attr">endTimeURL</span> = 'http://paimai.jd.com/services/currentList.action?<span class="attr">paimaiIds=&#123;0&#125;&amp;callback=jQuery5542114'.format(</span></span><br><span class="line">        paimaiID)</span><br><span class="line">    <span class="attr">req</span> = requests.get(endTimeURL)</span><br><span class="line">    <span class="attr">data</span> = json.loads(req.text[<span class="number">15</span>: -<span class="number">2</span>])</span><br><span class="line">    return data['endTime'] - <span class="number">900</span></span><br><span class="line">def paimai(endTime, paimaiID, name, passWord, want_price):</span><br><span class="line">    <span class="attr">driver</span> = webdriver.Firefox()</span><br><span class="line">    driver.get(</span><br><span class="line">        'https://passport.jd.com/new/login.aspx?<span class="attr">ReturnUrl=http://paimai.jd.com/&#123;0&#125;'.format(paimaiID))</span></span><br><span class="line">    <span class="attr">email</span> = driver.find_element_by_xpath('//input[@<span class="attr">id="loginname"]')</span></span><br><span class="line">    email.clear()</span><br><span class="line">    email.send_keys(name)</span><br><span class="line">    <span class="attr">password</span> = driver.find_element_by_xpath('//input[@<span class="attr">id="nloginpwd"]')</span></span><br><span class="line">    password.clear()</span><br><span class="line">    password.send_keys(passWord)</span><br><span class="line">    <span class="attr">form</span> = driver.find_element_by_xpath('//a[@<span class="attr">id="loginsubmit"]')</span></span><br><span class="line">    form.click()</span><br><span class="line">    try:</span><br><span class="line">        <span class="attr">captcha</span> = driver.find_element_by_xpath('//input[@<span class="attr">id="authcode"]')</span></span><br><span class="line">        <span class="keyword">if</span> captcha:</span><br><span class="line">            <span class="attr">input_captcha</span> = raw_input()</span><br><span class="line">            captcha.send_keys(input_captcha)</span><br><span class="line">        form.click()</span><br><span class="line">    except:</span><br><span class="line">        pass</span><br><span class="line">    while <span class="number">1</span>:</span><br><span class="line">        <span class="attr">nowTime</span> = int(time.time() * <span class="number">1000</span>)</span><br><span class="line">        <span class="keyword">if</span> <span class="attr">nowTime</span> == endTime:</span><br><span class="line">            break</span><br><span class="line">    <span class="attr">current_price_url</span> = 'http://paimai.jd.com/json/current/englishquery?<span class="attr">paimaiId=&#123;0&#125;&amp;skuId=0&amp;start=0&amp;end=9'.format(</span></span><br><span class="line">        paimaiID)</span><br><span class="line">    <span class="attr">current_price</span> = json.loads(</span><br><span class="line">        requests.get(current_price_url).content)['currentPrice']</span><br><span class="line">    <span class="attr">last_price</span> = int(eval(current_price) + <span class="number">1</span>)</span><br><span class="line">    print last_price</span><br><span class="line">    <span class="keyword">if</span> last_price &gt; want_price:</span><br><span class="line">        return</span><br><span class="line">    <span class="attr">price</span> = driver.find_element_by_xpath('//input[@<span class="attr">id="bidPrice"]')</span></span><br><span class="line">    price.clear()</span><br><span class="line">    price.send_keys(str(int(last_price)))</span><br><span class="line">    <span class="attr">botton</span> = driver.find_element_by_xpath(</span><br><span class="line">        '//div[@<span class="attr">id="auctionStatus1"]/div[2]/a[1]')</span></span><br><span class="line">    botton.click()</span><br><span class="line"><span class="keyword">if</span> <span class="attr">__name__</span> == <span class="string">"__main__"</span>:</span><br><span class="line">    <span class="comment"># 夺宝岛商品id</span></span><br><span class="line">    <span class="attr">paimaiID</span> = '<span class="number">11087928</span>'</span><br><span class="line">    <span class="comment"># 登录名</span></span><br><span class="line">    <span class="attr">name</span> = <span class="string">"xxxxxx"</span></span><br><span class="line">    <span class="comment"># 密码</span></span><br><span class="line">    <span class="attr">password</span> = 'xxxxxx'</span><br><span class="line">    <span class="comment"># 预期心理价位</span></span><br><span class="line">    <span class="attr">want_price</span> = <span class="number">1000</span></span><br><span class="line">    <span class="attr">endTime</span> = get_endTime(paimaiID)</span><br><span class="line">    print endTime</span><br><span class="line">    paimai(endTime, paimaiID, name, password, want_price)</span><br></pre></td></tr></table></figure>
           
         
       
@@ -1786,7 +1786,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">68</span>
+                <span class="site-state-item-count">69</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
