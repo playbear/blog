@@ -293,6 +293,123 @@
   
 
   <article class="post post-type-normal " itemscope="" itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://mrxin.github.io/2015/09/19/tieba-louzhonglou/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="小信">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="40+岁大龄码农的自我修养">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2015/09/19/tieba-louzhonglou/" itemprop="url">python爬取贴吧楼中楼</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2015-09-19T20:21:06+08:00">
+                2015-09-19
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>贴吧把每个帖子每页的楼主楼回复都放到一个json数据里面.<br>首先是找出这个json连接,<br>用charles抓包发现<br><img src="http://ww2.sinaimg.cn/large/7293e3b7jw1ew81ayffluj20tx09940u.jpg" alt=""><br>链接是这个样子的,</p>
+<figure class="highlight dns"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http://tieba.baidu.com/p/totalComment?t=<span class="number">1442661243</span>&amp;tid=<span class="number">3924896002</span>&amp;fid=<span class="number">1627732</span>&amp;pn=<span class="number">1</span>&amp;see_lz=<span class="number">0</span></span><br></pre></td></tr></table></figure>
+<p>分析后发现,t = 1442661243这个数字是时间,可以用python得time.time()函数得到, tid=3924896002是帖子的数字没啥好说的,<br>fid=1627732是论坛id我想应该是每个贴吧的数字id,比如dota2贴吧是:1627732.</p>
+<p>用bs4分析每个帖子的数据,拼凑出这个链接来就ok.</p>
+<p>这是代码,不过不完美.还需要用re把表情 语音什么的过滤掉.根据每个回帖的id遍历字典找到相应的楼中楼回复.</p>
+<figure class="highlight processing"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">#!/usr/bin/env python</span><br><span class="line"># -*- coding: utf<span class="number">-8</span> -*-</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> requests</span><br><span class="line">from bs4 <span class="keyword">import</span> BeautifulSoup</span><br><span class="line"><span class="keyword">import</span> json</span><br><span class="line"><span class="keyword">import</span> time</span><br><span class="line"></span><br><span class="line">url = <span class="string">'http://tieba.baidu.com/p/4044110950'</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">req = requests.<span class="built_in">get</span>(url)</span><br><span class="line">soup = BeautifulSoup(req.<span class="built_in">text</span>, <span class="string">"html.parser"</span>)</span><br><span class="line">forum_ids = soup.find(<span class="string">'div'</span>, class_=<span class="string">'p_postlist'</span>).find(<span class="string">'div'</span>, class_=<span class="string">'l_post l_post_bright j_l_post clearfix  '</span>).<span class="built_in">get</span>(<span class="string">'data-field'</span>)</span><br><span class="line">forum_id = json.loads(forum_ids)[<span class="string">'content'</span>][<span class="string">'forum_id'</span>]</span><br><span class="line">localTime = <span class="built_in">int</span>(time.time())</span><br><span class="line">commentURL = <span class="string">'http://tieba.baidu.com/p/totalComment?t='</span> + <span class="built_in">str</span>(localTime) + <span class="string">'&amp;tid='</span> + <span class="built_in">str</span>(url.<span class="built_in">split</span>(<span class="string">'/'</span>)[<span class="number">-1</span>]) + <span class="string">'&amp;fid='</span>+<span class="built_in">str</span>(forum_id)+<span class="string">'&amp;pn=1&amp;see_lz=0'</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span> commentURL</span><br><span class="line">commentreq = requests.<span class="built_in">get</span>(commentURL)</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> k, v in commentreq.json()[<span class="string">'data'</span>][<span class="string">'comment_list'</span>].items():</span><br><span class="line">    <span class="keyword">for</span> j in v[<span class="string">'comment_info'</span>]:</span><br><span class="line">        <span class="built_in">print</span> j[<span class="string">'username'</span>].encode(<span class="string">'utf-8'</span>),</span><br><span class="line">        <span class="built_in">print</span> j[<span class="string">'content'</span>].encode(<span class="string">'utf-8'</span>)</span><br><span class="line">    <span class="built_in">print</span></span><br><span class="line">    <span class="built_in">print</span></span><br></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope="" itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="http://mrxin.github.io/2015/09/18/mac10-10-install-mysql/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
@@ -1404,127 +1521,6 @@ for each in a:
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope="" itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://mrxin.github.io/2015/09/02/python-tiaozhan/">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="小信">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="40+岁大龄码农的自我修养">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2015/09/02/python-tiaozhan/" itemprop="url">pythontip 网站难题答案汇总</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2015-09-02T22:09:11+08:00">
-                2015-09-02
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>pythontip 网站的挑战python题目中有些很难和需要算法来解出.</p>
-<h4 id="9-给你两个正整数a和b，-输出它们的最大公约数。"><a href="#9-给你两个正整数a和b，-输出它们的最大公约数。" class="headerlink" title="9:给你两个正整数a和b， 输出它们的最大公约数。"></a>9:给你两个正整数a和b， 输出它们的最大公约数。</h4><p>解题思路:用辗转相除法</p>
-<figure class="highlight livecodeserver"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> <span class="keyword">a</span> &lt; b:</span><br><span class="line">    <span class="keyword">a</span>, b = b, <span class="keyword">a</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">while</span> b:</span><br><span class="line">    <span class="keyword">a</span>, b = b, <span class="keyword">a</span> % b</span><br><span class="line"></span><br><span class="line">print <span class="keyword">a</span></span><br></pre></td></tr></table></figure>
-<h4 id="11-给你一个正整数列表-L-如-L-2-8-3-50-输出L内所有数字的乘积末尾0的个数-如样例L的结果为2-提示-不要直接相乘-数字很多-可能溢出"><a href="#11-给你一个正整数列表-L-如-L-2-8-3-50-输出L内所有数字的乘积末尾0的个数-如样例L的结果为2-提示-不要直接相乘-数字很多-可能溢出" class="headerlink" title="11:给你一个正整数列表 L, 如 L=[2,8,3,50], 输出L内所有数字的乘积末尾0的个数,如样例L的结果为2.(提示:不要直接相乘,数字很多,可能溢出)"></a>11:给你一个正整数列表 L, 如 L=[2,8,3,50], 输出L内所有数字的乘积末尾0的个数,如样例L的结果为2.(提示:不要直接相乘,数字很多,可能溢出)</h4><p>思路: 利用每个数字包含2和5的个数来判断,存在一对2 * 5 就是一个0</p>
-<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">a, b = <span class="number">0</span>, <span class="number">0</span></span><br><span class="line"><span class="keyword">for</span> <span class="built_in">i</span> in L:</span><br><span class="line">    <span class="built_in">j</span> = <span class="built_in">i</span></span><br><span class="line">    <span class="keyword">while</span> <span class="built_in">i</span> <span class="comment">% 2 == 0:</span></span><br><span class="line">        <span class="built_in">i</span> /= <span class="number">2</span></span><br><span class="line">        a += <span class="number">1</span></span><br><span class="line">    <span class="keyword">while</span> <span class="built_in">j</span> <span class="comment">% 5 == 0:</span></span><br><span class="line">        <span class="built_in">j</span> /= <span class="number">5</span></span><br><span class="line">        b += <span class="number">1</span></span><br><span class="line"></span><br><span class="line">print <span class="built_in">min</span>(a, b)</span><br></pre></td></tr></table></figure>
-<h4 id="12-给你一个正整数列表-L-如-L-2-8-3-50-判断列表内所有数字乘积的最后一个非零数字的奇偶性-奇数输出1-偶数输出0-如样例输出应为0"><a href="#12-给你一个正整数列表-L-如-L-2-8-3-50-判断列表内所有数字乘积的最后一个非零数字的奇偶性-奇数输出1-偶数输出0-如样例输出应为0" class="headerlink" title="12:给你一个正整数列表 L, 如 L=[2,8,3,50], 判断列表内所有数字乘积的最后一个非零数字的奇偶性,奇数输出1,偶数输出0. 如样例输出应为0"></a>12:给你一个正整数列表 L, 如 L=[2,8,3,50], 判断列表内所有数字乘积的最后一个非零数字的奇偶性,奇数输出1,偶数输出0. 如样例输出应为0</h4><figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">a, b = <span class="number">0</span>, <span class="number">0</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> <span class="built_in">i</span> in L:</span><br><span class="line">    <span class="built_in">j</span> = <span class="built_in">i</span></span><br><span class="line">    <span class="keyword">while</span> <span class="built_in">i</span> <span class="comment">% 2 == 0:</span></span><br><span class="line">        <span class="built_in">i</span> /= <span class="number">2</span></span><br><span class="line">        a += <span class="number">1</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">while</span> <span class="built_in">j</span> <span class="comment">% 5 == 0:</span></span><br><span class="line">        <span class="built_in">j</span> /= <span class="number">5</span></span><br><span class="line">        b += <span class="number">1</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> a &gt; b:</span><br><span class="line">    print <span class="number">0</span></span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">    print <span class="number">1</span></span><br></pre></td></tr></table></figure>
-<h4 id="13-光棍们对1总是那么敏感，因此每年的11-11被戏称为光棍节。鄙人光棍几十载，光棍自有光棍的快乐。让我们勇敢面对光棍的身份吧，"><a href="#13-光棍们对1总是那么敏感，因此每年的11-11被戏称为光棍节。鄙人光棍几十载，光棍自有光棍的快乐。让我们勇敢面对光棍的身份吧，" class="headerlink" title="13: 光棍们对1总是那么敏感，因此每年的11.11被戏称为光棍节。鄙人光棍几十载，光棍自有光棍的快乐。让我们勇敢面对光棍的身份吧，"></a>13: 光棍们对1总是那么敏感，因此每年的11.11被戏称为光棍节。鄙人光棍几十载，光棍自有光棍的快乐。让我们勇敢面对光棍的身份吧，</h4><p>####现在就证明自己：给你一个整数a，数出a在二进制表示下1的个数，并输出。</p>
-<figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">count</span> = <span class="number">0</span></span><br><span class="line"><span class="keyword">while</span> <span class="variable">a:</span></span><br><span class="line">    <span class="built_in">count</span> += <span class="keyword">a</span> % <span class="number">2</span></span><br><span class="line">    <span class="keyword">a</span> /= <span class="number">2</span></span><br><span class="line"><span class="keyword">print</span> <span class="built_in">count</span></span><br></pre></td></tr></table></figure>
-<h4 id="20-信息加密"><a href="#20-信息加密" class="headerlink" title="20:信息加密"></a>20:信息加密</h4><p>####给你个小写英文字符串a和一个非负数b(0&lt;=b&lt;26), 将a中的每个小写字符替换成字母表中比它大b的字母。</p>
-<p>####这里将字母表的z和a相连，如果超过了z就回到了a。例如a=”cagy”,b=3, 则输出 fdjb</p>
-<figure class="highlight perl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">out_string = <span class="string">''</span></span><br><span class="line"><span class="keyword">for</span> i in a:</span><br><span class="line">   <span class="keyword">if</span> <span class="keyword">ord</span>(i) + b &lt;= <span class="keyword">ord</span>(<span class="string">'z'</span>):</span><br><span class="line">        out_string += <span class="keyword">chr</span>(<span class="keyword">ord</span>(i)+b)</span><br><span class="line">   <span class="keyword">else</span>:</span><br><span class="line">        out_string += <span class="keyword">chr</span>(<span class="keyword">ord</span>(i)+b-<span class="number">26</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">print</span> out_string</span><br></pre></td></tr></table></figure>
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -1572,7 +1568,7 @@ for each in a:
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">69</span>
+                <span class="site-state-item-count">70</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>

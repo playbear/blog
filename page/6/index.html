@@ -293,6 +293,121 @@
   
 
   <article class="post post-type-normal " itemscope="" itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://mrxin.github.io/2015/08/04/win10-codecs-bug/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="小信">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="40+岁大龄码农的自我修养">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2015/08/04/win10-codecs-bug/" itemprop="url">win10下面python的codecs模块写入txt文件，用记事本打开显示不换行bug</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2015-08-04T20:28:41+08:00">
+                2015-08-04
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>今天用beautifulsoup爬取网页，把解析出的unicode格式的内容写到txt文本文件里面。<br>发现用codecs模块写入的txt文件，用记事本打开后，死活不换行。<br>f.write(‘\n’)不行，f.write(‘\n’.decode(‘utf-8’)也不行。<br>谷歌了好久，也没有找出解决办法。<br><img src="http://ww2.sinaimg.cn/large/7293e3b7jw1euph3aw2gij20sq05xq3p.jpg" alt=""></p>
+<p>跟上海知乎群里的python大神 光大证券的唐老师咨询，他说他用f.write(‘\n’)可以换行。</p>
+<p>这时候我怀疑是不是win10系统记事本的问题，把保存好的txt文件拖到sublime text3上打开，果然各种正常换行了。<br><img src="http://ww2.sinaimg.cn/large/7293e3b7jw1euph3xhwwwj20p308ygo7.jpg" alt=""></p>
+<p>看来，新出的win10系统还是有各种小bug啊。</p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope="" itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="http://mrxin.github.io/2015/06/29/python_tips/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
@@ -1426,130 +1541,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope="" itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://mrxin.github.io/2014/08/31/Algorithm_python/">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="小信">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="40+岁大龄码农的自我修养">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2014/08/31/Algorithm_python/" itemprop="url">用python实现冒泡排序 选择排序 插入排序</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2014-08-31T22:14:21+08:00">
-                2014-08-31
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <ul>
-<li><h3 id="冒泡法排序"><a href="#冒泡法排序" class="headerlink" title="冒泡法排序"></a>冒泡法排序</h3><p>第一个循环倒序,相邻两个元素比较大小然后交换.第一次将最大的一个逐渐排序到列表最后一个位置.</p>
-<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">from __future__ import print_function, unicode_literals, division</span><br><span class="line"></span><br><span class="line">arry = [<span class="number">16</span>, <span class="number">134</span>, <span class="number">15</span>, <span class="number">1</span>, <span class="number">78</span>, <span class="number">10</span>, <span class="number">9</span>]</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">def bubble_sort(arry):</span><br><span class="line">    <span class="keyword">for</span> <span class="built_in">i</span> in range(len(arry) - <span class="number">1</span>, <span class="number">0</span>, <span class="number">-1</span>):</span><br><span class="line">        <span class="keyword">for</span> <span class="built_in">j</span> in range(<span class="built_in">i</span>):</span><br><span class="line">            <span class="keyword">if</span> arry[<span class="built_in">j</span>] &gt; arry[<span class="built_in">j</span> + <span class="number">1</span>]:</span><br><span class="line">                arry[<span class="built_in">j</span>], arry[<span class="built_in">j</span> + <span class="number">1</span>] = arry[<span class="built_in">j</span> + <span class="number">1</span>], arry[<span class="built_in">j</span>]</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">"__main__"</span>:</span><br><span class="line">    bubble_sort(arry)</span><br><span class="line">    print (arry)</span><br></pre></td></tr></table></figure>
-<p>  [1, 9, 10, 15, 16, 78, 134]</p>
-</li>
-<li><h3 id="选择法排序"><a href="#选择法排序" class="headerlink" title="选择法排序"></a>选择法排序</h3><p>第一个元素和后面所有元素对比,找到最小的一个,然后交换.</p>
-<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">from __future__ import print_function, unicode_literals, division</span><br><span class="line"></span><br><span class="line">arry = [<span class="number">16</span>, <span class="number">134</span>, <span class="number">15</span>, <span class="number">1</span>, <span class="number">78</span>, <span class="number">10</span>, <span class="number">9</span>]</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">def select_sort(arry):</span><br><span class="line">    <span class="built_in">length</span> = len(arry)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> <span class="built_in">i</span> in range(<span class="built_in">length</span> - <span class="number">1</span>):</span><br><span class="line">        sort_index = <span class="built_in">i</span></span><br><span class="line">        <span class="keyword">for</span> <span class="built_in">j</span> in range(<span class="built_in">i</span>, <span class="built_in">length</span>):</span><br><span class="line">            <span class="keyword">if</span> arry[<span class="built_in">j</span>] &gt; arry[sort_index]:</span><br><span class="line">                sort_index = <span class="built_in">j</span></span><br><span class="line">        arry[sort_index], arry[<span class="built_in">i</span>] = arry[<span class="built_in">i</span>], arry[sort_index]</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">"__main__"</span>:</span><br><span class="line">    select_sort(arry)</span><br><span class="line">    print(arry)</span><br></pre></td></tr></table></figure>
-<p>  [1, 9, 10, 15, 16, 78, 134]</p>
-</li>
-<li><h3 id="插入排序"><a href="#插入排序" class="headerlink" title="插入排序"></a>插入排序</h3></li>
-</ul>
-<p>最开始以第一个元素为准,第二个元素与第一个比较,排序.第三个与前两个比较然后排序.以此类推.<br><figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">rom __future__ import print_function, unicode_literals, division</span><br><span class="line"></span><br><span class="line">arry = [<span class="number">17</span>, <span class="number">23</span>, <span class="number">20</span>, <span class="number">14</span>, <span class="number">12</span>, <span class="number">25</span>, <span class="number">1</span>, <span class="number">20</span>, <span class="number">81</span>, <span class="number">14</span>, <span class="number">11</span>, <span class="number">12</span>]</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">def select_sort(arry):</span><br><span class="line">    <span class="built_in">length</span> = len(arry)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> <span class="built_in">i</span> in range(<span class="built_in">length</span> - <span class="number">1</span>):</span><br><span class="line">        sort_index = <span class="built_in">i</span></span><br><span class="line">        <span class="keyword">for</span> <span class="built_in">j</span> in range(<span class="built_in">i</span>, <span class="built_in">length</span>):</span><br><span class="line">            <span class="keyword">if</span> arry[<span class="built_in">j</span>] &lt; arry[sort_index]:</span><br><span class="line">                sort_index = <span class="built_in">j</span></span><br><span class="line">        <span class="keyword">if</span> sort_index != <span class="built_in">i</span>:</span><br><span class="line">            arry[sort_index], arry[<span class="built_in">i</span>] = arry[<span class="built_in">i</span>], arry[sort_index]</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">"__main__"</span>:</span><br><span class="line">    select_sort(arry)</span><br><span class="line">    print(arry)</span><br><span class="line">`</span><br></pre></td></tr></table></figure></p>
-<pre><code>[1, 11, 12, 12, 14, 14, 17, 20, 20, 23, 25, 81]
-</code></pre>
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -1597,7 +1588,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">69</span>
+                <span class="site-state-item-count">70</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
