@@ -90,17 +90,21 @@
 
 
 
-<meta name="description" content="安装redis4.0  参考CentOS7 下 Redis4 安装与配置教程（Redis开机启动） 安装基础依赖 1sudo yum install -y gcc gcc-c++ make jemalloc-devel epel-release  下载最新版redis并解压到指定目录, 然后编译和安装 12345678wget http://download.redis.io/releases/">
+<meta name="description" content="下载和安装  vagrant官方网址 , 下载后双击安装 VirtualBox官方网址 , 下载后双击安装   vagrant 官方box的下载方法:  参考 vagrant 的 box 哪里下？镜像在哪儿找？教你在 vagrant 官网下载各种最新. box 资源  进入Vagrant box找到centos box镜像最新的版本号  拼接下载链接 1https://app.vagrantup">
 <meta property="og:type" content="article">
-<meta property="og:title" content="redis4.0以上版本开启bloomfilter插件的方法">
-<meta property="og:url" content="http://mrxin.github.io/2018/11/28/redis-4-0-bloom/index.html">
+<meta property="og:title" content="vagrant的安装和设置">
+<meta property="og:url" content="http://mrxin.github.io/2019/01/08/vagran-setting/index.html">
 <meta property="og:site_name" content="40+岁大龄码农的自我修养">
-<meta property="og:description" content="安装redis4.0  参考CentOS7 下 Redis4 安装与配置教程（Redis开机启动） 安装基础依赖 1sudo yum install -y gcc gcc-c++ make jemalloc-devel epel-release  下载最新版redis并解压到指定目录, 然后编译和安装 12345678wget http://download.redis.io/releases/">
+<meta property="og:description" content="下载和安装  vagrant官方网址 , 下载后双击安装 VirtualBox官方网址 , 下载后双击安装   vagrant 官方box的下载方法:  参考 vagrant 的 box 哪里下？镜像在哪儿找？教你在 vagrant 官网下载各种最新. box 资源  进入Vagrant box找到centos box镜像最新的版本号  拼接下载链接 1https://app.vagrantup">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-01-08T07:36:13.473Z">
+<meta property="og:image" content="https://ww1.sinaimg.cn/large/005YhI8igy1fx8kl17blhj311n0ix75n">
+<meta property="og:image" content="https://ww1.sinaimg.cn/large/005YhI8igy1fx8kmt5iq4j309w0atmxp">
+<meta property="og:image" content="https://ww1.sinaimg.cn/large/005YhI8igy1fx8kog1jsoj30rv0c3t9l">
+<meta property="og:updated_time" content="2019-01-08T07:40:35.629Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="redis4.0以上版本开启bloomfilter插件的方法">
-<meta name="twitter:description" content="安装redis4.0  参考CentOS7 下 Redis4 安装与配置教程（Redis开机启动） 安装基础依赖 1sudo yum install -y gcc gcc-c++ make jemalloc-devel epel-release  下载最新版redis并解压到指定目录, 然后编译和安装 12345678wget http://download.redis.io/releases/">
+<meta name="twitter:title" content="vagrant的安装和设置">
+<meta name="twitter:description" content="下载和安装  vagrant官方网址 , 下载后双击安装 VirtualBox官方网址 , 下载后双击安装   vagrant 官方box的下载方法:  参考 vagrant 的 box 哪里下？镜像在哪儿找？教你在 vagrant 官网下载各种最新. box 资源  进入Vagrant box找到centos box镜像最新的版本号  拼接下载链接 1https://app.vagrantup">
+<meta name="twitter:image" content="https://ww1.sinaimg.cn/large/005YhI8igy1fx8kl17blhj311n0ix75n">
 
 
 
@@ -128,13 +132,13 @@
 
 
 
-  <link rel="canonical" href="http://mrxin.github.io/2018/11/28/redis-4-0-bloom/">
+  <link rel="canonical" href="http://mrxin.github.io/2019/01/08/vagran-setting/">
 
 
 
 
 
-  <title>redis4.0以上版本开启bloomfilter插件的方法 | 40+岁大龄码农的自我修养</title>
+  <title>vagrant的安装和设置 | 40+岁大龄码农的自我修养</title>
 </head>
 
 <body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -295,7 +299,7 @@
   
 
   <article class="post post-type-normal " itemscope="" itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://mrxin.github.io/2018/11/28/redis-4-0-bloom/">
+    <link itemprop="mainEntityOfPage" href="http://mrxin.github.io/2019/01/08/vagran-setting/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="小信">
@@ -312,7 +316,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">redis4.0以上版本开启bloomfilter插件的方法</h1>
+          <h1 class="post-title" itemprop="name headline">vagrant的安装和设置</h1>
         
 
         <div class="post-meta">
@@ -324,8 +328,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-11-28T15:23:43+08:00">
-                2018-11-28
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-01-08T10:08:20+08:00">
+                2019-01-08
               </time>
             
 
@@ -360,38 +364,106 @@
 
       
         <ul>
-<li><p>安装redis4.0</p>
+<li><p>下载和安装</p>
 <ul>
-<li>参考<a href="https://ken.io/note/centos7-redis4-setup" target="_blank" rel="noopener">CentOS7 下 Redis4 安装与配置教程（Redis开机启动）</a></li>
-<li><p>安装基础依赖</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo yum install -y gcc gcc-c++ make jemalloc-devel epel-release</span><br></pre></td></tr></table></figure>
+<li><a href="https://www.vagrantup.com/downloads.html" target="_blank" rel="noopener">vagrant官方网址</a> , 下载后双击安装</li>
+<li><a href="https://www.virtualbox.org/wiki/Downloads" target="_blank" rel="noopener">VirtualBox官方网址</a> , 下载后双击安装</li>
+</ul>
 </li>
-<li><p>下载最新版redis并解压到指定目录, 然后编译和安装</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">wget http://download.redis.io/releases/redis-4.0.2.tar.gz</span><br><span class="line">sudo tar -zvxf redis-4.0.2.tar.gz -C /usr/</span><br><span class="line">#进入目录</span><br><span class="line">cd /usr/redis/redis-4.0.2</span><br><span class="line">#编译&amp;安装</span><br><span class="line">sudo make &amp; make install</span><br><span class="line"></span><br><span class="line">sudo cp src/redis-cli /usr/local/bin/（將redis-cli拷貝到bin下，讓redis-cli指令可以在任意目錄下直接使用）</span><br></pre></td></tr></table></figure>
+<li><p>vagrant 官方box的下载方法:</p>
+<ul>
+<li><p>参考 <a href="https://my.oschina.net/cxgphper/blog/1940644" target="_blank" rel="noopener">vagrant 的 box 哪里下？镜像在哪儿找？教你在 vagrant 官网下载各种最新. box 资源</a></p>
 </li>
-<li><p>加载配置文件启动redis-server</p>
-<figure class="highlight jboss-cli"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">cd</span> <span class="string">/usr/redis/redis-4.0.11</span></span><br><span class="line">redis-server redis.conf</span><br></pre></td></tr></table></figure>
+<li><p>进入<a href="https://app.vagrantup.com/centos/boxes/7" target="_blank" rel="noopener">Vagrant box</a>找到centos box镜像最新的版本号</p>
+</li>
+<li><p>拼接下载链接</p>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https:<span class="regexp">//</span>app.vagrantup.com<span class="regexp">/centos/</span>boxes<span class="regexp">/7/</span>versions<span class="regexp">/&#123;版本号&#125;/</span>providers<span class="regexp">/virtualbox.box</span></span><br></pre></td></tr></table></figure>
 </li>
 </ul>
 </li>
-<li><p>安装Rebloom插件</p>
-<ul>
-<li>参考 <a href="https://redislabs.com/blog/rebloom-bloom-filter-datatype-redis/" target="_blank" rel="noopener">ReBloom – Bloom Filter Datatype for Redis</a></li>
-<li><p>下载并编译</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> git <span class="built_in">clone</span> git://github.com/RedisLabsModules/rebloom</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> <span class="built_in">cd</span> rebloom</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> make</span></span><br></pre></td></tr></table></figure>
+<li><p>初始化vagrant</p>
+<figure class="highlight dockerfile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">mkdir centos &amp;&amp; cd centos <span class="comment"># 新建centos目录</span></span><br><span class="line">vagrant box <span class="keyword">add</span><span class="bash"> centos_base d:/vagrant_images/vagrant-centos-7.2.box <span class="comment"># 添加镜像到vagrant</span></span></span><br><span class="line"><span class="bash">vagrant init centos_base <span class="comment"># 初始化配置</span></span></span><br></pre></td></tr></table></figure>
 </li>
-<li><p>命令行加载rebloom插件,并且设定每个bloomfilter key的容量和错误率</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">cd /usr/redis-4.0.11</span><br><span class="line">./src/redis-server redis.conf --loadmodule /usr/rebloom/rebloom.so INITIAL_SIZE 1000000 ERROR_RATE 0.0001</span><br><span class="line"><span class="meta">#</span><span class="bash"> 容量100万, 容错率万分之一, 占用空间是4m</span></span><br></pre></td></tr></table></figure>
+<li><p>修改vagrant配置</p>
+<ul>
+<li>单台虚拟机的配置, 参考: <a href="https://www.jianshu.com/p/2724cd5f28e5" target="_blank" rel="noopener">Vagrant 实战</a></li>
+</ul>
+<figure class="highlight mipsasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#Vagrant的三种网络配置</span></span><br><span class="line">  <span class="comment">#端口映射(Forwarded port) 把宿主计算机的端口映射到虚拟机的某一个端口上，访问宿主计算机端口时，请求实际是被转发到虚拟机上指定端口的。</span></span><br><span class="line">  <span class="comment">#例如下面的配置，将访问宿主计算机8080端口的请求都转发到虚拟机的80端口上进行处理       #访问localhost:8080,对应访问虚拟机的80端口</span></span><br><span class="line">  <span class="comment">#优点：容易实现外网访问虚拟机</span></span><br><span class="line">  <span class="comment">#缺点：端口比较多时，配置麻烦；不支持在宿主机器上使用小于1024的端口来转发。比如：不能使用SSL的443端口来进行https连接。</span></span><br><span class="line">  <span class="built_in">config</span>.vm.network <span class="string">"forwarded_port"</span>, guest: <span class="number">80</span>, host: <span class="number">8080</span></span><br><span class="line">  </span><br><span class="line">  <span class="comment">#私有网络（Private network） ，只有主机可以访问虚拟机，如果多个虚拟机设定在同一个网段也可以互相访问，当然虚拟机是可以访问外部网络的。</span></span><br><span class="line">  <span class="comment">#优点：安全，只有自己能访问</span></span><br><span class="line">  <span class="comment">#缺点：因为私有的原因，所以团队成员其他人不能和你协作</span></span><br><span class="line">  <span class="built_in">config</span>.vm.network <span class="string">"private_network"</span>, ip: <span class="string">"192.168.33.10"</span></span><br><span class="line">  </span><br><span class="line">  <span class="comment">#公有网络（Public network） ，虚拟机享受实体机器一样的待遇，一样的网络配置，vagrant1.3版本之后也可以设定静态IP。</span></span><br><span class="line">  <span class="comment">#优点：方便团队协作，别人可以访问你的虚拟机</span></span><br><span class="line">  <span class="comment">#缺点：需要有网络，有路由器分配IP</span></span><br><span class="line">  <span class="built_in">config</span>.vm.network <span class="string">"public_network"</span>, ip: <span class="string">"192.168.12.253"</span></span><br><span class="line">  </span><br><span class="line">  </span><br><span class="line">  <span class="comment">#设置文件同步，如下 ../work 是本地目录， /vagrant_data是虚拟机文件目录</span></span><br><span class="line">  <span class="comment">#两个目录设置为同步，这样就可以直接本地编辑文件，使用虚拟机配置的软件环境了。</span></span><br><span class="line">  <span class="built_in">config</span>.vm.<span class="keyword">synced_folder </span><span class="string">"../work"</span>, <span class="string">"/vagrant_data"</span>,</span><br><span class="line">  :mount_options =&gt; [<span class="string">"dmode=775"</span>,<span class="string">"fmode=664"</span>]</span><br><span class="line">  </span><br><span class="line">  <span class="comment"># 设置虚拟机的内存</span></span><br><span class="line">  <span class="built_in">config</span>.vm.provider <span class="string">"virtualbox"</span> do <span class="title">|vb|</span></span><br><span class="line">     vb.memory = <span class="string">"4096"</span></span><br><span class="line">  end</span><br></pre></td></tr></table></figure>
+<ul>
+<li>多台虚拟机的配置, 参考: <a href="https://blog.csdn.net/hel12he/article/details/51089774" target="_blank" rel="noopener">vagrant系列二：vagrant的配置文件vagrantfile详解</a></li>
+</ul>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">Vagrant.configure(<span class="string">"2"</span>) <span class="keyword">do</span> <span class="params">|config|</span></span><br><span class="line">  config.vm.define <span class="symbol">:web</span> <span class="keyword">do</span> <span class="params">|web|</span></span><br><span class="line">    web.vm.provider <span class="string">"virtualbox"</span> <span class="keyword">do</span> <span class="params">|v|</span></span><br><span class="line">          v.customize [<span class="string">"modifyvm"</span>, <span class="symbol">:id</span>, <span class="string">"--name"</span>, <span class="string">"web"</span>, <span class="string">"--memory"</span>, <span class="string">"512"</span>]</span><br><span class="line">    <span class="keyword">end</span></span><br><span class="line">    web.vm.box = <span class="string">"CentOs7"</span></span><br><span class="line">    web.vm.hostname = <span class="string">"web"</span></span><br><span class="line">    web.vm.network <span class="symbol">:private_network</span>, <span class="symbol">ip:</span> <span class="string">"192.168.33.10"</span></span><br><span class="line">  <span class="keyword">end</span></span><br><span class="line"></span><br><span class="line">  config.vm.define <span class="symbol">:redis</span> <span class="keyword">do</span> <span class="params">|redis|</span></span><br><span class="line">    redis.vm.provider <span class="string">"virtualbox"</span> <span class="keyword">do</span> <span class="params">|v|</span></span><br><span class="line">          v.customize [<span class="string">"modifyvm"</span>, <span class="symbol">:id</span>, <span class="string">"--name"</span>, <span class="string">"redis"</span>, <span class="string">"--memory"</span>, <span class="string">"512"</span>]</span><br><span class="line">    <span class="keyword">end</span></span><br><span class="line">    redis.vm.box = <span class="string">"CentOs7"</span></span><br><span class="line">    redis.vm.hostname = <span class="string">"redis"</span></span><br><span class="line">    redis.vm.network <span class="symbol">:private_network</span>, <span class="symbol">ip:</span> <span class="string">"192.168.33.11"</span></span><br><span class="line">  <span class="keyword">end</span></span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>v1811.02版本centos box需要修改sshd的设置, 改成ssh允许用户名和密码登录</p>
+<ul>
+<li><p>参考 <a href="https://blog.csdn.net/zjqlovell/article/details/79399265" target="_blank" rel="noopener">CentOS SSH 密钥登陆改为密码登陆</a></p>
+</li>
+<li><p>用<code>vagrant ssh</code>命令进入centos</p>
+</li>
+<li><p>打开/etc/ssh/sshd_config</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">vim</span> <span class="string">/etc/ssh/sshd_config</span></span><br><span class="line"><span class="string">PermitRootLogin</span> <span class="literal">yes</span> <span class="string">删除前面的</span> <span class="comment">#注释</span></span><br><span class="line"><span class="string">PasswordAuthentication</span> <span class="literal">no</span> <span class="string">改成</span> <span class="string">PasswordAuthentication</span> <span class="literal">yes</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>重启sshd</p>
+<figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">service sshd restart</span></span><br></pre></td></tr></table></figure>
 </li>
 </ul>
 </li>
-<li><p>根据也无需求, 大于100万的bloomfilter key需要手动建立</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">BF.RESERVE 2018_ccgp 0.0001 28000000</span><br><span class="line">Memory Usage 2018_ccgp</span><br><span class="line"># (integer) 67108997 64M</span><br></pre></td></tr></table></figure>
+<li><p>启动和ssh链接, vagrant镜像有两个user,  root和vagrant, 密码都是: vagrant, 开启xshell, 填入ip(192.168.33.10), 用户root和密码vagrant</p>
+<figure class="highlight jboss-cli"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">vagrant up  <span class="comment"># 启动虚拟机</span></span><br><span class="line">vagrant halt  <span class="comment"># 关闭虚拟机</span></span><br><span class="line">vagrant <span class="keyword">reload</span>  <span class="comment"># 重启虚拟机</span></span><br><span class="line">vagrant ssh  <span class="comment"># SSH 至虚拟机</span></span><br><span class="line">vagrant status  <span class="comment"># 查看虚拟机运行状态</span></span><br><span class="line">vagrant destroy  <span class="comment"># 销毁当前虚拟机</span></span><br></pre></td></tr></table></figure>
 </li>
-<li><p>设置开机启动. <code>crontab -e</code> 输入</p>
-<figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@reboot</span> <span class="regexp">/usr/</span>redis<span class="number">-5.0</span><span class="number">.0</span><span class="regexp">/src/</span>redis-server <span class="regexp">/usr/</span>redis<span class="number">-5.0</span><span class="number">.0</span><span class="regexp">/redis.conf --loadmodule /</span>usr<span class="regexp">/rebloom/</span>rebloom.so INITIAL_SIZE <span class="number">1000000</span> ERROR_RATE <span class="number">0.0001</span></span><br></pre></td></tr></table></figure>
+<li><p>打包</p>
+<figure class="highlight processing"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">vagrant <span class="keyword">package</span> --vagrantfile Vagrantfile #将配置文件一块打包</span><br><span class="line">vagrant <span class="keyword">package</span> --output centos.<span class="built_in">box</span> # 要打包成的<span class="built_in">box</span>名称，不会自动添加.<span class="built_in">box</span>后缀，要手动加.默认值<span class="keyword">package</span>.<span class="built_in">box</span></span><br></pre></td></tr></table></figure>
 </li>
-<li><p>阿里云服务器或者vangrant的centos镜像不需要设置防火墙的开放端口.</p>
+<li><p>pycharm 的python项目用vagrant虚拟环境的python作为解释器, 参考 <a href="https://pengzhendong.cn/2018/05/26/Pycharm-python-interpreter/" target="_blank" rel="noopener">Pycharm 解释器配置</a></p>
+</li>
+<li><p>pycharm 配置terminal为vagrant虚拟机环境,</p>
+</li>
+</ul>
+<ul>
+<li><p>开启ssh terminal, 勾选为current vagrant, 编码设置为utf-8</p>
+<p><img src="https://ww1.sinaimg.cn/large/005YhI8igy1fx8kl17blhj311n0ix75n" alt=""></p>
+</li>
+</ul>
+<ul>
+<li><p>tools选择start ssh sessions</p>
+<p><img src="https://ww1.sinaimg.cn/large/005YhI8igy1fx8kmt5iq4j309w0atmxp" alt=""></p>
+</li>
+</ul>
+<ul>
+<li><p>在terminal中就可以直接使用远程terminal</p>
+<p><img src="https://ww1.sinaimg.cn/large/005YhI8igy1fx8kog1jsoj30rv0c3t9l" alt=""></p>
+</li>
+</ul>
+<ul>
+<li><p>mysql连接速度慢的解决方法</p>
+<ul>
+<li><p>参考: <a href="https://talk.ninghao.net/t/lian-jie-vagrantzhong-mysqlbian-man-liao-shi-shi-yao-yuan-yin/3521" target="_blank" rel="noopener">连接Vagrant中mysql变慢了是什么原因</a></p>
+</li>
+<li><p>打开mysql的配置文件<code>/etc/my.conf</code>,  增加<code>skip-name-resolve</code>参数</p>
+<figure class="highlight accesslog"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">[mysqld]</span></span><br><span class="line">skip-name-resolve</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>重启mysql</p>
+<figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">service mysqld restart</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><p>ssh 连接速度慢的解决方法</p>
+<ul>
+<li><p>编辑 /etc/ssh/sshd_config</p>
+<figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">UseDNS</span> <span class="literal">no</span>, 找到此行取消注释,并且把<span class="literal">yes</span>改成<span class="literal">no</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>重启ssh</p>
+<figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">service sshd restart</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><p>出现文件夹同步失败的解决方法</p>
+<ul>
+<li><p>参考 <a href="https://zj-john.github.io/tips/cjhpvs7vl000r64f01suposfq.html" target="_blank" rel="noopener">vagrant up报错：unable to mount VirtualBox shared folders</a></p>
+</li>
+<li><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">vagrant plugin <span class="keyword">install</span> vagrant-winnfsd</span><br><span class="line">vagrant <span class="keyword">plugin</span> <span class="keyword">install</span> vagrant-vbguest</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
 </li>
 </ul>
 
@@ -430,8 +502,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/11/20/win-terminus-md/" rel="next" title="terminus的安装和配置">
-                <i class="fa fa-chevron-left"></i> terminus的安装和配置
+              <a href="/2018/11/28/redis-4-0-bloom/" rel="next" title="redis4.0以上版本开启bloomfilter插件的方法">
+                <i class="fa fa-chevron-left"></i> redis4.0以上版本开启bloomfilter插件的方法
               </a>
             
           </div>
@@ -439,10 +511,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/01/08/vagran-setting/" rel="prev" title="vagrant的安装和设置">
-                vagrant的安装和设置 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
