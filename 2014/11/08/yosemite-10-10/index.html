@@ -4,14 +4,19 @@
   <meta charset="utf-8">
   
   
-  <title>Archives | 40+岁大龄码农的自我修养</title>
+  <title>YOSEMITE 10.10 安装记录 | 40+岁大龄码农的自我修养</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="40+岁大龄码农的自我修养">
-<meta property="og:url" content="https://clutchbear.gitee.io/archives/index.html">
+  <meta name="description" content="2015年9月20日更新, 更新完10.10.5补丁后再安装声卡驱动(MultiBeast 7.3.0)才有效.Yosemite 10.10出来后,跟风安装了,但是总有各种各样的问题,比如键盘无效 声卡没法驱动等等,与10.9.5有很多不同的地方.折腾了好几天终于算是弄好了.自己将步骤记录一下,以后备用: 1. 下载 下载pcbeta论坛’七月流火’大神的u盘版yosemite(pcbeta链接)">
+<meta property="og:type" content="article">
+<meta property="og:title" content="YOSEMITE 10.10 安装记录">
+<meta property="og:url" content="https://clutchbear.gitee.io/2014/11/08/yosemite-10-10/index.html">
 <meta property="og:site_name" content="40+岁大龄码农的自我修养">
+<meta property="og:description" content="2015年9月20日更新, 更新完10.10.5补丁后再安装声卡驱动(MultiBeast 7.3.0)才有效.Yosemite 10.10出来后,跟风安装了,但是总有各种各样的问题,比如键盘无效 声卡没法驱动等等,与10.9.5有很多不同的地方.折腾了好几天终于算是弄好了.自己将步骤记录一下,以后备用: 1. 下载 下载pcbeta论坛’七月流火’大神的u盘版yosemite(pcbeta链接)">
 <meta property="og:locale">
+<meta property="article:published_time" content="2014-11-07T16:06:21.000Z">
+<meta property="article:modified_time" content="2016-08-08T10:15:02.000Z">
 <meta property="article:author" content="小信">
+<meta property="article:tag" content="黑苹果">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternate" href="/atom.xml" title="40+岁大龄码农的自我修养" type="application/atom+xml">
@@ -69,236 +74,89 @@
 </header>
 
       <div class="outer">
-        <section id="main">
-  
-  
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2019" class="archive-year">2019</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2019/01/08/vagran-setting/" class="archive-article-date">
-  <time class="dt-published" datetime="2019-01-08T02:08:20.000Z" itemprop="datePublished">Jan 8</time>
+        <section id="main"><article id="post-yosemite-10-10" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2014/11/08/yosemite-10-10/" class="article-date">
+  <time class="dt-published" datetime="2014-11-07T16:06:21.000Z" itemprop="datePublished">2014-11-08</time>
 </a>
-      
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/01/08/vagran-setting/">vagrant的安装和设置</a>
+    <h1 class="p-name article-title" itemprop="headline name">
+      YOSEMITE 10.10 安装记录
     </h1>
   
 
-    </header>
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h3 id="2015年9月20日更新-更新完10-10-5补丁后再安装声卡驱动-MultiBeast-7-3-0-才有效"><a href="#2015年9月20日更新-更新完10-10-5补丁后再安装声卡驱动-MultiBeast-7-3-0-才有效" class="headerlink" title="2015年9月20日更新, 更新完10.10.5补丁后再安装声卡驱动(MultiBeast 7.3.0)才有效."></a>2015年9月20日更新, 更新完10.10.5补丁后再安装声卡驱动(MultiBeast 7.3.0)才有效.</h3><p>Yosemite 10.10出来后,跟风安装了,但是总有各种各样的问题,比如键盘无效 声卡没法驱动等等,与10.9.5有很多不同的地方.<br>折腾了好几天终于算是弄好了.<br>自己将步骤记录一下,以后备用:</p>
+<h2 id="1-下载"><a href="#1-下载" class="headerlink" title="1. 下载"></a>1. 下载</h2><ul>
+<li><p>下载pcbeta论坛’七月流火’大神的u盘版yosemite(<a target="_blank" rel="noopener" href="http://bbs.pcbeta.com/viewthread-1552254-1-1.html">pcbeta链接</a>),由于只提供了1021版本,需要自己转换成没有重装bug的1024版本.</p>
+</li>
+<li><p>在windows下运行smartvs.exe,打开1021 to 1024.svf,然后根据提示找到”黑苹果安装U盘.20141021.七月流火.10.10.dmg”(md5:82D2EBAC6FA794FD3147D0BD40371FCD),然后提取出”黑苹果安装U盘.20141024.七月流火.10.10.dmg”(md5:27F84982358D7C06AE2339EA950D7E6B)</p>
+</li>
+<li><p>运行transmac.exe, 将七月流火的yosemite恢复到u盘上.</p>
+</li>
+</ul>
+<h2 id="2-分区"><a href="#2-分区" class="headerlink" title="2.分区"></a>2.分区</h2><ul>
+<li>用10.9.3的u盘启动电脑,进入winpe,讲要安装黑苹果的硬盘分成两个分区,第一个分区大小为1g,剩下是第二个盘.</li>
+<li>运行diskgenius, 用分区克隆工具将u盘的boot分区克隆到第一个分区.<br>更换成10.10的安装u盘</li>
+</ul>
+<h2 id="3-安装"><a href="#3-安装" class="headerlink" title="3. 安装"></a>3. 安装</h2><ul>
+<li>重启电脑, 按del进入bios,硬盘模式改成achi,关闭vt-x<br>选择u盘启动, 进入启动界面选择clover,然后选择安装10.10,<br>图形界面出现后,选择’硬盘工具’,将前面分好的第二个分区格式化成’MAC OS 扩展(日志)’</li>
+<li>开始安装10.10,一步一步next到底.<br>安装完成,重启,u盘启动,选择clover,选择硬盘mac启动.之后输入用户名密码,不要选择联网.</li>
+</ul>
+<h2 id="4-驱动和设置"><a href="#4-驱动和设置" class="headerlink" title="4. 驱动和设置"></a>4. 驱动和设置</h2><ul>
+<li>运行MultiBeast,选择drivers-network-realtek- realtekRTLxx v0.0.90,然后build,重启<br>下载cover2953的Mac 版 MBR+GPT 分区专用 pkg 安装包(<a target="_blank" rel="noopener" href="http://bbs.pcbeta.com/viewthread-1516502-1-1.html">下载链接</a>),解压缩安装到硬盘的启动盘中.将10.10安装u盘的efi拷贝到第一个分区中替换原来的.这样就可以硬盘直接启动clover了.</li>
+<li>下载运行Clover Configurator,打开第一个分区也就是启动分区中的config.plist,</li>
+<li>选择Boot选项,然后勾选kext-dev-mode=1,</li>
+<li>选择Devices选择,在Audio处填入1,保存</li>
+<li>重新运行MultiBeast,选择drivers-atheros,然后勾选ALC887/888b current v100302 和 optional efi installed bootloader support,选择build,重启</li>
+<li>系统偏好设置—声音—输出,选择内置扬声器.这样就有声音了.<br>声卡驱动步骤主要参考pcbeta论坛的帖子,<a target="_blank" rel="noopener" href="http://bbs.pcbeta.com/viewthread-1551705-1-1.html">请参考链接</a></li>
+</ul>
+<h2 id="5-其他类似以前写的"><a href="#5-其他类似以前写的" class="headerlink" title="5. 其他类似以前写的."></a>5. 其他类似以前写的.</h2>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://clutchbear.gitee.io/2014/11/08/yosemite-10-10/" data-id="ckm4nx1o7003x0cie6srgafc0" data-title="YOSEMITE 10.10 安装记录" class="article-share-link">Share</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E9%BB%91%E8%8B%B9%E6%9E%9C/" rel="tag">黑苹果</a></li></ul>
+
+    </footer>
   </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2014/11/14/python-challene-2/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          21一个挑战题的python解决方法
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2014/11/06/GCD/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">辗转相除法找最大公约数的python实现</div>
+    </a>
+  
+</nav>
+
+  
 </article>
-  
-    
-    
-      
-        </div></section>
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2018" class="archive-year">2018</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2018/11/28/redis-4-0-bloom/" class="archive-article-date">
-  <time class="dt-published" datetime="2018-11-28T07:23:43.000Z" itemprop="datePublished">Nov 28</time>
-</a>
-      
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/11/28/redis-4-0-bloom/">redis4.0以上版本开启bloomfilter插件的方法</a>
-    </h1>
-  
 
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2018/11/20/win-terminus-md/" class="archive-article-date">
-  <time class="dt-published" datetime="2018-11-20T05:31:35.000Z" itemprop="datePublished">Nov 20</time>
-</a>
-      
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/11/20/win-terminus-md/">terminus的安装和配置</a>
-    </h1>
-  
-
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2018/08/13/wsl-setting/" class="archive-article-date">
-  <time class="dt-published" datetime="2018-08-13T11:14:05.000Z" itemprop="datePublished">Aug 13</time>
-</a>
-      
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/08/13/wsl-setting/">个人wsl设置</a>
-    </h1>
-  
-
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2018/04/14/handle-some-web-font-crawl/" class="archive-article-date">
-  <time class="dt-published" datetime="2018-04-14T08:48:38.000Z" itemprop="datePublished">Apr 14</time>
-</a>
-      
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/04/14/handle-some-web-font-crawl/">某8网站字体加密爬虫的处理方法</a>
-    </h1>
-  
-
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2018/04/14/java-python-s-map/" class="archive-article-date">
-  <time class="dt-published" datetime="2018-04-13T16:49:51.000Z" itemprop="datePublished">Apr 14</time>
-</a>
-      
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/04/14/java-python-s-map/">python和java的类当做map的键</a>
-    </h1>
-  
-
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2018/03/19/javaProxy/" class="archive-article-date">
-  <time class="dt-published" datetime="2018-03-19T08:36:53.000Z" itemprop="datePublished">Mar 19</time>
-</a>
-      
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/03/19/javaProxy/">jdk动态代理和Cglib代理笔记</a>
-    </h1>
-  
-
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2018/03/19/javaAnnotation/" class="archive-article-date">
-  <time class="dt-published" datetime="2018-03-19T06:30:46.000Z" itemprop="datePublished">Mar 19</time>
-</a>
-      
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/03/19/javaAnnotation/">java注解笔记</a>
-    </h1>
-  
-
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2018/01/26/spring-Transactional/" class="archive-article-date">
-  <time class="dt-published" datetime="2018-01-26T03:53:39.000Z" itemprop="datePublished">Jan 26</time>
-</a>
-      
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/01/26/spring-Transactional/">一次springboot事务bug的处理</a>
-    </h1>
-  
-
-    </header>
-  </div>
-</article>
-  
-    
-    
-      
-        </div></section>
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2017" class="archive-year">2017</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2017/11/20/mac-java-maven-md/" class="archive-article-date">
-  <time class="dt-published" datetime="2017-11-20T10:38:36.000Z" itemprop="datePublished">Nov 20</time>
-</a>
-      
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/11/20/mac-java-maven-md/">mac 安装和设置java maven</a>
-    </h1>
-  
-
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-
-  <nav id="page-nav">
-    
-    <span class="page-number current">1</span><a class="page-number" href="/archives/page/2/">2</a><a class="page-number" href="/archives/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/archives/page/7/">7</a><a class="extend next" rel="next" href="/archives/page/2/">Next &raquo;</a>
-  </nav>
 
 </section>
         

@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>java注解笔记 | 40+岁大龄码农的自我修养</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="注解的作用  读懂别人写的代码, 特别是框架的相关代码 让编程更加简洁, 代码更清晰 会写自定义注解 提升自己的能力   定义: java提供了一中原程序中的元素关联任何信息和任何元数据的途径和方法.  常见注解  jdk自带 @Override   表示当前方法覆盖了父类的方法 @Deprecation   表示方法已经过时,方法上有横线，使用时会有警告 @SuppviseWarnings 表">
+<meta property="og:type" content="article">
+<meta property="og:title" content="java注解笔记">
+<meta property="og:url" content="https://clutchbear.gitee.io/2018/03/19/javaAnnotation/index.html">
+<meta property="og:site_name" content="40+岁大龄码农的自我修养">
+<meta property="og:description" content="注解的作用  读懂别人写的代码, 特别是框架的相关代码 让编程更加简洁, 代码更清晰 会写自定义注解 提升自己的能力   定义: java提供了一中原程序中的元素关联任何信息和任何元数据的途径和方法.  常见注解  jdk自带 @Override   表示当前方法覆盖了父类的方法 @Deprecation   表示方法已经过时,方法上有横线，使用时会有警告 @SuppviseWarnings 表">
+<meta property="og:locale">
+<meta property="article:published_time" content="2018-03-19T06:30:46.000Z">
+<meta property="article:modified_time" content="2018-03-19T07:03:52.000Z">
+<meta property="article:author" content="小信">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="40+岁大龄码农的自我修养" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">40+岁大龄码农的自我修养</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://clutchbear.gitee.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-javaAnnotation" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2018/03/19/javaAnnotation/" class="article-date">
+  <time class="dt-published" datetime="2018-03-19T06:30:46.000Z" itemprop="datePublished">2018-03-19</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      java注解笔记
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <ol>
+<li><p>注解的作用</p>
+<ul>
+<li>读懂别人写的代码, 特别是框架的相关代码</li>
+<li>让编程更加简洁, 代码更清晰</li>
+<li>会写自定义注解 提升自己的能力</li>
+</ul>
+</li>
+<li><p>定义:<br> java提供了一中原程序中的元素关联任何信息和任何元数据的途径和方法.</p>
+</li>
+<li><p>常见注解</p>
+<ul>
+<li>jdk自带<ul>
+<li>@Override   表示当前方法覆盖了父类的方法</li>
+<li>@Deprecation   表示方法已经过时,方法上有横线，使用时会有警告</li>
+<li>@SuppviseWarnings 表示关闭一些警告信息(通知java编译器忽略特定的编译警告), 比如使用过期的(即用@Deprecation标识的方法)时, 会有编译器警告, 加上这个注解可以消除这个警告.</li>
+</ul>
+</li>
+<li>Spring 注解<ul>
+<li>@Autowired spring 自动装配</li>
+<li>@Qualifier(“JavaBea”) 配合 @Autowired 实现自动装配</li>
+<li>@Resource(name=”JavaBean”) spring 自动装配, 不写参数直接装配同类型的类</li>
+<li>@PostConstruct 类初始化的方法</li>
+<li>@PreDestroy 类销毁的方法</li>
+<li>@Component 表名类为 JavaBean</li>
+<li>@Scope(“prototype” ) 指定Bean的作用范围, prototype为每次都重新实例化</li>
+<li>@Repository 与 @Component 作用相同, 常用于数据持久层</li>
+<li>@Service 与 @Component 作用相同, 常用于业务逻辑层</li>
+<li>@Controller 与 @Component 作用相同, 常用于控制表现层 </li>
+</ul>
+</li>
+<li>Mybatis 注解<ul>
+<li>@Select</li>
+<li>@Option</li>
+</ul>
+</li>
+<li>Autowired 举例<ol>
+<li>用类实习创建类的实例 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">UerManagerImpl</span> <span class="keyword">implements</span> <span class="title">UserManager</span></span>&#123;</span><br><span class="line">    <span class="keyword">private</span> UserDao userDao;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setUserDao</span><span class="params">(UserDao userDao)</span></span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.userDao = userDao;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure></li>
+</ol>
+<hr>
+<ol start="2">
+<li>用配置文件实现创建类实例 <figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;bean id=<span class="string">&quot;UerManagerImpl&quot;</span> <span class="class"><span class="keyword">class</span></span>=<span class="string">&quot;xxx.service.UserManager&quot;</span>&gt;</span><br><span class="line">    &lt;property name =<span class="string">&quot;userDao&quot;</span> ref=<span class="string">&quot;userDao&quot;</span> /&gt;</span><br><span class="line">&lt;/bean&gt;</span><br><span class="line">&lt;bean id=<span class="string">&quot;userDao&quot;</span> <span class="class"><span class="keyword">class</span></span>=<span class="string">&quot;xxx.UerManagerImpl&quot;</span></span><br><span class="line">    &lt;property name =<span class="string">&quot;sessionFactory&quot;</span> ref=<span class="string">&quot;mySessionFactory&quot;</span> /&gt;</span><br><span class="line">&lt;/bean&gt;</span><br></pre></td></tr></table></figure></li>
+</ol>
+<hr>
+<ol start="3">
+<li><p>用注解实现类实例的创建</p>
+ <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">UerManagerImpl</span> <span class="keyword">implements</span> <span class="title">UserManager</span></span>&#123;</span><br><span class="line">    <span class="meta">@Autowired</span></span><br><span class="line">    <span class="keyword">private</span> UserDao userDao;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+</li>
+</ul>
+</li>
+</ol>
+<ul>
+<li><p>注解分类</p>
+<ul>
+<li>按照运行机制分类<ul>
+<li>源码注解 : 注解只在源码里面存在, 编译生成.class文件时就不存在了. (这里的源码指自己编写的java代码.)</li>
+<li>编译时注解: 注解在源码和.class文件中存在, jdk自带的3个注解都属于编译时注解</li>
+<li>运行时注解: 在运行阶段还起作用, 甚至影响运行逻辑的注解. spring的  @Autowired 属于运行时注解</li>
+</ul>
+</li>
+<li>注解来源:<ul>
+<li>jdk注解</li>
+<li>第三方注解</li>
+<li>自定义注解</li>
+</ul>
+</li>
+<li>元注解:<ul>
+<li>注解的注解  </li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>自定义注解</p>
+<ol>
+<li><p>注解定义</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line">import java.lang.annotation.Documented;</span><br><span class="line">import java.lang.annotation.ElementType;</span><br><span class="line">import java.lang.annotation.Inherited;</span><br><span class="line">import java.lang.annotation.Retention;</span><br><span class="line">import java.lang.annotation.RetentionPolicy;</span><br><span class="line">import java.lang.annotation.Target;</span><br><span class="line"></span><br><span class="line">&#x2F;**</span><br><span class="line"> * 下面4个被称为元注解,</span><br><span class="line"> *&#x2F;</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; @Target: 注解的作用域, 包括(CONSTRUCTOR(构造方法), FIELD(类属性), LOCAL_VARIABLE(局部变量),</span><br><span class="line">&#x2F;&#x2F; METHOD(方法), PACKAGE(包), PARAMETER(参数), TYPE(类, 接口))</span><br><span class="line"></span><br><span class="line">@Target(&#123;ElementType.METHOD, ElementType.TYPE&#125;)</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; @Retention: 注解的生命周期, 包括(SOURCE, CLASS, RUNTIME)</span><br><span class="line">&#x2F;&#x2F; SOURCE: 只在源码种显示, 编译时丢弃,</span><br><span class="line">&#x2F;&#x2F; CLASS 编译时会记录到class中, 运行时忽略</span><br><span class="line">&#x2F;&#x2F; RUNTIME 运行时存在, 可以通过反射读取</span><br><span class="line">@Retention(RetentionPolicy.RUNTIME)</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; @Inherited 允许子类继承父类的类注解, 父类的方法注解无法继承</span><br><span class="line">&#x2F;&#x2F; 注意, 注解定义到接口上, 实现的时候解析是无效的</span><br><span class="line">@Inherited</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; @Documented 生成javadoc时候回包含注解, 属于标识注解</span><br><span class="line">@Documented</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;使用 @interface 关键字定义注解</span><br><span class="line">public @interface Description &#123;</span><br><span class="line">    &#x2F;**</span><br><span class="line">     * 成员类型是受限的, 合法的类型包括原始类型及String, Class, Annotation, Enumeration</span><br><span class="line">     *</span><br><span class="line">     * 如果注解只有一个成员, 则成员名必须取名为value(), 在使用时可以忽略程一鸣和赋值号(&#x3D;)</span><br><span class="line">     *</span><br><span class="line">     * 注解类可以没有成员, 没有成员的注解称为标识注解</span><br><span class="line">     *&#x2F;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    &#x2F;&#x2F;成员以无参无异常方式声明,  成员就是注解里面元素定义的名词</span><br><span class="line">    String desc();</span><br><span class="line"></span><br><span class="line">    String author();</span><br><span class="line"></span><br><span class="line">    &#x2F;&#x2F; 可以用default为成员制定一个默认值</span><br><span class="line">    int age() default 18;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li><p>注解使用</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;**</span><br><span class="line"> * 使用自定义注解的语法:</span><br><span class="line"> *</span><br><span class="line"> * @&lt;注解名&gt;(&lt;成员名1&gt;&#x3D;&lt;成员值1&gt;, &lt;成员名1&gt;&#x3D;&lt;成员值1&gt;, ...)</span><br><span class="line"> *&#x2F;</span><br><span class="line"></span><br><span class="line">@Description(desc &#x3D; &quot;描述信息, 注解在类上&quot;, author &#x3D; &quot;姓名&quot;)</span><br><span class="line">public class CustomAnnotation &#123;</span><br><span class="line">    public String string;</span><br><span class="line"></span><br><span class="line">    @Description(desc &#x3D; &quot;描述信息, 注解在方法上&quot;, author &#x3D; &quot;作者名&quot;, age &#x3D; 30)</span><br><span class="line">    public String eyeColor() &#123;</span><br><span class="line">        return &quot;black&quot;;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li><p>解析注解 : 通过反射获取类 函数 或者 属性上 运行时 注解信息, 从而实现动态控制程序运行的逻辑.</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br></pre></td><td class="code"><pre><span class="line">import java.lang.annotation.Annotation;</span><br><span class="line">import java.lang.reflect.Method;</span><br><span class="line">import java.util.Arrays;</span><br><span class="line"></span><br><span class="line">&#x2F;**</span><br><span class="line"> * @author: 个人姓名</span><br><span class="line"> * @date: 2018&#x2F;3&#x2F;18 下午10:15</span><br><span class="line"> * @className: TestAnnotation</span><br><span class="line"> * @version: 1.0.0</span><br><span class="line"> * @description:</span><br><span class="line"> *&#x2F;</span><br><span class="line">public class TestAnnotation &#123;</span><br><span class="line"></span><br><span class="line">    &#x2F;**</span><br><span class="line">     * 能运行时候解析到结果的注解都是 运行时注解, 一定要用@Retention(RetentionPolicy.RUNTIME)</span><br><span class="line">     *&#x2F;</span><br><span class="line"></span><br><span class="line">    public static void main(String[] args) throws ClassNotFoundException &#123;</span><br><span class="line">        &#x2F;&#x2F;1: 使用类加载器加载类</span><br><span class="line">        Class cls &#x3D; Class.forName(&quot;com.linkzp.jdkproxy.CustomAnnotation&quot;);</span><br><span class="line">        &#x2F;&#x2F; 2: 找到类上的注解,</span><br><span class="line">        System.out.println(Arrays.toString(cls.getAnnotationsByType(Description.class)));</span><br><span class="line">        boolean isExist &#x3D; cls.isAnnotationPresent(Description.class);</span><br><span class="line">        if (isExist) &#123;</span><br><span class="line">            &#x2F;&#x2F; 3: 拿到注解实例</span><br><span class="line"></span><br><span class="line">            Description description &#x3D; (Description) cls.getAnnotation(Description.class);</span><br><span class="line">            System.out.println(description.author());</span><br><span class="line">            System.out.println(description.desc());</span><br><span class="line">            System.out.println(description.age());</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        &#x2F;&#x2F; 4: 找到方法的注解</span><br><span class="line">        Method[] methods &#x3D; cls.getMethods();</span><br><span class="line"></span><br><span class="line">        for (Method method : methods) &#123;</span><br><span class="line">            boolean isMethodAnnotation &#x3D; method.isAnnotationPresent(Description.class);</span><br><span class="line">            if (isMethodAnnotation) &#123;</span><br><span class="line">                Description methodDescription &#x3D; method.getAnnotation(Description.class);</span><br><span class="line">                System.out.println(methodDescription.author());</span><br><span class="line">                System.out.println(methodDescription.desc());</span><br><span class="line">                System.out.println(methodDescription.age());</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        &#x2F;&#x2F; 5: 方法注解解析的另外一种解析方法</span><br><span class="line"></span><br><span class="line">        for (Method method : methods) &#123;</span><br><span class="line">            Annotation[] annotations &#x3D; method.getAnnotations();</span><br><span class="line">            for (Annotation annotation : annotations) &#123;</span><br><span class="line">                if (annotation instanceof Description) &#123;</span><br><span class="line">                    Description description &#x3D; (Description) annotation;</span><br><span class="line">                    System.out.println(description.author());</span><br><span class="line">                    System.out.println(description.age());</span><br><span class="line">                    System.out.println(description.desc());</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ol>
+</li>
+</ul>
+<p>参考来源<br><a target="_blank" rel="noopener" href="http://blog.csdn.net/zen99t/article/details/49506919">http://blog.csdn.net/zen99t/article/details/49506919</a><br><a target="_blank" rel="noopener" href="http://blog.csdn.net/zen99t/article/details/49508447">http://blog.csdn.net/zen99t/article/details/49508447</a><br><a target="_blank" rel="noopener" href="http://blog.csdn.net/zen99t/article/details/49512411">http://blog.csdn.net/zen99t/article/details/49512411</a><br><a target="_blank" rel="noopener" href="http://blog.csdn.net/zen99t/article/details/50351575">http://blog.csdn.net/zen99t/article/details/50351575</a><br><a target="_blank" rel="noopener" href="https://www.imooc.com/video/8867">https://www.imooc.com/video/8867</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://clutchbear.gitee.io/2018/03/19/javaAnnotation/" data-id="ckm4nx1mz00160ciego2q8ubc" data-title="java注解笔记" class="article-share-link">Share</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2018/03/19/javaProxy/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          jdk动态代理和Cglib代理笔记
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2018/01/26/spring-Transactional/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">一次springboot事务bug的处理</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Markdown/" rel="tag">Markdown</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MySQL/" rel="tag">MySQL</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Windows/" rel="tag">Windows</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/" rel="tag">hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/html/" rel="tag">html</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/iOS/" rel="tag">iOS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/java/" rel="tag">java</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mac/" rel="tag">mac</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python/" rel="tag">python</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python-java/" rel="tag">python, java</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91/" rel="tag">科学上网</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%B3%BB%E7%BB%9F/" rel="tag">系统</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%BD%AF%E4%BB%B6/" rel="tag">软件</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%BD%AF%E4%BB%B6-windows-linux/" rel="tag">软件, windows, linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%BB%91%E8%8B%B9%E6%9E%9C/" rel="tag">黑苹果</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/Markdown/" style="font-size: 10px;">Markdown</a> <a href="/tags/MySQL/" style="font-size: 10px;">MySQL</a> <a href="/tags/Windows/" style="font-size: 10px;">Windows</a> <a href="/tags/hexo/" style="font-size: 15px;">hexo</a> <a href="/tags/html/" style="font-size: 10px;">html</a> <a href="/tags/iOS/" style="font-size: 10px;">iOS</a> <a href="/tags/java/" style="font-size: 12.5px;">java</a> <a href="/tags/mac/" style="font-size: 10px;">mac</a> <a href="/tags/python/" style="font-size: 20px;">python</a> <a href="/tags/python-java/" style="font-size: 10px;">python, java</a> <a href="/tags/%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91/" style="font-size: 12.5px;">科学上网</a> <a href="/tags/%E7%B3%BB%E7%BB%9F/" style="font-size: 12.5px;">系统</a> <a href="/tags/%E8%BD%AF%E4%BB%B6/" style="font-size: 17.5px;">软件</a> <a href="/tags/%E8%BD%AF%E4%BB%B6-windows-linux/" style="font-size: 10px;">软件, windows, linux</a> <a href="/tags/%E9%BB%91%E8%8B%B9%E6%9E%9C/" style="font-size: 15px;">黑苹果</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">January 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/11/">November 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/08/">August 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">April 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">March 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">January 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">November 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/08/">August 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/07/">July 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">May 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/04/">April 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/10/">October 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/09/">September 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/08/">August 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/09/">September 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/08/">August 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/06/">June 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/03/">March 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/02/">February 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/11/">November 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/10/">October 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/08/">August 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/07/">July 2014</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2019/01/08/vagran-setting/">vagrant的安装和设置</a>
+          </li>
+        
+          <li>
+            <a href="/2018/11/28/redis-4-0-bloom/">redis4.0以上版本开启bloomfilter插件的方法</a>
+          </li>
+        
+          <li>
+            <a href="/2018/11/20/win-terminus-md/">terminus的安装和配置</a>
+          </li>
+        
+          <li>
+            <a href="/2018/08/13/wsl-setting/">个人wsl设置</a>
+          </li>
+        
+          <li>
+            <a href="/2018/04/14/handle-some-web-font-crawl/">某8网站字体加密爬虫的处理方法</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2021 小信<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.4.1.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

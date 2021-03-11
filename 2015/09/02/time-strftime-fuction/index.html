@@ -4,14 +4,19 @@
   <meta charset="utf-8">
   
   
-  <title>Archives | 40+岁大龄码农的自我修养</title>
+  <title>time.strftime()用法 | 40+岁大龄码农的自我修养</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="40+岁大龄码农的自我修养">
-<meta property="og:url" content="https://clutchbear.gitee.io/archives/index.html">
+  <meta name="description" content="参考 链接 和 链接 描述Python time strftime() 函数接收以时间元组，并返回以可读字符串表示的当地时间，格式由参数format决定。 语法strftime()方法语法： time.strftime(format[, t])  说明python中时间日期格式化符号： %y 两位数的年份表示（00-99）%Y 四位数的年份表示（000-9999）%m 月份（01-12）%d 月内">
+<meta property="og:type" content="article">
+<meta property="og:title" content="time.strftime()用法">
+<meta property="og:url" content="https://clutchbear.gitee.io/2015/09/02/time-strftime-fuction/index.html">
 <meta property="og:site_name" content="40+岁大龄码农的自我修养">
+<meta property="og:description" content="参考 链接 和 链接 描述Python time strftime() 函数接收以时间元组，并返回以可读字符串表示的当地时间，格式由参数format决定。 语法strftime()方法语法： time.strftime(format[, t])  说明python中时间日期格式化符号： %y 两位数的年份表示（00-99）%Y 四位数的年份表示（000-9999）%m 月份（01-12）%d 月内">
 <meta property="og:locale">
+<meta property="article:published_time" content="2015-09-02T14:28:40.000Z">
+<meta property="article:modified_time" content="2016-08-08T10:15:00.000Z">
 <meta property="article:author" content="小信">
+<meta property="article:tag" content="python">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternate" href="/atom.xml" title="40+岁大龄码农的自我修养" type="application/atom+xml">
@@ -69,236 +74,80 @@
 </header>
 
       <div class="outer">
-        <section id="main">
-  
-  
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2019" class="archive-year">2019</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2019/01/08/vagran-setting/" class="archive-article-date">
-  <time class="dt-published" datetime="2019-01-08T02:08:20.000Z" itemprop="datePublished">Jan 8</time>
+        <section id="main"><article id="post-time-strftime-fuction" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2015/09/02/time-strftime-fuction/" class="article-date">
+  <time class="dt-published" datetime="2015-09-02T14:28:40.000Z" itemprop="datePublished">2015-09-02</time>
 </a>
-      
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/01/08/vagran-setting/">vagrant的安装和设置</a>
+    <h1 class="p-name article-title" itemprop="headline name">
+      time.strftime()用法
     </h1>
   
 
-    </header>
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>参考 <a target="_blank" rel="noopener" href="http://www.w3cschool.cc/python/att-time-strftime.html">链接</a> 和 <a target="_blank" rel="noopener" href="https://github.com/qiwsir/ITArticles/blob/master/Python/%E8%8E%B7%E5%8F%96%E6%97%B6%E9%97%B4%E7%9A%84%E6%96%B9%E6%B3%95.md">链接</a></p>
+<h3 id="描述"><a href="#描述" class="headerlink" title="描述"></a>描述</h3><p>Python time strftime() 函数接收以时间元组，并返回以可读字符串表示的当地时间，格式由参数format决定。</p>
+<h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><p>strftime()方法语法：</p>
+<pre><code>time.strftime(format[, t])
+</code></pre>
+<h3 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h3><p>python中时间日期格式化符号：</p>
+<p>%y 两位数的年份表示（00-99）<br>%Y 四位数的年份表示（000-9999）<br>%m 月份（01-12）<br>%d 月内中的一天（0-31）<br>%H 24小时制小时数（0-23）<br>%I 12小时制小时数（01-12）<br>%M 分钟数（00=59）<br>%S 秒（00-59）<br>%a 本地简化星期名称<br>%A 本地完整星期名称<br>%b 本地简化的月份名称<br>%B 本地完整的月份名称<br>%c 本地相应的日期表示和时间表示<br>%j 年内的一天（001-366）<br>%p 本地A.M.或P.M.的等价符<br>%U 一年中的星期数（00-53）星期天为星期的开始<br>%w 星期（0-6），星期天为星期的开始<br>%W 一年中的星期数（00-53）星期一为星期的开始<br>%x 本地相应的日期表示<br>%X 本地相应的时间表示<br>%Z 当前时区的名称<br>%% %号本身</p>
+<h3 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h3><ul>
+<li>###获取时间的方法</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt;import time</span><br><span class="line">&gt;&gt;&gt;this_time&#x3D;time.localtime()</span><br><span class="line">&gt;&gt;&gt; this_time</span><br><span class="line">time.struct_time(tm_year&#x3D;2013, tm_mon&#x3D;6, tm_mday&#x3D;6, tm_hour&#x3D;13, tm_min&#x3D;42, tm_sec&#x3D;38, tm_wday&#x3D;3, tm_yday&#x3D;157, tm_isdst&#x3D;0)</span><br><span class="line">&gt;&gt;&gt; type(this_time)</span><br><span class="line">&lt;type &#39;time.struct_time&#39;&gt;</span><br><span class="line"></span><br><span class="line">&gt;&gt;&gt; this_year&#x3D;this_time[0]</span><br><span class="line">&gt;&gt;&gt; this_year</span><br><span class="line">2013</span><br><span class="line">&gt;&gt;&gt; for time in this_time:</span><br><span class="line">...     print time</span><br><span class="line">...</span><br><span class="line">2013</span><br><span class="line">6</span><br><span class="line">6</span><br><span class="line">13</span><br><span class="line">42</span><br><span class="line">38</span><br><span class="line">3</span><br><span class="line">157</span><br><span class="line">0</span><br><span class="line"></span><br><span class="line">time.strftime(&#39;%Y-%m-%d %T&#39;,time.localtime(time.time())</span><br><span class="line"> # 2014-09-04 23:42:34</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><h3 id="取过去具体时间的方法"><a href="#取过去具体时间的方法" class="headerlink" title="取过去具体时间的方法:"></a>取过去具体时间的方法:</h3></li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">import time</span><br><span class="line"></span><br><span class="line"> #取一天前的当前具体时间</span><br><span class="line">time.strftime(&#39;%Y-%m-%d %T&#39;,time.localtime(time.time()-24*60*60))</span><br><span class="line"></span><br><span class="line"> #取20天前的当前具体时间</span><br><span class="line">time.strftime(&#39;%Y-%m-%d %T&#39;,time.localtime(time.time()-20*24*60*60))</span><br><span class="line"></span><br><span class="line"> #取20天前当前具体时间的前2小时</span><br><span class="line">time.strftime(&#39;%Y-%m-%d %T&#39;,time.localtime(time.time()-20*24*60*60-2*60*60))</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://clutchbear.gitee.io/2015/09/02/time-strftime-fuction/" data-id="ckm4nx1ny003d0ciehp5f0pqp" data-title="time.strftime()用法" class="article-share-link">Share</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python/" rel="tag">python</a></li></ul>
+
+    </footer>
   </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2015/09/06/jacman-backup/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          hexo主题Jacman配置文件的备份
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2015/09/02/zhihu-login/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">知乎上值得我学习的python回答 一</div>
+    </a>
+  
+</nav>
+
+  
 </article>
-  
-    
-    
-      
-        </div></section>
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2018" class="archive-year">2018</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2018/11/28/redis-4-0-bloom/" class="archive-article-date">
-  <time class="dt-published" datetime="2018-11-28T07:23:43.000Z" itemprop="datePublished">Nov 28</time>
-</a>
-      
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/11/28/redis-4-0-bloom/">redis4.0以上版本开启bloomfilter插件的方法</a>
-    </h1>
-  
 
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2018/11/20/win-terminus-md/" class="archive-article-date">
-  <time class="dt-published" datetime="2018-11-20T05:31:35.000Z" itemprop="datePublished">Nov 20</time>
-</a>
-      
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/11/20/win-terminus-md/">terminus的安装和配置</a>
-    </h1>
-  
-
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2018/08/13/wsl-setting/" class="archive-article-date">
-  <time class="dt-published" datetime="2018-08-13T11:14:05.000Z" itemprop="datePublished">Aug 13</time>
-</a>
-      
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/08/13/wsl-setting/">个人wsl设置</a>
-    </h1>
-  
-
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2018/04/14/handle-some-web-font-crawl/" class="archive-article-date">
-  <time class="dt-published" datetime="2018-04-14T08:48:38.000Z" itemprop="datePublished">Apr 14</time>
-</a>
-      
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/04/14/handle-some-web-font-crawl/">某8网站字体加密爬虫的处理方法</a>
-    </h1>
-  
-
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2018/04/14/java-python-s-map/" class="archive-article-date">
-  <time class="dt-published" datetime="2018-04-13T16:49:51.000Z" itemprop="datePublished">Apr 14</time>
-</a>
-      
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/04/14/java-python-s-map/">python和java的类当做map的键</a>
-    </h1>
-  
-
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2018/03/19/javaProxy/" class="archive-article-date">
-  <time class="dt-published" datetime="2018-03-19T08:36:53.000Z" itemprop="datePublished">Mar 19</time>
-</a>
-      
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/03/19/javaProxy/">jdk动态代理和Cglib代理笔记</a>
-    </h1>
-  
-
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2018/03/19/javaAnnotation/" class="archive-article-date">
-  <time class="dt-published" datetime="2018-03-19T06:30:46.000Z" itemprop="datePublished">Mar 19</time>
-</a>
-      
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/03/19/javaAnnotation/">java注解笔记</a>
-    </h1>
-  
-
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2018/01/26/spring-Transactional/" class="archive-article-date">
-  <time class="dt-published" datetime="2018-01-26T03:53:39.000Z" itemprop="datePublished">Jan 26</time>
-</a>
-      
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/01/26/spring-Transactional/">一次springboot事务bug的处理</a>
-    </h1>
-  
-
-    </header>
-  </div>
-</article>
-  
-    
-    
-      
-        </div></section>
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2017" class="archive-year">2017</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2017/11/20/mac-java-maven-md/" class="archive-article-date">
-  <time class="dt-published" datetime="2017-11-20T10:38:36.000Z" itemprop="datePublished">Nov 20</time>
-</a>
-      
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/11/20/mac-java-maven-md/">mac 安装和设置java maven</a>
-    </h1>
-  
-
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-
-  <nav id="page-nav">
-    
-    <span class="page-number current">1</span><a class="page-number" href="/archives/page/2/">2</a><a class="page-number" href="/archives/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/archives/page/7/">7</a><a class="extend next" rel="next" href="/archives/page/2/">Next &raquo;</a>
-  </nav>
 
 </section>
         

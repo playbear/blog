@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>某8网站字体加密爬虫的处理方法 | 40+岁大龄码农的自我修养</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="某8网站的一些数据在浏览器里面显示是正常的, 但是渲染前和渲染后的html源码都看不到字体, 渲染前看到的是16进制的4位字符, 渲染后看到的是一些方块. 搜索找到猫眼和汽车之家的解决方法, 某8网站比这些都复杂, 经过多次尝试得到解决. 首先在html源码里面找到woff字体的base4编码, 保存成”font.woff”字体文件, 用fontTools库将这个字体文件存储为”font.xml">
+<meta property="og:type" content="article">
+<meta property="og:title" content="某8网站字体加密爬虫的处理方法">
+<meta property="og:url" content="https://clutchbear.gitee.io/2018/04/14/handle-some-web-font-crawl/index.html">
+<meta property="og:site_name" content="40+岁大龄码农的自我修养">
+<meta property="og:description" content="某8网站的一些数据在浏览器里面显示是正常的, 但是渲染前和渲染后的html源码都看不到字体, 渲染前看到的是16进制的4位字符, 渲染后看到的是一些方块. 搜索找到猫眼和汽车之家的解决方法, 某8网站比这些都复杂, 经过多次尝试得到解决. 首先在html源码里面找到woff字体的base4编码, 保存成”font.woff”字体文件, 用fontTools库将这个字体文件存储为”font.xml">
+<meta property="og:locale">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/7293e3b7gy1fqbijxv90kj217a0f4go4.jpg">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/7293e3b7gy1fqbiw8ot0zj20pu0e3tbp.jpg">
+<meta property="article:published_time" content="2018-04-14T08:48:38.000Z">
+<meta property="article:modified_time" content="2018-04-14T08:50:01.000Z">
+<meta property="article:author" content="小信">
+<meta property="article:tag" content="python">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://ww1.sinaimg.cn/large/7293e3b7gy1fqbijxv90kj217a0f4go4.jpg">
+  
+    <link rel="alternate" href="/atom.xml" title="40+岁大龄码农的自我修养" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">40+岁大龄码农的自我修养</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://clutchbear.gitee.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-handle-some-web-font-crawl" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2018/04/14/handle-some-web-font-crawl/" class="article-date">
+  <time class="dt-published" datetime="2018-04-14T08:48:38.000Z" itemprop="datePublished">2018-04-14</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      某8网站字体加密爬虫的处理方法
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p><img src="http://ww1.sinaimg.cn/large/7293e3b7gy1fqbijxv90kj217a0f4go4.jpg"></p>
+<p>某8网站的一些数据在浏览器里面显示是正常的, 但是渲染前和渲染后的html源码都看不到字体, 渲染前看到的是16进制的4位字符, 渲染后看到的是一些方块.</p>
+<p>搜索找到猫眼和汽车之家的解决方法, 某8网站比这些都复杂, 经过多次尝试得到解决.</p>
+<p>首先在html源码里面找到woff字体的base4编码, 保存成”font.woff”字体文件, 用fontTools库将这个字体文件存储为”font.xml”文件.</p>
+<p><img src="http://ww1.sinaimg.cn/large/7293e3b7gy1fqbiw8ot0zj20pu0e3tbp.jpg"></p>
+<p>然后在xml里面找到<code>TTGlyph</code>字段, 这个字段下面的 子字段都是用来画字符(包括中英文数字)的坐标. 同一个字符的坐标是一样的. 解析xml, 然后把这些坐标的属性字典按顺序都存到一个list里面, 然后序列化成json(加sort_keys=True参数)字符串. 用这个字符串当key, value是实际的字符, 存成一个constant_dict. 每次遇到新网页, 取出这个字符串, 然后根据字符串从constant_dict获取实际的字符.</p>
+<p>每次获取font里面坐标list字符串的代码:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># font_decryption.py</span></span><br><span class="line"><span class="keyword">from</span> fontTools.ttLib <span class="keyword">import</span> TTFont</span><br><span class="line"><span class="keyword">from</span> lxml <span class="keyword">import</span> etree</span><br><span class="line"><span class="keyword">from</span> io <span class="keyword">import</span> BytesIO</span><br><span class="line"><span class="keyword">import</span> base64</span><br><span class="line"><span class="keyword">import</span> config</span><br><span class="line"><span class="keyword">import</span> os</span><br><span class="line"><span class="keyword">import</span> json</span><br><span class="line"><span class="keyword">import</span> pub.common.error <span class="keyword">as</span> error</span><br><span class="line"></span><br><span class="line">_xml_file_path = os.path.join(config.temp_file_path, <span class="string">&quot;tongcheng58.xml&quot;</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">make_font_file</span>(<span class="params">base64_string: <span class="built_in">str</span></span>):</span></span><br><span class="line">    bin_data = base64.decodebytes(base64_string.encode())</span><br><span class="line">    <span class="keyword">return</span> bin_data</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">convert_font_to_xml</span>(<span class="params">bin_data</span>):</span></span><br><span class="line">    font = TTFont(BytesIO(bin_data))</span><br><span class="line">    font.saveXML(_xml_file_path)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">parse_xml</span>():</span></span><br><span class="line">    xml = etree.parse(_xml_file_path)</span><br><span class="line">    root = xml.getroot()</span><br><span class="line">    font_dict = &#123;&#125;</span><br><span class="line">    all_data = root.xpath(<span class="string">&#x27;//glyf/TTGlyph&#x27;</span>)</span><br><span class="line">    <span class="keyword">for</span> index, data <span class="keyword">in</span> <span class="built_in">enumerate</span>(all_data):</span><br><span class="line">        font_key = data.attrib.get(<span class="string">&#x27;name&#x27;</span>)[<span class="number">3</span>:].lower()</span><br><span class="line">        contour_list = []</span><br><span class="line">        <span class="keyword">if</span> index == <span class="number">0</span>:</span><br><span class="line">            <span class="keyword">continue</span></span><br><span class="line">        <span class="keyword">for</span> contour <span class="keyword">in</span> data:</span><br><span class="line">            <span class="keyword">for</span> pt <span class="keyword">in</span> contour:</span><br><span class="line">                contour_list.append(<span class="built_in">dict</span>(pt.attrib))</span><br><span class="line">        font_dict[font_key] = json.dumps(contour_list, sort_keys=<span class="literal">True</span>)</span><br><span class="line">    <span class="keyword">return</span> font_dict</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">make_path</span>():</span></span><br><span class="line">    <span class="keyword">if</span> <span class="keyword">not</span> os.path.isdir(config.temp_file_path):</span><br><span class="line">        os.makedirs(config.temp_file_path)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">get_font_dict</span>(<span class="params">base64_string</span>):</span></span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        make_path()</span><br><span class="line">        bin_data = make_font_file(base64_string)</span><br><span class="line">        convert_font_to_xml(bin_data)</span><br><span class="line">        font_dict = parse_xml()</span><br><span class="line">    <span class="keyword">except</span> Exception <span class="keyword">as</span> e:</span><br><span class="line">        <span class="keyword">return</span> (error.ERROR_UNKNOWN_RESUME_CONTENT, <span class="string">&#x27;cannot_get_font, err=[&#123;&#125;]&#x27;</span>.<span class="built_in">format</span>(<span class="built_in">str</span>(e))), <span class="literal">None</span></span><br><span class="line">    <span class="keyword">return</span> <span class="literal">None</span>, font_dict</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>调用</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">decrypt_font</span>(<span class="params">text, font_dict</span>):</span></span><br><span class="line">    decryption_text = <span class="string">&quot;&quot;</span></span><br><span class="line">    <span class="keyword">for</span> alpha <span class="keyword">in</span> text:</span><br><span class="line">        hex_alpha = alpha.encode(<span class="string">&#x27;unicode_escape&#x27;</span>).decode()[<span class="number">2</span>:]</span><br><span class="line">        <span class="keyword">if</span> hex_alpha <span class="keyword">in</span> font_dict:</span><br><span class="line">            item_text = decryption_font_dict.get(font_dict[hex_alpha])</span><br><span class="line">            <span class="keyword">if</span> item_text <span class="keyword">is</span> <span class="literal">None</span>:</span><br><span class="line">                _logger.error(<span class="string">&quot;op=[DecryptFont], err=&#123;&#125;&quot;</span>.<span class="built_in">format</span>(<span class="string">&quot;decryption_font_dict_have_no_this_font&quot;</span>))</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            item_text = alpha</span><br><span class="line">        decryption_text += item_text</span><br><span class="line">    <span class="keyword">return</span> decryption_text</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">parse</span>(<span class="params">html: <span class="built_in">str</span>, request: ParseRequest</span>):</span></span><br><span class="line">    user_info_dict = &#123;&#125;</span><br><span class="line">    <span class="comment"># print(html)</span></span><br><span class="line">    base64_string = html.split(<span class="string">&quot;base64,&quot;</span>)[<span class="number">1</span>].split(<span class="string">&#x27;)&#x27;</span>)[<span class="number">0</span>].strip()</span><br><span class="line">    err, font_dict = get_font_dict(base64_string)</span><br><span class="line">    <span class="keyword">if</span> err <span class="keyword">is</span> <span class="keyword">not</span> <span class="literal">None</span>:</span><br><span class="line">        <span class="keyword">return</span> err, <span class="literal">None</span></span><br><span class="line">    html = decrypt_font(html, font_dict)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&quot;__main__&quot;</span>:</span><br><span class="line">    html = <span class="built_in">open</span>(file_name, <span class="string">&quot;r&quot;</span>, encoding=<span class="string">&quot;utf-8&quot;</span>).read()</span><br><span class="line"></span><br><span class="line">    parse(html)</span><br></pre></td></tr></table></figure>
+
+
+<p>参考:<br><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/5400bbc8b634">解析某电影和某招聘网站的web-font自定义字体</a><br><a target="_blank" rel="noopener" href="http://www.atbrask.dk/?cat=11">The ramblings of atbrask</a><br><a target="_blank" rel="noopener" href="https://blog.csdn.net/xyq046463/article/details/58606657">python3 汉字转十六进制unicode</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://clutchbear.gitee.io/2018/04/14/handle-some-web-font-crawl/" data-id="ckm4nx1mt000r0cie3l8khb7w" data-title="某8网站字体加密爬虫的处理方法" class="article-share-link">Share</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python/" rel="tag">python</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2018/08/13/wsl-setting/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          个人wsl设置
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2018/04/14/java-python-s-map/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">python和java的类当做map的键</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Markdown/" rel="tag">Markdown</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MySQL/" rel="tag">MySQL</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Windows/" rel="tag">Windows</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/" rel="tag">hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/html/" rel="tag">html</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/iOS/" rel="tag">iOS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/java/" rel="tag">java</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mac/" rel="tag">mac</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python/" rel="tag">python</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python-java/" rel="tag">python, java</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91/" rel="tag">科学上网</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%B3%BB%E7%BB%9F/" rel="tag">系统</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%BD%AF%E4%BB%B6/" rel="tag">软件</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%BD%AF%E4%BB%B6-windows-linux/" rel="tag">软件, windows, linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%BB%91%E8%8B%B9%E6%9E%9C/" rel="tag">黑苹果</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/Markdown/" style="font-size: 10px;">Markdown</a> <a href="/tags/MySQL/" style="font-size: 10px;">MySQL</a> <a href="/tags/Windows/" style="font-size: 10px;">Windows</a> <a href="/tags/hexo/" style="font-size: 15px;">hexo</a> <a href="/tags/html/" style="font-size: 10px;">html</a> <a href="/tags/iOS/" style="font-size: 10px;">iOS</a> <a href="/tags/java/" style="font-size: 12.5px;">java</a> <a href="/tags/mac/" style="font-size: 10px;">mac</a> <a href="/tags/python/" style="font-size: 20px;">python</a> <a href="/tags/python-java/" style="font-size: 10px;">python, java</a> <a href="/tags/%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91/" style="font-size: 12.5px;">科学上网</a> <a href="/tags/%E7%B3%BB%E7%BB%9F/" style="font-size: 12.5px;">系统</a> <a href="/tags/%E8%BD%AF%E4%BB%B6/" style="font-size: 17.5px;">软件</a> <a href="/tags/%E8%BD%AF%E4%BB%B6-windows-linux/" style="font-size: 10px;">软件, windows, linux</a> <a href="/tags/%E9%BB%91%E8%8B%B9%E6%9E%9C/" style="font-size: 15px;">黑苹果</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">January 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/11/">November 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/08/">August 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">April 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">March 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">January 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">November 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/08/">August 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/07/">July 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">May 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/04/">April 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/10/">October 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/09/">September 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/08/">August 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/09/">September 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/08/">August 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/06/">June 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/03/">March 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/02/">February 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/11/">November 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/10/">October 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/08/">August 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/07/">July 2014</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2019/01/08/vagran-setting/">vagrant的安装和设置</a>
+          </li>
+        
+          <li>
+            <a href="/2018/11/28/redis-4-0-bloom/">redis4.0以上版本开启bloomfilter插件的方法</a>
+          </li>
+        
+          <li>
+            <a href="/2018/11/20/win-terminus-md/">terminus的安装和配置</a>
+          </li>
+        
+          <li>
+            <a href="/2018/08/13/wsl-setting/">个人wsl设置</a>
+          </li>
+        
+          <li>
+            <a href="/2018/04/14/handle-some-web-font-crawl/">某8网站字体加密爬虫的处理方法</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2021 小信<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.4.1.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

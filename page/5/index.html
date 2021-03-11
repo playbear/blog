@@ -1,0 +1,723 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>40+岁大龄码农的自我修养</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="40+岁大龄码农的自我修养">
+<meta property="og:url" content="https://clutchbear.gitee.io/page/5/index.html">
+<meta property="og:site_name" content="40+岁大龄码农的自我修养">
+<meta property="og:locale">
+<meta property="article:author" content="小信">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="40+岁大龄码农的自我修养" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">40+岁大龄码农的自我修养</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://clutchbear.gitee.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main">
+  
+    <article id="post-python-tiaozhan" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2015/09/02/python-tiaozhan/" class="article-date">
+  <time class="dt-published" datetime="2015-09-02T14:09:11.000Z" itemprop="datePublished">2015-09-02</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2015/09/02/python-tiaozhan/">pythontip 网站难题答案汇总</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>pythontip 网站的挑战python题目中有些很难和需要算法来解出.</p>
+<h4 id="9-给你两个正整数a和b，-输出它们的最大公约数。"><a href="#9-给你两个正整数a和b，-输出它们的最大公约数。" class="headerlink" title="9:给你两个正整数a和b， 输出它们的最大公约数。"></a>9:给你两个正整数a和b， 输出它们的最大公约数。</h4><p>解题思路:用辗转相除法</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">if a &lt; b:</span><br><span class="line">    a, b &#x3D; b, a</span><br><span class="line"></span><br><span class="line">while b:</span><br><span class="line">    a, b &#x3D; b, a % b</span><br><span class="line"></span><br><span class="line">print a</span><br></pre></td></tr></table></figure>
+
+<h4 id="11-给你一个正整数列表-L-如-L-2-8-3-50-输出L内所有数字的乘积末尾0的个数-如样例L的结果为2-提示-不要直接相乘-数字很多-可能溢出"><a href="#11-给你一个正整数列表-L-如-L-2-8-3-50-输出L内所有数字的乘积末尾0的个数-如样例L的结果为2-提示-不要直接相乘-数字很多-可能溢出" class="headerlink" title="11:给你一个正整数列表 L, 如 L=[2,8,3,50], 输出L内所有数字的乘积末尾0的个数,如样例L的结果为2.(提示:不要直接相乘,数字很多,可能溢出)"></a>11:给你一个正整数列表 L, 如 L=[2,8,3,50], 输出L内所有数字的乘积末尾0的个数,如样例L的结果为2.(提示:不要直接相乘,数字很多,可能溢出)</h4><p>思路: 利用每个数字包含2和5的个数来判断,存在一对2 * 5 就是一个0</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">a, b &#x3D; 0, 0</span><br><span class="line">for i in L:</span><br><span class="line">    j &#x3D; i</span><br><span class="line">    while i % 2 &#x3D;&#x3D; 0:</span><br><span class="line">        i &#x2F;&#x3D; 2</span><br><span class="line">        a +&#x3D; 1</span><br><span class="line">    while j % 5 &#x3D;&#x3D; 0:</span><br><span class="line">        j &#x2F;&#x3D; 5</span><br><span class="line">        b +&#x3D; 1</span><br><span class="line"></span><br><span class="line">print min(a, b)</span><br></pre></td></tr></table></figure>
+
+<h4 id="12-给你一个正整数列表-L-如-L-2-8-3-50-判断列表内所有数字乘积的最后一个非零数字的奇偶性-奇数输出1-偶数输出0-如样例输出应为0"><a href="#12-给你一个正整数列表-L-如-L-2-8-3-50-判断列表内所有数字乘积的最后一个非零数字的奇偶性-奇数输出1-偶数输出0-如样例输出应为0" class="headerlink" title="12:给你一个正整数列表 L, 如 L=[2,8,3,50], 判断列表内所有数字乘积的最后一个非零数字的奇偶性,奇数输出1,偶数输出0. 如样例输出应为0"></a>12:给你一个正整数列表 L, 如 L=[2,8,3,50], 判断列表内所有数字乘积的最后一个非零数字的奇偶性,奇数输出1,偶数输出0. 如样例输出应为0</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">a, b &#x3D; 0, 0</span><br><span class="line"></span><br><span class="line">for i in L:</span><br><span class="line">    j &#x3D; i</span><br><span class="line">    while i % 2 &#x3D;&#x3D; 0:</span><br><span class="line">        i &#x2F;&#x3D; 2</span><br><span class="line">        a +&#x3D; 1</span><br><span class="line"></span><br><span class="line">    while j % 5 &#x3D;&#x3D; 0:</span><br><span class="line">        j &#x2F;&#x3D; 5</span><br><span class="line">        b +&#x3D; 1</span><br><span class="line"></span><br><span class="line">if a &gt; b:</span><br><span class="line">    print 0</span><br><span class="line">else:</span><br><span class="line">    print 1</span><br></pre></td></tr></table></figure>
+
+<h4 id="13-光棍们对1总是那么敏感，因此每年的11-11被戏称为光棍节。鄙人光棍几十载，光棍自有光棍的快乐。让我们勇敢面对光棍的身份吧，"><a href="#13-光棍们对1总是那么敏感，因此每年的11-11被戏称为光棍节。鄙人光棍几十载，光棍自有光棍的快乐。让我们勇敢面对光棍的身份吧，" class="headerlink" title="13: 光棍们对1总是那么敏感，因此每年的11.11被戏称为光棍节。鄙人光棍几十载，光棍自有光棍的快乐。让我们勇敢面对光棍的身份吧，"></a>13: 光棍们对1总是那么敏感，因此每年的11.11被戏称为光棍节。鄙人光棍几十载，光棍自有光棍的快乐。让我们勇敢面对光棍的身份吧，</h4><p>####现在就证明自己：给你一个整数a，数出a在二进制表示下1的个数，并输出。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">count &#x3D; 0</span><br><span class="line">while a:</span><br><span class="line">    count +&#x3D; a % 2</span><br><span class="line">    a &#x2F;&#x3D; 2</span><br><span class="line">print count</span><br></pre></td></tr></table></figure>
+
+<h4 id="20-信息加密"><a href="#20-信息加密" class="headerlink" title="20:信息加密"></a>20:信息加密</h4><p>####给你个小写英文字符串a和一个非负数b(0&lt;=b&lt;26), 将a中的每个小写字符替换成字母表中比它大b的字母。<br>####这里将字母表的z和a相连，如果超过了z就回到了a。例如a=”cagy”,b=3, 则输出 fdjb</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">out_string &#x3D; &#39;&#39;</span><br><span class="line">for i in a:</span><br><span class="line">   if ord(i) + b &lt;&#x3D; ord(&#39;z&#39;):</span><br><span class="line">        out_string +&#x3D; chr(ord(i)+b)</span><br><span class="line">   else:</span><br><span class="line">        out_string +&#x3D; chr(ord(i)+b-26)</span><br><span class="line"></span><br><span class="line">print out_string</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://clutchbear.gitee.io/2015/09/02/python-tiaozhan/" data-id="ckm4nx1nn002l0cieetkr0wh1" data-title="pythontip 网站难题答案汇总" class="article-share-link">Share</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python/" rel="tag">python</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-new_sublime_plugin" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2015/08/30/new_sublime_plugin/" class="article-date">
+  <time class="dt-published" datetime="2015-08-30T02:41:54.000Z" itemprop="datePublished">2015-08-30</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2015/08/30/new_sublime_plugin/">几个新的好用的适合我的Sublime Text3插件</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="1-Anaconda"><a href="#1-Anaconda" class="headerlink" title="1: Anaconda"></a>1: Anaconda</h1><h4 id="作用"><a href="#作用" class="headerlink" title="作用:"></a>作用:</h4><p>   Anaconda把PyFlakes, pep8 和 McCabe以插件的方式集成起来,实现语法提示 pep8检查 自动完成等功能.安装Anaconda后，通过配置即可完成一个良好的Python开发环境。</p>
+<p>  主要的一个配置是:</p>
+<p>   忽略AutoFormat PEP8中E501(单行代码长度检查)的提示:<br>        “pep8_ignore”:[“E501”]</p>
+<h3 id="下载地址和介绍"><a href="#下载地址和介绍" class="headerlink" title="下载地址和介绍:"></a>下载地址和介绍:</h3><p>   <a target="_blank" rel="noopener" href="https://github.com/DamnWidget/anaconda">anaconda</a></p>
+<h3 id="安装方法"><a href="#安装方法" class="headerlink" title="安装方法:"></a>安装方法:</h3><p>   通过package control 来安装.</p>
+<h1 id="2-DashDoc"><a href="#2-DashDoc" class="headerlink" title="2: DashDoc"></a>2: DashDoc</h1><h3 id="作用-1"><a href="#作用-1" class="headerlink" title="作用:"></a>作用:</h3><p>   在sublime text中调用dash,直接查找python的关键字用法和参数等.</p>
+<h3 id="快捷键"><a href="#快捷键" class="headerlink" title="快捷键:"></a>快捷键:</h3><p>   快捷键是 Ctrl + H,注意在Mac osX下面也是Ctrl不是command</p>
+<h3 id="下载地址和介绍-1"><a href="#下载地址和介绍-1" class="headerlink" title="下载地址和介绍:"></a>下载地址和介绍:</h3><p>   <a target="_blank" rel="noopener" href="https://github.com/farcaller/DashDoc">DashDoc</a></p>
+<h3 id="安装方法-1"><a href="#安装方法-1" class="headerlink" title="安装方法:"></a>安装方法:</h3><p>   主要是通过package control安装</p>
+<h1 id="3-ctags"><a href="#3-ctags" class="headerlink" title="3: ctags"></a>3: ctags</h1><h3 id="作用-2"><a href="#作用-2" class="headerlink" title="作用:"></a>作用:</h3><p>   实现函数的跳转,即在中型大型项目中迅速查找到某个函数的初始定义.</p>
+<h3 id="下载地址和介绍-2"><a href="#下载地址和介绍-2" class="headerlink" title="下载地址和介绍:"></a>下载地址和介绍:</h3><p>   <a target="_blank" rel="noopener" href="https://github.com/SublimeText/CTags">CTags</a> </p>
+<h3 id="安装方法-2"><a href="#安装方法-2" class="headerlink" title="安装方法:"></a>安装方法:</h3><p>   通过package control在sublime text中安装,还要通过brew install ctags安装到系统中.</p>
+<h3 id="一个安装和使用的百度经验"><a href="#一个安装和使用的百度经验" class="headerlink" title="一个安装和使用的百度经验:"></a>一个安装和使用的百度经验:</h3><p>   <a target="_blank" rel="noopener" href="http://jingyan.baidu.com/article/48206aeafba820216ad6b3f5.html">Sublime Text2/3怎样在Mac OSX中配置CTags插件</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://clutchbear.gitee.io/2015/08/30/new_sublime_plugin/" data-id="ckm4nx1nh00290cieejbd1cf5" data-title="几个新的好用的适合我的Sublime Text3插件" class="article-share-link">Share</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E8%BD%AF%E4%BB%B6/" rel="tag">软件</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-tencent-vido-comment" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2015/08/27/tencent-vido-comment/" class="article-date">
+  <time class="dt-published" datetime="2015-08-27T12:16:52.000Z" itemprop="datePublished">2015-08-27</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2015/08/27/tencent-vido-comment/">腾讯视频评论动态网页评论的抓取</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">#!&#x2F;usr&#x2F;bin&#x2F;env python</span><br><span class="line"># -*- coding: utf-8 -*-</span><br><span class="line"># @Date    : 2015-08-23 20:03:51</span><br><span class="line"># @Author  : Xin(skywater@gmail.com)</span><br><span class="line"># @Link    : playbear.github.io</span><br><span class="line"></span><br><span class="line">import requests</span><br><span class="line">from bs4 import BeautifulSoup</span><br><span class="line">import json</span><br><span class="line"></span><br><span class="line">url &#x3D; &#39;http:&#x2F;&#x2F;v.qq.com&#x2F;cover&#x2F;q&#x2F;qviv9yyjn83eyfu&#x2F;c0017ivdw3z.html&#39;</span><br><span class="line">my_headers &#x3D; &#123;&#39;User-Agent&#39;:&#39;Mozilla&#x2F;5.0 (Macintosh; Intel Mac OS X 10_10_5) AppleWebKit&#x2F;537.36 (KHTML, like Gecko) Chrome&#x2F;44.0.2403.157 Safari&#x2F;537.36&#39;&#125;</span><br><span class="line"></span><br><span class="line">req &#x3D; requests.get(url)</span><br><span class="line"></span><br><span class="line">soup &#x3D; BeautifulSoup(req.text, &quot;lxml&quot;)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">ji_shu &#x3D; soup.find_all(&#39;a&#39;, class_&#x3D;&#39;album_link&#39;)</span><br><span class="line">for ji in ji_shu:</span><br><span class="line">    num &#x3D; ji.get_text().encode(&#39;utf-8&#39;).strip()</span><br><span class="line">    ji_url &#x3D; &#39;http:&#x2F;&#x2F;sns.video.qq.com&#x2F;fcgi-bin&#x2F;video_comment_id?otype&#x3D;json&amp;op&#x3D;3&amp;vid&#x3D;&#39; + ji.get(&#39;id&#39;)</span><br><span class="line">    ji_req &#x3D; requests.get(ji_url)</span><br><span class="line">    ji_id &#x3D; json.loads(ji_req.content.split(&#39;&#x3D;&#39;)[1][:-1])[&#39;comment_id&#39;]</span><br><span class="line">    comment_url &#x3D; &#39;http:&#x2F;&#x2F;coral.qq.com&#x2F;article&#x2F;&#39; + ji_id.encode(&#39;utf-8&#39;) + &#39;&#x2F;comment?commentid&#x3D;0&amp;reqnum&#x3D;10&#39;</span><br><span class="line">    comment_req &#x3D; requests.get(comment_url, headers&#x3D;my_headers)</span><br><span class="line">    for i in comment_req.json()[&#39;data&#39;][&#39;commentid&#39;]:</span><br><span class="line">        print &#39;第%s集&#39; % num, i[&#39;userinfo&#39;][&#39;nick&#39;], i[&#39;timeDifference&#39;]</span><br><span class="line">        print i[&#39;content&#39;]</span><br><span class="line">        print</span><br><span class="line">    raw_input()</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://clutchbear.gitee.io/2015/08/27/tencent-vido-comment/" data-id="ckm4nx1nx00390cie9hh82kd1" data-title="腾讯视频评论动态网页评论的抓取" class="article-share-link">Share</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python/" rel="tag">python</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-chromedriver-path" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2015/08/25/chromedriver-path/" class="article-date">
+  <time class="dt-published" datetime="2015-08-25T14:50:36.000Z" itemprop="datePublished">2015-08-25</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2015/08/25/chromedriver-path/">selenium所需要的chromedriver的安装方法</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>selenium是一个常用分析javascript动态网页的python第三方库.<br>在mac下安装很简单,</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo pip install selenium</span><br></pre></td></tr></table></figure>
+
+<p>但是在运行示例代码时候会提示错误</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">#!&#x2F;usr&#x2F;bin&#x2F;env python</span><br><span class="line"># -*- coding: utf-8 -*-</span><br><span class="line">import os</span><br><span class="line">from selenium import webdriver</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">driver &#x3D; webdriver.Chrome()</span><br><span class="line">driver.get(&quot;http:&#x2F;&#x2F;google.com&quot;)</span><br><span class="line">driver.quit()</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">selenium.common.exceptions.WebDriverException: Message: &#39;chromedriver&#39; executable needs to be in PATH. Please see https:&#x2F;&#x2F;sites.google.com&#x2F;a&#x2F;chromium.org&#x2F;chromedriver&#x2F;home</span><br></pre></td></tr></table></figure>
+
+<p>根据提示是没有下载chromedriver并把它放到path里面.<br>搜索好久才找到详细的操作方法,<br>下载很简单,官方有下载地址.<br>mac下放到path的具体方法是:</p>
+<ul>
+<li>打开finder,选择’前往’–’前往文件夹’,然后弹出的窗口输入</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;usr&#x2F;bin</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>把解压缩好的chromedriver文件复制拷贝到bin文件夹.</li>
+</ul>
+<p>再运行示例代码就弹出一个chrome窗口,表示运行成功.</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://clutchbear.gitee.io/2015/08/25/chromedriver-path/" data-id="ckm4nx1mj00070cie6zvpdocu" data-title="selenium所需要的chromedriver的安装方法" class="article-share-link">Share</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python/" rel="tag">python</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-login-weibo" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2015/08/25/login-weibo/" class="article-date">
+  <time class="dt-published" datetime="2015-08-25T11:47:44.000Z" itemprop="datePublished">2015-08-25</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2015/08/25/login-weibo/">模拟登陆sina微博</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">#!&#x2F;usr&#x2F;bin&#x2F;env python</span><br><span class="line"># -*- coding: utf-8 -*-</span><br><span class="line"></span><br><span class="line">import requests</span><br><span class="line">from bs4 import BeautifulSoup</span><br><span class="line"></span><br><span class="line">url &#x3D; &#39;http:&#x2F;&#x2F;login.weibo.cn&#x2F;login&#x2F;&#39;</span><br><span class="line">my_headers &#x3D; &#123;&#39;User-Agent&#39;: &#39;Mozilla&#x2F;5.0 (Windows NT 6.1; WOW64) AppleWebKit&#x2F;537.36 (KHTML, like Gecko) Chrome&#x2F;44.0.2403.155 Safari&#x2F;537.36&#39;&#125;</span><br><span class="line">post_data &#x3D; &#123;&#39;mobile&#39;: &#39;roc100year@gmail.com&#39;,</span><br><span class="line">             &#39;backURL&#39;: &#39;http:&#x2F;&#x2F;weibo.cn&#x2F;&#39;,</span><br><span class="line">             &#39;backTitle&#39;: u&#39;微博&#39;,</span><br><span class="line">             &#39;submit&#39;: u&#39;登录&#39;,</span><br><span class="line">             &#39;remember&#39;: &#39;on&#39;,</span><br><span class="line">             &#39;tryCount&#39;: &#39;&#39;</span><br><span class="line">             &#125;</span><br><span class="line">html &#x3D; requests.get(url, headers&#x3D;my_headers).content</span><br><span class="line">soup &#x3D; BeautifulSoup(html, &quot;html.parser&quot;)</span><br><span class="line">password &#x3D; soup.find(&#39;input&#39;, &#123;&#39;type&#39;: &#39;password&#39;&#125;).get(&#39;name&#39;)</span><br><span class="line">vk &#x3D; soup.find(&#39;input&#39;, &#123;&#39;name&#39;: &#39;vk&#39;&#125;).get(&#39;value&#39;)</span><br><span class="line">print password, vk</span><br><span class="line">post_data[password] &#x3D; &#39;xxxxx&#39;</span><br><span class="line">post_data[&#39;vk&#39;] &#x3D; vk</span><br><span class="line">new_html &#x3D; requests.post(url, data&#x3D;post_data).content</span><br><span class="line">print new_html</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://clutchbear.gitee.io/2015/08/25/login-weibo/" data-id="ckm4nx1n6001o0cie6dk0e2jb" data-title="模拟登陆sina微博" class="article-share-link">Share</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python/" rel="tag">python</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-3rd_lib" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2015/08/23/3rd_lib/" class="article-date">
+  <time class="dt-published" datetime="2015-08-23T07:18:39.000Z" itemprop="datePublished">2015-08-23</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2015/08/23/3rd_lib/">Python2.7 常用第三方库的安装方法</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h2 id="1-安装PIL或者PILLOW的方法"><a href="#1-安装PIL或者PILLOW的方法" class="headerlink" title="1: 安装PIL或者PILLOW的方法:"></a>1: 安装PIL或者PILLOW的方法:</h2><p>PIL是Python Imaging Library的简写,是Python中最常用的图像处理库.</p>
+<p>如果是MAC 10.9.4系统的话, 用sudo easy_install PIL安装pil可能会出现错误,谷歌搜索的话,很多人都会出现这样那样的问题.</p>
+<p>pillow是pil的替代品,更容易安装.pillow的最新信息可以参考<a target="_blank" rel="noopener" href="http://pillow.readthedocs.org/en/latest/">这里</a>或者<a target="_blank" rel="noopener" href="http://pillow-cn.readthedocs.org/zh_CN/latest/index.html">中文文档</a></p>
+<ul>
+<li>安装方法:</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">brew install libtiff libjpeg webp little-cms2</span><br><span class="line">sudo pip install pillow</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>使用方法:在需要import Image,ImageDraw的地方用下面的语句代替</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">from PIL import Image,ImageDraw</span><br></pre></td></tr></table></figure>
+<h2 id="2-安装和使用virtualenv"><a href="#2-安装和使用virtualenv" class="headerlink" title="2: 安装和使用virtualenv"></a>2: 安装和使用virtualenv</h2><p>virtualenv 用来创建隔离的Python环境。它会创建一个拥有独立安装目录的python环境，该隔离环境不会与其他virtualenv环境共享模块（可选择是否访问全局库目录）。</p>
+<ul>
+<li>安装:</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install virtualenv</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>简单使用:</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">mkdir testdir</span><br><span class="line">cd testdir</span><br><span class="line">virtualenv venv --distribute #初始化</span><br><span class="line">. venv&#x2F;bin&#x2F;activate 激活</span><br><span class="line">deactivate 退出</span><br></pre></td></tr></table></figure>
+<p>###3: MySQL安装<br>MySQL是目前最流行的开源数据库之一.</p>
+<ul>
+<li>安装:</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">brew intall MySQL #系统的Mysql</span><br><span class="line">sudo ARCHFLAGS&#x3D;-Wno-error&#x3D;unused-command-line-argument-hard-error-in-future pip install mysql-python #python的MySQL</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>使用:</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">      mysql.server start</span><br><span class="line">&#96;&#96;&#96;      </span><br><span class="line"></span><br><span class="line">### 4: Pygame安装</span><br><span class="line">需要去官方(http:&#x2F;&#x2F;www.pygame.org&#x2F;download.shtml)下载</span><br><span class="line">pygame-1.9.2pre-py2.7-macosx10.7.mpkg.zip,解压缩后安装在mac10.10上才行.</span><br><span class="line"></span><br><span class="line">### 5: Scrapy安装</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>pip install Scrapy</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">很快安装成功,</span><br><span class="line">但是新建项目时候出错了</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>scrapy startproject tutorial</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">![](http:&#x2F;&#x2F;ww3.sinaimg.cn&#x2F;large&#x2F;7293e3b7jw1evclegfxc9j20st086ju2.jpg)</span><br><span class="line"></span><br><span class="line">解决方法也很简单,根据错误提示谷歌搜索,打开第一个结果的stackoverflow网站,按照答案一步一步来就行.</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>sudo rm -rf /Library/Python/2.7/site-packages/six*<br>sudo rm -rf /System/Library/Frameworks/Python.framework/Versions/2.7/Extras/lib/python/six*<br>sudo pip install six</p>
+<p>```</p>
+<p>参考: <a target="_blank" rel="noopener" href="http://stackoverflow.com/questions/30964836/scrapy-throws-importerror-cannot-import-name-xmlrpc-client">stackoverflow真是好地方</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://clutchbear.gitee.io/2015/08/23/3rd_lib/" data-id="ckm4nx1ma00010cieb0wx94w2" data-title="Python2.7 常用第三方库的安装方法" class="article-share-link">Share</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python/" rel="tag">python</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-python-requests-utf-8" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2015/08/15/python-requests-utf-8/" class="article-date">
+  <time class="dt-published" datetime="2015-08-14T19:05:06.000Z" itemprop="datePublished">2015-08-15</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2015/08/15/python-requests-utf-8/">python + requests抓取百度百科时候遇到的乱码问题</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>今天用python的requests抓住百度百科的老残游记条目时候出现乱码问题，<br>试了好多方法都没有解决。<br>最后通过谷歌搜索到大神的博客才懂，原来是requests库的问题。<br>大神博客<a target="_blank" rel="noopener" href="http://sh3ll.me/2014/06/18/python-requests-encoding/">点这里</a></p>
+<p>根据官方文档<a target="_blank" rel="noopener" href="http://docs.python-requests.org/en/latest/api/#requests.Response.text%EF%BC%8C">http://docs.python-requests.org/en/latest/api/#requests.Response.text，</a><br>requests 是通过 http header 猜测页面编码，如果 header 中不存在 charset 就认为编码为 ISO-8859-1。<br>我抓取的这个百度百度的headers的charset就没有设置编码。<br>要手动指定成’utf-8’才行。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">#!&#x2F;usr&#x2F;bin&#x2F;env python</span><br><span class="line"># -*- coding: utf-8 -*-</span><br><span class="line"></span><br><span class="line">import requests</span><br><span class="line">from bs4 import BeautifulSoup</span><br><span class="line">import codecs</span><br><span class="line"></span><br><span class="line">url &#x3D; &#39;http:&#x2F;&#x2F;baike.baidu.com&#x2F;view&#x2F;37202.htm&#39;</span><br><span class="line">my_headers &#x3D; &#123;&#39;User-Agent&#39;: &#39;Mozilla&#x2F;5.0 (Windows NT 10.0; Win64; x64) AppleWebKit&#x2F;537.36 (KHTML, like Gecko) Chrome&#x2F;44.0.2403.125 Safari&#x2F;537.36&#39;,</span><br><span class="line">              &#125;</span><br><span class="line">session &#x3D; requests.session()</span><br><span class="line">req &#x3D; session.get(url, headers&#x3D;my_headers)</span><br><span class="line">req.encoding &#x3D; &#39;utf-8&#39;</span><br><span class="line"></span><br><span class="line">soup &#x3D; BeautifulSoup(req.text, &quot;html.parser&quot;)</span><br><span class="line">item &#x3D; soup.find(&#39;div&#39;, &#123;&#39;class&#39;: &#39;para&#39;&#125;)</span><br><span class="line"></span><br><span class="line">print item.get_text().encode(&#39;utf-8&#39;)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p><img src="http://ww2.sinaimg.cn/large/7293e3b7jw1ev3jups6s7j21970pzn35.jpg"></p>
+<p>参考：<br><a target="_blank" rel="noopener" href="http://sh3ll.me/2014/06/18/python-requests-encoding/">http://sh3ll.me/2014/06/18/python-requests-encoding/</a><br><a target="_blank" rel="noopener" href="http://liguangming.com/python-requests-ge-encoding-from-headers">http://liguangming.com/python-requests-ge-encoding-from-headers</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://clutchbear.gitee.io/2015/08/15/python-requests-utf-8/" data-id="ckm4nx1nl002j0cief9dd8nwd" data-title="python + requests抓取百度百科时候遇到的乱码问题" class="article-share-link">Share</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python/" rel="tag">python</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-fuck-gfw" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2015/08/07/fuck-gfw/" class="article-date">
+  <time class="dt-published" datetime="2015-08-07T08:44:25.000Z" itemprop="datePublished">2015-08-07</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2015/08/07/fuck-gfw/">MAC下面修改hosts和获得最新hosts的方法</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>因为某些原因google搜索经常被屏蔽,但是工作需要经常使用.修改hosts是访问google最方便的方法之一.</p>
+<p>1: 10.9.5的MAC下修改hosts的方法,搜索得来的,<br>   在终端输入:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo &#x2F;Applications&#x2F;TextEdit.app&#x2F;Contents&#x2F;MacOS&#x2F;TextEdit &#x2F;etc&#x2F;hosts</span><br></pre></td></tr></table></figure>
+<p>   10.10 Yosemite<br>   打开finder,选择前往文件夹,填入</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;etc&#x2F;hosts,</span><br></pre></td></tr></table></figure>
+<p>   将hosts拖到桌面,修改.然后再覆盖进去.</p>
+<p>2: 获取hosts的几种方法,<br>   github大神制作好的的hosts文件,直接拷贝就行了.</p>
+<p>   获取最新hosts的网站,</p>
+   <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">https:&#x2F;&#x2F;github.com&#x2F;vokins&#x2F;simpleu</span><br><span class="line">https:&#x2F;&#x2F;github.com&#x2F;racaljk&#x2F;hosts</span><br></pre></td></tr></table></figure>
+<p>   一个hosts不好用时候,及时更换成另外一个.</p>
+<p>3: 用chrome浏览器的话,在设置里把默认搜索改成:</p>
+<pre><code> https://www.google.com/search?q=%s
+</code></pre>
+<p>   并且在浏览器中运行一次:</p>
+<pre><code> https://www.google.com/ncr
+</code></pre>
+<p>  防止自动跳转到google.com.hk</p>
+<p>4: 日常科学上网用shadowsocks,<br><a target="_blank" rel="noopener" href="https://github.com/clowwindy/shadowsocks">官网点这里</a>,<br>安装运行后,免费得ss网站上获取服务器和密码</p>
+<h3 id="大神总结的翻墙小结-各种系统的都有"><a href="#大神总结的翻墙小结-各种系统的都有" class="headerlink" title="大神总结的翻墙小结.各种系统的都有,"></a>大神总结的翻墙小结.各种系统的都有,</h3><p><a target="_blank" rel="noopener" href="http://wsgzao.github.io/post/gfw-break/">这里是连接</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://clutchbear.gitee.io/2015/08/07/fuck-gfw/" data-id="ckm4nx1mr000k0cie6ts45r11" data-title="MAC下面修改hosts和获得最新hosts的方法" class="article-share-link">Share</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91/" rel="tag">科学上网</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-login-v2ex" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2015/08/07/login-v2ex/" class="article-date">
+  <time class="dt-published" datetime="2015-08-06T18:36:59.000Z" itemprop="datePublished">2015-08-07</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2015/08/07/login-v2ex/">用request和beautisoup登录、签到v2ex</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h3 id="代码如下，"><a href="#代码如下，" class="headerlink" title="代码如下，"></a>代码如下，</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line">#!&#x2F;usr&#x2F;bin&#x2F;env python</span><br><span class="line"># -*- coding: utf-8 -*-</span><br><span class="line"></span><br><span class="line">import requests</span><br><span class="line">from bs4 import BeautifulSoup</span><br><span class="line">import time</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">url &#x3D; &#39;http:&#x2F;&#x2F;www.v2ex.com&#39;</span><br><span class="line"></span><br><span class="line">my_headers &#x3D; &#123;&#39;User-Agent&#39;: &#39;Mozilla&#x2F;5.0 (Windows NT 10.0; Win64; x64) AppleWebKit&#x2F;537.36 (KHTML, like Gecko) Chrome&#x2F;44.0.2403.125 Safari&#x2F;537.36&#39;,</span><br><span class="line">              &#39;Referer&#39;: &#39;http:&#x2F;&#x2F;www.v2ex.com&#x2F;signin&#39;,</span><br><span class="line">              &#39;Host&#39;: &#39;www.v2ex.com&#39;,</span><br><span class="line">              &#125;</span><br><span class="line"></span><br><span class="line">login_data &#x3D; &#123;&#39;u&#39;: &#39;roc100year@gmail.com&#39;,</span><br><span class="line">              &#39;p&#39;: &#39;&#39;,</span><br><span class="line">              &#39;next&#39;: &#39;&#x2F;&#39;</span><br><span class="line">              &#125;</span><br><span class="line">time.sleep(3)</span><br><span class="line"></span><br><span class="line">session &#x3D; requests.session()</span><br><span class="line">url_login &#x3D; url + &#39;&#x2F;signin&#39;</span><br><span class="line">response &#x3D; session.get(url_login, headers&#x3D;my_headers)</span><br><span class="line">soup &#x3D; BeautifulSoup(response.content, &quot;html.parser&quot;)</span><br><span class="line"></span><br><span class="line">once &#x3D; soup.find(&#39;input&#39;, attrs&#x3D;&#123;&#39;name&#39;: &#39;once&#39;&#125;).get(&#39;value&#39;).encode(&#39;utf-8&#39;)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">login_data[&#39;once&#39;] &#x3D; once</span><br><span class="line"></span><br><span class="line">session.post(url_login, login_data, headers&#x3D;my_headers)</span><br><span class="line"></span><br><span class="line">daily &#x3D; url + &#39;&#x2F;mission&#x2F;daily&#39;</span><br><span class="line"></span><br><span class="line">r &#x3D; session.get(daily, headers&#x3D;my_headers)</span><br><span class="line">soupDaily &#x3D; BeautifulSoup(r.text, &quot;html.parser&quot;)</span><br><span class="line"></span><br><span class="line">item &#x3D; soupDaily.find(&#39;input&#39;, class_&#x3D;&#39;super normal button&#39;).get(&#39;onclick&#39;)</span><br><span class="line">mission_url &#x3D; url + item.split(&quot;&#39;&quot;)[1]</span><br><span class="line"></span><br><span class="line">mission_r &#x3D; session.get(mission_url, headers&#x3D;my_headers)</span><br></pre></td></tr></table></figure>
+
+<h3 id="对我而言，难点是"><a href="#对我而言，难点是" class="headerlink" title="对我而言，难点是"></a>对我而言，难点是</h3><ul>
+<li><h3 id="name是beautifulsoup-find-的关键字，不能用soup-find-name-‘once’-查找需要的tag，要用soup-find（attrs-‘name’-‘once’-）才行"><a href="#name是beautifulsoup-find-的关键字，不能用soup-find-name-‘once’-查找需要的tag，要用soup-find（attrs-‘name’-‘once’-）才行" class="headerlink" title="name是beautifulsoup.find()的关键字，不能用soup.find(name = ‘once’)查找需要的tag，要用soup.find（attrs={‘name’: ‘once’}）才行"></a>name是beautifulsoup.find()的关键字，不能用soup.find(name = ‘once’)查找需要的tag，要用soup.find（attrs={‘name’: ‘once’}）才行</h3></li>
+<li><h3 id="通过chrome的f12–NetWork，找signin，再在下面找到Form-Data的post数据"><a href="#通过chrome的f12–NetWork，找signin，再在下面找到Form-Data的post数据" class="headerlink" title="通过chrome的f12–NetWork，找signin，再在下面找到Form Data的post数据"></a>通过chrome的f12–NetWork，找signin，再在下面找到Form Data的post数据</h3><p><img src="http://ww3.sinaimg.cn/large/7293e3b7jw1eusznybzgnj20ix0iqtbo.jpg"></p>
+</li>
+</ul>
+<p>参考来源 ：<br><a target="_blank" rel="noopener" href="http://blog.leanote.com/post/maijver/Untitled-54c144e238f411103700147a-17">模拟登录V2EX及进行签到</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://clutchbear.gitee.io/2015/08/07/login-v2ex/" data-id="ckm4nx1n6001m0cie4ngs4k99" data-title="用request和beautisoup登录、签到v2ex" class="article-share-link">Share</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python/" rel="tag">python</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-console2-and-ipython" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2015/08/05/console2-and-ipython/" class="article-date">
+  <time class="dt-published" datetime="2015-08-05T14:30:38.000Z" itemprop="datePublished">2015-08-05</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2015/08/05/console2-and-ipython/">Windows下配置开发环境的几个好用软件，console2和ipython</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h3 id="Console2"><a href="#Console2" class="headerlink" title="Console2"></a>Console2</h3><p><img src="https://camo.githubusercontent.com/70b677bc38ebb6660c85273aed2b33489183b22a/687474703a2f2f61727261792e626c75652f696d616765732f636f6e736f6c65322d38646134303039302e706e67"></p>
+<p>Windows的命令终端CMD和Powershell有点简陋和不实用，console2这个软件就好多了。<br>能设置成自己喜欢的字体、主题颜色什么的。</p>
+<ul>
+<li>官方下载地址 ： <a target="_blank" rel="noopener" href="http://sourceforge.net/projects/console">点击</a></li>
+<li>配置和介绍：<a target="_blank" rel="noopener" href="http://raytaylorlin.com/Tech/IDE/console2-better-windows-cmd/">大神的博客</a></li>
+<li>能输入汉字的主程序：<a target="_blank" rel="noopener" href="https://github.com/raytaylorlin/Console2-Chinese-Input-Capable">github地址</a></li>
+<li>主题颜色：<a target="_blank" rel="noopener" href="https://github.com/tstone/console2-monokai">github地址</a></li>
+</ul>
+<h3 id="ipython"><a href="#ipython" class="headerlink" title="ipython"></a>ipython</h3><p><img src="http://ww2.sinaimg.cn/large/7293e3b7jw1eus4tqoe0ej20p00gb76z.jpg"></p>
+<p>ipython能够逐行显示python代码的运行结果，能够更好的调试python代码，并且有tab自动补全功能。</p>
+<ul>
+<li>安装主程序：</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install ipython</span><br></pre></td></tr></table></figure>
+<ul>
+<li>安装配色：</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install pyreadline</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://clutchbear.gitee.io/2015/08/05/console2-and-ipython/" data-id="ckm4nx1mn000c0cie83hbh22q" data-title="Windows下配置开发环境的几个好用软件，console2和ipython" class="article-share-link">Share</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python/" rel="tag">python</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+
+
+  <nav id="page-nav">
+    
+    <a class="extend prev" rel="prev" href="/page/4/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="page-number current">5</span><a class="page-number" href="/page/6/">6</a><a class="page-number" href="/page/7/">7</a><a class="extend next" rel="next" href="/page/6/">Next &raquo;</a>
+  </nav>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Markdown/" rel="tag">Markdown</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MySQL/" rel="tag">MySQL</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Windows/" rel="tag">Windows</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/" rel="tag">hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/html/" rel="tag">html</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/iOS/" rel="tag">iOS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/java/" rel="tag">java</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mac/" rel="tag">mac</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python/" rel="tag">python</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python-java/" rel="tag">python, java</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91/" rel="tag">科学上网</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%B3%BB%E7%BB%9F/" rel="tag">系统</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%BD%AF%E4%BB%B6/" rel="tag">软件</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%BD%AF%E4%BB%B6-windows-linux/" rel="tag">软件, windows, linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%BB%91%E8%8B%B9%E6%9E%9C/" rel="tag">黑苹果</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/Markdown/" style="font-size: 10px;">Markdown</a> <a href="/tags/MySQL/" style="font-size: 10px;">MySQL</a> <a href="/tags/Windows/" style="font-size: 10px;">Windows</a> <a href="/tags/hexo/" style="font-size: 15px;">hexo</a> <a href="/tags/html/" style="font-size: 10px;">html</a> <a href="/tags/iOS/" style="font-size: 10px;">iOS</a> <a href="/tags/java/" style="font-size: 12.5px;">java</a> <a href="/tags/mac/" style="font-size: 10px;">mac</a> <a href="/tags/python/" style="font-size: 20px;">python</a> <a href="/tags/python-java/" style="font-size: 10px;">python, java</a> <a href="/tags/%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91/" style="font-size: 12.5px;">科学上网</a> <a href="/tags/%E7%B3%BB%E7%BB%9F/" style="font-size: 12.5px;">系统</a> <a href="/tags/%E8%BD%AF%E4%BB%B6/" style="font-size: 17.5px;">软件</a> <a href="/tags/%E8%BD%AF%E4%BB%B6-windows-linux/" style="font-size: 10px;">软件, windows, linux</a> <a href="/tags/%E9%BB%91%E8%8B%B9%E6%9E%9C/" style="font-size: 15px;">黑苹果</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">January 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/11/">November 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/08/">August 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">April 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">March 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">January 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">November 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/08/">August 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/07/">July 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">May 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/04/">April 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/10/">October 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/09/">September 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/08/">August 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/09/">September 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/08/">August 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/06/">June 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/03/">March 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/02/">February 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/11/">November 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/10/">October 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/08/">August 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/07/">July 2014</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2019/01/08/vagran-setting/">vagrant的安装和设置</a>
+          </li>
+        
+          <li>
+            <a href="/2018/11/28/redis-4-0-bloom/">redis4.0以上版本开启bloomfilter插件的方法</a>
+          </li>
+        
+          <li>
+            <a href="/2018/11/20/win-terminus-md/">terminus的安装和配置</a>
+          </li>
+        
+          <li>
+            <a href="/2018/08/13/wsl-setting/">个人wsl设置</a>
+          </li>
+        
+          <li>
+            <a href="/2018/04/14/handle-some-web-font-crawl/">某8网站字体加密爬虫的处理方法</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2021 小信<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.4.1.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

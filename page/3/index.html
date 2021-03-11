@@ -1,0 +1,716 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>40+岁大龄码农的自我修养</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="40+岁大龄码农的自我修养">
+<meta property="og:url" content="https://clutchbear.gitee.io/page/3/index.html">
+<meta property="og:site_name" content="40+岁大龄码农的自我修养">
+<meta property="og:locale">
+<meta property="article:author" content="小信">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="40+岁大龄码农的自我修养" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">40+岁大龄码农的自我修养</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://clutchbear.gitee.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main">
+  
+    <article id="post-jd-duobaodao" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2016/08/18/jd-duobaodao/" class="article-date">
+  <time class="dt-published" datetime="2016-08-18T08:51:09.000Z" itemprop="datePublished">2016-08-18</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2016/08/18/jd-duobaodao/">用python的selenium实现京东夺宝岛最后一秒自动下单</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br></pre></td><td class="code"><pre><span class="line">#!&#x2F;usr&#x2F;bin&#x2F;env python</span><br><span class="line"># -*- coding: utf-8 -*-</span><br><span class="line">from selenium import webdriver</span><br><span class="line">import requests</span><br><span class="line">import time</span><br><span class="line">import datetime</span><br><span class="line">import json</span><br><span class="line">def get_endTime(paimaiID):</span><br><span class="line">    endTimeURL &#x3D; &#39;http:&#x2F;&#x2F;paimai.jd.com&#x2F;services&#x2F;currentList.action?paimaiIds&#x3D;&#123;0&#125;&amp;callback&#x3D;jQuery5542114&#39;.format(</span><br><span class="line">        paimaiID)</span><br><span class="line">    req &#x3D; requests.get(endTimeURL)</span><br><span class="line">    data &#x3D; json.loads(req.text[15: -2])</span><br><span class="line">    return data[&#39;endTime&#39;] - 900</span><br><span class="line">def paimai(endTime, paimaiID, name, passWord, want_price):</span><br><span class="line">    driver &#x3D; webdriver.Firefox()</span><br><span class="line">    driver.get(</span><br><span class="line">        &#39;https:&#x2F;&#x2F;passport.jd.com&#x2F;new&#x2F;login.aspx?ReturnUrl&#x3D;http:&#x2F;&#x2F;paimai.jd.com&#x2F;&#123;0&#125;&#39;.format(paimaiID))</span><br><span class="line">    email &#x3D; driver.find_element_by_xpath(&#39;&#x2F;&#x2F;input[@id&#x3D;&quot;loginname&quot;]&#39;)</span><br><span class="line">    email.clear()</span><br><span class="line">    email.send_keys(name)</span><br><span class="line">    password &#x3D; driver.find_element_by_xpath(&#39;&#x2F;&#x2F;input[@id&#x3D;&quot;nloginpwd&quot;]&#39;)</span><br><span class="line">    password.clear()</span><br><span class="line">    password.send_keys(passWord)</span><br><span class="line">    form &#x3D; driver.find_element_by_xpath(&#39;&#x2F;&#x2F;a[@id&#x3D;&quot;loginsubmit&quot;]&#39;)</span><br><span class="line">    form.click()</span><br><span class="line">    try:</span><br><span class="line">        captcha &#x3D; driver.find_element_by_xpath(&#39;&#x2F;&#x2F;input[@id&#x3D;&quot;authcode&quot;]&#39;)</span><br><span class="line">        if captcha:</span><br><span class="line">            input_captcha &#x3D; raw_input()</span><br><span class="line">            captcha.send_keys(input_captcha)</span><br><span class="line">        form.click()</span><br><span class="line">    except:</span><br><span class="line">        pass</span><br><span class="line">    while 1:</span><br><span class="line">        nowTime &#x3D; int(time.time() * 1000)</span><br><span class="line">        if nowTime &#x3D;&#x3D; endTime:</span><br><span class="line">            break</span><br><span class="line">    current_price_url &#x3D; &#39;http:&#x2F;&#x2F;paimai.jd.com&#x2F;json&#x2F;current&#x2F;englishquery?paimaiId&#x3D;&#123;0&#125;&amp;skuId&#x3D;0&amp;start&#x3D;0&amp;end&#x3D;9&#39;.format(</span><br><span class="line">        paimaiID)</span><br><span class="line">    current_price &#x3D; json.loads(</span><br><span class="line">        requests.get(current_price_url).content)[&#39;currentPrice&#39;]</span><br><span class="line">    last_price &#x3D; int(eval(current_price) + 1)</span><br><span class="line">    print last_price</span><br><span class="line">    if last_price &gt; want_price:</span><br><span class="line">        return</span><br><span class="line">    price &#x3D; driver.find_element_by_xpath(&#39;&#x2F;&#x2F;input[@id&#x3D;&quot;bidPrice&quot;]&#39;)</span><br><span class="line">    price.clear()</span><br><span class="line">    price.send_keys(str(int(last_price)))</span><br><span class="line">    botton &#x3D; driver.find_element_by_xpath(</span><br><span class="line">        &#39;&#x2F;&#x2F;div[@id&#x3D;&quot;auctionStatus1&quot;]&#x2F;div[2]&#x2F;a[1]&#39;)</span><br><span class="line">    botton.click()</span><br><span class="line">if __name__ &#x3D;&#x3D; &quot;__main__&quot;:</span><br><span class="line">    # 夺宝岛商品id</span><br><span class="line">    paimaiID &#x3D; &#39;11087928&#39;</span><br><span class="line">    # 登录名</span><br><span class="line">    name &#x3D; &quot;xxxxxx&quot;</span><br><span class="line">    # 密码</span><br><span class="line">    password &#x3D; &#39;xxxxxx&#39;</span><br><span class="line">    # 预期心理价位</span><br><span class="line">    want_price &#x3D; 1000</span><br><span class="line">    endTime &#x3D; get_endTime(paimaiID)</span><br><span class="line">    print endTime</span><br><span class="line">    paimai(endTime, paimaiID, name, password, want_price)</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://clutchbear.gitee.io/2016/08/18/jd-duobaodao/" data-id="ckm4nx1n1001b0cie43o15hmd" data-title="用python的selenium实现京东夺宝岛最后一秒自动下单" class="article-share-link">Share</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python/" rel="tag">python</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-zhihu-voted-list" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2016/08/16/zhihu-voted-list/" class="article-date">
+  <time class="dt-published" datetime="2016-08-16T02:01:25.000Z" itemprop="datePublished">2016-08-16</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2016/08/16/zhihu-voted-list/">用python找出知乎某个答案点赞的所有名单</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br></pre></td><td class="code"><pre><span class="line">#!&#x2F;usr&#x2F;bin&#x2F;env python</span><br><span class="line"># -*- coding: utf-8 -*-</span><br><span class="line"></span><br><span class="line">import requests</span><br><span class="line">from bs4 import BeautifulSoup</span><br><span class="line">import time</span><br><span class="line">import json</span><br><span class="line">import os</span><br><span class="line">import sys</span><br><span class="line"></span><br><span class="line">url &#x3D; &#39;http:&#x2F;&#x2F;www.zhihu.com&#39;</span><br><span class="line">loginURL &#x3D; &#39;http:&#x2F;&#x2F;www.zhihu.com&#x2F;login&#x2F;email&#39;</span><br><span class="line"></span><br><span class="line">headers &#x3D; &#123;</span><br><span class="line">    &quot;User-Agent&quot;: &#39;Mozilla&#x2F;5.0 (Macintosh; Intel Mac OS X 10.10; rv:41.0) Gecko&#x2F;20100101 Firefox&#x2F;41.0&#39;,</span><br><span class="line">    &quot;Referer&quot;: &quot;http:&#x2F;&#x2F;www.zhihu.com&#x2F;&quot;,</span><br><span class="line">    &#39;Host&#39;: &#39;www.zhihu.com&#39;,</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">data &#x3D; &#123;</span><br><span class="line">    &#39;email&#39;: &#39;xxxxx@gmail.com&#39;,</span><br><span class="line">    &#39;password&#39;: &#39;xxxxxxx&#39;,</span><br><span class="line">    &#39;rememberme&#39;: &quot;true&quot;,</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">s &#x3D; requests.session()</span><br><span class="line"># 如果成功登陆过,用保存的cookies登录</span><br><span class="line">if os.path.exists(&#39;cookiefile&#39;):</span><br><span class="line">    with open(&#39;cookiefile&#39;) as f:</span><br><span class="line">        cookie &#x3D; json.load(f)</span><br><span class="line">    s.cookies.update(cookie)</span><br><span class="line">    req1 &#x3D; s.get(url, headers&#x3D;headers)</span><br><span class="line">    with open(&#39;zhihu.html&#39;, &#39;w&#39;) as f:</span><br><span class="line">        f.write(req1.content)</span><br><span class="line"># 第一次需要手动输入验证码登录</span><br><span class="line">else:</span><br><span class="line">    req &#x3D; s.get(url, headers&#x3D;headers)</span><br><span class="line">    print req</span><br><span class="line"></span><br><span class="line">    soup &#x3D; BeautifulSoup(req.text, &quot;html.parser&quot;)</span><br><span class="line">    xsrf &#x3D; soup.find(&#39;input&#39;, &#123;&#39;name&#39;: &#39;_xsrf&#39;, &#39;type&#39;: &#39;hidden&#39;&#125;).get(&#39;value&#39;)</span><br><span class="line"></span><br><span class="line">    data[&#39;_xsrf&#39;] &#x3D; xsrf</span><br><span class="line"></span><br><span class="line">    timestamp &#x3D; int(time.time() * 1000)</span><br><span class="line">    captchaURL &#x3D; &#39;http:&#x2F;&#x2F;www.zhihu.com&#x2F;captcha.gif?&#x3D;&#39; + str(timestamp)</span><br><span class="line">    print captchaURL</span><br><span class="line"></span><br><span class="line">    with open(&#39;zhihucaptcha.gif&#39;, &#39;wb&#39;) as f:</span><br><span class="line">        captchaREQ &#x3D; s.get(captchaURL)</span><br><span class="line">        f.write(captchaREQ.content)</span><br><span class="line">    loginCaptcha &#x3D; raw_input(&#39;input captcha:\n&#39;).strip()</span><br><span class="line">    data[&#39;captcha&#39;] &#x3D; loginCaptcha</span><br><span class="line">    # print data</span><br><span class="line">    loginREQ &#x3D; s.post(loginURL,  headers&#x3D;headers, data&#x3D;data)</span><br><span class="line">    # print loginREQ.url</span><br><span class="line">    # print s.cookies.get_dict()</span><br><span class="line">    if not loginREQ.json()[&#39;r&#39;]:</span><br><span class="line">        # print loginREQ.json()</span><br><span class="line">        with open(&#39;cookiefile&#39;, &#39;wb&#39;) as f:</span><br><span class="line">            json.dump(s.cookies.get_dict(), f)</span><br><span class="line">    else:</span><br><span class="line">        print &#39;login failed, try again!&#39;</span><br><span class="line">        sys.exit(1)</span><br><span class="line"></span><br><span class="line"># 以http:&#x2F;&#x2F;www.zhihu.com&#x2F;question&#x2F;27621722&#x2F;answer&#x2F;48820436这个大神的399各赞为例子.</span><br><span class="line">zanBaseURL &#x3D; &#39;http:&#x2F;&#x2F;www.zhihu.com&#x2F;answer&#x2F;22229844&#x2F;voters_profile?&amp;offset&#x3D;&#123;0&#125;&#39;</span><br><span class="line">page &#x3D; 0</span><br><span class="line">count &#x3D; 0</span><br><span class="line">while 1:</span><br><span class="line">    zanURL &#x3D; zanBaseURL.format(str(page))</span><br><span class="line">    page +&#x3D; 10</span><br><span class="line">    zanREQ &#x3D; s.get(zanURL, headers&#x3D;headers)</span><br><span class="line">    zanData &#x3D; zanREQ.json()[&#39;payload&#39;]</span><br><span class="line">    if not zanData:</span><br><span class="line">        break</span><br><span class="line">    for item in zanData:</span><br><span class="line">        # print item</span><br><span class="line">        zanSoup &#x3D; BeautifulSoup(item, &quot;html.parser&quot;)</span><br><span class="line">        zanInfo &#x3D; zanSoup.find(&#39;a&#39;, &#123;&#39;target&#39;: &quot;_blank&quot;, &#39;class&#39;: &#39;zg-link&#39;&#125;)</span><br><span class="line">        if zanInfo:</span><br><span class="line">            print &#39;nickname:&#39;, zanInfo.get(&#39;title&#39;),  &#39;    &#39;,</span><br><span class="line">            print &#39;person_url:&#39;, zanInfo.get(&#39;href&#39;)</span><br><span class="line">        else:</span><br><span class="line">            anonymous &#x3D; zanSoup.find(</span><br><span class="line">                &#39;img&#39;, &#123;&#39;title&#39;: True, &#39;class&#39;: &quot;zm-item-img-avatar&quot;&#125;)</span><br><span class="line">            print &#39;nickname:&#39;, anonymous.get(&#39;title&#39;)</span><br><span class="line"></span><br><span class="line">        count +&#x3D; 1</span><br><span class="line">    print count</span><br></pre></td></tr></table></figure>
+
+<p><img src="http://ww1.sinaimg.cn/large/7293e3b7jw1exjcxedihvj20p40l0dl1.jpg"></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://clutchbear.gitee.io/2016/08/16/zhihu-voted-list/" data-id="ckm4nx1o800410ciehrd8dn8b" data-title="用python找出知乎某个答案点赞的所有名单" class="article-share-link">Share</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python/" rel="tag">python</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-mac-10-11-6" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2016/08/15/mac-10-11-6/" class="article-date">
+  <time class="dt-published" datetime="2016-08-15T09:14:03.000Z" itemprop="datePublished">2016-08-15</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2016/08/15/mac-10-11-6/">MAC OS X 10.11.6 El Capitan安装方法与步骤</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>苹果公司发布了最新的Mac系统El Capitan,我也跟风安装了,<br>昨天试了一天终于算是安装成功了.</p>
+<h3 id="电脑配置"><a href="#电脑配置" class="headerlink" title="电脑配置:"></a>电脑配置:</h3><p>CPU: E3-1230 v2<br>主板: 技嘉B75M D3V<br>显卡: 微星6850<br>声卡: Realtek ALC887<br>键盘: Noppoo 84键机械键盘</p>
+<h3 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h3><p>远景论坛czczyx大神制作的原版镜像,<a target="_blank" rel="noopener" href="http://bbs.pcbeta.com/viewthread-1702066-1-1.html">OS X El Capitan 15A284原版安装U盘镜像（带Clover 3270引导)</a></p>
+<p>在win下面用zd423大神制作的不限速的<a target="_blank" rel="noopener" href="http://www.zdfans.com/674.html">百度云4.62版本</a>下载大概两个小时.</p>
+<h3 id="备份到U盘"><a href="#备份到U盘" class="headerlink" title="备份到U盘"></a>备份到U盘</h3><p>在win下,管理员权限运行TransMac工具, 将验证过MD5码的10.11镜像恢复到至少8G的U盘上.<br>然后启动原来的mac10.10, 用Clover Configurator工具打开EFI文件里面的config.plist配置文件,将System Parameters的Inject Kents改成Yes, 以防安装的时候一直菊花白屏.<br><img src="http://ww2.sinaimg.cn/large/7293e3b7jw1ewmr8989y7j20qp0bngml.jpg"><br>或者,进入到CLOVER引导界面后，选择boot install mac os x with inject</p>
+<h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><p>重启电脑, 一直按F12, 选择UEFI U盘启动, 选择安装 EL Captain,<br>大概四五分钟后,</p>
+<ul>
+<li>进入安装选择界面,</li>
+<li>选择磁盘工具, 格式化要安装的硬盘</li>
+<li>安装10.11,</li>
+<li>大概20分钟到最后1秒, 这个1秒也要持续10~20分钟</li>
+<li>重启后再次U盘选择安装EL Captain, 这次同样需要20分钟左右</li>
+<li>重启后u盘选择从刚刚安装的硬盘启动El Captain,</li>
+<li>配置用户名密码,不要选择网络,之后进入桌面</li>
+</ul>
+<h3 id="安装驱动"><a href="#安装驱动" class="headerlink" title="安装驱动"></a>安装驱动</h3><ul>
+<li><p>安装事先下载好的<a target="_blank" rel="noopener" href="http://bbs.pcbeta.com/viewthread-1605849-1-1.html">clover</a>, 安装的时候选择自定,然后勾选’UEFI开机版本’<br><img src="http://ww4.sinaimg.cn/large/7293e3b7jw1ewmrji1mboj20gm086jsi.jpg"></p>
+</li>
+<li><p>将U盘的EFI目录粘贴覆盖到电脑的EFI盘中, 如果没有显示可以用Clover Configurator挂载.</p>
+</li>
+<li><p>将下载好的网卡驱动拷贝到’/Volumes/EFI/EFI/CLOVER/kexts/10.11’. 我用的也是远景大神提供的<a target="_blank" rel="noopener" href="http://bbs.pcbeta.com/forum.php?mod=viewthread&tid=1605530">下载</a></p>
+</li>
+<li><p>重启电脑,安装声卡,我主板是技嘉的B75M-D3V, 声卡型号是ALC887, 在10.10和10.9的时候一直用MultiBeast的声卡驱动.现在El Captain版本的MultiBeast还没有出, 7.5版本选择好声卡驱动building的时候软件报错退出.</p>
+</li>
+<li><p>然后开始了漫长的尝试各种声卡驱动历程, <a target="_blank" rel="noopener" href="http://bbs.pcbeta.com/forum.php?mod=viewthread&tid=1605530">远景大神</a>和<a target="_blank" rel="noopener" href="http://www.insanelymac.com/forum/topic/298663-applehda-for-yosemite/">外国大神</a>提供的显卡驱动,我用Kext Wizard安装并且修复权限后,能出声音, 但是出声大概5秒后开始噪音,然后卡顿.</p>
+</li>
+<li><p>安装VoodooHDA 2.8.8重启,还没进入桌面就很大噪音发出来.同样没法用.</p>
+</li>
+<li><p>最后尝试到Voodoo_HDA_2.8.5_MAV.pkg,还算可以, 就是启动载入桌面前有一声爆音, 其他还可以. 不算完美,也能用吧.至少不卡顿和没有噪音.</p>
+</li>
+<li><p>Noppoo的机械键盘与MAC osx不兼容,需要安装大神只做好的驱动和软件, 参考<a target="_blank" rel="noopener" href="http://thefloweringash.github.io/iousbhiddriver-descriptor-override/">IOUSBHIDDriverDescriptorOverride</a>,</p>
+<ul>
+<li>下载最新的<a target="_blank" rel="noopener" href="http://thefloweringash.com/iousbhiddriver-descriptor-override/downloads/IOUSBHIDDriverDescriptorOverride-2013-04-21-b545d15.pkg">IOUSBHIDDriver</a>, 安装后重启,</li>
+<li>下载<a target="_blank" rel="noopener" href="https://pqrs.org/osx/karabiner/files/Karabiner-10.9.0.dmg">KeyRemap4MacBook</a>, 安装后运行,如果不安装这个, ?和 + 等键打不出来.</li>
+</ul>
+</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://clutchbear.gitee.io/2016/08/15/mac-10-11-6/" data-id="ckm4nx1nb001u0cie038yhqja" data-title="MAC OS X 10.11.6 El Capitan安装方法与步骤" class="article-share-link">Share</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E9%BB%91%E8%8B%B9%E6%9E%9C/" rel="tag">黑苹果</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-login-jd" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2016/08/15/login-jd/" class="article-date">
+  <time class="dt-published" datetime="2016-08-15T07:41:21.000Z" itemprop="datePublished">2016-08-15</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2016/08/15/login-jd/">python模拟登陆京东</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>首次登录需要手动输入验证码</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">#!&#x2F;usr&#x2F;bin&#x2F;env python</span><br><span class="line"># -*- coding: utf-8 -*-</span><br><span class="line"># @Date    : 2015-10-11 19:10:06</span><br><span class="line">import sys</span><br><span class="line">reload(sys)</span><br><span class="line">sys.setdefaultencoding(&#39;utf-8&#39;)</span><br><span class="line"></span><br><span class="line">import requests</span><br><span class="line">from bs4 import BeautifulSoup</span><br><span class="line">import time</span><br><span class="line">import os</span><br><span class="line">import json</span><br><span class="line"></span><br><span class="line">url &#x3D; &#39;https:&#x2F;&#x2F;passport.jd.com&#x2F;uc&#x2F;login&#39;</span><br><span class="line">s &#x3D; requests.session()</span><br><span class="line">data &#x3D; &#123;</span><br><span class="line">    &#39;chkRememberMe&#39;: &#39;on&#39;,</span><br><span class="line">    &#39;loginname&#39;: &#39;xxxx&#39;,</span><br><span class="line">    &#39;loginpwd&#39;: &#39;xxxxx&#39;,</span><br><span class="line">    &#39;machineCpu&#39;: &#39;&#39;,</span><br><span class="line">    &#39;machineDisk&#39;: &#39;&#39;,</span><br><span class="line">    &#39;machineNet&#39;: &#39;&#39;,</span><br><span class="line">    &#39;nloginpwd&#39;: &#39;xxxxxx&#39;</span><br><span class="line">&#125;</span><br><span class="line">if os.path.exists(&#39;jdcookie&#39;):</span><br><span class="line">    with open(&#39;jdcookie&#39;) as f:</span><br><span class="line">        cookie &#x3D; json.load(f)</span><br><span class="line">    s.cookies.update(cookie)</span><br><span class="line"></span><br><span class="line">else:</span><br><span class="line">    req &#x3D; s.get(url)</span><br><span class="line"></span><br><span class="line">    soup &#x3D; BeautifulSoup(req.text, &quot;html.parser&quot;)</span><br><span class="line">    items &#x3D; soup.select(&#39;form#formlogin &gt; input&#39;)</span><br><span class="line">    uuid &#x3D; items[0].get(&#39;value&#39;).encode(&#39;utf-8&#39;)</span><br><span class="line">    data[&#39;uuid&#39;] &#x3D; uuid</span><br><span class="line"></span><br><span class="line">    input_name &#x3D; items[-1].get(&#39;name&#39;).encode(&#39;utf-8&#39;)</span><br><span class="line">    input_value &#x3D; items[-1].get(&#39;value&#39;).encode(&#39;utf-8&#39;)</span><br><span class="line">    data[input_name] &#x3D; input_value</span><br><span class="line">    verify_url &#x3D; soup.find(&#39;img&#39;, id&#x3D;&#39;JD_Verification1&#39;)[</span><br><span class="line">        &#39;src2&#39;] + &#39;&amp;yys&#x3D;&#39; + str(int(time.time() * 1000))</span><br><span class="line">    print verify_url</span><br><span class="line">    img &#x3D; s.get(verify_url)</span><br><span class="line">    f &#x3D; open(&#39;image.jpg&#39;, &#39;wb&#39;)</span><br><span class="line">    f.write(img.content)</span><br><span class="line">    f.close()</span><br><span class="line">    print &#39;input code:&#39;</span><br><span class="line">    authcode &#x3D; raw_input()</span><br><span class="line">    data[&#39;authcode&#39;] &#x3D; authcode</span><br><span class="line">    print data</span><br><span class="line">    postreq &#x3D; s.post(</span><br><span class="line">        &#39;https:&#x2F;&#x2F;passport.jd.com&#x2F;uc&#x2F;loginService?version&#x3D;2015&#39;, data&#x3D;data)</span><br><span class="line">    postreq.encoding &#x3D; &#39;gbk&#39;</span><br><span class="line">    print postreq.text</span><br><span class="line">    if &#39;success&#39; in postreq.text:</span><br><span class="line">        with open(&#39;jdcookie&#39;, &#39;w&#39;) as f:</span><br><span class="line">            json.dump(s.cookies.get_dict(), f)</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://clutchbear.gitee.io/2016/08/15/login-jd/" data-id="ckm4nx1n5001k0ciegsq0ae26" data-title="python模拟登陆京东" class="article-share-link">Share</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python/" rel="tag">python</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-login-zhihu" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2016/08/11/login-zhihu/" class="article-date">
+  <time class="dt-published" datetime="2016-08-11T03:22:12.000Z" itemprop="datePublished">2016-08-11</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2016/08/11/login-zhihu/">python模拟登陆知乎</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>第一次登陆的时候需要手动输入验证码,<br>之后用cookie登陆.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br></pre></td><td class="code"><pre><span class="line">#!&#x2F;usr&#x2F;bin&#x2F;env python</span><br><span class="line"># -*- coding: utf-8 -*-</span><br><span class="line"># @Date    : 2015-11-12 20:08:49</span><br><span class="line">import sys</span><br><span class="line">reload(sys)</span><br><span class="line">sys.setdefaultencoding(&#39;utf-8&#39;)</span><br><span class="line">import requests</span><br><span class="line">from bs4 import BeautifulSoup</span><br><span class="line">import time</span><br><span class="line">import json</span><br><span class="line">import os</span><br><span class="line">url &#x3D; &#39;http:&#x2F;&#x2F;www.zhihu.com&#39;</span><br><span class="line">loginURL &#x3D; &#39;http:&#x2F;&#x2F;www.zhihu.com&#x2F;login&#x2F;email&#39;</span><br><span class="line">headers &#x3D; &#123;</span><br><span class="line">    &quot;User-Agent&quot;: &#39;Mozilla&#x2F;5.0 (Macintosh; Intel Mac OS X 10.10; rv:41.0) Gecko&#x2F;20100101 Firefox&#x2F;41.0&#39;,</span><br><span class="line">    &quot;Referer&quot;: &quot;http:&#x2F;&#x2F;www.zhihu.com&#x2F;&quot;,</span><br><span class="line">    &#39;Host&#39;: &#39;www.zhihu.com&#39;,</span><br><span class="line">&#125;</span><br><span class="line">data &#x3D; &#123;</span><br><span class="line">    &#39;email&#39;: &#39;xxxxxx@gmail.com&#39;,</span><br><span class="line">    &#39;password&#39;: &#39;xxxxxxxxx&#39;,</span><br><span class="line">    &#39;rememberme&#39;: &quot;true&quot;,</span><br><span class="line">&#125;</span><br><span class="line">s &#x3D; requests.session()</span><br><span class="line">if os.path.exists(&#39;cookiefile&#39;):</span><br><span class="line">    with open(&#39;cookiefile&#39;) as f:</span><br><span class="line">        cookie &#x3D; json.load(f)</span><br><span class="line">    s.cookies.update(cookie)</span><br><span class="line">    req1 &#x3D; s.get(url, headers&#x3D;headers)</span><br><span class="line">    # 建立一个zhihu.html文件,用于验证是否登陆成功</span><br><span class="line">    with open(&#39;zhihu.html&#39;, &#39;w&#39;) as f:</span><br><span class="line">        f.write(req1.content)</span><br><span class="line">else:</span><br><span class="line">    req &#x3D; s.get(url, headers&#x3D;headers)</span><br><span class="line">    print req</span><br><span class="line">    soup &#x3D; BeautifulSoup(req.text, &quot;html.parser&quot;)</span><br><span class="line">    xsrf &#x3D; soup.find(&#39;input&#39;, &#123;&#39;name&#39;: &#39;_xsrf&#39;, &#39;type&#39;: &#39;hidden&#39;&#125;).get(&#39;value&#39;)</span><br><span class="line">    data[&#39;_xsrf&#39;] &#x3D; xsrf</span><br><span class="line">    timestamp &#x3D; int(time.time() * 1000)</span><br><span class="line">    captchaURL &#x3D; &#39;http:&#x2F;&#x2F;www.zhihu.com&#x2F;captcha.gif?&#x3D;&#39; + str(timestamp)</span><br><span class="line">    print captchaURL</span><br><span class="line">    with open(&#39;zhihucaptcha.gif&#39;, &#39;wb&#39;) as f:</span><br><span class="line">        captchaREQ &#x3D; s.get(captchaURL)</span><br><span class="line">        f.write(captchaREQ.content)</span><br><span class="line">    loginCaptcha &#x3D; raw_input(&#39;input captcha:\n&#39;).strip()</span><br><span class="line">    data[&#39;captcha&#39;] &#x3D; loginCaptcha</span><br><span class="line">    print data</span><br><span class="line">    loginREQ &#x3D; s.post(loginURL,  headers&#x3D;headers, data&#x3D;data)</span><br><span class="line">    if not loginREQ.json()[&#39;r&#39;]:</span><br><span class="line">        print s.cookies.get_dict()</span><br><span class="line">        with open(&#39;cookiefile&#39;, &#39;wb&#39;) as f:</span><br><span class="line">            json.dump(s.cookies.get_dict(), f)</span><br><span class="line">    else:</span><br><span class="line">        print &#39;login fail&#39;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://clutchbear.gitee.io/2016/08/11/login-zhihu/" data-id="ckm4nx1n7001q0ciea1n4dxf2" data-title="python模拟登陆知乎" class="article-share-link">Share</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python/" rel="tag">python</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-net-music-comment" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2015/09/30/net-music-comment/" class="article-date">
+  <time class="dt-published" datetime="2015-09-30T13:01:31.000Z" itemprop="datePublished">2015-09-30</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2015/09/30/net-music-comment/">python抓取网易云音乐最新评论和评论总数</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br></pre></td><td class="code"><pre><span class="line">#!&#x2F;usr&#x2F;bin&#x2F;env python</span><br><span class="line"># -*- coding: utf-8 -*-</span><br><span class="line">import requests</span><br><span class="line">import json</span><br><span class="line">import os</span><br><span class="line">import base64</span><br><span class="line">from Crypto.Cipher import AES</span><br><span class="line">from pprint import pprint</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">def aesEncrypt(text, secKey):</span><br><span class="line">    pad &#x3D; 16 - len(text) % 16</span><br><span class="line">    text &#x3D; text + pad * chr(pad)</span><br><span class="line">    encryptor &#x3D; AES.new(secKey, 2, &#39;0102030405060708&#39;)</span><br><span class="line">    ciphertext &#x3D; encryptor.encrypt(text)</span><br><span class="line">    ciphertext &#x3D; base64.b64encode(ciphertext)</span><br><span class="line">    return ciphertext</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">def rsaEncrypt(text, pubKey, modulus):</span><br><span class="line">    text &#x3D; text[::-1]</span><br><span class="line">    rs &#x3D; int(text.encode(&#39;hex&#39;), 16)**int(pubKey, 16) % int(modulus, 16)</span><br><span class="line">    return format(rs, &#39;x&#39;).zfill(256)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">def createSecretKey(size):</span><br><span class="line">    return (&#39;&#39;.join(map(lambda xx: (hex(ord(xx))[2:]), os.urandom(size))))[0:16]</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">url &#x3D; &#39;http:&#x2F;&#x2F;music.163.com&#x2F;weapi&#x2F;v1&#x2F;resource&#x2F;comments&#x2F;R_SO_4_30953009&#x2F;?csrf_token&#x3D;&#39;</span><br><span class="line">headers &#x3D; &#123;</span><br><span class="line">    &#39;Cookie&#39;: &#39;appver&#x3D;1.5.0.75771;&#39;,</span><br><span class="line">    &#39;Referer&#39;: &#39;http:&#x2F;&#x2F;music.163.com&#x2F;&#39;</span><br><span class="line">&#125;</span><br><span class="line">text &#x3D; &#123;</span><br><span class="line">    &#39;username&#39;: &#39;邮箱&#39;,</span><br><span class="line">    &#39;password&#39;: &#39;密码&#39;,</span><br><span class="line">    &#39;rememberLogin&#39;: &#39;true&#39;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">#下面三个参数是通用的</span><br><span class="line">modulus &#x3D; &#39;00e0b509f6259df8642dbc35662901477df22677ec152b5ff68ace615bb7b725152b3ab17a876aea8a5aa76d2e417629ec4ee341f56135fccf695280104e0312ecbda92557c93870114af6c9d05c4f7f0c3685b7a46bee255932575cce10b424d813cfe4875d3e82047b97ddef52741d546b8e289dc6935b3ece0462db0a22b8e7&#39;</span><br><span class="line">nonce &#x3D; &#39;0CoJUm6Qyw8W8jud&#39;</span><br><span class="line">pubKey &#x3D; &#39;010001&#39;</span><br><span class="line"></span><br><span class="line">text &#x3D; json.dumps(text)</span><br><span class="line">secKey &#x3D; createSecretKey(16)</span><br><span class="line">encText &#x3D; aesEncrypt(aesEncrypt(text, nonce), secKey)</span><br><span class="line">encSecKey &#x3D; rsaEncrypt(secKey, pubKey, modulus)</span><br><span class="line">data &#x3D; &#123;</span><br><span class="line">    &#39;params&#39;: encText,</span><br><span class="line">    &#39;encSecKey&#39;: encSecKey</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">req &#x3D; requests.post(url, headers&#x3D;headers, data&#x3D;data)</span><br><span class="line">pprint(req.json()) #输出格式化的json数据</span><br><span class="line"></span><br><span class="line">#最新评论</span><br><span class="line">for content in req.json()[&#39;comments&#39;]:</span><br><span class="line">    print content[&#39;content&#39;].encode(&#39;utf-8&#39;)</span><br><span class="line">    print</span><br><span class="line"></span><br><span class="line">print req.json()[&#39;total&#39;]</span><br></pre></td></tr></table></figure>
+
+<p>其中 Crypto需要用pip安装</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo pip install pycrypto</span><br></pre></td></tr></table></figure>
+
+
+<p>结果是</p>
+<p><img src="http://ww1.sinaimg.cn/large/7293e3b7jw1ewksbpymz7j20wk0hmwj1.jpg"></p>
+<p>参考来源:</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/darknessomi/musicbox/wiki/%E7%BD%91%E6%98%93%E4%BA%91%E9%9F%B3%E4%B9%90%E6%96%B0%E7%99%BB%E5%BD%95API%E5%88%86%E6%9E%90">网易云音乐新登录API分析</a></p>
+<p><a target="_blank" rel="noopener" href="http://moonlib.com/606.html">网易云音乐常用API浅析</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/maweiyi/MusicServer/blob/master/music/api.py">网易API</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://clutchbear.gitee.io/2015/09/30/net-music-comment/" data-id="ckm4nx1ne00240cie5sw1djnl" data-title="python抓取网易云音乐最新评论和评论总数" class="article-share-link">Share</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python/" rel="tag">python</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-scrapy" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2015/09/29/scrapy/" class="article-date">
+  <time class="dt-published" datetime="2015-09-28T18:41:54.000Z" itemprop="datePublished">2015-09-29</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2015/09/29/scrapy/">个人爬虫常用的几个知识点</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h3 id="1-最常用beautifulsoup4的几个语法"><a href="#1-最常用beautifulsoup4的几个语法" class="headerlink" title="1 最常用beautifulsoup4的几个语法"></a>1 最常用beautifulsoup4的几个语法</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">from bs4 import BeautifulSoup</span><br><span class="line"></span><br><span class="line">soup  &#x3D; BeautifulSoup(r.text)</span><br></pre></td></tr></table></figure>
+
+<p>如果搜索很多标签用</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">soup.find_all(&#39;div&#39;, &#123;&#39;class&#39;:True, &#39;id&#39;: True, &#39;title&#39;: True&#125;),</span><br></pre></td></tr></table></figure>
+<p> 然用用for遍历,</p>
+<p>搜索单个标签用</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">soup.find(&#39;div&#39;, &#123;&#39;class&#39;:True, &#39;id&#39;: True, &#39;title&#39;: True&#125; )</span><br></pre></td></tr></table></figure>
+<p>find和find_all可以多次套用.</p>
+<p>获取内容用</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">item.get_text().encode(&#39;utf-8&#39;), cmd显示的话用&#39;gbk&#39;</span><br></pre></td></tr></table></figure>
+
+<p>获取div标签的其他属性用</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">item.get(&#39;href&#39;)</span><br></pre></td></tr></table></figure>
+
+<p>生成所有子标签的列表(list)用contains()函数,</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">childtag &#x3D; soup.contents()</span><br></pre></td></tr></table></figure>
+<p> 常用作输出部分子标签的内容. 比如</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">childtag[0].get_text(), childtag[-1].get_text()</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="2-python中生成13位时间戳的方法"><a href="#2-python中生成13位时间戳的方法" class="headerlink" title="2 python中生成13位时间戳的方法"></a>2 python中生成13位时间戳的方法</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">import time</span><br><span class="line"></span><br><span class="line">print str(int(time.time() * 1000))</span><br></pre></td></tr></table></figure>
+
+<h3 id="3-requests的req-encoding如果没有获取到正确的编码"><a href="#3-requests的req-encoding如果没有获取到正确的编码" class="headerlink" title="3 requests的req.encoding如果没有获取到正确的编码"></a>3 requests的req.encoding如果没有获取到正确的编码</h3><p>可以用以下方法解决</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">req.encoding &#x3D; &#39;gb2312&#39;</span><br></pre></td></tr></table></figure>
+
+<p>或者</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">req.encoding &#x3D; &#39;utf-8&#39;</span><br></pre></td></tr></table></figure>
+
+<p>或者</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">req.encoding &#x3D; apparent_encoding</span><br></pre></td></tr></table></figure>
+
+
+<h3 id="4-模拟登录的时候需要用requsts的senssion-函数"><a href="#4-模拟登录的时候需要用requsts的senssion-函数" class="headerlink" title="4 模拟登录的时候需要用requsts的senssion()函数."></a>4 模拟登录的时候需要用requsts的senssion()函数.</h3><p>会话对象让你能够跨请求保持某些参数。它也会在同一个Session实例发出的所有请求之间保持cookies。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">s &#x3D; requests.session()</span><br></pre></td></tr></table></figure>
+
+
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://clutchbear.gitee.io/2015/09/29/scrapy/" data-id="ckm4nx1nq002t0cie20qcg8k5" data-title="个人爬虫常用的几个知识点" class="article-share-link">Share</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python/" rel="tag">python</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-login-hupu" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2015/09/25/login-hupu/" class="article-date">
+  <time class="dt-published" datetime="2015-09-25T12:57:53.000Z" itemprop="datePublished">2015-09-25</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2015/09/25/login-hupu/">python实现虎扑（hoopchina）自动登录和点亮</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h3 id="1-自动登录的代码"><a href="#1-自动登录的代码" class="headerlink" title="1:自动登录的代码"></a>1:自动登录的代码</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br></pre></td><td class="code"><pre><span class="line">#!&#x2F;usr&#x2F;bin&#x2F;env python</span><br><span class="line"># -*- coding: utf-8 -*-</span><br><span class="line">import requests</span><br><span class="line">import time</span><br><span class="line">import sys</span><br><span class="line">from bs4 import BeautifulSoup</span><br><span class="line"></span><br><span class="line"># 登录的头部信息</span><br><span class="line">my_headers &#x3D; &#123;</span><br><span class="line">    &#39;User-Agent&#39;: &#39;Mozilla&#x2F;5.0 (Windows NT 6.1; WOW64; rv:40.0) Gecko&#x2F;20100101 Firefox&#x2F;40.0&#39;,</span><br><span class="line">    &#39;Host&#39;: &#39;passport.hupu.com&#39;,</span><br><span class="line">    &#39;Referer&#39;: &#39;http:&#x2F;&#x2F;passport.hupu.com&#x2F;pc&#x2F;login?project&#x3D;bbs&amp;from&#x3D;pc&#39;,</span><br><span class="line">    # &#39;Cookie &#39;: &quot;_cnzz_CV30020080&#x3D;buzi_cookie%7Cdc42405e.675b.386f.8396.e1e33e42953b%7C-1; __gads&#x3D;ID&#x3D;15c18186521000ee:T&#x3D;1443103052:S&#x3D;ALNI_MZ84dig34sQNsPR7xvUlQlQ2H7pFg; _dacevid3&#x3D;dc42405e.675b.386f.8396.e1e33e42953b; vjuids&#x3D;8ee89313a.14fffb0fe83.0.32078b2e; vjlast&#x3D;1443103834.1443103834.30; __dacewap&#x3D;0xc8e6088248ba6cca; _HUPUSSOID&#x3D;16672149-8304-4af5-8a1f-924337794477; _CLT&#x3D;918ebe7bb324d8673460f7af1d701a5c; __dacevst&#x3D;ce2e6fb5.b67f434d|1443110107591; CNZZDATA30020080&#x3D;cnzz_eid%3D1429176686-1443106302-http%253A%252F%252Fbbs.hupu.com%252F%26ntime%3D1443106302; _cnzz_CV30020080&#x3D;buzi_cookie%7Cdc42405e.675b.386f.8396.e1e33e42953b%7C-1&quot;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line">s &#x3D; requests.session()</span><br><span class="line"></span><br><span class="line"># 用户名和密码的post信息</span><br><span class="line">data &#x3D; &#123;</span><br><span class="line">    &#39;username&#39;: &#39;用户名&#39;,</span><br><span class="line">    &#39;password&#39;: &#39;密码&#39;,</span><br><span class="line">&#125;</span><br><span class="line">time.sleep(2)</span><br><span class="line"># 验证码</span><br><span class="line">verifyimg_url &#x3D; &#39;http:&#x2F;&#x2F;passport.hupu.com&#x2F;pc&#x2F;verifyimg&#39;</span><br><span class="line"></span><br><span class="line">f &#x3D; open(&#39;img.jpg&#39;, &#39;wb&#39;)</span><br><span class="line">imgreq &#x3D; requests.get(verifyimg_url)</span><br><span class="line">f.write(imgreq.content)</span><br><span class="line">f.close()</span><br><span class="line"></span><br><span class="line"># 验证码目前需要手动输入, 没有找到很精确辨识验证码的库.</span><br><span class="line">verifyimg &#x3D; raw_input(&#39;verifyimg code:\n&#39;).strip()</span><br><span class="line">data[&#39;verifyCode&#39;] &#x3D; verifyimg</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">loginURL &#x3D; &#39;http:&#x2F;&#x2F;passport.hupu.com&#x2F;pc&#x2F;login&#x2F;member.action&#39;</span><br><span class="line">try:</span><br><span class="line">    reqlogin &#x3D; s.post(loginURL, data&#x3D;data, headers&#x3D;my_headers)</span><br><span class="line">    print reqlogin.json()</span><br><span class="line">    uid &#x3D; str(reqlogin.json()[&#39;msg&#39;][&#39;uid&#39;])</span><br><span class="line">    tag &#x3D; str(reqlogin.json()[&#39;msg&#39;][&#39;tag&#39;])</span><br><span class="line">except Exception as e:</span><br><span class="line">    print e</span><br><span class="line">    sys.exit(1)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">url &#x3D; &#39;http:&#x2F;&#x2F;passport.hupu.com&#x2F;m&#x2F;2&#x2F;login&#x2F;crossdomain?uid&#x3D;&#39; + \</span><br><span class="line">    uid + &#39;&amp;freeLogin&#x3D;true&amp;tag&#x3D;&#39; + tag</span><br><span class="line"># print url</span><br><span class="line"></span><br><span class="line">req &#x3D; s.get(url, headers&#x3D;my_headers)</span><br><span class="line">req &#x3D; s.get(&#39;http:&#x2F;&#x2F;passport.hupu.com&#x2F;pc&#x2F;redirectJumpUrl&#39;, headers&#x3D;my_headers)</span><br><span class="line"></span><br><span class="line">cookies &#x3D; reqlogin.cookies</span><br><span class="line">time.sleep(2)</span><br><span class="line"></span><br><span class="line"># 这个头部信息跟登录时候不一样,不能用那个的.</span><br><span class="line">liangle_headers &#x3D; &#123;&#39;User-Agent&#39;: &#39;Mozilla&#x2F;5.0 (Windows NT 6.1; WOW64; rv:40.0) Gecko&#x2F;20100101 Firefox&#x2F;40.0&#39;,</span><br><span class="line">                   &#39;Host&#39;: &#39;bbs.hupu.com&#39;,</span><br><span class="line">                   &#39;Referer&#39;: &#39;http:&#x2F;&#x2F;bbs.hupu.com&#39;</span><br><span class="line">                   &#125;</span><br><span class="line"></span><br><span class="line"># 用小黑屋测试, 这个版块每有相应有权限的账号是没法参观的.</span><br><span class="line">banzhu_URL &#x3D; &#39;http:&#x2F;&#x2F;bbs.hupu.com&#x2F;66&#39;</span><br><span class="line"></span><br><span class="line">banzhu_req &#x3D; requests.get(banzhu_URL, headers&#x3D;liangle_headers, cookies&#x3D;cookies)</span><br><span class="line">f &#x3D; open(&#39;hupu.html&#39;, &#39;w&#39;)</span><br><span class="line">f.write(banzhu_req.content)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">banzhu_req.encoding &#x3D; &#39;GB2312&#39;</span><br><span class="line">soup &#x3D; BeautifulSoup(banzhu_req.text, &quot;html.parser&quot;)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">tiezi_lists &#x3D; soup.find(&#39;table&#39;, id&#x3D;&#39;pl&#39;).find_all(&#39;td&#39;, class_&#x3D;&#39;p_title&#39;)</span><br><span class="line">for tiezi in tiezi_lists:</span><br><span class="line">    print &quot; &quot;.join(tiezi.get_text().split()).encode(&#39;utf-8&#39;)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p><img src="http://ww3.sinaimg.cn/large/7293e3b7jw1ewf002rzcij20pw0fgwiv.jpg"></p>
+<p>今天在v2ex上看到一个大神说,如果遇到验证码登录的网站,一般是现在chrome里面手动登陆一次,然后把cookie拷贝出来,放到头文件里面.<br>我试了一下果然可以,比需要手动输入方便多了.不过这种方法有个缺陷就是不能短时间内登录多次.</p>
+<h3 id="2-自动点亮的代码"><a href="#2-自动点亮的代码" class="headerlink" title="2: 自动点亮的代码"></a>2: 自动点亮的代码</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br></pre></td><td class="code"><pre><span class="line">#!&#x2F;usr&#x2F;bin&#x2F;env python</span><br><span class="line"># -*- coding: utf-8 -*-</span><br><span class="line">import requests</span><br><span class="line">import time</span><br><span class="line">import sys</span><br><span class="line"></span><br><span class="line"># 登录的头部信息</span><br><span class="line">my_headers &#x3D; &#123;</span><br><span class="line">    &#39;User-Agent&#39;: &#39;Mozilla&#x2F;5.0 (Windows NT 6.1; WOW64; rv:40.0) Gecko&#x2F;20100101 Firefox&#x2F;40.0&#39;,</span><br><span class="line">    &#39;Host&#39;: &#39;passport.hupu.com&#39;,</span><br><span class="line">    &#39;Referer&#39;: &#39;http:&#x2F;&#x2F;passport.hupu.com&#x2F;pc&#x2F;login?project&#x3D;bbs&amp;from&#x3D;pc&#39;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">s &#x3D; requests.session()</span><br><span class="line"></span><br><span class="line"># 用户名和密码的post信息</span><br><span class="line">data &#x3D; &#123;</span><br><span class="line">    &#39;username&#39;: &#39;&#39;,</span><br><span class="line">    &#39;password&#39;: &#39;&#39;,</span><br><span class="line">&#125;</span><br><span class="line">time.sleep(2)</span><br><span class="line"># 验证码</span><br><span class="line">verifyimg_url &#x3D; &#39;http:&#x2F;&#x2F;passport.hupu.com&#x2F;pc&#x2F;verifyimg&#39;</span><br><span class="line"></span><br><span class="line">f &#x3D; open(&#39;img.jpg&#39;, &#39;wb&#39;)</span><br><span class="line">imgreq &#x3D; requests.get(verifyimg_url)</span><br><span class="line">f.write(imgreq.content)</span><br><span class="line">f.close()</span><br><span class="line"></span><br><span class="line"># 验证码目前需要手动输入, 没有找到很精确辨识验证码的库.</span><br><span class="line">verifyimg &#x3D; raw_input(&#39;verifyimg code:\n&#39;).strip()</span><br><span class="line">data[&#39;verifyCode&#39;] &#x3D; verifyimg</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">loginURL &#x3D; &#39;http:&#x2F;&#x2F;passport.hupu.com&#x2F;pc&#x2F;login&#x2F;member.action&#39;</span><br><span class="line">try:</span><br><span class="line">    reqlogin &#x3D; s.post(loginURL, data&#x3D;data, headers&#x3D;my_headers)</span><br><span class="line">    print reqlogin.json()[&#39;code&#39;]</span><br><span class="line">    # uid &#x3D; str(reqlogin.json()[&#39;msg&#39;][&#39;uid&#39;])</span><br><span class="line">    # tag &#x3D; str(reqlogin.json()[&#39;msg&#39;][&#39;tag&#39;])</span><br><span class="line">except Exception as e:</span><br><span class="line">    print e</span><br><span class="line">    sys.exit(1)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"># url &#x3D; &#39;http:&#x2F;&#x2F;passport.hupu.com&#x2F;m&#x2F;2&#x2F;login&#x2F;crossdomain?uid&#x3D;&#39; + \</span><br><span class="line">#     uid + &#39;&amp;freeLogin&#x3D;true&amp;tag&#x3D;&#39; + tag</span><br><span class="line"># # print url</span><br><span class="line"></span><br><span class="line"># req &#x3D; s.get(url, headers&#x3D;my_headers)</span><br><span class="line"># req &#x3D; s.get(&#39;http:&#x2F;&#x2F;passport.hupu.com&#x2F;pc&#x2F;redirectJumpUrl&#39;, headers&#x3D;my_headers)</span><br><span class="line"></span><br><span class="line">cookies &#x3D; reqlogin.cookies</span><br><span class="line">time.sleep(2)</span><br><span class="line"></span><br><span class="line"># 这个头部信息跟登录时候不一样,不能用那个的.</span><br><span class="line">liangle_headers &#x3D; &#123;&#39;User-Agent&#39;: &#39;Mozilla&#x2F;5.0 (Windows NT 6.1; WOW64; rv:40.0) Gecko&#x2F;20100101 Firefox&#x2F;40.0&#39;,</span><br><span class="line">                   &#39;Host&#39;: &#39;bbs.hupu.com&#39;,</span><br><span class="line">                   &#39;Referer&#39;: &#39;http:&#x2F;&#x2F;bbs.hupu.com&#39;</span><br><span class="line">                   &#125;</span><br><span class="line"></span><br><span class="line"># authorid是被点亮那个回帖人的数字id, fid是板块数字id, pid此回帖人的第多少个帖子, tid是这个主贴的数字id</span><br><span class="line"># 这些数据可以用bs4在网页中得到.</span><br><span class="line">liangle_data &#x3D; &#123;</span><br><span class="line">    &#39;authorid&#39;: &#39;16920413&#39;,</span><br><span class="line">    &#39;fid&#39;: &#39;3913&#39;,</span><br><span class="line">    &#39;pid&#39;: &#39;6103&#39;,</span><br><span class="line">    &#39;state&#39;: &#39;1&#39;,</span><br><span class="line">    &#39;tid&#39;: &#39;12615933&#39;,</span><br><span class="line">    &#39;token&#39;: &#39;2e018203ea6a482c17847289989cf66f&#39;,</span><br><span class="line">&#125;</span><br><span class="line">liangle_req &#x3D; s.post(&#39;http:&#x2F;&#x2F;bbs.hupu.com&#x2F;ajax&#x2F;lights.ajax.php&#39;,</span><br><span class="line">                     data&#x3D;liangle_data, headers&#x3D;liangle_headers, cookies&#x3D;cookies)</span><br><span class="line"></span><br><span class="line">print liangle_req.content</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p><img src="http://ww1.sinaimg.cn/large/7293e3b7jw1ewf070i4voj209r04cglz.jpg"><br>code是1表示点亮成功, num是被点亮的次数..</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://clutchbear.gitee.io/2015/09/25/login-hupu/" data-id="ckm4nx1n4001h0cie01sxd8cn" data-title="python实现虎扑（hoopchina）自动登录和点亮" class="article-share-link">Share</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python/" rel="tag">python</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-taobao-ssl3-error" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2015/09/25/taobao-ssl3-error/" class="article-date">
+  <time class="dt-published" datetime="2015-09-25T10:44:31.000Z" itemprop="datePublished">2015-09-25</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2015/09/25/taobao-ssl3-error/">Mac10.10系统下用python抓取淘宝时出现sslv3 alert handshake failure (_ssl.c:590)的解决办法</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>用python的requests库模拟抓取淘宝页面时会出现如下错误,</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">requests.exceptions.SSLError: [SSL: SSLV3_ALERT_HANDSHAKE_FAILURE] sslv3 alert handshake failure (_ssl.c:590)</span><br></pre></td></tr></table></figure>
+<p><img src="http://ww3.sinaimg.cn/large/7293e3b7jw1ewew5jglasj20ut061djd.jpg"></p>
+<p>换成自带的urllib也是一样报错,<br>但是在windows系统下同样的代码正常,没有任何错误.</p>
+<p>开始以为是openssl的问题, 把系统自带的openssl删除,然后用brew安装最新版本的openssl也不行.</p>
+<p>根据stackoverflow大神的帖子,我试了很多方式,最终找到一个解决这个错误的方法.</p>
+<p>在python中加入以下语句即可.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">import requests.packages.urllib3.util.ssl_</span><br><span class="line">requests.packages.urllib3.util.ssl_.DEFAULT_CIPHERS &#x3D; &#39;ALL&#39;</span><br></pre></td></tr></table></figure>
+
+<p><img src="http://ww2.sinaimg.cn/large/7293e3b7jw1ewewd68bx3j20wv0lf16w.jpg"></p>
+<p>参考链接 :  <a target="_blank" rel="noopener" href="http://stackoverflow.com/questions/31730819/python-sslerror-using-requests-for-surveymonkey-com">Stack Overflow</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://clutchbear.gitee.io/2015/09/25/taobao-ssl3-error/" data-id="ckm4nx1nw00370ciebbjrdvrb" data-title="Mac10.10系统下用python抓取淘宝时出现sslv3 alert handshake failure (_ssl.c:590)的解决办法" class="article-share-link">Share</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python/" rel="tag">python</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-sublime-sidebar-font-size" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2015/09/24/sublime-sidebar-font-size/" class="article-date">
+  <time class="dt-published" datetime="2015-09-24T11:00:47.000Z" itemprop="datePublished">2015-09-24</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2015/09/24/sublime-sidebar-font-size/">sublime text3 侧边栏字体的修改方法</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>正常情况下sublime text3的侧边栏字体很小,不仔细看的话,很难看清楚.<br><img src="http://ww1.sinaimg.cn/large/7293e3b7jw1ewdr2r13pnj20c40hetb8.jpg"></p>
+<p>需要把字号修改的大一些,<br>网上搜索说,要下载一个插件然后打开主题的配置文件.我找到一个更简单的方法,</p>
+<ul>
+<li><p>在sublime text3的属性里面找到Browse packages,打开插件所在文件夹,进入主题目录,找到要修改的配置文件,拖到sublime text中.</p>
+</li>
+<li><p>搜索”sidebar_label”, 在后面添加上</p>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&quot;font.size&quot;: 16,</span><br></pre></td></tr></table></figure>
+
+<p> windows系统下的话, 再加一句字体修改</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&quot;font.face&quot;: &quot;courier&quot;,</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>如果觉得行之间空间太挤,可以通过搜索”sidebar_tree”,将padding[8, 3]后面的数值改成5或者6.<br>同一个class下面的”indent”是文件名的缩进, 也可以根据自己的情况修改一下.<img src="http://ww4.sinaimg.cn/large/7293e3b7jw1ewdrfq3xlwj20d20e0jtw.jpg">最后这样,感觉好多了.</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://clutchbear.gitee.io/2015/09/24/sublime-sidebar-font-size/" data-id="ckm4nx1nv00350cie762910o8" data-title="sublime text3 侧边栏字体的修改方法" class="article-share-link">Share</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E8%BD%AF%E4%BB%B6/" rel="tag">软件</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+
+
+  <nav id="page-nav">
+    
+    <a class="extend prev" rel="prev" href="/page/2/">&laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><a class="extend next" rel="next" href="/page/4/">Next &raquo;</a>
+  </nav>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Markdown/" rel="tag">Markdown</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MySQL/" rel="tag">MySQL</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Windows/" rel="tag">Windows</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/" rel="tag">hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/html/" rel="tag">html</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/iOS/" rel="tag">iOS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/java/" rel="tag">java</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mac/" rel="tag">mac</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python/" rel="tag">python</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python-java/" rel="tag">python, java</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91/" rel="tag">科学上网</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%B3%BB%E7%BB%9F/" rel="tag">系统</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%BD%AF%E4%BB%B6/" rel="tag">软件</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%BD%AF%E4%BB%B6-windows-linux/" rel="tag">软件, windows, linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%BB%91%E8%8B%B9%E6%9E%9C/" rel="tag">黑苹果</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/Markdown/" style="font-size: 10px;">Markdown</a> <a href="/tags/MySQL/" style="font-size: 10px;">MySQL</a> <a href="/tags/Windows/" style="font-size: 10px;">Windows</a> <a href="/tags/hexo/" style="font-size: 15px;">hexo</a> <a href="/tags/html/" style="font-size: 10px;">html</a> <a href="/tags/iOS/" style="font-size: 10px;">iOS</a> <a href="/tags/java/" style="font-size: 12.5px;">java</a> <a href="/tags/mac/" style="font-size: 10px;">mac</a> <a href="/tags/python/" style="font-size: 20px;">python</a> <a href="/tags/python-java/" style="font-size: 10px;">python, java</a> <a href="/tags/%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91/" style="font-size: 12.5px;">科学上网</a> <a href="/tags/%E7%B3%BB%E7%BB%9F/" style="font-size: 12.5px;">系统</a> <a href="/tags/%E8%BD%AF%E4%BB%B6/" style="font-size: 17.5px;">软件</a> <a href="/tags/%E8%BD%AF%E4%BB%B6-windows-linux/" style="font-size: 10px;">软件, windows, linux</a> <a href="/tags/%E9%BB%91%E8%8B%B9%E6%9E%9C/" style="font-size: 15px;">黑苹果</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">January 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/11/">November 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/08/">August 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">April 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">March 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">January 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">November 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/08/">August 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/07/">July 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">May 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/04/">April 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/10/">October 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/09/">September 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/08/">August 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/09/">September 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/08/">August 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/06/">June 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/03/">March 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/02/">February 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/11/">November 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/10/">October 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/08/">August 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/07/">July 2014</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2019/01/08/vagran-setting/">vagrant的安装和设置</a>
+          </li>
+        
+          <li>
+            <a href="/2018/11/28/redis-4-0-bloom/">redis4.0以上版本开启bloomfilter插件的方法</a>
+          </li>
+        
+          <li>
+            <a href="/2018/11/20/win-terminus-md/">terminus的安装和配置</a>
+          </li>
+        
+          <li>
+            <a href="/2018/08/13/wsl-setting/">个人wsl设置</a>
+          </li>
+        
+          <li>
+            <a href="/2018/04/14/handle-some-web-font-crawl/">某8网站字体加密爬虫的处理方法</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2021 小信<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.4.1.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

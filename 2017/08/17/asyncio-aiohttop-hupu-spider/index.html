@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>用asyncio协程和aiohttp爬取虎扑步行街前100页的主贴 | 40+岁大龄码农的自我修养</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455565758596061626364656667686970717273747576777879808182838485868788899091929394959697989910010110210">
+<meta property="og:type" content="article">
+<meta property="og:title" content="用asyncio协程和aiohttp爬取虎扑步行街前100页的主贴">
+<meta property="og:url" content="https://clutchbear.gitee.io/2017/08/17/asyncio-aiohttop-hupu-spider/index.html">
+<meta property="og:site_name" content="40+岁大龄码农的自我修养">
+<meta property="og:description" content="12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455565758596061626364656667686970717273747576777879808182838485868788899091929394959697989910010110210">
+<meta property="og:locale">
+<meta property="article:published_time" content="2017-08-17T12:11:01.000Z">
+<meta property="article:modified_time" content="2017-08-17T14:45:03.000Z">
+<meta property="article:author" content="小信">
+<meta property="article:tag" content="python">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="40+岁大龄码农的自我修养" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">40+岁大龄码农的自我修养</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://clutchbear.gitee.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-asyncio-aiohttop-hupu-spider" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2017/08/17/asyncio-aiohttop-hupu-spider/" class="article-date">
+  <time class="dt-published" datetime="2017-08-17T12:11:01.000Z" itemprop="datePublished">2017-08-17</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      用asyncio协程和aiohttp爬取虎扑步行街前100页的主贴
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br></pre></td><td class="code"><pre><span class="line">#!&#x2F;usr&#x2F;bin&#x2F;env python</span><br><span class="line"># -*- coding: utf-8 -*-</span><br><span class="line">import asyncio</span><br><span class="line">import aiohttp</span><br><span class="line">import time</span><br><span class="line">from pyquery import PyQuery as pq</span><br><span class="line">import sys</span><br><span class="line">import codecs</span><br><span class="line">import json</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">async def get_post_url(url):</span><br><span class="line">    &#39;&#39;&#39;</span><br><span class="line">    得到每一页的所有链接</span><br><span class="line">    &#39;&#39;&#39;</span><br><span class="line">    async with aiohttp.ClientSession() as client:</span><br><span class="line">        async with client.get(url) as response:</span><br><span class="line">            body &#x3D; await response.text(encoding&#x3D;&quot;utf-8&quot;)</span><br><span class="line">            # print(body)</span><br><span class="line">            post_list &#x3D; parser(body)</span><br><span class="line">            for post_url in post_list:</span><br><span class="line">                post &#x3D; &#123;&#125;</span><br><span class="line">                post[&quot;url&quot;] &#x3D; post_url</span><br><span class="line">                post_urls.append(post_url)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">async def get_post_info(url):</span><br><span class="line">    &#39;&#39;&#39;</span><br><span class="line">    根据链接得到标题 作者 发帖时间等内容</span><br><span class="line">    &#39;&#39;&#39;</span><br><span class="line">    async with aiohttp.ClientSession() as client:</span><br><span class="line">        async with client.get(url) as response:</span><br><span class="line">            body &#x3D; await response.text(encoding&#x3D;&quot;utf-8&quot;)</span><br><span class="line">            post_info &#x3D; paser_post(body)</span><br><span class="line">            if post_info is not None:</span><br><span class="line">                post_info[&quot;url&quot;] &#x3D; url</span><br><span class="line">                post_lists.append(post_info)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">def paser_post(html):</span><br><span class="line">    &#39;&#39;&#39;</span><br><span class="line">    解析列表页</span><br><span class="line">    &#39;&#39;&#39;</span><br><span class="line">    post_info &#x3D; &#123;&#125;</span><br><span class="line">    doc &#x3D; pq(html)</span><br><span class="line">    main_post &#x3D; doc(&#39;div#tpc&#39;)</span><br><span class="line">    post_author &#x3D; main_post.find(&#39;div.author a.u&#39;).text()</span><br><span class="line">    post_time &#x3D; main_post.find(&#39;div.author span.stime&#39;).text()</span><br><span class="line">    post_title &#x3D; doc(&#39;h1#j_data&#39;).text()</span><br><span class="line">    post_info[&quot;title&quot;] &#x3D; post_title</span><br><span class="line">    post_info[&#39;time&#39;] &#x3D; post_time</span><br><span class="line">    post_info[&#39;author&#39;] &#x3D; post_author</span><br><span class="line">    if not post_title and not post_time and not post_author:</span><br><span class="line">        return None</span><br><span class="line">    return post_info</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">def parser(html):</span><br><span class="line">    &#39;&#39;&#39;</span><br><span class="line">    解析帖子页</span><br><span class="line">    &#39;&#39;&#39;</span><br><span class="line">    post_list &#x3D; []</span><br><span class="line">    doc &#x3D; pq(html)</span><br><span class="line">    links_item &#x3D; doc(&#39;table[id&#x3D;&quot;pl&quot;]&#39;).find(&#39;tbody&#39;).find(&#39;tr[mid]&#39;)</span><br><span class="line">    for link_item in links_item.items():</span><br><span class="line">        post_link &#x3D; link_item.find(&#39;td.p_title&#39;).find(&#39;a&#39;).attr(&#39;href&#39;)</span><br><span class="line">        post_link &#x3D; &quot;https:&#x2F;&#x2F;bbs.hupu.com&quot; + post_link</span><br><span class="line">        post_list.append(post_link)</span><br><span class="line">    return post_list</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"># 得到开始时间</span><br><span class="line">start_time &#x3D; time.time()</span><br><span class="line"># 存储数据的列表</span><br><span class="line">post_lists &#x3D; []</span><br><span class="line"># 每一个帖子链接的列表</span><br><span class="line">post_urls &#x3D; []</span><br><span class="line"># 创建时间循环</span><br><span class="line">loop &#x3D; asyncio.get_event_loop()</span><br><span class="line"></span><br><span class="line"># 将步行街前一百的链接加入事件循环, 同时访问这100页, 得到所有的帖子链接</span><br><span class="line">urls &#x3D; [</span><br><span class="line">    &quot;https:&#x2F;&#x2F;bbs.hupu.com&#x2F;bxj-postdate-&#123;&#125;&quot;.format(i) for i in range(1, 101)]</span><br><span class="line">tasks &#x3D; [get_post_url(url) for url in urls]</span><br><span class="line">loop.run_until_complete(asyncio.wait(tasks))</span><br><span class="line"># 输出帖子总数</span><br><span class="line">print(len(post_urls))</span><br><span class="line"># 将所有帖子链接加入事件循环, 得要内容</span><br><span class="line">for i in range(0, len(post_urls), 1000):</span><br><span class="line">    lenth &#x3D; len(post_urls) - i</span><br><span class="line">    if lenth &gt;&#x3D; 1000:</span><br><span class="line">        lenth &#x3D; 1000</span><br><span class="line">    print(i)</span><br><span class="line">    end_time &#x3D; time.time()</span><br><span class="line">    print(&quot;cast time&quot;, end_time - start_time)</span><br><span class="line">    tasks &#x3D; [get_post_info(post_urls[num + i]) for num in range(lenth)]</span><br><span class="line">    loop.run_until_complete(asyncio.wait(tasks))</span><br><span class="line">loop.close()</span><br><span class="line"></span><br><span class="line"># 存储所有数据.</span><br><span class="line">post_dicts &#x3D; &#123;&quot;posts&quot;: post_lists, &quot;lenth&quot;: len(post_lists)&#125;</span><br><span class="line">with codecs.open(&quot;post.json&quot;, &quot;w&quot;, &quot;utf-8&quot;) as f:</span><br><span class="line">    f.write(json.dumps(post_dicts, indent&#x3D;True))</span><br><span class="line">end_time &#x3D; time.time()</span><br><span class="line"></span><br><span class="line">print(&quot;cast time&quot;, end_time - start_time)</span><br></pre></td></tr></table></figure>
+
+<p>因为虎扑没有登录只能看到前100页的帖子.<br>总共11594个主贴, 总共耗费了358秒.<br>大概每秒爬32个帖子.<br>开了500个协程和1000个协程,速度差不多.<br>应该是单ip的极限了.</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://clutchbear.gitee.io/2017/08/17/asyncio-aiohttop-hupu-spider/" data-id="ckm4nx1mi00060cieh6eu3fxn" data-title="用asyncio协程和aiohttp爬取虎扑步行街前100页的主贴" class="article-share-link">Share</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python/" rel="tag">python</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2017/11/20/idea-plugs-md/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          idea常用插件与配置
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2017/07/18/bash-tip/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">bash常用的命令和工具</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Markdown/" rel="tag">Markdown</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MySQL/" rel="tag">MySQL</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Windows/" rel="tag">Windows</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/" rel="tag">hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/html/" rel="tag">html</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/iOS/" rel="tag">iOS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/java/" rel="tag">java</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mac/" rel="tag">mac</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python/" rel="tag">python</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python-java/" rel="tag">python, java</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91/" rel="tag">科学上网</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%B3%BB%E7%BB%9F/" rel="tag">系统</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%BD%AF%E4%BB%B6/" rel="tag">软件</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%BD%AF%E4%BB%B6-windows-linux/" rel="tag">软件, windows, linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%BB%91%E8%8B%B9%E6%9E%9C/" rel="tag">黑苹果</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/Markdown/" style="font-size: 10px;">Markdown</a> <a href="/tags/MySQL/" style="font-size: 10px;">MySQL</a> <a href="/tags/Windows/" style="font-size: 10px;">Windows</a> <a href="/tags/hexo/" style="font-size: 15px;">hexo</a> <a href="/tags/html/" style="font-size: 10px;">html</a> <a href="/tags/iOS/" style="font-size: 10px;">iOS</a> <a href="/tags/java/" style="font-size: 12.5px;">java</a> <a href="/tags/mac/" style="font-size: 10px;">mac</a> <a href="/tags/python/" style="font-size: 20px;">python</a> <a href="/tags/python-java/" style="font-size: 10px;">python, java</a> <a href="/tags/%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91/" style="font-size: 12.5px;">科学上网</a> <a href="/tags/%E7%B3%BB%E7%BB%9F/" style="font-size: 12.5px;">系统</a> <a href="/tags/%E8%BD%AF%E4%BB%B6/" style="font-size: 17.5px;">软件</a> <a href="/tags/%E8%BD%AF%E4%BB%B6-windows-linux/" style="font-size: 10px;">软件, windows, linux</a> <a href="/tags/%E9%BB%91%E8%8B%B9%E6%9E%9C/" style="font-size: 15px;">黑苹果</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">January 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/11/">November 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/08/">August 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">April 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">March 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">January 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">November 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/08/">August 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/07/">July 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">May 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/04/">April 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/10/">October 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/09/">September 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/08/">August 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/09/">September 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/08/">August 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/06/">June 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/03/">March 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/02/">February 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/11/">November 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/10/">October 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/08/">August 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/07/">July 2014</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2019/01/08/vagran-setting/">vagrant的安装和设置</a>
+          </li>
+        
+          <li>
+            <a href="/2018/11/28/redis-4-0-bloom/">redis4.0以上版本开启bloomfilter插件的方法</a>
+          </li>
+        
+          <li>
+            <a href="/2018/11/20/win-terminus-md/">terminus的安装和配置</a>
+          </li>
+        
+          <li>
+            <a href="/2018/08/13/wsl-setting/">个人wsl设置</a>
+          </li>
+        
+          <li>
+            <a href="/2018/04/14/handle-some-web-font-crawl/">某8网站字体加密爬虫的处理方法</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2021 小信<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.4.1.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>vagrant的安装和设置 | 40+岁大龄码农的自我修养</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="下载和安装  vagrant官方网址 , 下载后双击安装 VirtualBox官方网址 , 下载后双击安装   vagrant 官方box的下载方法:  参考 vagrant 的 box 哪里下？镜像在哪儿找？教你在 vagrant 官网下载各种最新. box 资源  进入Vagrant box找到centos box镜像最新的版本号  拼接下载链接 1https:&#x2F;&#x2F;app">
+<meta property="og:type" content="article">
+<meta property="og:title" content="vagrant的安装和设置">
+<meta property="og:url" content="https://clutchbear.gitee.io/2019/01/08/vagran-setting/index.html">
+<meta property="og:site_name" content="40+岁大龄码农的自我修养">
+<meta property="og:description" content="下载和安装  vagrant官方网址 , 下载后双击安装 VirtualBox官方网址 , 下载后双击安装   vagrant 官方box的下载方法:  参考 vagrant 的 box 哪里下？镜像在哪儿找？教你在 vagrant 官网下载各种最新. box 资源  进入Vagrant box找到centos box镜像最新的版本号  拼接下载链接 1https:&#x2F;&#x2F;app">
+<meta property="og:locale">
+<meta property="og:image" content="https://ww1.sinaimg.cn/large/005YhI8igy1fx8kl17blhj311n0ix75n">
+<meta property="og:image" content="https://ww1.sinaimg.cn/large/005YhI8igy1fx8kmt5iq4j309w0atmxp">
+<meta property="og:image" content="https://ww1.sinaimg.cn/large/005YhI8igy1fx8kog1jsoj30rv0c3t9l">
+<meta property="article:published_time" content="2019-01-08T02:08:20.000Z">
+<meta property="article:modified_time" content="2019-01-08T07:40:35.629Z">
+<meta property="article:author" content="小信">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://ww1.sinaimg.cn/large/005YhI8igy1fx8kl17blhj311n0ix75n">
+  
+    <link rel="alternate" href="/atom.xml" title="40+岁大龄码农的自我修养" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">40+岁大龄码农的自我修养</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://clutchbear.gitee.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-vagran-setting" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2019/01/08/vagran-setting/" class="article-date">
+  <time class="dt-published" datetime="2019-01-08T02:08:20.000Z" itemprop="datePublished">2019-01-08</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      vagrant的安装和设置
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <ul>
+<li><p>下载和安装</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://www.vagrantup.com/downloads.html">vagrant官方网址</a> , 下载后双击安装</li>
+<li><a target="_blank" rel="noopener" href="https://www.virtualbox.org/wiki/Downloads">VirtualBox官方网址</a> , 下载后双击安装</li>
+</ul>
+</li>
+<li><p>vagrant 官方box的下载方法:</p>
+<ul>
+<li><p>参考 <a target="_blank" rel="noopener" href="https://my.oschina.net/cxgphper/blog/1940644">vagrant 的 box 哪里下？镜像在哪儿找？教你在 vagrant 官网下载各种最新. box 资源</a></p>
+</li>
+<li><p>进入<a target="_blank" rel="noopener" href="https://app.vagrantup.com/centos/boxes/7">Vagrant box</a>找到centos box镜像最新的版本号</p>
+</li>
+<li><p>拼接下载链接</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https:&#x2F;&#x2F;app.vagrantup.com&#x2F;centos&#x2F;boxes&#x2F;7&#x2F;versions&#x2F;&#123;版本号&#125;&#x2F;providers&#x2F;virtualbox.box</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+<li><p>初始化vagrant</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">mkdir centos &amp;&amp; cd centos # 新建centos目录</span><br><span class="line">vagrant box add centos_base d:&#x2F;vagrant_images&#x2F;vagrant-centos-7.2.box # 添加镜像到vagrant</span><br><span class="line">vagrant init centos_base # 初始化配置</span><br></pre></td></tr></table></figure></li>
+<li><p>修改vagrant配置</p>
+<ul>
+<li>单台虚拟机的配置, 参考: <a target="_blank" rel="noopener" href="https://www.jianshu.com/p/2724cd5f28e5">Vagrant 实战</a></li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">#Vagrant的三种网络配置</span><br><span class="line">  #端口映射(Forwarded port) 把宿主计算机的端口映射到虚拟机的某一个端口上，访问宿主计算机端口时，请求实际是被转发到虚拟机上指定端口的。</span><br><span class="line">  #例如下面的配置，将访问宿主计算机8080端口的请求都转发到虚拟机的80端口上进行处理       #访问localhost:8080,对应访问虚拟机的80端口</span><br><span class="line">  #优点：容易实现外网访问虚拟机</span><br><span class="line">  #缺点：端口比较多时，配置麻烦；不支持在宿主机器上使用小于1024的端口来转发。比如：不能使用SSL的443端口来进行https连接。</span><br><span class="line">  config.vm.network &quot;forwarded_port&quot;, guest: 80, host: 8080</span><br><span class="line">  </span><br><span class="line">  #私有网络（Private network） ，只有主机可以访问虚拟机，如果多个虚拟机设定在同一个网段也可以互相访问，当然虚拟机是可以访问外部网络的。</span><br><span class="line">  #优点：安全，只有自己能访问</span><br><span class="line">  #缺点：因为私有的原因，所以团队成员其他人不能和你协作</span><br><span class="line">  config.vm.network &quot;private_network&quot;, ip: &quot;192.168.33.10&quot;</span><br><span class="line">  </span><br><span class="line">  #公有网络（Public network） ，虚拟机享受实体机器一样的待遇，一样的网络配置，vagrant1.3版本之后也可以设定静态IP。</span><br><span class="line">  #优点：方便团队协作，别人可以访问你的虚拟机</span><br><span class="line">  #缺点：需要有网络，有路由器分配IP</span><br><span class="line">  config.vm.network &quot;public_network&quot;, ip: &quot;192.168.12.253&quot;</span><br><span class="line">  </span><br><span class="line">  </span><br><span class="line">  #设置文件同步，如下 ..&#x2F;work 是本地目录， &#x2F;vagrant_data是虚拟机文件目录</span><br><span class="line">  #两个目录设置为同步，这样就可以直接本地编辑文件，使用虚拟机配置的软件环境了。</span><br><span class="line">  config.vm.synced_folder &quot;..&#x2F;work&quot;, &quot;&#x2F;vagrant_data&quot;,</span><br><span class="line">  :mount_options &#x3D;&gt; [&quot;dmode&#x3D;775&quot;,&quot;fmode&#x3D;664&quot;]</span><br><span class="line">  </span><br><span class="line">  # 设置虚拟机的内存</span><br><span class="line">  config.vm.provider &quot;virtualbox&quot; do |vb|</span><br><span class="line">     vb.memory &#x3D; &quot;4096&quot;</span><br><span class="line">  end</span><br><span class="line">  </span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>多台虚拟机的配置, 参考: <a target="_blank" rel="noopener" href="https://blog.csdn.net/hel12he/article/details/51089774">vagrant系列二：vagrant的配置文件vagrantfile详解</a></li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">Vagrant.configure(&quot;2&quot;) do |config|</span><br><span class="line">  config.vm.define :web do |web|</span><br><span class="line">    web.vm.provider &quot;virtualbox&quot; do |v|</span><br><span class="line">          v.customize [&quot;modifyvm&quot;, :id, &quot;--name&quot;, &quot;web&quot;, &quot;--memory&quot;, &quot;512&quot;]</span><br><span class="line">    end</span><br><span class="line">    web.vm.box &#x3D; &quot;CentOs7&quot;</span><br><span class="line">    web.vm.hostname &#x3D; &quot;web&quot;</span><br><span class="line">    web.vm.network :private_network, ip: &quot;192.168.33.10&quot;</span><br><span class="line">  end</span><br><span class="line"></span><br><span class="line">  config.vm.define :redis do |redis|</span><br><span class="line">    redis.vm.provider &quot;virtualbox&quot; do |v|</span><br><span class="line">          v.customize [&quot;modifyvm&quot;, :id, &quot;--name&quot;, &quot;redis&quot;, &quot;--memory&quot;, &quot;512&quot;]</span><br><span class="line">    end</span><br><span class="line">    redis.vm.box &#x3D; &quot;CentOs7&quot;</span><br><span class="line">    redis.vm.hostname &#x3D; &quot;redis&quot;</span><br><span class="line">    redis.vm.network :private_network, ip: &quot;192.168.33.11&quot;</span><br><span class="line">  end</span><br><span class="line">end</span><br></pre></td></tr></table></figure></li>
+<li><p>v1811.02版本centos box需要修改sshd的设置, 改成ssh允许用户名和密码登录</p>
+<ul>
+<li><p>参考 <a target="_blank" rel="noopener" href="https://blog.csdn.net/zjqlovell/article/details/79399265">CentOS SSH 密钥登陆改为密码登陆</a></p>
+</li>
+<li><p>用<code>vagrant ssh</code>命令进入centos</p>
+</li>
+<li><p>打开/etc/ssh/sshd_config</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">vim &#x2F;etc&#x2F;ssh&#x2F;sshd_config</span><br><span class="line">PermitRootLogin yes 删除前面的 #注释</span><br><span class="line">PasswordAuthentication no 改成 PasswordAuthentication yes</span><br></pre></td></tr></table></figure></li>
+<li><p>重启sshd</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">service sshd restart</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+<li><p>启动和ssh链接, vagrant镜像有两个user,  root和vagrant, 密码都是: vagrant, 开启xshell, 填入ip(192.168.33.10), 用户root和密码vagrant</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">vagrant up  # 启动虚拟机</span><br><span class="line">vagrant halt  # 关闭虚拟机</span><br><span class="line">vagrant reload  # 重启虚拟机</span><br><span class="line">vagrant ssh  # SSH 至虚拟机</span><br><span class="line">vagrant status  # 查看虚拟机运行状态</span><br><span class="line">vagrant destroy  # 销毁当前虚拟机</span><br></pre></td></tr></table></figure></li>
+<li><p>打包</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">vagrant package --vagrantfile Vagrantfile #将配置文件一块打包</span><br><span class="line">vagrant package --output centos.box # 要打包成的box名称，不会自动添加.box后缀，要手动加.默认值package.box</span><br></pre></td></tr></table></figure></li>
+<li><p>pycharm 的python项目用vagrant虚拟环境的python作为解释器, 参考 <a target="_blank" rel="noopener" href="https://pengzhendong.cn/2018/05/26/Pycharm-python-interpreter/">Pycharm 解释器配置</a></p>
+</li>
+<li><p>pycharm 配置terminal为vagrant虚拟机环境,</p>
+</li>
+</ul>
+<ul>
+<li>开启ssh terminal, 勾选为current vagrant, 编码设置为utf-8</li>
+</ul>
+<p>  <img src="https://ww1.sinaimg.cn/large/005YhI8igy1fx8kl17blhj311n0ix75n"></p>
+<ul>
+<li><p>tools选择start ssh sessions</p>
+<p><img src="https://ww1.sinaimg.cn/large/005YhI8igy1fx8kmt5iq4j309w0atmxp"></p>
+</li>
+</ul>
+<ul>
+<li><p>在terminal中就可以直接使用远程terminal</p>
+<p><img src="https://ww1.sinaimg.cn/large/005YhI8igy1fx8kog1jsoj30rv0c3t9l"></p>
+</li>
+<li><p>mysql连接速度慢的解决方法</p>
+<ul>
+<li><p>参考: <a target="_blank" rel="noopener" href="https://talk.ninghao.net/t/lian-jie-vagrantzhong-mysqlbian-man-liao-shi-shi-yao-yuan-yin/3521">连接Vagrant中mysql变慢了是什么原因</a></p>
+</li>
+<li><p>打开mysql的配置文件<code>/etc/my.conf</code>,  增加<code>skip-name-resolve</code>参数</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[mysqld]</span><br><span class="line">skip-name-resolve</span><br></pre></td></tr></table></figure></li>
+<li><p>重启mysql</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">service mysqld restart</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><p>ssh 连接速度慢的解决方法</p>
+<ul>
+<li><p>编辑 /etc/ssh/sshd_config</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">UseDNS no, 找到此行取消注释,并且把yes改成no</span><br></pre></td></tr></table></figure></li>
+<li><p>重启ssh</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">service sshd restart</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+<li><p>出现文件夹同步失败的解决方法</p>
+<ul>
+<li><p>参考 <a target="_blank" rel="noopener" href="https://zj-john.github.io/tips/cjhpvs7vl000r64f01suposfq.html">vagrant up报错：unable to mount VirtualBox shared folders</a></p>
+</li>
+<li><pre><code>vagrant plugin install vagrant-winnfsd
+vagrant plugin install vagrant-vbguest
+</code></pre>
+</li>
+</ul>
+</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://clutchbear.gitee.io/2019/01/08/vagran-setting/" data-id="ckm4nx1o0003h0cie111yhdey" data-title="vagrant的安装和设置" class="article-share-link">Share</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2018/11/28/redis-4-0-bloom/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">redis4.0以上版本开启bloomfilter插件的方法</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Markdown/" rel="tag">Markdown</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MySQL/" rel="tag">MySQL</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Windows/" rel="tag">Windows</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/" rel="tag">hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/html/" rel="tag">html</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/iOS/" rel="tag">iOS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/java/" rel="tag">java</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mac/" rel="tag">mac</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python/" rel="tag">python</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python-java/" rel="tag">python, java</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91/" rel="tag">科学上网</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%B3%BB%E7%BB%9F/" rel="tag">系统</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%BD%AF%E4%BB%B6/" rel="tag">软件</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%BD%AF%E4%BB%B6-windows-linux/" rel="tag">软件, windows, linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%BB%91%E8%8B%B9%E6%9E%9C/" rel="tag">黑苹果</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/Markdown/" style="font-size: 10px;">Markdown</a> <a href="/tags/MySQL/" style="font-size: 10px;">MySQL</a> <a href="/tags/Windows/" style="font-size: 10px;">Windows</a> <a href="/tags/hexo/" style="font-size: 15px;">hexo</a> <a href="/tags/html/" style="font-size: 10px;">html</a> <a href="/tags/iOS/" style="font-size: 10px;">iOS</a> <a href="/tags/java/" style="font-size: 12.5px;">java</a> <a href="/tags/mac/" style="font-size: 10px;">mac</a> <a href="/tags/python/" style="font-size: 20px;">python</a> <a href="/tags/python-java/" style="font-size: 10px;">python, java</a> <a href="/tags/%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91/" style="font-size: 12.5px;">科学上网</a> <a href="/tags/%E7%B3%BB%E7%BB%9F/" style="font-size: 12.5px;">系统</a> <a href="/tags/%E8%BD%AF%E4%BB%B6/" style="font-size: 17.5px;">软件</a> <a href="/tags/%E8%BD%AF%E4%BB%B6-windows-linux/" style="font-size: 10px;">软件, windows, linux</a> <a href="/tags/%E9%BB%91%E8%8B%B9%E6%9E%9C/" style="font-size: 15px;">黑苹果</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">January 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/11/">November 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/08/">August 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">April 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">March 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">January 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">November 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/08/">August 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/07/">July 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">May 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/04/">April 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/10/">October 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/09/">September 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/08/">August 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/09/">September 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/08/">August 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/06/">June 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/03/">March 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/02/">February 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/11/">November 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/10/">October 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/08/">August 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/07/">July 2014</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2019/01/08/vagran-setting/">vagrant的安装和设置</a>
+          </li>
+        
+          <li>
+            <a href="/2018/11/28/redis-4-0-bloom/">redis4.0以上版本开启bloomfilter插件的方法</a>
+          </li>
+        
+          <li>
+            <a href="/2018/11/20/win-terminus-md/">terminus的安装和配置</a>
+          </li>
+        
+          <li>
+            <a href="/2018/08/13/wsl-setting/">个人wsl设置</a>
+          </li>
+        
+          <li>
+            <a href="/2018/04/14/handle-some-web-font-crawl/">某8网站字体加密爬虫的处理方法</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2021 小信<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.4.1.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

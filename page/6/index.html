@@ -1,0 +1,749 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>40+岁大龄码农的自我修养</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="40+岁大龄码农的自我修养">
+<meta property="og:url" content="https://clutchbear.gitee.io/page/6/index.html">
+<meta property="og:site_name" content="40+岁大龄码农的自我修养">
+<meta property="og:locale">
+<meta property="article:author" content="小信">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="40+岁大龄码农的自我修养" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">40+岁大龄码农的自我修养</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://clutchbear.gitee.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main">
+  
+    <article id="post-win10-codecs-bug" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2015/08/04/win10-codecs-bug/" class="article-date">
+  <time class="dt-published" datetime="2015-08-04T12:28:41.000Z" itemprop="datePublished">2015-08-04</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2015/08/04/win10-codecs-bug/">win10下面python的codecs模块写入txt文件，用记事本打开显示不换行bug</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>今天用beautifulsoup爬取网页，把解析出的unicode格式的内容写到txt文本文件里面。<br>发现用codecs模块写入的txt文件，用记事本打开后，死活不换行。<br>f.write(‘\n’)不行，f.write(‘\n’.decode(‘utf-8’)也不行。<br>谷歌了好久，也没有找出解决办法。<br><img src="http://ww2.sinaimg.cn/large/7293e3b7jw1euph3aw2gij20sq05xq3p.jpg"></p>
+<p>跟上海知乎群里的python大神 光大证券的唐老师咨询，他说他用f.write(‘\n’)可以换行。</p>
+<p>这时候我怀疑是不是win10系统记事本的问题，把保存好的txt文件拖到sublime text3上打开，果然各种正常换行了。<br><img src="http://ww2.sinaimg.cn/large/7293e3b7jw1euph3xhwwwj20p308ygo7.jpg"></p>
+<p>看来，新出的win10系统还是有各种小bug啊。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://clutchbear.gitee.io/2015/08/04/win10-codecs-bug/" data-id="ckm4nx1o4003s0ciee62ffrk5" data-title="win10下面python的codecs模块写入txt文件，用记事本打开显示不换行bug" class="article-share-link">Share</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Windows/" rel="tag">Windows</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-python_tips" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2015/06/29/python_tips/" class="article-date">
+  <time class="dt-published" datetime="2015-06-29T13:45:43.000Z" itemprop="datePublished">2015-06-29</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2015/06/29/python_tips/">自己需要记住和时常复习的python要点和小技巧</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>不定时更新中,<br>20141007最新更新</p>
+<ul>
+<li><h3 id="列出100以内被3整除的数更简单的方法"><a href="#列出100以内被3整除的数更简单的方法" class="headerlink" title="列出100以内被3整除的数更简单的方法:"></a>列出100以内被3整除的数更简单的方法:</h3><pre><code>range(3,100,3)    
+</code></pre>
+</li>
+</ul>
+<ul>
+<li><h3 id="删除读取文本文件换行回车的方法"><a href="#删除读取文本文件换行回车的方法" class="headerlink" title="删除读取文本文件换行回车的方法:"></a>删除读取文本文件换行回车的方法:</h3><pre><code>line.strip()
+</code></pre>
+</li>
+<li><h3 id="判断字符串是否是回文的简单方法"><a href="#判断字符串是否是回文的简单方法" class="headerlink" title="判断字符串是否是回文的简单方法:"></a>判断字符串是否是回文的简单方法:</h3><pre><code>def isPalindrome(s):
+    return s == s[::-1]
+</code></pre>
+</li>
+<li><h3 id="字符串的一些方法"><a href="#字符串的一些方法" class="headerlink" title="字符串的一些方法:"></a>字符串的一些方法:</h3><ul>
+<li>S.upper() #S中的字母大写</li>
+<li>S.lower() #S中的字母小写</li>
+<li>S.capitalize() #首字母大写</li>
+<li>S.title() #每个单词首字母大写</li>
+<li>S.count(str,,) #S字符串范围内str字符出现的次数</li>
+<li>S.find(str,,) #S字符串范围内第一个str字符的索引</li>
+<li>S.istitle() #每个单词首字母是否大写的，且其它为小写，</li>
+<li>S.isupper() #S中的字母是否全是大写</li>
+<li>S.islower() #S中的字母是否全是小写</li>
+<li>S.isalpha() #S中的字符是否只有字母组成</li>
+<li>S.isalnum() #S中得字符是否只有字母或者数字组成</li>
+<li>S.isdigit() #S中的字符是否只有数字组成</li>
+<li>S.lower() #全部小写</li>
+<li>S.upper() #全部大写</li>
+<li>S.join(S1) #以S为分隔符,将S1中所有元素合并成一个新的字符串</li>
+<li>S.strip() #去掉S前后的空格</li>
+<li>S.replace(s1,s2) #将S中的s1用s2代替</li>
+</ul>
+</li>
+<li><h3 id="在collections模块中有一个Counter类"><a href="#在collections模块中有一个Counter类" class="headerlink" title="在collections模块中有一个Counter类"></a>在collections模块中有一个Counter类</h3><p>   Counter类的目的是用来跟踪值出现的次数。它是一个无序的容器类型，以字典的键值对形式存储，其中元素作为key，其计数作为value。计数值可以是任意的Interger（包括0和负数）。<br>   例如:统计一个字符串中重复字母的在字母表最先出现的字符</p>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">from collections import Counter</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">def checkio(text):</span><br><span class="line">    count &#x3D; Counter([x for x in text.lower() if x.isalpha()])</span><br><span class="line">    m &#x3D; max(count.values())</span><br><span class="line">    return sorted([x for (x, y) in count.items() if y &#x3D;&#x3D; m])[0]</span><br><span class="line"></span><br><span class="line">if __name__ &#x3D;&#x3D; &quot;__main__&quot;:</span><br><span class="line">    print(checkio(&quot;Hello World!&quot;))</span><br><span class="line">    print(checkio(&quot;How do you do?&quot;))</span><br><span class="line">    print(checkio(u&quot;One&quot;))</span><br><span class="line">    print(checkio(u&quot;Oops!&quot;))</span><br></pre></td></tr></table></figure>
+
+<p>   counter的方法有增加(updata)和减少(subtract)两种:<br>   比如:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">count &#x3D; Counter(&#39;which&#39;)</span><br><span class="line">count[&#39;h&#39;]</span><br><span class="line"> #结果显示:2</span><br><span class="line">count.update(&#39;witch&#39;)</span><br><span class="line">count.[&#39;h&#39;] </span><br><span class="line"> #结果显示:3</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><h3 id="RE"><a href="#RE" class="headerlink" title="RE"></a>RE</h3><h4 id="B-括号"><a href="#B-括号" class="headerlink" title="B(括号)"></a>B(括号)</h4>在正则表达式中有 3 种类型的括号<br>方括号”[“内是需要匹配的字符,花括号”{“内是指定匹配字符的数量。 圆括号“(“ 则是用来分组的。<h4 id="C-插入符号"><a href="#C-插入符号" class="headerlink" title="C(插入符号)"></a>C(插入符号)</h4>插入符号 “^” 表示正则式的开始。<h4 id="D-美元符号"><a href="#D-美元符号" class="headerlink" title="D(美元符号)"></a>D(美元符号)</h4>美元符号“$” 表示正则式的结束。</li>
+</ul>
+<p>注意:类似(com|net|org)的多选一,用圆括号.</p>
+<p>年月日的匹配:<br>yy-mm-dd</p>
+<pre><code>&#39;^(1[9][0-9][0-9]|2[0][0-1][0-9]|[0-9][0-9])[\.-]?([1-9]|0[1-9]|1[0-2])[\.-]?([1-9]|0[1-9]|1[0-9]|2[0-9]|3[0-1])$&#39;
+</code></pre>
+<p>时间的匹配:<br>hh:mm:ss</p>
+<pre><code>&#39;^([0-9]|0[0-9]|1[0-9]|2[0-3])[:]([0-9]|0[0-9]|[0-6][0-9])[:]([0-9]|0[0-9]|[0-5][0-9])$&#39;
+</code></pre>
+<p>ip地址的匹配:</p>
+<pre><code> &#39;^(([01]?[0-9][0-9]?|2[0-4][0-9]|2[5][0-5])\.)&#123;3&#125;([01]?[0-9][0-9]?|2[0-4][0-9]|2[5][0-5])$&#39;
+</code></pre>
+<ul>
+<li><h3 id="字母-字符与ASCII数字对应的函数"><a href="#字母-字符与ASCII数字对应的函数" class="headerlink" title="字母 字符与ASCII数字对应的函数:"></a>字母 字符与ASCII数字对应的函数:</h3>  ord（）将字符转换成ascii码数字<br>  chr()将ascii码数字转换为字符<br>  unichr()将ascii码整数返回成unicode字符</li>
+<li><h3 id="random-sample-list-n-通常用来产生不重复的n位数字"><a href="#random-sample-list-n-通常用来产生不重复的n位数字" class="headerlink" title="random.sample(list, n)通常用来产生不重复的n位数字"></a>random.sample(list, n)通常用来产生不重复的n位数字</h3><pre><code> print int(&#39;&#39;.join(map(str, random.sample(range(10), 10))))
+ #3571490628
+</code></pre>
+</li>
+<li><h3 id="enumerate的用法"><a href="#enumerate的用法" class="headerlink" title="enumerate的用法"></a>enumerate的用法</h3>enumerate会将数组或列表组成一个索引序列。使我们再获取索引和索引内容的时候更加方便：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">for index，text in enumerate(list)): </span><br><span class="line">    print index ,text</span><br></pre></td></tr></table></figure></li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://clutchbear.gitee.io/2015/06/29/python_tips/" data-id="ckm4nx1no002n0cie9z4vau4t" data-title="自己需要记住和时常复习的python要点和小技巧" class="article-share-link">Share</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python/" rel="tag">python</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-st3-install" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2015/03/05/st3-install/" class="article-date">
+  <time class="dt-published" datetime="2015-03-05T07:16:16.000Z" itemprop="datePublished">2015-03-05</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2015/03/05/st3-install/">sublime text3 安装和设置</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>Sublime Text3 是我最常用的python编辑器,</p>
+<p>1: 安装Package Control,View–Show console,输入下面数据后回车:(参考来源: <a target="_blank" rel="noopener" href="https://packagecontrol.io/installation#st3">https://packagecontrol.io/installation#st3</a>)</p>
+<pre><code>    import urllib.request,os,hashlib; h = &#39;eb2297e1a458f27d836c04bb0cbaf282&#39; + &#39;d0e7a3098092775ccb37ca9d6b2e4b7d&#39;; pf = &#39;Package Control.sublime-package&#39;; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( &#39;http://packagecontrol.io/&#39; + pf.replace(&#39; &#39;, &#39;%20&#39;)).read(); dh = hashlib.sha256(by).hexdigest(); print(&#39;Error validating download (got %s instead of %s), please try manual install&#39; % (dh, h)) if dh != h else open(os.path.join( ipp, pf), &#39;wb&#39; ).write(by)
+</code></pre>
+<p>2: 安装插件,快捷键CMD + Shift + P,输入Install Package.卸载插件时输入: Remove Package</p>
+<p>   常用的插件包括:</p>
+<p>   AutoPeP8: 自动格式化python代码</p>
+<p>   SublimeCodeIntel: python语法提示和自动完成</p>
+<p>   ConvertToUTF8: 顾名思义转换成UTF8编码格式</p>
+<p>   SideBarEnhancements: 侧边栏增强</p>
+<p>   SublimeTmpl: 新建文件模板</p>
+<p>3: 修改快捷键,打开Perferences–Key Buildings User将这个内容复制进去保存</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123; &quot;keys&quot;: [&quot;f5&quot;], &quot;command&quot;: &quot;build&quot; &#125;,</span><br></pre></td></tr></table></figure>
+<p> 这样按F5就是编译了,当然以前的CMD + B(windows系统下面是Ctrl + B)也是可以的.</p>
+<p>4: 其他参考以前写的 <a target="_blank" rel="noopener" href="http://playbear.github.io/2015/09/02/sublime-backup/">http://playbear.github.io/2015/09/02/sublime-backup/</a> 和 <a target="_blank" rel="noopener" href="http://playbear.github.io/2014/08/13/sublime-plugin-sublime-tmpl/">http://playbear.github.io/2014/08/13/sublime-plugin-sublime-tmpl/</a>  等</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://clutchbear.gitee.io/2015/03/05/st3-install/" data-id="ckm4nx1ns002x0cie3yi6dg81" data-title="sublime text3 安装和设置" class="article-share-link">Share</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E8%BD%AF%E4%BB%B6/" rel="tag">软件</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-shadowsocks" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2015/02/15/shadowsocks/" class="article-date">
+  <time class="dt-published" datetime="2015-02-15T08:18:52.000Z" itemprop="datePublished">2015-02-15</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2015/02/15/shadowsocks/">shadowsocks科学上网</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>最近通过修改hosts访问google的方法越来越不好用,ip被封的越来越多.我开始通过shadowsocks科学上网了.</p>
+<p>通常设置的方法和步骤如下:</p>
+<p>1: 谷歌搜索shadowsocks,第一个就是在github的源代码链接, <a target="_blank" rel="noopener" href="https://github.com/shadowsocks/shadowsocks">https://github.com/shadowsocks/shadowsocks</a></p>
+<p>2: 在readme.md中可以找到各种系统的客户端,包括手机和电脑系统.我用的是黑苹果hackmac,下载安装名为shadowsocksx的客户端就行.</p>
+<p>3: 在v2ex的shadowsock板块找到免费得ss账号,我最常用的是黑洞咖啡馆( <a target="_blank" rel="noopener" href="https://xcafe.in/">https://xcafe.in/</a> )和MakeDieSS( <a target="_blank" rel="noopener" href="http://mdss.mengsky.net/">http://mdss.mengsky.net/</a> )提供的免费账号.</p>
+<p>4: 将免费账号填入shadowsocks客户端,选择自动代理模式就可以尽情的访问google  github  stackoverflow等网站了.</p>
+<p>5: 通常免费网站的账号密码经常变化,如果发现没法继续科学上网,去这些网站找到新账号密码更新在客户端里面就行了.</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://clutchbear.gitee.io/2015/02/15/shadowsocks/" data-id="ckm4nx1np002r0cie93eicczb" data-title="shadowsocks科学上网" class="article-share-link">Share</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91/" rel="tag">科学上网</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-netcore-q3" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2014/11/25/netcore-q3/" class="article-date">
+  <time class="dt-published" datetime="2014-11-25T02:37:51.000Z" itemprop="datePublished">2014-11-25</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2014/11/25/netcore-q3/">磊科Q3刷机及SS翻墙总结</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>最近浏览v2ex发现一款不错的路由器,69元.可以刷机后在路由器里面直接设置shadowsocks翻墙.正好京东有快到期的京券.<br>60元到手.</p>
+<p>折腾了两天,刷坏了一台,当然可能没有全坏.我没有耐心搞了,京东换了一台新的.新的很容易刷成功了.</p>
+<h3 id="步骤"><a href="#步骤" class="headerlink" title="步骤:"></a>步骤:</h3><h3 id="提示-Q3刷机过程比较慢-时刻观察ping-192-168-1-1-t的结果-等ping值稳定后-再进行其他操作"><a href="#提示-Q3刷机过程比较慢-时刻观察ping-192-168-1-1-t的结果-等ping值稳定后-再进行其他操作" class="headerlink" title="提示: Q3刷机过程比较慢,时刻观察ping 192.168.1.1 -t的结果.等ping值稳定后,再进行其他操作."></a>提示: Q3刷机过程比较慢,时刻观察ping 192.168.1.1 -t的结果.等ping值稳定后,再进行其他操作.</h3><p>1: 用这个帖子(<a target="_blank" rel="noopener" href="http://forum.anywlan.com/thread-296096-1-1.html">网址点我</a>)的提示,下载253w和Q3互刷固件,然后进入192.168.1.1,找到升级固件,刷成253W.</p>
+<p>2: 根据这个帖子(<a target="_blank" rel="noopener" href="http://bbs.mydigit.cn/read.php?tid=999884">网址点我</a>),去  <a target="_blank" rel="noopener" href="http://source.wifihell.com/bwq518/121_20140808/CN/K26RT-N/">http://source.wifihell.com/bwq518/121_20140808/CN/K26RT-N/</a> 这个网址<br>下载tomato-K26-1.28.121-MIPSR2-20140808.Hyzoom.RT_N5x-8M-VPN-IPv6-Max.trx这个适合Q3的固件,然后再235W的升级页面里面升级.</p>
+<p>3: 刷成Tomato bwq518后,登陆192.168.1.1,这里需要注意:磊科Q3默认的登录用户名和密码都是guest,tomato默认的都是:admin.然后在基本设置里面勾选’反转端口顺序’.</p>
+<p>4: 设置SS翻墙,高级设置里面”Tow透明代理”,然后把黑洞咖啡馆(<a target="_blank" rel="noopener" href="https://xcafe.in/">网址点我</a>)的ss服务器地址和密码填入.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">不要勾选以下几项：</span><br><span class="line"></span><br><span class="line">启用黑名单在线更新</span><br><span class="line">启用白名单</span><br><span class="line">启用 Tunlr DNS在线更新</span><br><span class="line"></span><br><span class="line">由于网络原因，在线更新如果失败，会导致 TOW无效。</span><br></pre></td></tr></table></figure>
+<p>5: 如果作为第二路由器,需要在’基本设置’–’网络设置’–’LAN设置’,删掉192.168.1.1,添加192.168.0.1,并且选择为br0.保存.<br>慢慢等待路由器响应.<br>然后在浏览器中用192.168.0.1登陆</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://clutchbear.gitee.io/2014/11/25/netcore-q3/" data-id="ckm4nx1ng00270ciefodc565z" data-title="磊科Q3刷机及SS翻墙总结" class="article-share-link">Share</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%B3%BB%E7%BB%9F/" rel="tag">系统</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-ios8-1-mini2" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2014/11/21/ios8-1-mini2/" class="article-date">
+  <time class="dt-published" datetime="2014-11-21T09:25:56.000Z" itemprop="datePublished">2014-11-21</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2014/11/21/ios8-1-mini2/">ipad mini2 ios 8.1越狱和广告屏蔽</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h3 id="越狱注意事项"><a href="#越狱注意事项" class="headerlink" title="越狱注意事项"></a>越狱注意事项</h3><p>1: 用iTunes备份,如果应用不是在官方appstore下载的,iTunes是没法备份的,可以截图,越狱后在一个个安装</p>
+<p>2:下载盘古越狱工具(或者太极越狱工具),如果越狱失败,可以先恢复ios固件,然后新系统重新越狱后,恢复备份.</p>
+<p>3: 广告屏蔽,</p>
+<ul>
+<li>ios 8.1越狱后cydia里面一个源有广告,可以用ifile修改hosts,在后面添加</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">127.0.0.1 a.adorika.net</span><br><span class="line">127.0.0.1 a.ad-sys.com</span><br><span class="line">127.0.0.1 ads.glispa.com</span><br><span class="line">127.0.0.1 c.gltrkk.net</span><br><span class="line">127.0.0.1 hastrk3.com</span><br></pre></td></tr></table></figure>
+
+<p>参考:<a target="_blank" rel="noopener" href="http://jailbreak.25pp.com/jiaocheng/yueyu_66924.html">http://jailbreak.25pp.com/jiaocheng/yueyu_66924.html</a></p>
+<ul>
+<li>普通app广告屏蔽也是在hosts里面添加字段</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br></pre></td><td class="code"><pre><span class="line">127.0.0.1 analytics.admob.com</span><br><span class="line">127.0.0.1 api.admob.com</span><br><span class="line">127.0.0.1 e.admob.com</span><br><span class="line">127.0.0.1 c.admob.com</span><br><span class="line">127.0.0.1 media.admob.com</span><br><span class="line">127.0.0.1 mm.admob.com</span><br><span class="line">127.0.0.1 mmv.admob.com</span><br><span class="line">127.0.0.1 p.admob.com</span><br><span class="line">127.0.0.1 r.admob.com</span><br><span class="line">127.0.0.1 config.adsage.cn</span><br><span class="line">127.0.0.1 config.adsage.com</span><br><span class="line">127.0.0.1 config.mobisage.cn</span><br><span class="line">127.0.0.1 config.minesage.com</span><br><span class="line">127.0.0.1 config.soqugame.com</span><br><span class="line">127.0.0.1 mobi.adsage.com</span><br><span class="line">127.0.0.1 trc.adsage.com</span><br><span class="line">127.0.0.1 mws.adsage.com</span><br><span class="line">127.0.0.1 api.domob.cn</span><br><span class="line">127.0.0.1 e.domob.cn</span><br><span class="line">127.0.0.1 r.domob.cn</span><br><span class="line">127.0.0.1 r.ow.domob.cn</span><br><span class="line">127.0.0.1 s.domob.cn</span><br><span class="line">127.0.0.1 sdl.domob.cn</span><br><span class="line">127.0.0.1 api.immob.cn</span><br><span class="line">127.0.0.1 adserving.immob.cn</span><br><span class="line">127.0.0.1 c1.guomob.com</span><br><span class="line">127.0.0.1 t3.guomob.com</span><br><span class="line">127.0.0.1 umeng.co</span><br><span class="line">127.0.0.1 umeng.com</span><br><span class="line">127.0.0.1 alog.umeng.co</span><br><span class="line">127.0.0.1 alog.umeng.com</span><br><span class="line">127.0.0.1 au.umeng.co</span><br><span class="line">127.0.0.1 au.umeng.com</span><br><span class="line">127.0.0.1 oc.umeng.co</span><br><span class="line">127.0.0.1 oc.umeng.com</span><br><span class="line">127.0.0.1 ex.umengcloud.com</span><br><span class="line">127.0.0.1 uyunad.com</span><br><span class="line">127.0.0.1 www.uyunad.com</span><br><span class="line">127.0.0.1 a-ad.adwo.com</span><br><span class="line">127.0.0.1 ad-count.adwo.com</span><br><span class="line">127.0.0.1 apiconfig.adwo.com</span><br><span class="line">127.0.0.1 static.adwo.com</span><br><span class="line">127.0.0.1 track.adwo.com</span><br><span class="line">127.0.0.1 r3 adwo.com</span><br><span class="line">127.0.0.1 googleads.g.doubleclick.net</span><br><span class="line">127.0.0.1 google-analytics.com</span><br><span class="line">127.0.0.1 ssl.google-analytics.com</span><br><span class="line">127.0.0.1 static.googleadsserving.cn</span><br><span class="line">127.0.0.1 mobads.baidu.com</span><br><span class="line">127.0.0.1 api.adcome.cn</span><br><span class="line">127.0.0.1 adbc.renren.com</span><br><span class="line">127.0.0.1 mob.adwhirl.com</span><br><span class="line">127.0.0.1 ios.ijinshan.com</span><br><span class="line">127.0.0.1 push.icastlewar.com</span><br></pre></td></tr></table></figure>
+
+<p>参考:<a target="_blank" rel="noopener" href="http://jailbreak.25pp.com/jiaocheng/yueyu_66924.html">http://jailbreak.25pp.com/jiaocheng/yueyu_66924.html</a></p>
+<h3 id="非官方软件app的下载"><a href="#非官方软件app的下载" class="headerlink" title="非官方软件app的下载"></a>非官方软件app的下载</h3><p>1: 影梭即shadowsocks,在cydia里面搜索下载.主要作用是翻墙</p>
+<p>2: GoodReader AVPlayerHD 欧陆字典 Calculator等软件在pp翻墙助手里面下载.</p>
+<p>3: ifile的安装,首先在源里面添加 apt.178.com<br>   然后搜索ifile后下载安装.主要作用是修改系统文件比如hosts<br>   参考:<a target="_blank" rel="noopener" href="http://bbs.25pp.com/forum.php?mod=viewthread&amp;tid=273064">http://bbs.25pp.com/forum.php?mod=viewthread&amp;tid=273064</a></p>
+<p>4: photo manager pro 在pp助手里面可以下载, 作用是 重命名图片,建立图片文件夹.</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://clutchbear.gitee.io/2014/11/21/ios8-1-mini2/" data-id="ckm4nx1mx00100ciec1kb6ek3" data-title="ipad mini2 ios 8.1越狱和广告屏蔽" class="article-share-link">Share</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/iOS/" rel="tag">iOS</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-python-challene-2" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2014/11/14/python-challene-2/" class="article-date">
+  <time class="dt-published" datetime="2014-11-13T17:36:26.000Z" itemprop="datePublished">2014-11-14</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2014/11/14/python-challene-2/">21一个挑战题的python解决方法</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h3 id="2-一百万"><a href="#2-一百万" class="headerlink" title="2) 一百万"></a>2) 一百万</h3><p>挑战：将 1,000,000 写成两个数的乘积，两个数都不包含零</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">for i in range(1, 500000):</span><br><span class="line">    for j in range(1, 50000):</span><br><span class="line">        if i * j &#x3D;&#x3D; 1000000:</span><br><span class="line">            if &#39;0&#39; not in str(i) and &#39;0&#39; not in str(j):</span><br><span class="line">                print i, j</span><br><span class="line">                break</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>结果是:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">64 15625</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://clutchbear.gitee.io/2014/11/14/python-challene-2/" data-id="ckm4nx1nj002e0cie72g9hr3y" data-title="21一个挑战题的python解决方法" class="article-share-link">Share</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python/" rel="tag">python</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-yosemite-10-10" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2014/11/08/yosemite-10-10/" class="article-date">
+  <time class="dt-published" datetime="2014-11-07T16:06:21.000Z" itemprop="datePublished">2014-11-08</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2014/11/08/yosemite-10-10/">YOSEMITE 10.10 安装记录</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h3 id="2015年9月20日更新-更新完10-10-5补丁后再安装声卡驱动-MultiBeast-7-3-0-才有效"><a href="#2015年9月20日更新-更新完10-10-5补丁后再安装声卡驱动-MultiBeast-7-3-0-才有效" class="headerlink" title="2015年9月20日更新, 更新完10.10.5补丁后再安装声卡驱动(MultiBeast 7.3.0)才有效."></a>2015年9月20日更新, 更新完10.10.5补丁后再安装声卡驱动(MultiBeast 7.3.0)才有效.</h3><p>Yosemite 10.10出来后,跟风安装了,但是总有各种各样的问题,比如键盘无效 声卡没法驱动等等,与10.9.5有很多不同的地方.<br>折腾了好几天终于算是弄好了.<br>自己将步骤记录一下,以后备用:</p>
+<h2 id="1-下载"><a href="#1-下载" class="headerlink" title="1. 下载"></a>1. 下载</h2><ul>
+<li><p>下载pcbeta论坛’七月流火’大神的u盘版yosemite(<a target="_blank" rel="noopener" href="http://bbs.pcbeta.com/viewthread-1552254-1-1.html">pcbeta链接</a>),由于只提供了1021版本,需要自己转换成没有重装bug的1024版本.</p>
+</li>
+<li><p>在windows下运行smartvs.exe,打开1021 to 1024.svf,然后根据提示找到”黑苹果安装U盘.20141021.七月流火.10.10.dmg”(md5:82D2EBAC6FA794FD3147D0BD40371FCD),然后提取出”黑苹果安装U盘.20141024.七月流火.10.10.dmg”(md5:27F84982358D7C06AE2339EA950D7E6B)</p>
+</li>
+<li><p>运行transmac.exe, 将七月流火的yosemite恢复到u盘上.</p>
+</li>
+</ul>
+<h2 id="2-分区"><a href="#2-分区" class="headerlink" title="2.分区"></a>2.分区</h2><ul>
+<li>用10.9.3的u盘启动电脑,进入winpe,讲要安装黑苹果的硬盘分成两个分区,第一个分区大小为1g,剩下是第二个盘.</li>
+<li>运行diskgenius, 用分区克隆工具将u盘的boot分区克隆到第一个分区.<br>更换成10.10的安装u盘</li>
+</ul>
+<h2 id="3-安装"><a href="#3-安装" class="headerlink" title="3. 安装"></a>3. 安装</h2><ul>
+<li>重启电脑, 按del进入bios,硬盘模式改成achi,关闭vt-x<br>选择u盘启动, 进入启动界面选择clover,然后选择安装10.10,<br>图形界面出现后,选择’硬盘工具’,将前面分好的第二个分区格式化成’MAC OS 扩展(日志)’</li>
+<li>开始安装10.10,一步一步next到底.<br>安装完成,重启,u盘启动,选择clover,选择硬盘mac启动.之后输入用户名密码,不要选择联网.</li>
+</ul>
+<h2 id="4-驱动和设置"><a href="#4-驱动和设置" class="headerlink" title="4. 驱动和设置"></a>4. 驱动和设置</h2><ul>
+<li>运行MultiBeast,选择drivers-network-realtek- realtekRTLxx v0.0.90,然后build,重启<br>下载cover2953的Mac 版 MBR+GPT 分区专用 pkg 安装包(<a target="_blank" rel="noopener" href="http://bbs.pcbeta.com/viewthread-1516502-1-1.html">下载链接</a>),解压缩安装到硬盘的启动盘中.将10.10安装u盘的efi拷贝到第一个分区中替换原来的.这样就可以硬盘直接启动clover了.</li>
+<li>下载运行Clover Configurator,打开第一个分区也就是启动分区中的config.plist,</li>
+<li>选择Boot选项,然后勾选kext-dev-mode=1,</li>
+<li>选择Devices选择,在Audio处填入1,保存</li>
+<li>重新运行MultiBeast,选择drivers-atheros,然后勾选ALC887/888b current v100302 和 optional efi installed bootloader support,选择build,重启</li>
+<li>系统偏好设置—声音—输出,选择内置扬声器.这样就有声音了.<br>声卡驱动步骤主要参考pcbeta论坛的帖子,<a target="_blank" rel="noopener" href="http://bbs.pcbeta.com/viewthread-1551705-1-1.html">请参考链接</a></li>
+</ul>
+<h2 id="5-其他类似以前写的"><a href="#5-其他类似以前写的" class="headerlink" title="5. 其他类似以前写的."></a>5. 其他类似以前写的.</h2>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://clutchbear.gitee.io/2014/11/08/yosemite-10-10/" data-id="ckm4nx1o7003x0cie6srgafc0" data-title="YOSEMITE 10.10 安装记录" class="article-share-link">Share</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E9%BB%91%E8%8B%B9%E6%9E%9C/" rel="tag">黑苹果</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-GCD" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2014/11/06/GCD/" class="article-date">
+  <time class="dt-published" datetime="2014-11-05T17:23:31.000Z" itemprop="datePublished">2014-11-06</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2014/11/06/GCD/">辗转相除法找最大公约数的python实现</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>辗转相除法,参加维基百科:<a target="_blank" rel="noopener" href="http://zh.wikipedia.org/wiki/%E8%BC%BE%E8%BD%89%E7%9B%B8%E9%99%A4%E6%B3%95">连接</a></p>
+<p>最大公约数的python最常见算法:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">def gcd(a, b):</span><br><span class="line">    if a &lt; b:</span><br><span class="line">        a, b &#x3D; b, a</span><br><span class="line">    while b:</span><br><span class="line">        a, b &#x3D; b, a % b</span><br><span class="line"></span><br><span class="line">    return a</span><br></pre></td></tr></table></figure>
+
+<p>最小公倍数就是 两个数的乘积除以最大公约数.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">def ICM(a, b):</span><br><span class="line">    return a * b &#x2F; GCD(a, b)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://clutchbear.gitee.io/2014/11/06/GCD/" data-id="ckm4nx1mh00050cie366ib7ly" data-title="辗转相除法找最大公约数的python实现" class="article-share-link">Share</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python/" rel="tag">python</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-fast-prime" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2014/10/03/fast-prime/" class="article-date">
+  <time class="dt-published" datetime="2014-10-02T17:19:34.000Z" itemprop="datePublished">2014-10-03</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2014/10/03/fast-prime/">计算素数比较快的方法</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>计算素数里面除数最大值用(int(prime ** 0.5) +1) ,最好不要用(prime / 2 + 1).在素数值非常大的时候,这两者差距非常明显.<br>比如104729的开方值:323<br>    除以2的值是52365</p>
+<p>再就是尽量用函数返回Ture Flase的判断,</p>
+<p>例如: 求第10000个素数</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">prime &#x3D; 2</span><br><span class="line">number &#x3D; 4</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">def is_prime(num):</span><br><span class="line">    for x in range(2, int((num ** 0.5)) + 1):</span><br><span class="line">        if num % x &#x3D;&#x3D; 0:</span><br><span class="line">            return False</span><br><span class="line">    return True</span><br><span class="line"></span><br><span class="line">while 1:</span><br><span class="line"></span><br><span class="line">    if is_prime(number):</span><br><span class="line">        prime +&#x3D; 1</span><br><span class="line">    if prime &#x3D;&#x3D; 10000:</span><br><span class="line">        break</span><br><span class="line">    number +&#x3D; 1</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">print number</span><br></pre></td></tr></table></figure>
+<h3 id="用时0-5秒得出结果-104729"><a href="#用时0-5秒得出结果-104729" class="headerlink" title="用时0.5秒得出结果:104729"></a>用时0.5秒得出结果:104729</h3><p>如果是</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">prime &#x3D; 2</span><br><span class="line">number &#x3D; 4</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">def is_prime(num):</span><br><span class="line">    for x in range(2, int((num &#x2F; 2)) + 1):</span><br><span class="line">        if num % x &#x3D;&#x3D; 0:</span><br><span class="line">            return False</span><br><span class="line">    return True</span><br><span class="line"></span><br><span class="line">while 1:</span><br><span class="line"></span><br><span class="line">    if is_prime(number):</span><br><span class="line">        prime +&#x3D; 1</span><br><span class="line">    if prime &#x3D;&#x3D; 10000:</span><br><span class="line">        break</span><br><span class="line">    number +&#x3D; 1</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">print number</span><br></pre></td></tr></table></figure>
+<h3 id="用时42秒-得出结果104729"><a href="#用时42秒-得出结果104729" class="headerlink" title="用时42秒,得出结果104729"></a>用时42秒,得出结果104729</h3><p>如果是</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">prime &#x3D; 2</span><br><span class="line">number &#x3D; 4</span><br><span class="line"></span><br><span class="line">while 1:</span><br><span class="line">    flag &#x3D; 0</span><br><span class="line">    for i in range(2, int(number ** 0.5) + 1):</span><br><span class="line">        if number % i &#x3D;&#x3D; 0:</span><br><span class="line">            flag &#x3D; 1</span><br><span class="line">    if flag &#x3D;&#x3D; 0:</span><br><span class="line">        prime +&#x3D; 1</span><br><span class="line">    if prime &#x3D;&#x3D; 10000:</span><br><span class="line">        break</span><br><span class="line">    number +&#x3D; 1</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">print number</span><br></pre></td></tr></table></figure>
+<h3 id="用时3-0秒-得出结果104729"><a href="#用时3-0秒-得出结果104729" class="headerlink" title="用时3.0秒,得出结果104729"></a>用时3.0秒,得出结果104729</h3>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://clutchbear.gitee.io/2014/10/03/fast-prime/" data-id="ckm4nx1mq000h0cie5r9132d2" data-title="计算素数比较快的方法" class="article-share-link">Share</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python/" rel="tag">python</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+
+
+  <nav id="page-nav">
+    
+    <a class="extend prev" rel="prev" href="/page/5/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><span class="page-number current">6</span><a class="page-number" href="/page/7/">7</a><a class="extend next" rel="next" href="/page/7/">Next &raquo;</a>
+  </nav>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Markdown/" rel="tag">Markdown</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MySQL/" rel="tag">MySQL</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Windows/" rel="tag">Windows</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/" rel="tag">hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/html/" rel="tag">html</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/iOS/" rel="tag">iOS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/java/" rel="tag">java</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mac/" rel="tag">mac</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python/" rel="tag">python</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python-java/" rel="tag">python, java</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91/" rel="tag">科学上网</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%B3%BB%E7%BB%9F/" rel="tag">系统</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%BD%AF%E4%BB%B6/" rel="tag">软件</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%BD%AF%E4%BB%B6-windows-linux/" rel="tag">软件, windows, linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%BB%91%E8%8B%B9%E6%9E%9C/" rel="tag">黑苹果</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/Markdown/" style="font-size: 10px;">Markdown</a> <a href="/tags/MySQL/" style="font-size: 10px;">MySQL</a> <a href="/tags/Windows/" style="font-size: 10px;">Windows</a> <a href="/tags/hexo/" style="font-size: 15px;">hexo</a> <a href="/tags/html/" style="font-size: 10px;">html</a> <a href="/tags/iOS/" style="font-size: 10px;">iOS</a> <a href="/tags/java/" style="font-size: 12.5px;">java</a> <a href="/tags/mac/" style="font-size: 10px;">mac</a> <a href="/tags/python/" style="font-size: 20px;">python</a> <a href="/tags/python-java/" style="font-size: 10px;">python, java</a> <a href="/tags/%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91/" style="font-size: 12.5px;">科学上网</a> <a href="/tags/%E7%B3%BB%E7%BB%9F/" style="font-size: 12.5px;">系统</a> <a href="/tags/%E8%BD%AF%E4%BB%B6/" style="font-size: 17.5px;">软件</a> <a href="/tags/%E8%BD%AF%E4%BB%B6-windows-linux/" style="font-size: 10px;">软件, windows, linux</a> <a href="/tags/%E9%BB%91%E8%8B%B9%E6%9E%9C/" style="font-size: 15px;">黑苹果</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">January 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/11/">November 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/08/">August 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">April 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">March 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">January 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">November 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/08/">August 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/07/">July 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">May 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/04/">April 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/10/">October 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/09/">September 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/08/">August 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/09/">September 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/08/">August 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/06/">June 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/03/">March 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/02/">February 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/11/">November 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/10/">October 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/08/">August 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/07/">July 2014</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2019/01/08/vagran-setting/">vagrant的安装和设置</a>
+          </li>
+        
+          <li>
+            <a href="/2018/11/28/redis-4-0-bloom/">redis4.0以上版本开启bloomfilter插件的方法</a>
+          </li>
+        
+          <li>
+            <a href="/2018/11/20/win-terminus-md/">terminus的安装和配置</a>
+          </li>
+        
+          <li>
+            <a href="/2018/08/13/wsl-setting/">个人wsl设置</a>
+          </li>
+        
+          <li>
+            <a href="/2018/04/14/handle-some-web-font-crawl/">某8网站字体加密爬虫的处理方法</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2021 小信<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.4.1.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

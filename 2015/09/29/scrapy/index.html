@@ -4,14 +4,19 @@
   <meta charset="utf-8">
   
   
-  <title>Archives | 40+岁大龄码农的自我修养</title>
+  <title>个人爬虫常用的几个知识点 | 40+岁大龄码农的自我修养</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="40+岁大龄码农的自我修养">
-<meta property="og:url" content="https://clutchbear.gitee.io/archives/index.html">
+  <meta name="description" content="1 最常用beautifulsoup4的几个语法123from bs4 import BeautifulSoupsoup  &#x3D; BeautifulSoup(r.text)  如果搜索很多标签用 1soup.find_all(&#39;div&#39;, &amp;#123;&#39;class&#39;:True, &#39;id&#39;: True, &#39;title&#39;: Tru">
+<meta property="og:type" content="article">
+<meta property="og:title" content="个人爬虫常用的几个知识点">
+<meta property="og:url" content="https://clutchbear.gitee.io/2015/09/29/scrapy/index.html">
 <meta property="og:site_name" content="40+岁大龄码农的自我修养">
+<meta property="og:description" content="1 最常用beautifulsoup4的几个语法123from bs4 import BeautifulSoupsoup  &#x3D; BeautifulSoup(r.text)  如果搜索很多标签用 1soup.find_all(&#39;div&#39;, &amp;#123;&#39;class&#39;:True, &#39;id&#39;: True, &#39;title&#39;: Tru">
 <meta property="og:locale">
+<meta property="article:published_time" content="2015-09-28T18:41:54.000Z">
+<meta property="article:modified_time" content="2016-08-08T10:14:58.000Z">
 <meta property="article:author" content="小信">
+<meta property="article:tag" content="python">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternate" href="/atom.xml" title="40+岁大龄码农的自我修养" type="application/atom+xml">
@@ -69,236 +74,101 @@
 </header>
 
       <div class="outer">
-        <section id="main">
-  
-  
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2019" class="archive-year">2019</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2019/01/08/vagran-setting/" class="archive-article-date">
-  <time class="dt-published" datetime="2019-01-08T02:08:20.000Z" itemprop="datePublished">Jan 8</time>
+        <section id="main"><article id="post-scrapy" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2015/09/29/scrapy/" class="article-date">
+  <time class="dt-published" datetime="2015-09-28T18:41:54.000Z" itemprop="datePublished">2015-09-29</time>
 </a>
-      
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/01/08/vagran-setting/">vagrant的安装和设置</a>
+    <h1 class="p-name article-title" itemprop="headline name">
+      个人爬虫常用的几个知识点
     </h1>
   
 
-    </header>
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h3 id="1-最常用beautifulsoup4的几个语法"><a href="#1-最常用beautifulsoup4的几个语法" class="headerlink" title="1 最常用beautifulsoup4的几个语法"></a>1 最常用beautifulsoup4的几个语法</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">from bs4 import BeautifulSoup</span><br><span class="line"></span><br><span class="line">soup  &#x3D; BeautifulSoup(r.text)</span><br></pre></td></tr></table></figure>
+
+<p>如果搜索很多标签用</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">soup.find_all(&#39;div&#39;, &#123;&#39;class&#39;:True, &#39;id&#39;: True, &#39;title&#39;: True&#125;),</span><br></pre></td></tr></table></figure>
+<p> 然用用for遍历,</p>
+<p>搜索单个标签用</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">soup.find(&#39;div&#39;, &#123;&#39;class&#39;:True, &#39;id&#39;: True, &#39;title&#39;: True&#125; )</span><br></pre></td></tr></table></figure>
+<p>find和find_all可以多次套用.</p>
+<p>获取内容用</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">item.get_text().encode(&#39;utf-8&#39;), cmd显示的话用&#39;gbk&#39;</span><br></pre></td></tr></table></figure>
+
+<p>获取div标签的其他属性用</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">item.get(&#39;href&#39;)</span><br></pre></td></tr></table></figure>
+
+<p>生成所有子标签的列表(list)用contains()函数,</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">childtag &#x3D; soup.contents()</span><br></pre></td></tr></table></figure>
+<p> 常用作输出部分子标签的内容. 比如</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">childtag[0].get_text(), childtag[-1].get_text()</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="2-python中生成13位时间戳的方法"><a href="#2-python中生成13位时间戳的方法" class="headerlink" title="2 python中生成13位时间戳的方法"></a>2 python中生成13位时间戳的方法</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">import time</span><br><span class="line"></span><br><span class="line">print str(int(time.time() * 1000))</span><br></pre></td></tr></table></figure>
+
+<h3 id="3-requests的req-encoding如果没有获取到正确的编码"><a href="#3-requests的req-encoding如果没有获取到正确的编码" class="headerlink" title="3 requests的req.encoding如果没有获取到正确的编码"></a>3 requests的req.encoding如果没有获取到正确的编码</h3><p>可以用以下方法解决</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">req.encoding &#x3D; &#39;gb2312&#39;</span><br></pre></td></tr></table></figure>
+
+<p>或者</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">req.encoding &#x3D; &#39;utf-8&#39;</span><br></pre></td></tr></table></figure>
+
+<p>或者</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">req.encoding &#x3D; apparent_encoding</span><br></pre></td></tr></table></figure>
+
+
+<h3 id="4-模拟登录的时候需要用requsts的senssion-函数"><a href="#4-模拟登录的时候需要用requsts的senssion-函数" class="headerlink" title="4 模拟登录的时候需要用requsts的senssion()函数."></a>4 模拟登录的时候需要用requsts的senssion()函数.</h3><p>会话对象让你能够跨请求保持某些参数。它也会在同一个Session实例发出的所有请求之间保持cookies。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">s &#x3D; requests.session()</span><br></pre></td></tr></table></figure>
+
+
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://clutchbear.gitee.io/2015/09/29/scrapy/" data-id="ckm4nx1nq002t0cie20qcg8k5" data-title="个人爬虫常用的几个知识点" class="article-share-link">Share</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python/" rel="tag">python</a></li></ul>
+
+    </footer>
   </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2015/09/30/net-music-comment/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          python抓取网易云音乐最新评论和评论总数
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2015/09/25/login-hupu/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">python实现虎扑（hoopchina）自动登录和点亮</div>
+    </a>
+  
+</nav>
+
+  
 </article>
-  
-    
-    
-      
-        </div></section>
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2018" class="archive-year">2018</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2018/11/28/redis-4-0-bloom/" class="archive-article-date">
-  <time class="dt-published" datetime="2018-11-28T07:23:43.000Z" itemprop="datePublished">Nov 28</time>
-</a>
-      
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/11/28/redis-4-0-bloom/">redis4.0以上版本开启bloomfilter插件的方法</a>
-    </h1>
-  
 
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2018/11/20/win-terminus-md/" class="archive-article-date">
-  <time class="dt-published" datetime="2018-11-20T05:31:35.000Z" itemprop="datePublished">Nov 20</time>
-</a>
-      
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/11/20/win-terminus-md/">terminus的安装和配置</a>
-    </h1>
-  
-
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2018/08/13/wsl-setting/" class="archive-article-date">
-  <time class="dt-published" datetime="2018-08-13T11:14:05.000Z" itemprop="datePublished">Aug 13</time>
-</a>
-      
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/08/13/wsl-setting/">个人wsl设置</a>
-    </h1>
-  
-
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2018/04/14/handle-some-web-font-crawl/" class="archive-article-date">
-  <time class="dt-published" datetime="2018-04-14T08:48:38.000Z" itemprop="datePublished">Apr 14</time>
-</a>
-      
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/04/14/handle-some-web-font-crawl/">某8网站字体加密爬虫的处理方法</a>
-    </h1>
-  
-
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2018/04/14/java-python-s-map/" class="archive-article-date">
-  <time class="dt-published" datetime="2018-04-13T16:49:51.000Z" itemprop="datePublished">Apr 14</time>
-</a>
-      
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/04/14/java-python-s-map/">python和java的类当做map的键</a>
-    </h1>
-  
-
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2018/03/19/javaProxy/" class="archive-article-date">
-  <time class="dt-published" datetime="2018-03-19T08:36:53.000Z" itemprop="datePublished">Mar 19</time>
-</a>
-      
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/03/19/javaProxy/">jdk动态代理和Cglib代理笔记</a>
-    </h1>
-  
-
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2018/03/19/javaAnnotation/" class="archive-article-date">
-  <time class="dt-published" datetime="2018-03-19T06:30:46.000Z" itemprop="datePublished">Mar 19</time>
-</a>
-      
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/03/19/javaAnnotation/">java注解笔记</a>
-    </h1>
-  
-
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2018/01/26/spring-Transactional/" class="archive-article-date">
-  <time class="dt-published" datetime="2018-01-26T03:53:39.000Z" itemprop="datePublished">Jan 26</time>
-</a>
-      
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/01/26/spring-Transactional/">一次springboot事务bug的处理</a>
-    </h1>
-  
-
-    </header>
-  </div>
-</article>
-  
-    
-    
-      
-        </div></section>
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2017" class="archive-year">2017</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2017/11/20/mac-java-maven-md/" class="archive-article-date">
-  <time class="dt-published" datetime="2017-11-20T10:38:36.000Z" itemprop="datePublished">Nov 20</time>
-</a>
-      
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/11/20/mac-java-maven-md/">mac 安装和设置java maven</a>
-    </h1>
-  
-
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-
-  <nav id="page-nav">
-    
-    <span class="page-number current">1</span><a class="page-number" href="/archives/page/2/">2</a><a class="page-number" href="/archives/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/archives/page/7/">7</a><a class="extend next" rel="next" href="/archives/page/2/">Next &raquo;</a>
-  </nav>
 
 </section>
         

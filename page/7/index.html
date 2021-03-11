@@ -1,0 +1,798 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>40+岁大龄码农的自我修养</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="40+岁大龄码农的自我修养">
+<meta property="og:url" content="https://clutchbear.gitee.io/page/7/index.html">
+<meta property="og:site_name" content="40+岁大龄码农的自我修养">
+<meta property="og:locale">
+<meta property="article:author" content="小信">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="40+岁大龄码农的自我修养" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">40+岁大龄码农的自我修养</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://clutchbear.gitee.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main">
+  
+    <article id="post-Algorithm_python" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2014/08/31/Algorithm_python/" class="article-date">
+  <time class="dt-published" datetime="2014-08-31T14:14:21.000Z" itemprop="datePublished">2014-08-31</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2014/08/31/Algorithm_python/">用python实现冒泡排序 选择排序 插入排序</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <ul>
+<li><h3 id="冒泡法排序"><a href="#冒泡法排序" class="headerlink" title="冒泡法排序"></a>冒泡法排序</h3><p>第一个循环倒序,相邻两个元素比较大小然后交换.第一次将最大的一个逐渐排序到列表最后一个位置.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">from __future__ import print_function, unicode_literals, division</span><br><span class="line"></span><br><span class="line">arry &#x3D; [16, 134, 15, 1, 78, 10, 9]</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">def bubble_sort(arry):</span><br><span class="line">    for i in range(len(arry) - 1, 0, -1):</span><br><span class="line">        for j in range(i):</span><br><span class="line">            if arry[j] &gt; arry[j + 1]:</span><br><span class="line">                arry[j], arry[j + 1] &#x3D; arry[j + 1], arry[j]</span><br><span class="line"></span><br><span class="line">if __name__ &#x3D;&#x3D; &quot;__main__&quot;:</span><br><span class="line">    bubble_sort(arry)</span><br><span class="line">    print (arry)</span><br></pre></td></tr></table></figure>
+
+<p>  [1, 9, 10, 15, 16, 78, 134]</p>
+</li>
+<li><h3 id="选择法排序"><a href="#选择法排序" class="headerlink" title="选择法排序"></a>选择法排序</h3><p>第一个元素和后面所有元素对比,找到最小的一个,然后交换.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">from __future__ import print_function, unicode_literals, division</span><br><span class="line"></span><br><span class="line">arry &#x3D; [16, 134, 15, 1, 78, 10, 9]</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">def select_sort(arry):</span><br><span class="line">    length &#x3D; len(arry)</span><br><span class="line"></span><br><span class="line">    for i in range(length - 1):</span><br><span class="line">        sort_index &#x3D; i</span><br><span class="line">        for j in range(i, length):</span><br><span class="line">            if arry[j] &gt; arry[sort_index]:</span><br><span class="line">                sort_index &#x3D; j</span><br><span class="line">        arry[sort_index], arry[i] &#x3D; arry[i], arry[sort_index]</span><br><span class="line"></span><br><span class="line">if __name__ &#x3D;&#x3D; &quot;__main__&quot;:</span><br><span class="line">    select_sort(arry)</span><br><span class="line">    print(arry)</span><br></pre></td></tr></table></figure>
+
+<p>  [1, 9, 10, 15, 16, 78, 134]</p>
+</li>
+<li><h3 id="插入排序"><a href="#插入排序" class="headerlink" title="插入排序"></a>插入排序</h3></li>
+</ul>
+<p>最开始以第一个元素为准,第二个元素与第一个比较,排序.第三个与前两个比较然后排序.以此类推.</p>
+<pre><code>rom __future__ import print_function, unicode_literals, division
+
+arry = [17, 23, 20, 14, 12, 25, 1, 20, 81, 14, 11, 12]
+
+
+def select_sort(arry):
+    length = len(arry)
+
+    for i in range(length - 1):
+        sort_index = i
+        for j in range(i, length):
+            if arry[j] &lt; arry[sort_index]:
+                sort_index = j
+        if sort_index != i:
+            arry[sort_index], arry[i] = arry[i], arry[sort_index]
+
+if __name__ == &quot;__main__&quot;:
+    select_sort(arry)
+    print(arry)
+</code></pre>
+<pre><code>[1, 11, 12, 12, 14, 14, 17, 20, 20, 23, 25, 81]
+</code></pre>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://clutchbear.gitee.io/2014/08/31/Algorithm_python/" data-id="ckm4nx1md00030ciec5rr1aul" data-title="用python实现冒泡排序 选择排序 插入排序" class="article-share-link">Share</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python/" rel="tag">python</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-hexo_install" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2014/08/18/hexo_install/" class="article-date">
+  <time class="dt-published" datetime="2014-08-17T18:12:11.000Z" itemprop="datePublished">2014-08-18</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2014/08/18/hexo_install/">hexo的安装步骤(已经失效)</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h3 id="1-设置git的SSH公钥"><a href="#1-设置git的SSH公钥" class="headerlink" title="1.设置git的SSH公钥"></a>1.设置git的SSH公钥</h3><ul>
+<li><p>打开终端,输入命令:</p>
+<pre><code>ssh-keygen -t rsa -C &quot;skywater@gmail.com&quot;
+</code></pre>
+</li>
+<li><p> 继续输入命令:</p>
+</li>
+<li><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd .SSH      </span><br><span class="line">subl id_rsa.pub</span><br></pre></td></tr></table></figure></li>
+</ul>
+<p>拷贝SSH公钥到github账户的SSH keys里面.</p>
+<ul>
+<li>输入命令:</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git config --global user.email &quot;skywater@gmail.com&quot;</span><br><span class="line">git config --global user.name &quot;playbear&quot;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h3 id="2-安装hexo环境-参考官网"><a href="#2-安装hexo环境-参考官网" class="headerlink" title="2. 安装hexo环境,参考官网"></a>2. 安装hexo环境,参考<a target="_blank" rel="noopener" href="http://hexo.io/docs/">官网</a></h3><ul>
+<li>安装node.js,打开终端,输入命令:</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew install node</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>安装nvm,命令:</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;creationix&#x2F;nvm&#x2F;v0.13.1&#x2F;install.sh | bash</span><br></pre></td></tr></table></figure>
+<ul>
+<li>安装完成后重启终端,然后运行:</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nvm install 0.10</span><br></pre></td></tr></table></figure>
+<ul>
+<li>安装Hexo:</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g hexo</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>初始化Hexo:</li>
+</ul>
+<figure class="highlight plain"><figcaption><span>playbear.github.io</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">cd playbear.github.io</span><br><span class="line">hexo init</span><br><span class="line">npm install</span><br><span class="line">hexo g</span><br><span class="line">hexo d</span><br></pre></td></tr></table></figure>
+
+<h3 id="3-常用hexo命令"><a href="#3-常用hexo命令" class="headerlink" title="3. 常用hexo命令"></a>3. 常用hexo命令</h3><figure class="highlight plain"><figcaption><span>n "new_file"(之后用mou编辑new_file.md)</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">hexo g</span><br><span class="line">hexo d</span><br></pre></td></tr></table></figure>
+
+<h3 id="4-hexo版本更新"><a href="#4-hexo版本更新" class="headerlink" title="4. hexo版本更新"></a>4. hexo版本更新</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm update -g</span><br></pre></td></tr></table></figure>
+<h3 id="如果重装系统后的安装，在hexo-g之后将备份的文件夹拷贝覆盖即可。"><a href="#如果重装系统后的安装，在hexo-g之后将备份的文件夹拷贝覆盖即可。" class="headerlink" title="如果重装系统后的安装，在hexo g之后将备份的文件夹拷贝覆盖即可。"></a>如果重装系统后的安装，在hexo g之后将备份的文件夹拷贝覆盖即可。</h3>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://clutchbear.gitee.io/2014/08/18/hexo_install/" data-id="ckm4nx1mu000t0cie7hss9ox0" data-title="hexo的安装步骤(已经失效)" class="article-share-link">Share</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hexo/" rel="tag">hexo</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-mac_reinstall" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2014/08/15/mac_reinstall/" class="article-date">
+  <time class="dt-published" datetime="2014-08-15T15:13:55.000Z" itemprop="datePublished">2014-08-15</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2014/08/15/mac_reinstall/">重新安装MAC后必做的设置步骤</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>1: 运行RealtekRTL81xx-0_0_90.pkg,安装显卡驱动.</p>
+<p>2: 运行MultiBeast,选择Drivers—Audio—Realtek ALCXXX—Without DST—ALC887/888b Current v100302,安装声卡驱动.</p>
+<p>3: 运行Appstore,升级到10.9.4.</p>
+<p>4: 安装完成,重启. </p>
+<p>5: 点击左上苹果标志,选择打开System Preferences </p>
+<ul>
+<li><p>选择打开Network,选择Ethernet,自动获取ip变成绿色后,点击Apply</p>
+</li>
+<li><p>选择打开Mouse,去掉Scroll direction:natural的勾选,左侧两个速度拉到最大.</p>
+</li>
+<li><p>选择打开Desk&amp;Screen Saver,选择Screen Saver,Start after选择Never</p>
+</li>
+<li><p>选择打开Energy Saver, Computer sleep和Display sleep都拉到Never</p>
+</li>
+<li><p>选择打开Keyboard,选择Modifier Keys, Option key改成Command, Command key改成Option.                                 选择Shortcuts—Input Sources, 勾选Select the previous input source 并将Spotlight的快捷键勾选去掉</p>
+</li>
+<li><p>选择打开Security&amp;Privacy,点击左下角的锁标志,输入密码,点选Allow apps download from: Anywhere,                                                并将Put hard disks to sleep when possible和Wake for Ethernet network access的勾选去掉</p>
+</li>
+</ul>
+<p>6:  Mac终端添加 sublime text 3打开方式,打开终端输入命令:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo ln -s &quot;&#x2F;Applications&#x2F;Sublime Text.app&#x2F;Contents&#x2F;SharedSupport&#x2F;bin&#x2F;subl&quot; &#x2F;usr&#x2F;bin&#x2F;subl</span><br></pre></td></tr></table></figure>
+
+<p>7: 运行Appstore,下载并安装Xcode,运行然后点击agree.然后打开终端,输入命令,用来安装Command Line Tools(命令行工具):</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">xcode-select --install</span><br></pre></td></tr></table></figure>
+
+<p>8: 安装brew:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ruby -e &quot;$(curl -fsSL https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Homebrew&#x2F;install&#x2F;master&#x2F;install)&quot;</span><br></pre></td></tr></table></figure>
+<p>9: 安装新版的iTerm2,命令行安装zsh</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">       curl -L https:&#x2F;&#x2F;raw.github.com&#x2F;robbyrussell&#x2F;oh-my-zsh&#x2F;master&#x2F;tools&#x2F;install.sh | sh</span><br><span class="line">&#96;&#96;&#96;    </span><br><span class="line">   更新zsh的命令: </span><br><span class="line"></span><br><span class="line">&#96;&#96;&#96;   </span><br><span class="line">  upgrade_oh_my_zsh</span><br></pre></td></tr></table></figure>
+
+
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://clutchbear.gitee.io/2014/08/15/mac_reinstall/" data-id="ckm4nx1nd00200cie59d040jp" data-title="重新安装MAC后必做的设置步骤" class="article-share-link">Share</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E9%BB%91%E8%8B%B9%E6%9E%9C/" rel="tag">黑苹果</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-sublime-plugin-sublime-tmpl" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2014/08/13/sublime-plugin-sublime-tmpl/" class="article-date">
+  <time class="dt-published" datetime="2014-08-13T12:12:07.000Z" itemprop="datePublished">2014-08-13</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2014/08/13/sublime-plugin-sublime-tmpl/">sublime text插件tmpl的python模板</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">#!&#x2F;usr&#x2F;bin&#x2F;env python</span><br><span class="line"># -*- coding: utf-8 -*-</span><br><span class="line"># @Date    : 2014-08-13 17:33:54</span><br><span class="line"># @Author  : ClutchBear (roc100year@gmail.com)</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://clutchbear.gitee.io/2014/08/13/sublime-plugin-sublime-tmpl/" data-id="ckm4nx1nu00330ciedfim2f1g" data-title="sublime text插件tmpl的python模板" class="article-share-link">Share</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E8%BD%AF%E4%BB%B6/" rel="tag">软件</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-no-contributions" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2014/08/11/no-contributions/" class="article-date">
+  <time class="dt-published" datetime="2014-08-11T03:36:01.000Z" itemprop="datePublished">2014-08-11</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2014/08/11/no-contributions/">contributions不显示在github上</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>最近不知道怎么搞的,hexo提交了茫茫多次到github上,但在github账号页面不显示contributions绿点.自己的努力没有显示出来,十分的不爽.<br>尝试各种方法解决,甚至去hexo的github页面提交issues,别人回答我说,hexo提交后就会有contributions显示的.<br>最后发现是.gitconfig不知道被哪个软件修改了,删掉.gitconfig配置文件.<br>再终端重新建立一个就行了:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config --global user.name &quot;你的名字&quot;</span><br><span class="line">git config --global user.email &quot;your_email@youremail.com&quot;</span><br></pre></td></tr></table></figure>
+
+<p>最后转帖一个高手的文章:<a target="_blank" rel="noopener" href="http://blog.segmentfault.com/spacewander/1190000000520300">什么样的contributions会被Github计算在内？</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://clutchbear.gitee.io/2014/08/11/no-contributions/" data-id="ckm4nx1nh002b0cieejze29xw" data-title="contributions不显示在github上" class="article-share-link">Share</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hexo/" rel="tag">hexo</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-to-be-continue" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2014/08/09/to-be-continue/" class="article-date">
+  <time class="dt-published" datetime="2014-08-09T15:41:11.000Z" itemprop="datePublished">2014-08-09</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2014/08/09/to-be-continue/">测试Markdown语法</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p><img src="http://ww1.sinaimg.cn/large/4399c9a5gw1ej85x3us3dj20et0iwwg4.jpg" alt="简明语法"></p>
+<h2 id="什么是-Markdown"><a href="#什么是-Markdown" class="headerlink" title="什么是 Markdown"></a>什么是 Markdown</h2><p>Markdown 是一种方便记忆、书写的纯文本标记语言，用户可以使用这些标记符号以最小的输入代价生成极富表现力的文档<br><strong>粗体</strong><br><em>斜体</em></p>
+<h3 id="单行代码"><a href="#单行代码" class="headerlink" title="单行代码"></a>单行代码</h3><pre><code>https://github.com/playbear/playbear.github.io.git
+</code></pre>
+<h3 id="多行代码"><a href="#多行代码" class="headerlink" title="多行代码"></a>多行代码</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@requires_authorization</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">SomeClass</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span>(<span class="params">self</span>)</span></span><br><span class="line"><span class="function">    <span class="title">pass</span></span></span><br><span class="line"><span class="function"></span></span><br><span class="line">if __name__ == &#x27;__main__&#x27;:</span><br><span class="line">    <span class="built_in">print</span> <span class="string">&#x27;hello world&#x27;</span></span><br></pre></td></tr></table></figure>
+<p>习书记说的特别好,接下来我补充几点:</p>
+<ul>
+<li>第一点 这里省略一万字</li>
+<li>第二点 这里省略两万字</li>
+<li>第三点 这里省略三万字</li>
+</ul>
+<p>强调    <em>斜体</em>    <strong>粗体</strong><br>链接    <a target="_blank" rel="noopener" href="http://playbear.github.com/">描述</a><br>图片</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://clutchbear.gitee.io/2014/08/09/to-be-continue/" data-id="ckm4nx1nz003f0ciebcgihf26" data-title="测试Markdown语法" class="article-share-link">Share</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Markdown/" rel="tag">Markdown</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-sublimall_intro" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2014/08/07/sublimall_intro/" class="article-date">
+  <time class="dt-published" datetime="2014-08-07T12:26:37.000Z" itemprop="datePublished">2014-08-07</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2014/08/07/sublimall_intro/">备份sublime text3个人配置的插件Sublimall(已经无效)</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>最近浏览v2ex网站发现了一款sublime text3的插件,名字叫sublimall,主要作用是备份sublime text3的个人配置.很适合我这样,经常折腾黑苹果,经常格式化硬盘的人.<br>sublimall的网站是<a target="_blank" rel="noopener" href="https://sublimall.org/">https://sublimall.org</a></p>
+<ul>
+<li>点击绿色的sign up for free按钮,输入账号密码等信息后在自己邮箱里面收取验证邮件.</li>
+<li>在自己<a target="_blank" rel="noopener" href="https://sublimall.org/account/">账号页面</a>,左下角是email和API key信息</li>
+<li>通过package control安装sublimall插件.</li>
+<li>sublimall会将配置和插件打包发送到这个网站上,用的压缩软件是7zip,因此需要安装7zip.</li>
+</ul>
+<p>在终端输入:</p>
+<pre><code>brew install p7zip
+</code></pre>
+<p>安装完成后,再输入:</p>
+<pre><code>where is 7za
+</code></pre>
+<p>安装正常的话,会在终端显示:</p>
+<pre><code>/usr/local/bin/7za
+</code></pre>
+<ul>
+<li>打开sublimall的setting-users<pre><code class="&#123;">  ////////////////////////////
+  //// Sublimall settings ////
+  ////////////////////////////
+  &quot;api_root_url&quot;: &quot;http://sublimall.org&quot;,
+  &quot;api_upload_url&quot;: &quot;/api/upload/&quot;,
+  &quot;api_retrieve_url&quot;: &quot;/api/retrieve/&quot;,
+  //上面几行不用管
+  ///////////////////////
+  //// User settings ////
+  ///////////////////////
+  &quot;email&quot;: &quot;roc100year@gmail.com&quot;,
+  //这里输入自己注册sublimall网站的邮箱
+  &quot;api_key&quot;: &quot;xxxxxxxxxxxxxxxxxxxx&quot;,
+  //这里输入网站账户页面左下角api key给的一串数字和字母
+  // Paths must be: &quot;Packages/SublimeCodeIntel&quot; or &quot;Installed Packages/Sublimall&quot;
+  &quot;ignore_packages&quot;: [],
+  // Set true if you want to exclude packages managed by Package Control
+  &quot;exclude_from_package_control&quot;: false,
+  // Set false if you don&#39;t want to encrypt your configuration
+  &quot;encrypt&quot;: true,
+  // Upload timeout in seconds
+  &quot;http_upload_timeout&quot;: 120,
+  // Download timeout in seconds
+  &quot;http_download_timeout&quot;: 120,
+  // Path to 7zip executable, though Sublimall tries to find it out itself
+  &quot;7za_path&quot;: &quot;/usr/local/bin/7za&quot;,
+  //这里输入压缩软件所在的路径   
+  // HTTP proxy to use for HTTP requests. Support for authentication
+  // Examples: http://user:password@host:port or http://ip:port
+  &quot;http_proxy&quot;: &quot;&quot;
+  &#125;       
+</code></pre>
+</li>
+<li>打开preferences–package setting–sublimall–upload有一个压缩密码的空白行出现,输入压缩包的密码或者直接打回车.等待压缩和上传就好了.</li>
+<li>sublimall–retrieve 是取回备份的个人配置.</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://clutchbear.gitee.io/2014/08/07/sublimall_intro/" data-id="ckm4nx1nt002z0cie9pry0oi6" data-title="备份sublime text3个人配置的插件Sublimall(已经无效)" class="article-share-link">Share</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E8%BD%AF%E4%BB%B6/" rel="tag">软件</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-hackmac" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2014/07/16/hackmac/" class="article-date">
+  <time class="dt-published" datetime="2014-07-16T00:35:13.000Z" itemprop="datePublished">2014-07-16</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2014/07/16/hackmac/">折腾黑苹果</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>   这几天折腾下来，终于把黑苹果安装成功了。真是累。</p>
+<p>   我原来对黑苹果毫无概念，不知道怎么想的，想安装一下试试。</p>
+<p>   机子配置：</p>
+<p>   CPU: INTEL E3 1230V2</p>
+<p>   主板：技嘉B75m-D3V</p>
+<p>   显卡：微星6850 hawk</p>
+<h2 id="安装步骤"><a href="#安装步骤" class="headerlink" title="安装步骤"></a>安装步骤</h2><p>   先谷歌搜索“黑苹果”，根据第一个条目，点进威锋网，按照帖子教的步骤一步一步来，安装完成，启动时候始终菊花，死活进不去。只好再换一个帖子来，找了一个U盘安装的帖子，这次安装成功了，但是键盘几个键始终无效，比如空格键 退格键 tab键等，显卡也不成功。然后开始了，各种看帖子的节奏，远景论坛 威锋网等等。</p>
+<p>   最终安装了远景论坛ID为：七月流火的U盘版的黑苹果，基本上算完美了，安装后显卡自动驱动成功，用MultiBeast安装网卡和声卡驱动。网卡驱动安装完成重启后，在系统偏好里面的网络选择以太网，等自动配置ip成功后，点击应用。键盘问题因为NOPPOO跟MAC系统不兼容，改插PS/2接口候解决。</p>
+<p>   七月流火的帖子里面提供的是MAC 10.9.3版本，安装完成后，可以在appstore里面升级到最新的10.9.4   </p>
+<h2 id="我习惯的软件："><a href="#我习惯的软件：" class="headerlink" title="我习惯的软件："></a>我习惯的软件：</h2><p>   浏览器：Chrome，mac系统里面chrome的手势插件跟右键冲突，所以在页面上经常使用右键选择或者拷贝的时候，最好把各种手势或者拖拽插件禁掉。</p>
+<p>   输入法：搜狗，很多人推荐百度，但是我输入的时候又个不好的习惯，经常把ang或者ing输入成agn或者ign，谷歌输入法或者搜狗输入法能自动辨识，百度输入法不可以，但是mac系统里面没有我win和安卓里面最习惯的谷歌输入法，我只好选择搜狗。</p>
+<p>   视频播放器：射手播放器1.18版</p>
+<p>   翻墙： GoaentX，根据网上教程一步步来即可，如果把MAC系统自带的python升级到 2.7.8可能导致翻墙失效。<br>         用久之后发现ShadowsocksX在mac下面表现更好.</p>
+<p>   终端：安装的是oh-my-zsh，注意 自己改字体的时候，要勾选：平滑文本。然后安装iterm2</p>
+<p>   MAC下读写WIN系统的NFS分区：Texera NTFS for Mac</p>
+<p>   快速搜索NFS分区：Easyfind   </p>
+<p>   RAR解压缩软件：The Unarchiver</p>
+<p>   笔记软件：Evernote</p>
+<p>   其他软件：Finder加强插件XtraFind，Alfred，Sublime Text 3，dash，微信MAC版，teamviewer,ParallelsDesktop, easyfind, airmail2等。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://clutchbear.gitee.io/2014/07/16/hackmac/" data-id="ckm4nx1ms000o0cie07ji9huk" data-title="折腾黑苹果" class="article-share-link">Share</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E9%BB%91%E8%8B%B9%E6%9E%9C/" rel="tag">黑苹果</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-fuck-hexo-coder" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2014/07/16/fuck-hexo-coder/" class="article-date">
+  <time class="dt-published" datetime="2014-07-16T00:20:39.000Z" itemprop="datePublished">2014-07-16</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2014/07/16/fuck-hexo-coder/">hexo新版的一个重大bug或者说改动</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>连续hexo g出错,害的我还以为我系统坏掉了.<br>重装了好几次.<br>原来是hexo 最新版本2.8.0跟主题出现冲突了<br>更改了一些东西.</p>
+<h3 id="官网的回答"><a href="#官网的回答" class="headerlink" title="官网的回答"></a>官网的回答</h3><p>tommy351 commented 2 days ago<br>YAML parser was changed in Hexo 2.8. You have to wrap strings like this with quotation marks.</p>
+<p>archive_b: Archives: %s =&gt; archive_b: “Archives: %s”</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues/722">https://github.com/hexojs/hexo/issues/722</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://clutchbear.gitee.io/2014/07/16/fuck-hexo-coder/" data-id="ckm4nx1mr000m0cie6rsv2aih" data-title="hexo新版的一个重大bug或者说改动" class="article-share-link">Share</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hexo/" rel="tag">hexo</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-hello-world" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2014/07/14/hello-world/" class="article-date">
+  <time class="dt-published" datetime="2014-07-14T00:20:39.000Z" itemprop="datePublished">2014-07-14</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2014/07/14/hello-world/">今天试了一个新的hexo主题</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>感觉很不错,符合我的审美.</p>
+<p>github源码的网址是: </p>
+<pre><code> https://github.com/xiangming/landscape-plus
+</code></pre>
+<p>例子网站是: <a target="_blank" rel="noopener" href="http://reqianduan.com/">http://reqianduan.com/</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://clutchbear.gitee.io/2014/07/14/hello-world/" data-id="ckm4nuv3q0000pwie4fwkafi3" data-title="今天试了一个新的hexo主题" class="article-share-link">Share</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hexo/" rel="tag">hexo</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+
+
+  <nav id="page-nav">
+    
+    <a class="extend prev" rel="prev" href="/page/6/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><a class="page-number" href="/page/6/">6</a><span class="page-number current">7</span>
+  </nav>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Markdown/" rel="tag">Markdown</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MySQL/" rel="tag">MySQL</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Windows/" rel="tag">Windows</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/" rel="tag">hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/html/" rel="tag">html</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/iOS/" rel="tag">iOS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/java/" rel="tag">java</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mac/" rel="tag">mac</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python/" rel="tag">python</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python-java/" rel="tag">python, java</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91/" rel="tag">科学上网</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%B3%BB%E7%BB%9F/" rel="tag">系统</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%BD%AF%E4%BB%B6/" rel="tag">软件</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%BD%AF%E4%BB%B6-windows-linux/" rel="tag">软件, windows, linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%BB%91%E8%8B%B9%E6%9E%9C/" rel="tag">黑苹果</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/Markdown/" style="font-size: 10px;">Markdown</a> <a href="/tags/MySQL/" style="font-size: 10px;">MySQL</a> <a href="/tags/Windows/" style="font-size: 10px;">Windows</a> <a href="/tags/hexo/" style="font-size: 15px;">hexo</a> <a href="/tags/html/" style="font-size: 10px;">html</a> <a href="/tags/iOS/" style="font-size: 10px;">iOS</a> <a href="/tags/java/" style="font-size: 12.5px;">java</a> <a href="/tags/mac/" style="font-size: 10px;">mac</a> <a href="/tags/python/" style="font-size: 20px;">python</a> <a href="/tags/python-java/" style="font-size: 10px;">python, java</a> <a href="/tags/%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91/" style="font-size: 12.5px;">科学上网</a> <a href="/tags/%E7%B3%BB%E7%BB%9F/" style="font-size: 12.5px;">系统</a> <a href="/tags/%E8%BD%AF%E4%BB%B6/" style="font-size: 17.5px;">软件</a> <a href="/tags/%E8%BD%AF%E4%BB%B6-windows-linux/" style="font-size: 10px;">软件, windows, linux</a> <a href="/tags/%E9%BB%91%E8%8B%B9%E6%9E%9C/" style="font-size: 15px;">黑苹果</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">January 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/11/">November 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/08/">August 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">April 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">March 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">January 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">November 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/08/">August 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/07/">July 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">May 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/04/">April 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/10/">October 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/09/">September 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/08/">August 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/09/">September 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/08/">August 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/06/">June 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/03/">March 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/02/">February 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/11/">November 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/10/">October 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/08/">August 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/07/">July 2014</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2019/01/08/vagran-setting/">vagrant的安装和设置</a>
+          </li>
+        
+          <li>
+            <a href="/2018/11/28/redis-4-0-bloom/">redis4.0以上版本开启bloomfilter插件的方法</a>
+          </li>
+        
+          <li>
+            <a href="/2018/11/20/win-terminus-md/">terminus的安装和配置</a>
+          </li>
+        
+          <li>
+            <a href="/2018/08/13/wsl-setting/">个人wsl设置</a>
+          </li>
+        
+          <li>
+            <a href="/2018/04/14/handle-some-web-font-crawl/">某8网站字体加密爬虫的处理方法</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2021 小信<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.4.1.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

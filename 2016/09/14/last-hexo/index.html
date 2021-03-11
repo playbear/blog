@@ -4,14 +4,19 @@
   <meta charset="utf-8">
   
   
-  <title>Archives | 40+岁大龄码农的自我修养</title>
+  <title>hexo最新版本的安装和数据恢复 | 40+岁大龄码农的自我修养</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="40+岁大龄码农的自我修养">
-<meta property="og:url" content="https://clutchbear.gitee.io/archives/index.html">
+  <meta name="description" content="最近用webstorm运行编辑好的html网页文件,总是显示无法打开,改localhost端口不行. 网上搜索了半天,发现很少人出现这种问题. 我怀疑是MAC osx系统以前装的东西跟webstorm冲突了. 只好重新安装我的黑苹果系统.    安装一帆风顺,各种软件也安装配置正常. 但是安装和恢复hexo博客文件的时候遇到的问题, 按照以前的方法总是没法恢复成功.只好按hexo 官网的最新">
+<meta property="og:type" content="article">
+<meta property="og:title" content="hexo最新版本的安装和数据恢复">
+<meta property="og:url" content="https://clutchbear.gitee.io/2016/09/14/last-hexo/index.html">
 <meta property="og:site_name" content="40+岁大龄码农的自我修养">
+<meta property="og:description" content="最近用webstorm运行编辑好的html网页文件,总是显示无法打开,改localhost端口不行. 网上搜索了半天,发现很少人出现这种问题. 我怀疑是MAC osx系统以前装的东西跟webstorm冲突了. 只好重新安装我的黑苹果系统.    安装一帆风顺,各种软件也安装配置正常. 但是安装和恢复hexo博客文件的时候遇到的问题, 按照以前的方法总是没法恢复成功.只好按hexo 官网的最新">
 <meta property="og:locale">
+<meta property="article:published_time" content="2016-09-14T10:47:57.000Z">
+<meta property="article:modified_time" content="2016-10-18T09:06:10.000Z">
 <meta property="article:author" content="小信">
+<meta property="article:tag" content="hexo">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternate" href="/atom.xml" title="40+岁大龄码农的自我修养" type="application/atom+xml">
@@ -69,236 +74,107 @@
 </header>
 
       <div class="outer">
-        <section id="main">
-  
-  
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2019" class="archive-year">2019</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2019/01/08/vagran-setting/" class="archive-article-date">
-  <time class="dt-published" datetime="2019-01-08T02:08:20.000Z" itemprop="datePublished">Jan 8</time>
+        <section id="main"><article id="post-last-hexo" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2016/09/14/last-hexo/" class="article-date">
+  <time class="dt-published" datetime="2016-09-14T10:47:57.000Z" itemprop="datePublished">2016-09-14</time>
 </a>
-      
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/01/08/vagran-setting/">vagrant的安装和设置</a>
+    <h1 class="p-name article-title" itemprop="headline name">
+      hexo最新版本的安装和数据恢复
     </h1>
   
 
-    </header>
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>   最近用webstorm运行编辑好的html网页文件,总是显示无法打开,改localhost端口不行. 网上搜索了半天,发现很少人出现这种问题. 我怀疑是MAC osx系统以前装的东西跟webstorm冲突了. 只好重新安装我的黑苹果系统.</p>
+<p>   安装一帆风顺,各种软件也安装配置正常. 但是安装和恢复hexo博客文件的时候遇到的问题, 按照以前的方法总是没法恢复成功.只好按hexo 官网的最新方法一步一步的重新安装了.</p>
+<ul>
+<li>更新github的SSH key, 在终端输入命令一路回车生成SSH</li>
+</ul>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">ssh-keygen -t rsa -C &quot;your_email@example.com&quot;</span><br><span class="line"></span><br><span class="line">cd ~&#x2F;.ssh</span><br><span class="line">subl id_rsa.pub</span><br></pre></td></tr></table></figure>
+
+<p>  将sublime text里面的ssh密钥拷贝粘贴到github账户里面.</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ssh -T git@github.com</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>  验证ssh配置是否成功.</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config --global user.name &quot;用户名&quot;</span><br><span class="line">git config --global user.email &quot;邮箱地址&quot;</span><br></pre></td></tr></table></figure>
+<p>  运行上面命令,可以避免每次hexo d提交的时候都输入账户密码</p>
+<ul>
+<li><p>安装Node.js, hexo官网提供的是用命令安装的方式, 我发现还是去Node.js官网下载一个安装程序方便.<br><a target="_blank" rel="noopener" href="https://nodejs.org/download/">下载地址</a></p>
+</li>
+<li><p>安装Hexo</p>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g hexo-cli</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>初始化</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hexo init mrxin.github.io</span><br><span class="line">cd mrxin.github.io</span><br><span class="line">npm install</span><br></pre></td></tr></table></figure>
+<p>完成后, 用 sublime text打开 _config.yml进行配置, 参考以前的配置文件, 需要注意的是, 最后deploy部分,以前type是github,现在改成了git.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">deploy:</span><br><span class="line">  type: git</span><br><span class="line">  repository: https:&#x2F;&#x2F;github.com&#x2F;MrXin&#x2F;MrXin.github.io.git</span><br><span class="line">  branch: master</span><br></pre></td></tr></table></figure>
+
+
+<p>这里还有一个重要的步骤是现在需要安装”hexo-deployer-git”,方法:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>主题安装和配置:<br> 我喜欢的主题叫”Landscape-plus”, 不知道是hexo的bug还是这个主题的不过,标签或者分类只能显示10篇文章的主题.<br> 我又挑了一款不好看的主题,叫maupassant,其<a target="_blank" rel="noopener" href="https://github.com/tufu9441/maupassant-hexo">官网</a>.<br> 使用方法比较简单,按照官方步骤来就行了,最后在多说参数后填上:clutchbear即可.</li>
+</ul>
+<ul>
+<li>最后将以前备份的md文件拷贝到_posts目录里面, 生成静态页面传到github上.</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">hexo g</span><br><span class="line">hexo d</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>Rss需要按装插件:</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-generator-feed@1 --save</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://clutchbear.gitee.io/2016/09/14/last-hexo/" data-id="ckm4nx1n3001f0cie8ahk49i1" data-title="hexo最新版本的安装和数据恢复" class="article-share-link">Share</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hexo/" rel="tag">hexo</a></li></ul>
+
+    </footer>
   </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2016/10/22/mac-setting/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          黑苹果MAC os 10.11新安装后的设置和软件安装
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2016/09/13/zsh-prompt/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">修改zsh命令提示符</div>
+    </a>
+  
+</nav>
+
+  
 </article>
-  
-    
-    
-      
-        </div></section>
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2018" class="archive-year">2018</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2018/11/28/redis-4-0-bloom/" class="archive-article-date">
-  <time class="dt-published" datetime="2018-11-28T07:23:43.000Z" itemprop="datePublished">Nov 28</time>
-</a>
-      
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/11/28/redis-4-0-bloom/">redis4.0以上版本开启bloomfilter插件的方法</a>
-    </h1>
-  
 
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2018/11/20/win-terminus-md/" class="archive-article-date">
-  <time class="dt-published" datetime="2018-11-20T05:31:35.000Z" itemprop="datePublished">Nov 20</time>
-</a>
-      
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/11/20/win-terminus-md/">terminus的安装和配置</a>
-    </h1>
-  
-
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2018/08/13/wsl-setting/" class="archive-article-date">
-  <time class="dt-published" datetime="2018-08-13T11:14:05.000Z" itemprop="datePublished">Aug 13</time>
-</a>
-      
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/08/13/wsl-setting/">个人wsl设置</a>
-    </h1>
-  
-
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2018/04/14/handle-some-web-font-crawl/" class="archive-article-date">
-  <time class="dt-published" datetime="2018-04-14T08:48:38.000Z" itemprop="datePublished">Apr 14</time>
-</a>
-      
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/04/14/handle-some-web-font-crawl/">某8网站字体加密爬虫的处理方法</a>
-    </h1>
-  
-
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2018/04/14/java-python-s-map/" class="archive-article-date">
-  <time class="dt-published" datetime="2018-04-13T16:49:51.000Z" itemprop="datePublished">Apr 14</time>
-</a>
-      
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/04/14/java-python-s-map/">python和java的类当做map的键</a>
-    </h1>
-  
-
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2018/03/19/javaProxy/" class="archive-article-date">
-  <time class="dt-published" datetime="2018-03-19T08:36:53.000Z" itemprop="datePublished">Mar 19</time>
-</a>
-      
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/03/19/javaProxy/">jdk动态代理和Cglib代理笔记</a>
-    </h1>
-  
-
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2018/03/19/javaAnnotation/" class="archive-article-date">
-  <time class="dt-published" datetime="2018-03-19T06:30:46.000Z" itemprop="datePublished">Mar 19</time>
-</a>
-      
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/03/19/javaAnnotation/">java注解笔记</a>
-    </h1>
-  
-
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2018/01/26/spring-Transactional/" class="archive-article-date">
-  <time class="dt-published" datetime="2018-01-26T03:53:39.000Z" itemprop="datePublished">Jan 26</time>
-</a>
-      
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/01/26/spring-Transactional/">一次springboot事务bug的处理</a>
-    </h1>
-  
-
-    </header>
-  </div>
-</article>
-  
-    
-    
-      
-        </div></section>
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2017" class="archive-year">2017</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2017/11/20/mac-java-maven-md/" class="archive-article-date">
-  <time class="dt-published" datetime="2017-11-20T10:38:36.000Z" itemprop="datePublished">Nov 20</time>
-</a>
-      
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/11/20/mac-java-maven-md/">mac 安装和设置java maven</a>
-    </h1>
-  
-
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-
-  <nav id="page-nav">
-    
-    <span class="page-number current">1</span><a class="page-number" href="/archives/page/2/">2</a><a class="page-number" href="/archives/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/archives/page/7/">7</a><a class="extend next" rel="next" href="/archives/page/2/">Next &raquo;</a>
-  </nav>
 
 </section>
         

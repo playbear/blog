@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>python实现虎扑（hoopchina）自动登录和点亮 | 40+岁大龄码农的自我修养</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="1:自动登录的代码12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455565758596061626364656667686970717273747576777879#!&#x2F;usr&#x2F;bin&#x2F;env python# -*-">
+<meta property="og:type" content="article">
+<meta property="og:title" content="python实现虎扑（hoopchina）自动登录和点亮">
+<meta property="og:url" content="https://clutchbear.gitee.io/2015/09/25/login-hupu/index.html">
+<meta property="og:site_name" content="40+岁大龄码农的自我修养">
+<meta property="og:description" content="1:自动登录的代码12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455565758596061626364656667686970717273747576777879#!&#x2F;usr&#x2F;bin&#x2F;env python# -*-">
+<meta property="og:locale">
+<meta property="og:image" content="http://ww3.sinaimg.cn/large/7293e3b7jw1ewf002rzcij20pw0fgwiv.jpg">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/7293e3b7jw1ewf070i4voj209r04cglz.jpg">
+<meta property="article:published_time" content="2015-09-25T12:57:53.000Z">
+<meta property="article:modified_time" content="2017-07-24T06:44:50.000Z">
+<meta property="article:author" content="小信">
+<meta property="article:tag" content="python">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://ww3.sinaimg.cn/large/7293e3b7jw1ewf002rzcij20pw0fgwiv.jpg">
+  
+    <link rel="alternate" href="/atom.xml" title="40+岁大龄码农的自我修养" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">40+岁大龄码农的自我修养</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://clutchbear.gitee.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-login-hupu" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2015/09/25/login-hupu/" class="article-date">
+  <time class="dt-published" datetime="2015-09-25T12:57:53.000Z" itemprop="datePublished">2015-09-25</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      python实现虎扑（hoopchina）自动登录和点亮
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h3 id="1-自动登录的代码"><a href="#1-自动登录的代码" class="headerlink" title="1:自动登录的代码"></a>1:自动登录的代码</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br></pre></td><td class="code"><pre><span class="line">#!&#x2F;usr&#x2F;bin&#x2F;env python</span><br><span class="line"># -*- coding: utf-8 -*-</span><br><span class="line">import requests</span><br><span class="line">import time</span><br><span class="line">import sys</span><br><span class="line">from bs4 import BeautifulSoup</span><br><span class="line"></span><br><span class="line"># 登录的头部信息</span><br><span class="line">my_headers &#x3D; &#123;</span><br><span class="line">    &#39;User-Agent&#39;: &#39;Mozilla&#x2F;5.0 (Windows NT 6.1; WOW64; rv:40.0) Gecko&#x2F;20100101 Firefox&#x2F;40.0&#39;,</span><br><span class="line">    &#39;Host&#39;: &#39;passport.hupu.com&#39;,</span><br><span class="line">    &#39;Referer&#39;: &#39;http:&#x2F;&#x2F;passport.hupu.com&#x2F;pc&#x2F;login?project&#x3D;bbs&amp;from&#x3D;pc&#39;,</span><br><span class="line">    # &#39;Cookie &#39;: &quot;_cnzz_CV30020080&#x3D;buzi_cookie%7Cdc42405e.675b.386f.8396.e1e33e42953b%7C-1; __gads&#x3D;ID&#x3D;15c18186521000ee:T&#x3D;1443103052:S&#x3D;ALNI_MZ84dig34sQNsPR7xvUlQlQ2H7pFg; _dacevid3&#x3D;dc42405e.675b.386f.8396.e1e33e42953b; vjuids&#x3D;8ee89313a.14fffb0fe83.0.32078b2e; vjlast&#x3D;1443103834.1443103834.30; __dacewap&#x3D;0xc8e6088248ba6cca; _HUPUSSOID&#x3D;16672149-8304-4af5-8a1f-924337794477; _CLT&#x3D;918ebe7bb324d8673460f7af1d701a5c; __dacevst&#x3D;ce2e6fb5.b67f434d|1443110107591; CNZZDATA30020080&#x3D;cnzz_eid%3D1429176686-1443106302-http%253A%252F%252Fbbs.hupu.com%252F%26ntime%3D1443106302; _cnzz_CV30020080&#x3D;buzi_cookie%7Cdc42405e.675b.386f.8396.e1e33e42953b%7C-1&quot;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line">s &#x3D; requests.session()</span><br><span class="line"></span><br><span class="line"># 用户名和密码的post信息</span><br><span class="line">data &#x3D; &#123;</span><br><span class="line">    &#39;username&#39;: &#39;用户名&#39;,</span><br><span class="line">    &#39;password&#39;: &#39;密码&#39;,</span><br><span class="line">&#125;</span><br><span class="line">time.sleep(2)</span><br><span class="line"># 验证码</span><br><span class="line">verifyimg_url &#x3D; &#39;http:&#x2F;&#x2F;passport.hupu.com&#x2F;pc&#x2F;verifyimg&#39;</span><br><span class="line"></span><br><span class="line">f &#x3D; open(&#39;img.jpg&#39;, &#39;wb&#39;)</span><br><span class="line">imgreq &#x3D; requests.get(verifyimg_url)</span><br><span class="line">f.write(imgreq.content)</span><br><span class="line">f.close()</span><br><span class="line"></span><br><span class="line"># 验证码目前需要手动输入, 没有找到很精确辨识验证码的库.</span><br><span class="line">verifyimg &#x3D; raw_input(&#39;verifyimg code:\n&#39;).strip()</span><br><span class="line">data[&#39;verifyCode&#39;] &#x3D; verifyimg</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">loginURL &#x3D; &#39;http:&#x2F;&#x2F;passport.hupu.com&#x2F;pc&#x2F;login&#x2F;member.action&#39;</span><br><span class="line">try:</span><br><span class="line">    reqlogin &#x3D; s.post(loginURL, data&#x3D;data, headers&#x3D;my_headers)</span><br><span class="line">    print reqlogin.json()</span><br><span class="line">    uid &#x3D; str(reqlogin.json()[&#39;msg&#39;][&#39;uid&#39;])</span><br><span class="line">    tag &#x3D; str(reqlogin.json()[&#39;msg&#39;][&#39;tag&#39;])</span><br><span class="line">except Exception as e:</span><br><span class="line">    print e</span><br><span class="line">    sys.exit(1)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">url &#x3D; &#39;http:&#x2F;&#x2F;passport.hupu.com&#x2F;m&#x2F;2&#x2F;login&#x2F;crossdomain?uid&#x3D;&#39; + \</span><br><span class="line">    uid + &#39;&amp;freeLogin&#x3D;true&amp;tag&#x3D;&#39; + tag</span><br><span class="line"># print url</span><br><span class="line"></span><br><span class="line">req &#x3D; s.get(url, headers&#x3D;my_headers)</span><br><span class="line">req &#x3D; s.get(&#39;http:&#x2F;&#x2F;passport.hupu.com&#x2F;pc&#x2F;redirectJumpUrl&#39;, headers&#x3D;my_headers)</span><br><span class="line"></span><br><span class="line">cookies &#x3D; reqlogin.cookies</span><br><span class="line">time.sleep(2)</span><br><span class="line"></span><br><span class="line"># 这个头部信息跟登录时候不一样,不能用那个的.</span><br><span class="line">liangle_headers &#x3D; &#123;&#39;User-Agent&#39;: &#39;Mozilla&#x2F;5.0 (Windows NT 6.1; WOW64; rv:40.0) Gecko&#x2F;20100101 Firefox&#x2F;40.0&#39;,</span><br><span class="line">                   &#39;Host&#39;: &#39;bbs.hupu.com&#39;,</span><br><span class="line">                   &#39;Referer&#39;: &#39;http:&#x2F;&#x2F;bbs.hupu.com&#39;</span><br><span class="line">                   &#125;</span><br><span class="line"></span><br><span class="line"># 用小黑屋测试, 这个版块每有相应有权限的账号是没法参观的.</span><br><span class="line">banzhu_URL &#x3D; &#39;http:&#x2F;&#x2F;bbs.hupu.com&#x2F;66&#39;</span><br><span class="line"></span><br><span class="line">banzhu_req &#x3D; requests.get(banzhu_URL, headers&#x3D;liangle_headers, cookies&#x3D;cookies)</span><br><span class="line">f &#x3D; open(&#39;hupu.html&#39;, &#39;w&#39;)</span><br><span class="line">f.write(banzhu_req.content)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">banzhu_req.encoding &#x3D; &#39;GB2312&#39;</span><br><span class="line">soup &#x3D; BeautifulSoup(banzhu_req.text, &quot;html.parser&quot;)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">tiezi_lists &#x3D; soup.find(&#39;table&#39;, id&#x3D;&#39;pl&#39;).find_all(&#39;td&#39;, class_&#x3D;&#39;p_title&#39;)</span><br><span class="line">for tiezi in tiezi_lists:</span><br><span class="line">    print &quot; &quot;.join(tiezi.get_text().split()).encode(&#39;utf-8&#39;)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p><img src="http://ww3.sinaimg.cn/large/7293e3b7jw1ewf002rzcij20pw0fgwiv.jpg"></p>
+<p>今天在v2ex上看到一个大神说,如果遇到验证码登录的网站,一般是现在chrome里面手动登陆一次,然后把cookie拷贝出来,放到头文件里面.<br>我试了一下果然可以,比需要手动输入方便多了.不过这种方法有个缺陷就是不能短时间内登录多次.</p>
+<h3 id="2-自动点亮的代码"><a href="#2-自动点亮的代码" class="headerlink" title="2: 自动点亮的代码"></a>2: 自动点亮的代码</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br></pre></td><td class="code"><pre><span class="line">#!&#x2F;usr&#x2F;bin&#x2F;env python</span><br><span class="line"># -*- coding: utf-8 -*-</span><br><span class="line">import requests</span><br><span class="line">import time</span><br><span class="line">import sys</span><br><span class="line"></span><br><span class="line"># 登录的头部信息</span><br><span class="line">my_headers &#x3D; &#123;</span><br><span class="line">    &#39;User-Agent&#39;: &#39;Mozilla&#x2F;5.0 (Windows NT 6.1; WOW64; rv:40.0) Gecko&#x2F;20100101 Firefox&#x2F;40.0&#39;,</span><br><span class="line">    &#39;Host&#39;: &#39;passport.hupu.com&#39;,</span><br><span class="line">    &#39;Referer&#39;: &#39;http:&#x2F;&#x2F;passport.hupu.com&#x2F;pc&#x2F;login?project&#x3D;bbs&amp;from&#x3D;pc&#39;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">s &#x3D; requests.session()</span><br><span class="line"></span><br><span class="line"># 用户名和密码的post信息</span><br><span class="line">data &#x3D; &#123;</span><br><span class="line">    &#39;username&#39;: &#39;&#39;,</span><br><span class="line">    &#39;password&#39;: &#39;&#39;,</span><br><span class="line">&#125;</span><br><span class="line">time.sleep(2)</span><br><span class="line"># 验证码</span><br><span class="line">verifyimg_url &#x3D; &#39;http:&#x2F;&#x2F;passport.hupu.com&#x2F;pc&#x2F;verifyimg&#39;</span><br><span class="line"></span><br><span class="line">f &#x3D; open(&#39;img.jpg&#39;, &#39;wb&#39;)</span><br><span class="line">imgreq &#x3D; requests.get(verifyimg_url)</span><br><span class="line">f.write(imgreq.content)</span><br><span class="line">f.close()</span><br><span class="line"></span><br><span class="line"># 验证码目前需要手动输入, 没有找到很精确辨识验证码的库.</span><br><span class="line">verifyimg &#x3D; raw_input(&#39;verifyimg code:\n&#39;).strip()</span><br><span class="line">data[&#39;verifyCode&#39;] &#x3D; verifyimg</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">loginURL &#x3D; &#39;http:&#x2F;&#x2F;passport.hupu.com&#x2F;pc&#x2F;login&#x2F;member.action&#39;</span><br><span class="line">try:</span><br><span class="line">    reqlogin &#x3D; s.post(loginURL, data&#x3D;data, headers&#x3D;my_headers)</span><br><span class="line">    print reqlogin.json()[&#39;code&#39;]</span><br><span class="line">    # uid &#x3D; str(reqlogin.json()[&#39;msg&#39;][&#39;uid&#39;])</span><br><span class="line">    # tag &#x3D; str(reqlogin.json()[&#39;msg&#39;][&#39;tag&#39;])</span><br><span class="line">except Exception as e:</span><br><span class="line">    print e</span><br><span class="line">    sys.exit(1)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"># url &#x3D; &#39;http:&#x2F;&#x2F;passport.hupu.com&#x2F;m&#x2F;2&#x2F;login&#x2F;crossdomain?uid&#x3D;&#39; + \</span><br><span class="line">#     uid + &#39;&amp;freeLogin&#x3D;true&amp;tag&#x3D;&#39; + tag</span><br><span class="line"># # print url</span><br><span class="line"></span><br><span class="line"># req &#x3D; s.get(url, headers&#x3D;my_headers)</span><br><span class="line"># req &#x3D; s.get(&#39;http:&#x2F;&#x2F;passport.hupu.com&#x2F;pc&#x2F;redirectJumpUrl&#39;, headers&#x3D;my_headers)</span><br><span class="line"></span><br><span class="line">cookies &#x3D; reqlogin.cookies</span><br><span class="line">time.sleep(2)</span><br><span class="line"></span><br><span class="line"># 这个头部信息跟登录时候不一样,不能用那个的.</span><br><span class="line">liangle_headers &#x3D; &#123;&#39;User-Agent&#39;: &#39;Mozilla&#x2F;5.0 (Windows NT 6.1; WOW64; rv:40.0) Gecko&#x2F;20100101 Firefox&#x2F;40.0&#39;,</span><br><span class="line">                   &#39;Host&#39;: &#39;bbs.hupu.com&#39;,</span><br><span class="line">                   &#39;Referer&#39;: &#39;http:&#x2F;&#x2F;bbs.hupu.com&#39;</span><br><span class="line">                   &#125;</span><br><span class="line"></span><br><span class="line"># authorid是被点亮那个回帖人的数字id, fid是板块数字id, pid此回帖人的第多少个帖子, tid是这个主贴的数字id</span><br><span class="line"># 这些数据可以用bs4在网页中得到.</span><br><span class="line">liangle_data &#x3D; &#123;</span><br><span class="line">    &#39;authorid&#39;: &#39;16920413&#39;,</span><br><span class="line">    &#39;fid&#39;: &#39;3913&#39;,</span><br><span class="line">    &#39;pid&#39;: &#39;6103&#39;,</span><br><span class="line">    &#39;state&#39;: &#39;1&#39;,</span><br><span class="line">    &#39;tid&#39;: &#39;12615933&#39;,</span><br><span class="line">    &#39;token&#39;: &#39;2e018203ea6a482c17847289989cf66f&#39;,</span><br><span class="line">&#125;</span><br><span class="line">liangle_req &#x3D; s.post(&#39;http:&#x2F;&#x2F;bbs.hupu.com&#x2F;ajax&#x2F;lights.ajax.php&#39;,</span><br><span class="line">                     data&#x3D;liangle_data, headers&#x3D;liangle_headers, cookies&#x3D;cookies)</span><br><span class="line"></span><br><span class="line">print liangle_req.content</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p><img src="http://ww1.sinaimg.cn/large/7293e3b7jw1ewf070i4voj209r04cglz.jpg"><br>code是1表示点亮成功, num是被点亮的次数..</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://clutchbear.gitee.io/2015/09/25/login-hupu/" data-id="ckm4nx1n4001h0cie01sxd8cn" data-title="python实现虎扑（hoopchina）自动登录和点亮" class="article-share-link">Share</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python/" rel="tag">python</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2015/09/29/scrapy/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          个人爬虫常用的几个知识点
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2015/09/25/taobao-ssl3-error/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Mac10.10系统下用python抓取淘宝时出现sslv3 alert handshake failure (_ssl.c:590)的解决办法</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Markdown/" rel="tag">Markdown</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MySQL/" rel="tag">MySQL</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Windows/" rel="tag">Windows</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/" rel="tag">hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/html/" rel="tag">html</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/iOS/" rel="tag">iOS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/java/" rel="tag">java</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mac/" rel="tag">mac</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python/" rel="tag">python</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python-java/" rel="tag">python, java</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91/" rel="tag">科学上网</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%B3%BB%E7%BB%9F/" rel="tag">系统</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%BD%AF%E4%BB%B6/" rel="tag">软件</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%BD%AF%E4%BB%B6-windows-linux/" rel="tag">软件, windows, linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%BB%91%E8%8B%B9%E6%9E%9C/" rel="tag">黑苹果</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/Markdown/" style="font-size: 10px;">Markdown</a> <a href="/tags/MySQL/" style="font-size: 10px;">MySQL</a> <a href="/tags/Windows/" style="font-size: 10px;">Windows</a> <a href="/tags/hexo/" style="font-size: 15px;">hexo</a> <a href="/tags/html/" style="font-size: 10px;">html</a> <a href="/tags/iOS/" style="font-size: 10px;">iOS</a> <a href="/tags/java/" style="font-size: 12.5px;">java</a> <a href="/tags/mac/" style="font-size: 10px;">mac</a> <a href="/tags/python/" style="font-size: 20px;">python</a> <a href="/tags/python-java/" style="font-size: 10px;">python, java</a> <a href="/tags/%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91/" style="font-size: 12.5px;">科学上网</a> <a href="/tags/%E7%B3%BB%E7%BB%9F/" style="font-size: 12.5px;">系统</a> <a href="/tags/%E8%BD%AF%E4%BB%B6/" style="font-size: 17.5px;">软件</a> <a href="/tags/%E8%BD%AF%E4%BB%B6-windows-linux/" style="font-size: 10px;">软件, windows, linux</a> <a href="/tags/%E9%BB%91%E8%8B%B9%E6%9E%9C/" style="font-size: 15px;">黑苹果</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">January 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/11/">November 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/08/">August 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">April 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">March 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">January 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">November 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/08/">August 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/07/">July 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">May 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/04/">April 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/10/">October 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/09/">September 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/08/">August 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/09/">September 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/08/">August 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/06/">June 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/03/">March 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/02/">February 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/11/">November 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/10/">October 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/08/">August 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/07/">July 2014</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2019/01/08/vagran-setting/">vagrant的安装和设置</a>
+          </li>
+        
+          <li>
+            <a href="/2018/11/28/redis-4-0-bloom/">redis4.0以上版本开启bloomfilter插件的方法</a>
+          </li>
+        
+          <li>
+            <a href="/2018/11/20/win-terminus-md/">terminus的安装和配置</a>
+          </li>
+        
+          <li>
+            <a href="/2018/08/13/wsl-setting/">个人wsl设置</a>
+          </li>
+        
+          <li>
+            <a href="/2018/04/14/handle-some-web-font-crawl/">某8网站字体加密爬虫的处理方法</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2021 小信<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.4.1.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

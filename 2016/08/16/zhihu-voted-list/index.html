@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>用python找出知乎某个答案点赞的所有名单 | 40+岁大龄码农的自我修养</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263646566676869707172737475767778798081828384858687888990#!&#x2F;usr&#x2F;bin&#x2F;env">
+<meta property="og:type" content="article">
+<meta property="og:title" content="用python找出知乎某个答案点赞的所有名单">
+<meta property="og:url" content="https://clutchbear.gitee.io/2016/08/16/zhihu-voted-list/index.html">
+<meta property="og:site_name" content="40+岁大龄码农的自我修养">
+<meta property="og:description" content="123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263646566676869707172737475767778798081828384858687888990#!&#x2F;usr&#x2F;bin&#x2F;env">
+<meta property="og:locale">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/7293e3b7jw1exjcxedihvj20p40l0dl1.jpg">
+<meta property="article:published_time" content="2016-08-16T02:01:25.000Z">
+<meta property="article:modified_time" content="2016-08-16T02:02:21.000Z">
+<meta property="article:author" content="小信">
+<meta property="article:tag" content="python">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://ww1.sinaimg.cn/large/7293e3b7jw1exjcxedihvj20p40l0dl1.jpg">
+  
+    <link rel="alternate" href="/atom.xml" title="40+岁大龄码农的自我修养" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">40+岁大龄码农的自我修养</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://clutchbear.gitee.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-zhihu-voted-list" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2016/08/16/zhihu-voted-list/" class="article-date">
+  <time class="dt-published" datetime="2016-08-16T02:01:25.000Z" itemprop="datePublished">2016-08-16</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      用python找出知乎某个答案点赞的所有名单
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br></pre></td><td class="code"><pre><span class="line">#!&#x2F;usr&#x2F;bin&#x2F;env python</span><br><span class="line"># -*- coding: utf-8 -*-</span><br><span class="line"></span><br><span class="line">import requests</span><br><span class="line">from bs4 import BeautifulSoup</span><br><span class="line">import time</span><br><span class="line">import json</span><br><span class="line">import os</span><br><span class="line">import sys</span><br><span class="line"></span><br><span class="line">url &#x3D; &#39;http:&#x2F;&#x2F;www.zhihu.com&#39;</span><br><span class="line">loginURL &#x3D; &#39;http:&#x2F;&#x2F;www.zhihu.com&#x2F;login&#x2F;email&#39;</span><br><span class="line"></span><br><span class="line">headers &#x3D; &#123;</span><br><span class="line">    &quot;User-Agent&quot;: &#39;Mozilla&#x2F;5.0 (Macintosh; Intel Mac OS X 10.10; rv:41.0) Gecko&#x2F;20100101 Firefox&#x2F;41.0&#39;,</span><br><span class="line">    &quot;Referer&quot;: &quot;http:&#x2F;&#x2F;www.zhihu.com&#x2F;&quot;,</span><br><span class="line">    &#39;Host&#39;: &#39;www.zhihu.com&#39;,</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">data &#x3D; &#123;</span><br><span class="line">    &#39;email&#39;: &#39;xxxxx@gmail.com&#39;,</span><br><span class="line">    &#39;password&#39;: &#39;xxxxxxx&#39;,</span><br><span class="line">    &#39;rememberme&#39;: &quot;true&quot;,</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">s &#x3D; requests.session()</span><br><span class="line"># 如果成功登陆过,用保存的cookies登录</span><br><span class="line">if os.path.exists(&#39;cookiefile&#39;):</span><br><span class="line">    with open(&#39;cookiefile&#39;) as f:</span><br><span class="line">        cookie &#x3D; json.load(f)</span><br><span class="line">    s.cookies.update(cookie)</span><br><span class="line">    req1 &#x3D; s.get(url, headers&#x3D;headers)</span><br><span class="line">    with open(&#39;zhihu.html&#39;, &#39;w&#39;) as f:</span><br><span class="line">        f.write(req1.content)</span><br><span class="line"># 第一次需要手动输入验证码登录</span><br><span class="line">else:</span><br><span class="line">    req &#x3D; s.get(url, headers&#x3D;headers)</span><br><span class="line">    print req</span><br><span class="line"></span><br><span class="line">    soup &#x3D; BeautifulSoup(req.text, &quot;html.parser&quot;)</span><br><span class="line">    xsrf &#x3D; soup.find(&#39;input&#39;, &#123;&#39;name&#39;: &#39;_xsrf&#39;, &#39;type&#39;: &#39;hidden&#39;&#125;).get(&#39;value&#39;)</span><br><span class="line"></span><br><span class="line">    data[&#39;_xsrf&#39;] &#x3D; xsrf</span><br><span class="line"></span><br><span class="line">    timestamp &#x3D; int(time.time() * 1000)</span><br><span class="line">    captchaURL &#x3D; &#39;http:&#x2F;&#x2F;www.zhihu.com&#x2F;captcha.gif?&#x3D;&#39; + str(timestamp)</span><br><span class="line">    print captchaURL</span><br><span class="line"></span><br><span class="line">    with open(&#39;zhihucaptcha.gif&#39;, &#39;wb&#39;) as f:</span><br><span class="line">        captchaREQ &#x3D; s.get(captchaURL)</span><br><span class="line">        f.write(captchaREQ.content)</span><br><span class="line">    loginCaptcha &#x3D; raw_input(&#39;input captcha:\n&#39;).strip()</span><br><span class="line">    data[&#39;captcha&#39;] &#x3D; loginCaptcha</span><br><span class="line">    # print data</span><br><span class="line">    loginREQ &#x3D; s.post(loginURL,  headers&#x3D;headers, data&#x3D;data)</span><br><span class="line">    # print loginREQ.url</span><br><span class="line">    # print s.cookies.get_dict()</span><br><span class="line">    if not loginREQ.json()[&#39;r&#39;]:</span><br><span class="line">        # print loginREQ.json()</span><br><span class="line">        with open(&#39;cookiefile&#39;, &#39;wb&#39;) as f:</span><br><span class="line">            json.dump(s.cookies.get_dict(), f)</span><br><span class="line">    else:</span><br><span class="line">        print &#39;login failed, try again!&#39;</span><br><span class="line">        sys.exit(1)</span><br><span class="line"></span><br><span class="line"># 以http:&#x2F;&#x2F;www.zhihu.com&#x2F;question&#x2F;27621722&#x2F;answer&#x2F;48820436这个大神的399各赞为例子.</span><br><span class="line">zanBaseURL &#x3D; &#39;http:&#x2F;&#x2F;www.zhihu.com&#x2F;answer&#x2F;22229844&#x2F;voters_profile?&amp;offset&#x3D;&#123;0&#125;&#39;</span><br><span class="line">page &#x3D; 0</span><br><span class="line">count &#x3D; 0</span><br><span class="line">while 1:</span><br><span class="line">    zanURL &#x3D; zanBaseURL.format(str(page))</span><br><span class="line">    page +&#x3D; 10</span><br><span class="line">    zanREQ &#x3D; s.get(zanURL, headers&#x3D;headers)</span><br><span class="line">    zanData &#x3D; zanREQ.json()[&#39;payload&#39;]</span><br><span class="line">    if not zanData:</span><br><span class="line">        break</span><br><span class="line">    for item in zanData:</span><br><span class="line">        # print item</span><br><span class="line">        zanSoup &#x3D; BeautifulSoup(item, &quot;html.parser&quot;)</span><br><span class="line">        zanInfo &#x3D; zanSoup.find(&#39;a&#39;, &#123;&#39;target&#39;: &quot;_blank&quot;, &#39;class&#39;: &#39;zg-link&#39;&#125;)</span><br><span class="line">        if zanInfo:</span><br><span class="line">            print &#39;nickname:&#39;, zanInfo.get(&#39;title&#39;),  &#39;    &#39;,</span><br><span class="line">            print &#39;person_url:&#39;, zanInfo.get(&#39;href&#39;)</span><br><span class="line">        else:</span><br><span class="line">            anonymous &#x3D; zanSoup.find(</span><br><span class="line">                &#39;img&#39;, &#123;&#39;title&#39;: True, &#39;class&#39;: &quot;zm-item-img-avatar&quot;&#125;)</span><br><span class="line">            print &#39;nickname:&#39;, anonymous.get(&#39;title&#39;)</span><br><span class="line"></span><br><span class="line">        count +&#x3D; 1</span><br><span class="line">    print count</span><br></pre></td></tr></table></figure>
+
+<p><img src="http://ww1.sinaimg.cn/large/7293e3b7jw1exjcxedihvj20p40l0dl1.jpg"></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://clutchbear.gitee.io/2016/08/16/zhihu-voted-list/" data-id="ckm4nx1o800410ciehrd8dn8b" data-title="用python找出知乎某个答案点赞的所有名单" class="article-share-link">Share</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python/" rel="tag">python</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2016/08/18/jd-duobaodao/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          用python的selenium实现京东夺宝岛最后一秒自动下单
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2016/08/15/mac-10-11-6/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">MAC OS X 10.11.6 El Capitan安装方法与步骤</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Markdown/" rel="tag">Markdown</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MySQL/" rel="tag">MySQL</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Windows/" rel="tag">Windows</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/" rel="tag">hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/html/" rel="tag">html</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/iOS/" rel="tag">iOS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/java/" rel="tag">java</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mac/" rel="tag">mac</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python/" rel="tag">python</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python-java/" rel="tag">python, java</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91/" rel="tag">科学上网</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%B3%BB%E7%BB%9F/" rel="tag">系统</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%BD%AF%E4%BB%B6/" rel="tag">软件</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%BD%AF%E4%BB%B6-windows-linux/" rel="tag">软件, windows, linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%BB%91%E8%8B%B9%E6%9E%9C/" rel="tag">黑苹果</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/Markdown/" style="font-size: 10px;">Markdown</a> <a href="/tags/MySQL/" style="font-size: 10px;">MySQL</a> <a href="/tags/Windows/" style="font-size: 10px;">Windows</a> <a href="/tags/hexo/" style="font-size: 15px;">hexo</a> <a href="/tags/html/" style="font-size: 10px;">html</a> <a href="/tags/iOS/" style="font-size: 10px;">iOS</a> <a href="/tags/java/" style="font-size: 12.5px;">java</a> <a href="/tags/mac/" style="font-size: 10px;">mac</a> <a href="/tags/python/" style="font-size: 20px;">python</a> <a href="/tags/python-java/" style="font-size: 10px;">python, java</a> <a href="/tags/%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91/" style="font-size: 12.5px;">科学上网</a> <a href="/tags/%E7%B3%BB%E7%BB%9F/" style="font-size: 12.5px;">系统</a> <a href="/tags/%E8%BD%AF%E4%BB%B6/" style="font-size: 17.5px;">软件</a> <a href="/tags/%E8%BD%AF%E4%BB%B6-windows-linux/" style="font-size: 10px;">软件, windows, linux</a> <a href="/tags/%E9%BB%91%E8%8B%B9%E6%9E%9C/" style="font-size: 15px;">黑苹果</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">January 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/11/">November 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/08/">August 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">April 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">March 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">January 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">November 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/08/">August 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/07/">July 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">May 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/04/">April 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/10/">October 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/09/">September 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/08/">August 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/09/">September 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/08/">August 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/06/">June 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/03/">March 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/02/">February 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/11/">November 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/10/">October 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/08/">August 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/07/">July 2014</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2019/01/08/vagran-setting/">vagrant的安装和设置</a>
+          </li>
+        
+          <li>
+            <a href="/2018/11/28/redis-4-0-bloom/">redis4.0以上版本开启bloomfilter插件的方法</a>
+          </li>
+        
+          <li>
+            <a href="/2018/11/20/win-terminus-md/">terminus的安装和配置</a>
+          </li>
+        
+          <li>
+            <a href="/2018/08/13/wsl-setting/">个人wsl设置</a>
+          </li>
+        
+          <li>
+            <a href="/2018/04/14/handle-some-web-font-crawl/">某8网站字体加密爬虫的处理方法</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2021 小信<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.4.1.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

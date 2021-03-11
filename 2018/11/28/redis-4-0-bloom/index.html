@@ -4,13 +4,17 @@
   <meta charset="utf-8">
   
   
-  <title>Archives | 40+岁大龄码农的自我修养</title>
+  <title>redis4.0以上版本开启bloomfilter插件的方法 | 40+岁大龄码农的自我修养</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="40+岁大龄码农的自我修养">
-<meta property="og:url" content="https://clutchbear.gitee.io/archives/index.html">
+  <meta name="description" content="安装redis4.0  参考CentOS7 下 Redis4 安装与配置教程（Redis开机启动） 安装基础依赖1sudo yum install -y gcc gcc-c++ make jemalloc-devel epel-release 下载最新版redis并解压到指定目录, 然后编译和安装12345678wget http:&#x2F;&#x2F;download.redis.io&amp;#x">
+<meta property="og:type" content="article">
+<meta property="og:title" content="redis4.0以上版本开启bloomfilter插件的方法">
+<meta property="og:url" content="https://clutchbear.gitee.io/2018/11/28/redis-4-0-bloom/index.html">
 <meta property="og:site_name" content="40+岁大龄码农的自我修养">
+<meta property="og:description" content="安装redis4.0  参考CentOS7 下 Redis4 安装与配置教程（Redis开机启动） 安装基础依赖1sudo yum install -y gcc gcc-c++ make jemalloc-devel epel-release 下载最新版redis并解压到指定目录, 然后编译和安装12345678wget http:&#x2F;&#x2F;download.redis.io&amp;#x">
 <meta property="og:locale">
+<meta property="article:published_time" content="2018-11-28T07:23:43.000Z">
+<meta property="article:modified_time" content="2019-01-08T07:36:13.473Z">
 <meta property="article:author" content="小信">
 <meta name="twitter:card" content="summary">
   
@@ -69,236 +73,85 @@
 </header>
 
       <div class="outer">
-        <section id="main">
-  
-  
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2019" class="archive-year">2019</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2019/01/08/vagran-setting/" class="archive-article-date">
-  <time class="dt-published" datetime="2019-01-08T02:08:20.000Z" itemprop="datePublished">Jan 8</time>
+        <section id="main"><article id="post-redis-4-0-bloom" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2018/11/28/redis-4-0-bloom/" class="article-date">
+  <time class="dt-published" datetime="2018-11-28T07:23:43.000Z" itemprop="datePublished">2018-11-28</time>
 </a>
-      
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/01/08/vagran-setting/">vagrant的安装和设置</a>
+    <h1 class="p-name article-title" itemprop="headline name">
+      redis4.0以上版本开启bloomfilter插件的方法
     </h1>
   
 
-    </header>
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <ul>
+<li><p>安装redis4.0</p>
+<ul>
+<li>参考<a target="_blank" rel="noopener" href="https://ken.io/note/centos7-redis4-setup">CentOS7 下 Redis4 安装与配置教程（Redis开机启动）</a></li>
+<li>安装基础依赖<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo yum install -y gcc gcc-c++ make jemalloc-devel epel-release</span><br></pre></td></tr></table></figure></li>
+<li>下载最新版redis并解压到指定目录, 然后编译和安装<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">wget http:&#x2F;&#x2F;download.redis.io&#x2F;releases&#x2F;redis-4.0.2.tar.gz</span><br><span class="line">sudo tar -zvxf redis-4.0.2.tar.gz -C &#x2F;usr&#x2F;</span><br><span class="line">#进入目录</span><br><span class="line">cd &#x2F;usr&#x2F;redis&#x2F;redis-4.0.2</span><br><span class="line">#编译&amp;安装</span><br><span class="line">sudo make &amp; make install</span><br><span class="line"></span><br><span class="line">sudo cp src&#x2F;redis-cli &#x2F;usr&#x2F;local&#x2F;bin&#x2F;（將redis-cli拷貝到bin下，讓redis-cli指令可以在任意目錄下直接使用）</span><br></pre></td></tr></table></figure></li>
+<li>加载配置文件启动redis-server<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd &#x2F;usr&#x2F;redis&#x2F;redis-4.0.11</span><br><span class="line">redis-server redis.conf</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+<li><p>安装Rebloom插件</p>
+<ul>
+<li>参考 <a target="_blank" rel="noopener" href="https://redislabs.com/blog/rebloom-bloom-filter-datatype-redis/">ReBloom – Bloom Filter Datatype for Redis</a></li>
+<li>下载并编译<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ git clone git:&#x2F;&#x2F;github.com&#x2F;RedisLabsModules&#x2F;rebloom</span><br><span class="line">$ cd rebloom</span><br><span class="line">$ make</span><br></pre></td></tr></table></figure></li>
+<li>命令行加载rebloom插件,并且设定每个bloomfilter key的容量和错误率</li>
+</ul>
+  <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">cd /usr/redis-4.0.11</span><br><span class="line">./src/redis-server redis.conf --loadmodule /usr/rebloom/rebloom.so INITIAL_SIZE 1000000 ERROR_RATE 0.0001</span><br><span class="line"><span class="meta">#</span><span class="bash"> 容量100万, 容错率万分之一, 占用空间是4m</span></span><br></pre></td></tr></table></figure></li>
+<li><p>根据也无需求, 大于100万的bloomfilter key需要手动建立</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">BF.RESERVE 2018_ccgp 0.0001 28000000</span><br><span class="line">Memory Usage 2018_ccgp</span><br><span class="line"># (integer) 67108997 64M</span><br></pre></td></tr></table></figure></li>
+<li><p>设置开机启动. <code>crontab -e</code> 输入</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">@reboot &#x2F;usr&#x2F;redis-5.0.0&#x2F;src&#x2F;redis-server &#x2F;usr&#x2F;redis-5.0.0&#x2F;redis.conf --loadmodule &#x2F;usr&#x2F;rebloom&#x2F;rebloom.so INITIAL_SIZE 1000000 ERROR_RATE 0.0001</span><br><span class="line"></span><br></pre></td></tr></table></figure></li>
+<li><p>阿里云服务器或者vangrant的centos镜像不需要设置防火墙的开放端口.</p>
+</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://clutchbear.gitee.io/2018/11/28/redis-4-0-bloom/" data-id="ckm4nx1np002p0ciedo1zcpa1" data-title="redis4.0以上版本开启bloomfilter插件的方法" class="article-share-link">Share</a>
+      
+      
+      
+    </footer>
   </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2019/01/08/vagran-setting/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          vagrant的安装和设置
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2018/11/20/win-terminus-md/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">terminus的安装和配置</div>
+    </a>
+  
+</nav>
+
+  
 </article>
-  
-    
-    
-      
-        </div></section>
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2018" class="archive-year">2018</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2018/11/28/redis-4-0-bloom/" class="archive-article-date">
-  <time class="dt-published" datetime="2018-11-28T07:23:43.000Z" itemprop="datePublished">Nov 28</time>
-</a>
-      
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/11/28/redis-4-0-bloom/">redis4.0以上版本开启bloomfilter插件的方法</a>
-    </h1>
-  
 
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2018/11/20/win-terminus-md/" class="archive-article-date">
-  <time class="dt-published" datetime="2018-11-20T05:31:35.000Z" itemprop="datePublished">Nov 20</time>
-</a>
-      
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/11/20/win-terminus-md/">terminus的安装和配置</a>
-    </h1>
-  
-
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2018/08/13/wsl-setting/" class="archive-article-date">
-  <time class="dt-published" datetime="2018-08-13T11:14:05.000Z" itemprop="datePublished">Aug 13</time>
-</a>
-      
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/08/13/wsl-setting/">个人wsl设置</a>
-    </h1>
-  
-
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2018/04/14/handle-some-web-font-crawl/" class="archive-article-date">
-  <time class="dt-published" datetime="2018-04-14T08:48:38.000Z" itemprop="datePublished">Apr 14</time>
-</a>
-      
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/04/14/handle-some-web-font-crawl/">某8网站字体加密爬虫的处理方法</a>
-    </h1>
-  
-
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2018/04/14/java-python-s-map/" class="archive-article-date">
-  <time class="dt-published" datetime="2018-04-13T16:49:51.000Z" itemprop="datePublished">Apr 14</time>
-</a>
-      
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/04/14/java-python-s-map/">python和java的类当做map的键</a>
-    </h1>
-  
-
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2018/03/19/javaProxy/" class="archive-article-date">
-  <time class="dt-published" datetime="2018-03-19T08:36:53.000Z" itemprop="datePublished">Mar 19</time>
-</a>
-      
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/03/19/javaProxy/">jdk动态代理和Cglib代理笔记</a>
-    </h1>
-  
-
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2018/03/19/javaAnnotation/" class="archive-article-date">
-  <time class="dt-published" datetime="2018-03-19T06:30:46.000Z" itemprop="datePublished">Mar 19</time>
-</a>
-      
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/03/19/javaAnnotation/">java注解笔记</a>
-    </h1>
-  
-
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2018/01/26/spring-Transactional/" class="archive-article-date">
-  <time class="dt-published" datetime="2018-01-26T03:53:39.000Z" itemprop="datePublished">Jan 26</time>
-</a>
-      
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/01/26/spring-Transactional/">一次springboot事务bug的处理</a>
-    </h1>
-  
-
-    </header>
-  </div>
-</article>
-  
-    
-    
-      
-        </div></section>
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2017" class="archive-year">2017</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2017/11/20/mac-java-maven-md/" class="archive-article-date">
-  <time class="dt-published" datetime="2017-11-20T10:38:36.000Z" itemprop="datePublished">Nov 20</time>
-</a>
-      
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/11/20/mac-java-maven-md/">mac 安装和设置java maven</a>
-    </h1>
-  
-
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-
-  <nav id="page-nav">
-    
-    <span class="page-number current">1</span><a class="page-number" href="/archives/page/2/">2</a><a class="page-number" href="/archives/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/archives/page/7/">7</a><a class="extend next" rel="next" href="/archives/page/2/">Next &raquo;</a>
-  </nav>
 
 </section>
         
